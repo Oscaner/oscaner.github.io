@@ -65,6 +65,11 @@ defaults:
       path: "googlee58ffc7a9a1ba566.html"
     values:
       sitemap: false
+  -
+    scope:
+      path: "baidu_verify_code-RlNzeiqm6B.html"
+    values:
+      sitemap: false
 
 
 
@@ -92,9 +97,10 @@ netease_comment: false
 
 
 
-# Analytics settings
+# Baidu site verification
+bsv_content: 'code-RlNzeiqm6B'
 # Baidu Analytics
-# ba_track_id: [your track id]
+ba_track_id: 'd9c74d9266af4d68f376f0fb9d5fb71c'
 
 # Google site verification
 gsv_content: 'clzGAgkJY2WD5IGr5G6KZS9xymJYL_IH2QIEettmobY'
