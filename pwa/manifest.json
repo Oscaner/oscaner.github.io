@@ -1,6 +1,6 @@
 {
-  "name": "Blog",
-  "short_name": "Blog",
+  "name": "Oscaner Blog",
+  "short_name": "Oscaner Blog",
   "description": "About an engineer & designer who loves web.",
   "icons": [{
     "src": "icons/128.png",
