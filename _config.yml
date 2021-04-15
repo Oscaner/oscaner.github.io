@@ -110,10 +110,24 @@ kramdown:
       start_line: 1
 
 # Disqus settings
-disqus_username: ''
+disqus:
+  enable: false
+  username: oscaner
+
+
+# Gitalk settings
+gitalk:
+  enable: true
+  client_id: "f86fb5601466c278f223"
+  client_secret: "8234184af9a4cbc9dfa58bbea7ff6cdb84d33f1f"
+  repo: "oscaner.github.io"
+  owner: "Oscaner"
+  admin: ["Oscaner"]
+
 
 # Netease settings
-netease_comment: false
+netease:
+  comment: false
 
 
 # Baidu
