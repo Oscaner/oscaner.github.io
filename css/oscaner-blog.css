@@ -1,0 +1,191 @@
+/* Basic */
+
+* {
+  /* border: 0; */
+}
+
+img.emoji {
+  margin: 0px;
+}
+
+table thead tr th,
+table tbody tr td {
+  vertical-align: middle;
+}
+
+table ol {
+  padding-left: 20px;
+}
+
+select {
+  color: #eb5055bf;
+  border-color: #eb5055bf;
+}
+
+.sidebar-container a:hover,
+.sidebar-container a:active {
+  color: #eb5055 !important;
+}
+
+.sidebar-container .tags a:hover,
+.sidebar-container .tags a:active {
+  border-color: #eb5055;
+}
+
+.side-catalog .catalog-body .active a {
+  color: #eb5055 !important;
+}
+
+.paper-snackbar {
+  background-color: #eb5055;
+}
+
+a:hover,
+a:focus {
+  color: #eb5055;
+  text-decoration: none;
+}
+
+.post-container a:hover,
+.post-container a:focus {
+  color: #eb5055;
+}
+
+.navbar-custom.invert .navbar-brand:hover,
+.navbar-custom.invert .navbar-brand:focus {
+  color: #eb5055;
+}
+
+.navbar-custom.invert .nav li a:hover,
+.navbar-custom.invert .nav li a:focus {
+  color: #eb5055;
+}
+
+@media only screen and (min-width: 1170px) {
+  .navbar-custom.is-fixed .navbar-brand:hover,
+  .navbar-custom.is-fixed .navbar-brand:focus {
+    color: #eb5055;
+  }
+  .navbar-custom.is-fixed .nav li a:hover,
+  .navbar-custom.is-fixed .nav li a:focus {
+    color: #eb5055;
+  }
+}
+
+.post-preview > a:hover,
+.post-preview > a:focus {
+  color: #eb5055;
+}
+
+.post-preview > .post-meta > a:hover,
+.post-preview > .post-meta > a:focus {
+  color: #eb5055;
+}
+
+.post-content-preview:hover {
+  color: #eb5055;
+}
+
+footer .copyright a:hover,
+footer .copyright a:focus {
+  color: #eb5055;
+}
+
+.btn-default:hover,
+.btn-default:focus {
+  background-color: #eb5055;
+  border: 1px solid #eb5055;
+  color: white;
+}
+
+.pager li > a:hover,
+.pager li > a:focus {
+  color: white;
+  background-color: #eb5055;
+  border: 1px solid #eb5055;
+}
+
+::-moz-selection {
+  background: #eb5055;
+}
+
+::selection {
+    background: #eb5055;
+}
+
+#tag_cloud a:hover,
+#tag_cloud .tag:hover,
+#tag_cloud a:active,
+#tag_cloud .tag:active,
+#tag_cloud a.focus,
+#tag_cloud .tag.focus {
+  background-color: #eb5055 !important;
+}
+
+#tag_cloud a.tag-button--all,
+#tag_cloud .tag.tag-button--all {
+  font-weight: 700;
+  color: #eb5055 !important;
+}
+
+#tag_cloud a.tag-button--all:hover,
+#tag_cloud .tag.tag-button--all:hover,
+#tag_cloud a.tag-button--all:active,
+#tag_cloud .tag.tag-button--all:active,
+#tag_cloud a.tag-button--all.focus,
+#tag_cloud .tag.tag-button--all.focus {
+  background-color: #e4e4e4 !important;
+}
+
+.listing-seperator {
+  color: #eb5055;
+  font-size: 21px !important;
+}
+
+.post-container a {
+  color: #eb5055bf;
+}
+
+footer .copyright a {
+  color: #eb5055bf;
+}
+
+body {
+    font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0 auto;
+    color: #313131;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+}
+
+div.post-container h1 {
+    font-size: 1.4em;
+    color: #222;
+}
+
+div.post-container h2 {
+    font-size: 1.3em;
+    color: #333;
+}
+
+div.post-container h3 {
+    font-size: 1.2em;
+    color: #444;
+}
+
+div.post-container h4 {
+    font-size: 1.1em;
+    color: #555;
+}
+
+div.post-container h5 {
+    font-size: 1em;
+    color: #555;
+}
+
+div.post-container h6 {
+    font-size: 1em;
+    color: #555;
+}
