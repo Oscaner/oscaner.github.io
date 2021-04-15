@@ -197,3 +197,34 @@ div.post-container h6 {
 div.directories .post-preview sub {
   font-size: 50%;
 }
+
+/* Page - 404 */
+
+@media only screen and (min-width: 768px) {
+  body.body404 h1 {
+    font-size: 150px !important;
+  }
+}
+
+body.body404 h1 {
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: 2px;
+    line-height: 1;
+    font-weight: 150;
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 60s infinite linear;
+}
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
+}
