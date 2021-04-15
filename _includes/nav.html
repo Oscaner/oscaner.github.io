@@ -13,7 +13,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
+                <a class="navbar-brand" href="{{ site.baseurl }}/">
+                  {% if site.logo %}
+                    <img src="{{ site.logo | prepend: site.baseurl }}" alt="OceanicKang | 心若浮沉，浅笑安然">
+                  {% else %}
+                    {{ site.title }}
+                  {% endif %}
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
