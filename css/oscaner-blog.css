@@ -191,3 +191,9 @@ div.post-container h6 {
     font-size: 1em;
     color: #555;
 }
+
+/* Directories */
+
+div.directories .post-preview sub {
+  font-size: 50%;
+}

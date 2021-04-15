@@ -1,0 +1,51 @@
+
+<div class="directories">
+
+{% assign page_url_size_plus = page.url | split: '/' | size | plus: 1 %}
+
+<!-- Generate directories listing -->
+
+{% for directory in site.directories %}
+  {% assign directory_url_size = directory.url | split: '/' | size %}
+  {% assign is_sub = directory.url | startsWith: page.url %}
+  {% if is_sub and directory_url_size == page_url_size_plus and directory.url <> page.url %}
+    <div class="post-preview">
+        <a href="{{ directory.url | prepend: site.baseurl }}">
+            <h2 class="post-title"> {{ directory.title }} <sub>{{ directory.description }}</sub></h2>
+            <h3 class="post-subtitle"> -> {{ directory.url | absolute_url }} </h3>
+        </a>
+    </div>
+  {% endif %}
+{% endfor %}
+
+<!-- Generate posts listing -->
+
+{% for post in site.posts %}
+  {% assign post_url_size = post.url | split: '/' | size %}
+  {% assign is_sub = post.url | startsWith: page.url %}
+  {% if is_sub and post_url_size == page_url_size_plus and post.url <> page.url %}
+    <div class="post-preview">
+        <a href="{{ post.url | prepend: site.baseurl }}">
+            <h2 class="post-title">
+                {{ post.title }}
+            </h2>
+            {% if post.subtitle %}
+            <h3 class="post-subtitle">
+                {{ post.subtitle }}
+            </h3>
+            {% endif %}
+            <div class="post-content-preview">
+                {% if post.lang == 'en' %}
+                    {{ post.content | strip_html | truncate:300 }}
+                {% else %}
+                    {{ post.content | strip_html | truncate:200 }}
+                {% endif %}
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+        </p>
+    </div>
+  {% endif %}
+{% endfor %}
+</div>
