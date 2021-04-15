@@ -29,7 +29,7 @@ bilibili_uid: 17118231
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
 highlighter: rouge
-permalink: pretty
+permalink: /:simple_path/:title.html
 paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md","_directories/*.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
