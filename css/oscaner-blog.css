@@ -421,3 +421,27 @@ body.body404 h1 {
     border: 1px solid #eaeaea;
     border-radius: 50%
 }
+
+/* Page - Projects */
+div.page-projects table thead tr th,
+div.page-projects table tbody tr td {
+  white-space: nowrap;
+}
+
+div.page-projects.en table thead tr th:nth-of-type(2),
+div.page-projects.en table tbody tr td:nth-of-type(2) {
+  white-space: normal;
+}
+
+div.page-projects div.table-responsive + div.table-responsive tbody tr td:first-of-type img {
+  margin: unset;
+  width: 10%;
+  display: inline;
+  min-width: 20px;
+}
+
+div.page-projects img.my-certification {
+  display: inline-block;
+  width: 15%;
+  margin: 10px 10px;
+}
