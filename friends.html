@@ -1,0 +1,27 @@
+---
+weight: 1
+layout: page
+title: "Friends"
+description: "故事开始的地方"
+header-img: "img/post-bg-2015.jpg"
+multilingual: true
+follow-html: rich-friends.html
+permalink: /friends/
+tags:
+  - Friends
+  - FriendLink
+---
+
+{% include multilingual-sel.html %}
+
+<!-- Chinese Version -->
+<div class="zh post-container">
+    {% capture friends_zh %}{% include friends/zh.md %}{% endcapture %}
+    {{ friends_zh | markdownify }}
+</div>
+
+<!-- English Version -->
+<div class="en post-container">
+    {% capture friends_en %}{% include friends/en.md %}{% endcapture %}
+    {{ friends_en | markdownify }}
+</div>

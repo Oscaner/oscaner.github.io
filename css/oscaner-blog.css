@@ -228,3 +228,196 @@ body.body404 h1 {
     -webkit-filter: hue-rotate(-360deg);
   }
 }
+
+/* Page - Friends */
+
+.related-friend-lists .friend-lists {
+    float: none;
+    margin: 0 auto;
+}
+
+.related-friend-lists .friend-list-item-container {
+    border: 1px solid rgba(184, 197, 214, .2);
+    border-radius: 3px;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
+}
+
+.related-friend-lists .friend-list-item-container .item-label {
+    height: 120px;
+    background: #fff;
+}
+
+.related-friend-lists .friend-list-item-container .item-label .item-title a {
+    font-size: 14px;
+    color: #313131;
+}
+
+.related-friend-lists .friend-list-item-container .item-label .item-meta .item-meta-cat a {
+    color: #5f5f5f;
+}
+
+.related-friend-lists .friend-list-item-container .item-label .item-meta .item-meta-ico {
+    width: 42px;
+    height: 42px;
+    border: 1px solid #eaeaea;
+    border-radius: 50%
+}
+
+.friend-lists-body {
+    display: block;
+    float: left;
+    margin-bottom: 20px;
+}
+
+.friend-list-item {
+    float: left;
+    width: 33.3333%;
+    height: auto;
+    padding: 15px;
+    align-items: center;
+}
+
+.friend-list-item-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+    border-radius: 3px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
+}
+
+.friend-list-item-container:hover {
+    -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, .1);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .1);
+}
+
+.friend-list-item-container .item-thumb {
+    position: relative;
+    display: inherit;
+    min-height: 250px;
+    -webkit-transition: -webkit-transform .5s ease, filter .5s ease;
+    -moz-transition: -moz-transform .5s ease, filter .5s ease;
+    transition: transform .5s ease, filter .5s ease;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.friend-list-item-container .item-desc {
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    padding: 40px 28px;
+}
+
+.friend-list-item-container .item-desc p {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    word-break: break-all;
+    opacity: 0;
+    color: #fff;
+}
+
+.friend-list-item-container:hover .item-thumb {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    filter: blur(3px);
+}
+
+.friend-list-item-container:hover .item-desc {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.friend-list-item-container:hover .item-desc p {
+    -webkit-animation: fade-in .5s;
+    animation: fade-in;
+    animation-duration: .5s;
+    opacity: 1;
+}
+
+.friend-list-item-container .item-slant {
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    bottom: 50px;
+    left: 0;
+    width: 110%;
+    min-height: 100px;
+    -webkit-transform: rotate(7deg) translate(-10px, 0);
+    -ms-transform: rotate(7deg) translate(-10px, 0);
+    transform: rotate(7deg) translate(-10px, 0);
+    background-color: #fff;
+}
+
+.friend-list-item-container .item-slant.reverse-slant {
+    -webkit-transform: rotate(-10deg) translate(10px, -10px);
+    -ms-transform: rotate(-10deg) translate(10px, -10px);
+    transform: rotate(-10deg) translate(10px, -10px);
+    opacity: .7;
+    background-color: #f68e5f;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.friend-list-item-container .item-label {
+    position: relative;
+    height: 130px;
+    padding: 25px 20px 40px;
+    background-color: #fff;
+}
+
+.friend-list-item-container .item-label .item-title a {
+    font-size: 17px;
+    line-height: 17px;
+    word-break: break-all;
+    color: #313131;
+}
+
+.friend-list-item-container .item-label .item-meta {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 0 15px 15px;
+    text-align: right;
+}
+
+.friend-list-item-container .item-label .item-meta .item-meta-cat a {
+    font-size: 13px;
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    padding: 10px 0;
+    text-align: right;
+    text-transform: none;
+    color: #5f5f5f;
+}
+
+.friend-list-item-container .item-label .item-meta .item-meta-date {
+    font-size: 12px;
+    position: relative;
+    float: left;
+    padding-top: 9px;
+    padding-left: 9px;
+    text-align: right;
+    text-transform: none;
+    color: #f1f1f1;
+}
+
+.friend-list-item-container .item-label .item-meta .item-meta-ico {
+    display: inline-block;
+    float: right;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #eaeaea;
+    border-radius: 50%
+}
