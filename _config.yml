@@ -90,7 +90,16 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: ''
+disqus_enable: false
+disqus_username: oscaner
+
+# Gitalk settings
+gitalk_enable: true
+gitalk_client_id: "f86fb5601466c278f223"
+gitalk_client_secret: "8234184af9a4cbc9dfa58bbea7ff6cdb84d33f1f"
+gitalk_repo: "oscaner.github.io"
+gitalk_owner: "Oscaner"
+gitalk_admin: ["Oscaner"]
 
 # Netease settings
 netease_comment: false
