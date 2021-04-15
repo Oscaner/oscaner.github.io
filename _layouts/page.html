@@ -51,6 +51,11 @@ layout: default
   </div>
 </div>
 
+<!-- Add support for follow html in page -->
+{% if page.follow-html %}
+  {% include {{ page.follow-html }} %}
+{% endif %}
+
 {% if site.page-mathjax %}
 <!-- Add support for Mathjax by Voleking-->
 <!-- If you want to see formulars well in post preview, Maybe you should add this.-->
