@@ -50,6 +50,7 @@ plugins:
   - jekyll-paginate
   - jekyll-spaceship
   - jekyll-sitemap
+  - jekyll-aplayer
 
 
 jekyll-spaceship:
