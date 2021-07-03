@@ -125,6 +125,17 @@ service-worker: true
 page-mathjax: false
 
 
+# Social share
+social_share:
+  enable: true
+  sites:
+    - qzone
+    - qq
+    - weibo
+    - wechat
+    - facebook
+    - twitter
+
 
 # Friends
 friends: [

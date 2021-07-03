@@ -27,7 +27,14 @@ layout: default
 
                 {{ content }}
 
-                <hr style="visibility: hidden;">
+                <hr>
+
+                {% if site.social_share.enable %}
+                  {% include social-share.html %}
+                {% endif %}
+
+                <hr><hr style="visibility: hidden;">
+
                 <ul class="pager">
                     {% if page.previous.url %}
                     <li class="previous">
