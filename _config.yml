@@ -119,6 +119,19 @@ service-worker: true
 # MathJax rendering for layout:page (e.g. post preview)
 page-mathjax: false
 
+
+# Social share
+social_share:
+  enable: false
+  sites:
+    - qzone
+    - qq
+    - weibo
+    - wechat
+    - facebook
+    - twitter
+
+
 # Friends
 friends:
   [
