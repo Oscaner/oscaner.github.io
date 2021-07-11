@@ -184,4 +184,101 @@ social_share:
 
 
 # Friends
-friends: [  ]
+friends: [
+    {
+        title: "Asdrt",
+        href: "https://asdrt666.com",
+        avatar: "https://asdrt666.com/usr/themes/handsome/usr/img/hade.png",
+        description: "面朝大海，春暖花开。"
+    },
+    {
+        title: "Choba·乔巴博客",
+        href: "https://szdblog.com",
+        avatar: "https://typechoblog-1256846006.cos.ap-beijing.myqcloud.com/2019/05/13/1557727134.jpg",
+        description: ""
+    },
+    {
+        title: "I BCL.",
+        href: "https://ibcl.us/",
+        avatar: "https://ibcl.us/images/avatar.jpg",
+        description: "一位热爱无线电广播的高中学生"
+    },
+    {
+        title: "mathor",
+        href: "https://www.wmathor.com/",
+        avatar: "https://img.hsxhn.com/images/2018/05/11/120x120.jpg",
+        description: "热爱数学的程序员"
+    },
+    {
+        title: "Mr. 童的博客",
+        href: "https://tongtaos.com",
+        avatar: "https://pt-1252677442.cos.ap-chengdu.myqcloud.com/IMG_0909.JPG",
+        description: "Mr. 童的博客"
+    },
+    {
+        title: "wantsget",
+        href: "https://blog.kejijie.vip/",
+        avatar: "https://q2.qlogo.cn/headimg_dl?bs=1836680478&dst_uin=1836680478&spec=100&url_enc=0&referer=bu_interface&term_type=PC",
+        description: "划水程序猿"
+    },
+    {
+        title: "三十三言",
+        href: "https://o0o0o0.cn/",
+        avatar: "https://o0o0o0.cn/wp-content/uploads/2018/05/nlogo.jpg",
+        description: "穷尽此生，不得拥抱"
+    },
+    {
+        title: "八个比特",
+        href: "http://www.gazyip.cn/",
+        avatar: "http://moments.gazyip.cn/file/avatar.png",
+        description: "八个比特"
+    },
+    {
+        title: "李学江博客",
+        href: "https://www.lixuejiang.com/",
+        avatar: "https://www.lixuejiang.com/common/img/tx.jpg",
+        description: "实用的自媒体博客交流平台"
+    },
+    {
+        title: "梁Sir的小站",
+        href: "https://5sir.cn",
+        avatar: "https://5sir.cn/logo.jpg",
+        description: "[ 日久见人心 ]"
+    },
+    {
+        title: "森纯个人博客",
+        href: "http://isenchun.cn/",
+        avatar: "http://isenchun.cn/logo.png",
+        description: "记录大学的点点滴滴及学习之旅"
+    },
+    {
+        title: "欧尼酱",
+        href: "http://www.nothamor.cn/",
+        avatar: "https://i.loli.net/2018/04/28/5ae46811094e6.jpg",
+        description: "浑水摸鱼的咸鱼一条，伪Geek"
+    },
+    {
+        title: "清酒踏月",
+        href: "https://www.lkxin.cn",
+        avatar: "https://img.lkxin.cn/tx.jpg",
+        description: "成长的过程总是荆棘满路！"
+    },
+    {
+        title: "烟雨寒云博客",
+        href: "https://www.yyhy.me",
+        avatar: "https://ws3.sinaimg.cn/large/006Xmmmggy1ft26nw45l3j30b40b4aa7",
+        description: "一点烟雨,一点寒,风吹过,烟花散"
+    },
+    {
+        title: "犬の窝",
+        href: "http://mlldxe.cn",
+        avatar: "http://mlldxe.cn/head/mlldxe.jpg",
+        description: "一只菜狗，苣蒻，奄奄一息"
+    },
+    {
+        title: "憧憬播客",
+        href: "https://aoppp.com",
+        avatar: "",
+        description: "憧憬播客专注互联网产品开发"
+    }
+]
