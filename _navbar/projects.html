@@ -1,0 +1,29 @@
+---
+weight: 3
+layout: page
+title: "Projects"
+description: "I have no secret of success but hard work."
+header-img: "img/post-bg-rwd.jpg"
+multilingual: true
+permalink: /projects/
+tags:
+  - Projects
+  - Work
+  - Career
+---
+
+{% include multilingual-sel.html %}
+
+<!-- Chinese Version -->
+<div class="zh post-container page-projects">
+    {% capture projects_zh %}{% include navbar/projects/zh.md %}{% endcapture %}
+    {{ projects_zh | markdownify }}
+</div>
+
+<!-- English Version -->
+<div class="en post-container page-projects">
+    {% capture projects_en %}{% include navbar/projects/en.md %}{% endcapture %}
+    {{ projects_en | markdownify }}
+</div>
+
+{% include comment.html %}
