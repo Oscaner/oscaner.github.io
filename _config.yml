@@ -49,6 +49,12 @@ pagination:
   sort_reverse: true
 
 
+collections:
+  navbar:
+    output: true
+    permalink: /:title/
+
+
 # Gems
 # from PR#40, to support local preview for Jekyll 3.0
 # make sure you have this gem installed
