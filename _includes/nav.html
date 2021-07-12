@@ -29,10 +29,11 @@
                         <li>
                             <a href="{{ site.baseurl }}/">Home</a>
                         </li>
-                        {% for page in site.pages %}
-                        {% if page.title and page.hide-in-nav != true %}
+                        {% assign sorted_nav = site.navbar | sort: "weight" %}
+                        {% for nav in sorted_nav %}
+                        {% if nav.title %}
                         <li>
-                            <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+                            <a href="{{ nav.url | prepend: nav.baseurl }}">{{ nav.title }}</a>
                         </li>
                         {% endif %}
                         {% endfor %}
