@@ -1,0 +1,1612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oscaner</title>
+    <description>Of Course I Still Love You.</description>
+    <link>https://www.oscaner.com/</link>
+    <atom:link href="https://www.oscaner.com/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Tue, 13 Jul 2021 11:08:18 +0000</pubDate>
+    <lastBuildDate>Tue, 13 Jul 2021 11:08:18 +0000</lastBuildDate>
+    <generator>Jekyll v4.2.0</generator>
+    
+      <item>
+        <title>CentOS 7 下添加 PHP-FPM 至系统服务</title>
+        <description>&lt;h2 id=&quot;创建-nginx-启动脚本&quot;&gt;创建 Nginx 启动脚本&lt;/h2&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; vim /etc/init.d/php-fpm
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# chkconfig:   2345 15 95&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# description:  PHP-FPM (FastCGI Process Manager) is an alternative PHP FastCGI implementation \&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# with some additional features useful for sites of any size, especially busier sites.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# DateTime: 2016-09-20&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Source function library.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; /etc/rc.d/init.d/functions
+
+&lt;span class=&quot;c&quot;&gt;# Source networking configuration.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; /etc/sysconfig/network
+
+&lt;span class=&quot;c&quot;&gt;# Check that networking is up.&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$NETWORKING&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;no&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &amp;amp;amp&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&amp;amp;amp&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
+
+&lt;span class=&quot;nv&quot;&gt;phpfpm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/usr/sbin/php-fpm&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;prog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;basename&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;phpfpm&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;lockfile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/var/lock/subsys/phpfpm
+
+start&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-x&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;phpfpm&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;5
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;$&quot;Starting &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$prog&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: &quot;&lt;/span&gt;
+    daemon &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;phpfpm&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;retval&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$?&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$retval&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-eq&lt;/span&gt; 0 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &amp;amp;amp&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&amp;amp;amp&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;touch&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$lockfile&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$retval&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+stop&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;$&quot;Stopping &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$prog&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: &quot;&lt;/span&gt;
+    killproc &lt;span class=&quot;nv&quot;&gt;$prog&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-QUIT&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;retval&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$?&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$retval&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-eq&lt;/span&gt; 0 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &amp;amp;amp&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&amp;amp;amp&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$lockfile&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$retval&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+restart&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    configtest &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$?&lt;/span&gt;
+    stop
+    start
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+reload&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    configtest &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$?&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;$&quot;Reloading &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$prog&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: &quot;&lt;/span&gt;
+    killproc &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;phpfpm&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-HUP&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;RETVAL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$?&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+force_reload&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    restart
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+configtest&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;phpfpm&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+rh_status&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    status &lt;span class=&quot;nv&quot;&gt;$prog&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+rh_status_q&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    rh_status &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;/dev/null 2&amp;gt;&amp;amp;amp&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;1
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in
+    &lt;/span&gt;start&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        rh_status_q &amp;amp;amp&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&amp;amp;amp&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
+        &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    stop&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        rh_status_q &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
+        &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    restart|configtest&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    reload&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        rh_status_q &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;7
+        &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    status&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        rh_status
+        &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;$&quot;Usage: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$0&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; {start|stop|status|restart|reload|configtest}&quot;&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;2
+&lt;span class=&quot;k&quot;&gt;esac&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;设置权限&quot;&gt;设置权限&lt;/h2&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;a+x /etc/init.d/php-fpm
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;注册服务&quot;&gt;注册服务&lt;/h2&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; chkconfig &lt;span class=&quot;nt&quot;&gt;--add&lt;/span&gt; php-fpm
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;设置开机启动&quot;&gt;设置开机启动&lt;/h2&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; chkconfig php-fpm on
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; chkconfig &lt;span class=&quot;nt&quot;&gt;--list&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;php-fpm&quot;&gt;PHP-FPM&lt;/h2&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;# 查看 php-fpm 状态&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; systemctl status php-fpm
+&lt;span class=&quot;c&quot;&gt;# 启动 php-fpm&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; systemctl start php-fpm
+&lt;span class=&quot;c&quot;&gt;# 停止 php-fpm&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; systemctl stop php-fpm
+&lt;span class=&quot;c&quot;&gt;# 重启 php-fpm&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; systemctl restart php-fpm
+&lt;span class=&quot;c&quot;&gt;# 重载 php-fpm 配置&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; systemctl reload php-fpm
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Fri, 14 Dec 2018 15:23:00 +0000</pubDate>
+        <link>https://www.oscaner.com/skill/php/2018-12-14/php-fpm-centos-7.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/skill/php/2018-12-14/php-fpm-centos-7.html</guid>
+        
+        <category>Skill</category>
+        
+        <category>PHP</category>
+        
+        <category>Linux</category>
+        
+        
+        <category>skill</category>
+        
+        <category>php</category>
+        
+        <category>linux</category>
+        
+      </item>
+    
+      <item>
+        <title>Memcached 的介绍及使用</title>
+        <description>&lt;h2 id=&quot;基础命令&quot;&gt;基础命令&lt;/h2&gt;
+
+&lt;h3 id=&quot;增删改查&quot;&gt;增删改查&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;增&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; add key flag expire length
+&lt;span class=&quot;c&quot;&gt;# key：给值起一个独特的名字&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# flag：标志，要求为一个正整数&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# expire：有效期&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# length：数据长度&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Flag 的意义&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Memcached 的基本文本协议要求数据以字符串形式存储。&lt;/p&gt;
+
+&lt;p&gt;这意味着，当你需要存入的数据为数组、对象等非字符串类型时，需要先将数据进行序列化。&lt;/p&gt;
+
+&lt;p&gt;但是，当其他人取数据进行反序列化后，他并不知道数据原本的类型，进行判断又显得累赘增加劳动力。&lt;/p&gt;
+
+&lt;p&gt;这时候，Flag 就有了用武之地。&lt;/p&gt;
+
+&lt;p&gt;比如规定：0表示字符串，1表示数组，2表示对象，以及其他等等类型。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Expire 的意义&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;设置缓存的有效期，有 3 种格式：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;设置秒数，从设定开始第 N 秒后失效&lt;/li&gt;
+  &lt;li&gt;时间戳，到指定的时间戳后失效&lt;/li&gt;
+  &lt;li&gt;设为 0，不自动失效。注意，是不自动失效，而不是永久有效。Memcached 在编译时有设定最长有效期，设为 0 但超过最长有效期后，仍会失效。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Length&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;length 设置有多长，值也必须有多长，不然会报 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CLIENT_ERROR bad data chunk&lt;/code&gt; 错误&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;删&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; delete key &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;time&lt;/code&gt; 为可选参数，单位为秒。意为被删除的 key，在 N 秒内不能再使用，目的是让网站上的页面缓存也代谢完毕&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;改&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; replace key flag expire length &lt;span class=&quot;c&quot;&gt;# 替换键值&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;参数与 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add&lt;/code&gt; 命令一致&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;查&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; get key
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;有改无增&quot;&gt;有改无增&lt;/h3&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;key flag expire length
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;自增自减&quot;&gt;自增自减&lt;/h3&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; incr key number &lt;span class=&quot;c&quot;&gt;# 键值自增 number&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; decr key number &lt;span class=&quot;c&quot;&gt;# 键值自减 number&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;自增自减是以 32 位无符号来进行加减操作的，故不存在负值。&lt;/p&gt;
+
+&lt;p&gt;自减至最小为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;，自增最大至 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^32 - 1&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;应用场景&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;秒杀功能&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;一个人下单，需要牵涉数据库读取、写入订单、更改库存及事务要求。对于关系型数据库而言，压力是巨大的。&lt;/p&gt;
+
+&lt;p&gt;可以利用 Memcached 的 incr 功能，在内存存储 count 计数，每抢成功一次就 incr 加一。这样，每人抢单主要在内存操作，响应速度快。&lt;/p&gt;
+
+&lt;p&gt;当 count 在设定范围内，比如库存仅 1000 台，那么当 count &amp;lt;= 1000 时，每抢成功一次便给成功者发一个订单号，并前往订单页进行后续操作。&lt;/p&gt;
+
+&lt;p&gt;这样既保证了秒杀的即时性，又减小了关系型数据库的读写压力。&lt;/p&gt;
+
+&lt;h3 id=&quot;统计&quot;&gt;统计&lt;/h3&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; stats &lt;span class=&quot;c&quot;&gt;# 将 Memcached 当前的运行信息统计出来&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;清空缓存&quot;&gt;清空缓存&lt;/h3&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; flush_all
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;内存分配机制&quot;&gt;内存分配机制&lt;/h2&gt;
+
+&lt;h3 id=&quot;malloc-内存碎片&quot;&gt;MALLOC 内存碎片&lt;/h3&gt;
+
+&lt;p&gt;内存碎片：空闲，但无法被利用的内存空间&lt;/p&gt;
+
+&lt;p&gt;产生原因：在多次申请及释放内存的过程中，内存碎片化，形成零碎空间，无法利用&lt;/p&gt;
+
+&lt;h3 id=&quot;slab-allocation-分配机制&quot;&gt;Slab Allocation 分配机制&lt;/h3&gt;
+
+&lt;p&gt;Slab Allocation 的基本原理是将分配的内存分割成各种尺寸的块（chunk）， 并把尺寸相同的块分成组（chunk的集合），每个chunk集合被称为 slab。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/post-memcached-introduction/slab_allocation.png&quot; alt=&quot;slab_allocation.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;slab-allocation-缓存原理&quot;&gt;Slab Allocation 缓存原理&lt;/h3&gt;
+
+&lt;p&gt;Memcached 根据收到的数据大小，选择最适合数据大小的 slab。&lt;/p&gt;
+
+&lt;p&gt;并且 Memcached 中保存着 slab 内空闲 chunk 的列表，根据该列表选择 chunk，然后将数据缓存于其中。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/post-memcached-introduction/slab_classes.png&quot; alt=&quot;slab_classes.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;slab-allocation-缺点&quot;&gt;Slab Allocation 缺点&lt;/h3&gt;
+
+&lt;p&gt;如上图，注定那剩余 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;112 bytes - 100 bytes = 12 bytes&lt;/code&gt; 将会浪费&lt;/p&gt;
+
+&lt;p&gt;并且，如果有 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;100 bytes&lt;/code&gt; 的数据要存，但是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;122 bytes&lt;/code&gt; chunk 的 slab 已经存满，&lt;/p&gt;
+
+&lt;p&gt;此时 Memcached 并不会去寻找更大的 slab 进行存储，而是将 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;122 bytes&lt;/code&gt; slab 中的旧数据剔除&lt;/p&gt;
+
+&lt;p&gt;chunks 为固定大小，造成浪费这个问题不能克服，只能缓解&lt;/p&gt;
+
+&lt;p&gt;缓解方法：对于特定的网站，可以长期的统计网站内缓存数据，按自己网站的特点，设置 chunk 大小&lt;/p&gt;
+
+&lt;h3 id=&quot;生长因子&quot;&gt;生长因子&lt;/h3&gt;
+
+&lt;p&gt;生长因子指的是相邻 slab 的 chunk 大小比例，默认为 1.25 倍。&lt;/p&gt;
+
+&lt;p&gt;一般而言，可以观察缓存数据大小的变化规律，设置合理的生长因子&lt;/p&gt;
+
+&lt;h2 id=&quot;过期数据删除机制&quot;&gt;过期数据删除机制&lt;/h2&gt;
+
+&lt;p&gt;当某个值过期后，实际上并没有从内存删除。&lt;/p&gt;
+
+&lt;p&gt;当某个新数据去占用它的位置时，检测到已失效，将其当作空 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chunk&lt;/code&gt; 来占用。&lt;/p&gt;
+
+&lt;p&gt;或者当由用户去 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get&lt;/code&gt; 它时，检测到已失效，返回空值并删除它。&lt;/p&gt;
+
+&lt;p&gt;这个过期机制称为 &lt;strong&gt;&lt;em&gt;惰性失效（Lazy Expiration）&lt;/em&gt;&lt;/strong&gt; ，也称之为 &lt;strong&gt;&lt;em&gt;惰性删除&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;如果 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chunk&lt;/code&gt; 都满了，但又有新数据需要加入，这时 Memcached 会使用 &lt;strong&gt;&lt;em&gt;LRU 删除机制&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;操作系统的内存管理，常用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FIFO LRU&lt;/code&gt; 删除&lt;/p&gt;
+
+&lt;p&gt;FIFO：First In First Out&lt;/p&gt;
+
+&lt;p&gt;LRU：Least Recently Used（最近最少使用）&lt;/p&gt;
+
+&lt;p&gt;LRU 删除机制原理：当某个单元被请求时，维护一个计数器，通过计数器来判断最近谁最少被使用，然后将其剔除。&lt;/p&gt;
+
+&lt;h2 id=&quot;参数限制&quot;&gt;参数限制&lt;/h2&gt;
+
+&lt;p&gt;key的长度：250 bytes（二进制协议支持 65536 个字节）&lt;/p&gt;
+
+&lt;p&gt;value的长度：1M&lt;/p&gt;
+
+&lt;p&gt;内存限制：32位下最大设置到 2G&lt;/p&gt;
+
+&lt;h2 id=&quot;经典问题或现象&quot;&gt;经典问题或现象&lt;/h2&gt;
+
+&lt;h3 id=&quot;缓存雪崩现象&quot;&gt;缓存雪崩现象&lt;/h3&gt;
+
+&lt;p&gt;由于某个节点失效，缓存命中率下降，&lt;/p&gt;
+
+&lt;p&gt;从而导致大量请求到达后端数据库，后端数据库不堪重负发生崩溃，&lt;/p&gt;
+
+&lt;p&gt;进而引发整体系统崩溃，最终发生灾难。&lt;/p&gt;
+
+&lt;p&gt;另一种情况就是，所有缓存的失效时间都在同一个点，&lt;/p&gt;
+
+&lt;p&gt;若正好在失效时间段内有大量请求，此时后端数据库既要重新缓存又要处理请求，&lt;/p&gt;
+
+&lt;p&gt;同样造成数据库压力过大，进而宕机，发生灾难。&lt;/p&gt;
+
+&lt;h4 id=&quot;解决方案&quot;&gt;解决方案&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;缓存数据的生命周期设置在一定范围内随机，或错开时间段失效。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;若缓存数据库为分布式部署，可以将热点数据均匀分布在不同缓存数据库中，防止整体失效。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;设置热点数据永远不过期。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;缓存无底洞现象&quot;&gt;缓存无底洞现象&lt;/h3&gt;
+
+&lt;p&gt;该问题最早由 Facebook 的工作人员提出。&lt;/p&gt;
+
+&lt;p&gt;Facebook 在 2010 年左右，Memcached节点就已经达到了 3000 个，存储了数千G的缓存。&lt;/p&gt;
+
+&lt;p&gt;然而他们发现一个问题，Memcached 节点连接频繁，导致效率下降。&lt;/p&gt;
+
+&lt;p&gt;于是增加 Memcached 节点，但是添加以后效率问题仍然存在，没有好转。&lt;/p&gt;
+
+&lt;p&gt;新加的 Memcached 服务器就好像进入了一个无底洞，毫无效果，这种现象就称之为 &lt;strong&gt;&lt;em&gt;缓存无底洞现象&lt;/em&gt;&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;这是因为根据一致性哈希算法，缓存数据均匀分布在各 Memcached 缓存节点，&lt;/p&gt;
+
+&lt;p&gt;但是如用户个人信息，若被打散存放在各个缓存节点，那每次取某个用户信息就要请求多个节点，导致节点连接频繁，&lt;/p&gt;
+
+&lt;p&gt;而增加 Memcached 节点有可能会使得用户信息被分得更散，获取数据需要连接的节点更多。&lt;/p&gt;
+
+&lt;p&gt;显然，增加节点并没有降低 Memcached 的连接数，甚至有可能适得其反，这就造成了一个进退两难的局面，就像一个无底洞。&lt;/p&gt;
+
+&lt;h4 id=&quot;解决方案-1&quot;&gt;解决方案&lt;/h4&gt;
+
+&lt;p&gt;将同一组数据的 key 设置相同前缀。&lt;/p&gt;
+
+&lt;p&gt;如用户 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;id&lt;/code&gt; 为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;10&lt;/code&gt;，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;name&lt;/code&gt; 为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lisi&lt;/code&gt;，’age’ 为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;22&lt;/code&gt;，&lt;/p&gt;
+
+&lt;p&gt;则可以设计 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;user_10_name = lisi&lt;/code&gt;，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;user_10_age = 22&lt;/code&gt;，&lt;/p&gt;
+
+&lt;p&gt;相同前缀情况下经过一致性哈希算法，可以尽可能的使某组用户信息存储在同一缓存节点上，避免 Memcached 连接频繁。&lt;/p&gt;
+
+&lt;h3 id=&quot;数据永久被踢现象&quot;&gt;数据永久被踢现象&lt;/h3&gt;
+
+&lt;p&gt;网上经常有使用者反馈 Memcached 数据设置为永久有效，但数据依旧丢失&lt;/p&gt;
+
+&lt;p&gt;这种情况的主要原因是 Memcached 的 &lt;a href=&quot;#过期数据删除机制&quot;&gt;&lt;strong&gt;&lt;em&gt;惰性删除机制&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt; 和 &lt;a href=&quot;#过期数据删除机制&quot;&gt;&lt;strong&gt;&lt;em&gt;LRU 删除机制&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h4 id=&quot;解决方案-2&quot;&gt;解决方案&lt;/h4&gt;
+
+&lt;p&gt;将永久数据和非永久数据分开存放，防止永久数据被非永久数据剔除。&lt;/p&gt;
+</description>
+        <pubDate>Thu, 13 Dec 2018 19:23:00 +0000</pubDate>
+        <link>https://www.oscaner.com/skill/sql/2018-12-13/memcached-introduction.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/skill/sql/2018-12-13/memcached-introduction.html</guid>
+        
+        <category>Skill</category>
+        
+        <category>SQL</category>
+        
+        <category>Memcached</category>
+        
+        <category>Introduction</category>
+        
+        
+        <category>skill</category>
+        
+        <category>sql</category>
+        
+        <category>memcached</category>
+        
+        <category>introduction</category>
+        
+      </item>
+    
+      <item>
+        <title>考研数学笔记 - 不等式</title>
+        <description>&lt;h2 id=&quot;柯西不等式&quot;&gt;柯西不等式&lt;/h2&gt;
+
+&lt;h3 id=&quot;普通形式&quot;&gt;普通形式&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;简记：平方和的乘积 ≥ 乘积和的平方&lt;/li&gt;
+&lt;/ul&gt;
+
+\[( a_1^2 + a_2^2 + \cdots + a_n^2 ) ( b_1^2 + b_2^2 + \cdots + b_n^2 ) \geqslant ( a_1 b_1 + a_2 b_2 + \cdots + a_n b_n )^2\]
+
+\[\sum_{i = 1}^n a_i^2 \sum_{i = 1}^n b_i^2 \geqslant ( \sum_{i = 1}^n a_i b_i )^2\]
+
+&lt;h3 id=&quot;积分形式&quot;&gt;积分形式&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;又称作 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;施瓦茨不等式&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;定积分从某种意义上来说，是更高级的求和（或者称之为面积求和）&lt;/li&gt;
+  &lt;li&gt;明显与柯西不等式的形式相似&lt;/li&gt;
+  &lt;li&gt;简记：平方和的乘积 ≥ 乘积和的平方&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\int_{a}^b f_{( x )}^2 \, dx \int_{a}^b g_{( x )}^2 \, dx \geqslant ( \int_{a}^b f_{( x )} g_{( x )} \, dx )^2\]
+
+&lt;h2 id=&quot;杨不等式&quot;&gt;杨不等式&lt;/h2&gt;
+
+&lt;h3 id=&quot;普通形式-1&quot;&gt;普通形式&lt;/h3&gt;
+
+\[\begin{cases}
+
+  \dfrac{1}{p} + \dfrac{1}{q} = 1
+
+  \\
+  \\
+
+  p &amp;gt; 0, q &amp;gt; 0
+
+\end{cases}
+
+=&amp;gt; a^{\frac{1}{p}} b^{\frac{1}{q}} \leqslant \dfrac{a}{p} + \dfrac{b}{q}\]
+
+&lt;h3 id=&quot;积分形式-1&quot;&gt;积分形式&lt;/h3&gt;
+
+\[\begin{cases}
+
+  a &amp;gt; 0, b &amp;gt; 0
+
+  \\
+
+  x = \phi_{( y )}, y = \varphi_{( x )}
+
+  \\
+
+  \varphi_{( 0 )} = 0
+
+  \\
+
+  y 在 [ 0, a ] 上单调递增
+
+\end{cases}
+
+=&amp;gt; \int_0^a \varphi_{( x )} \, dx + \int_0^b \phi_{( y )} \, dy \geqslant ab\]
+</description>
+        <pubDate>Mon, 01 Oct 2018 21:14:00 +0000</pubDate>
+        <link>https://www.oscaner.com/life/math/2018-10-01/inequality.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/life/math/2018-10-01/inequality.html</guid>
+        
+        <category>Life</category>
+        
+        <category>Math</category>
+        
+        <category>Graduate</category>
+        
+        
+        <category>life</category>
+        
+        <category>math</category>
+        
+        <category>graduate</category>
+        
+      </item>
+    
+      <item>
+        <title>考研数学笔记 - 微分算子法</title>
+        <description>&lt;h2 id=&quot;公式&quot;&gt;【公式】&lt;/h2&gt;
+
+\[\begin{align*}
+
+  &amp;amp;设 \; D = \dfrac{d}{dx}, \; 则 \; y^\prime = D y, \; y^{\prime \prime} = D^2 y
+
+  \\
+
+  &amp;amp;( 1 )
+  \begin{cases}
+    F_{( D )} e^{kx} = F_{( k )} e^{kx}
+    \\
+    \dfrac{1}{F_{( D )}} e^{kx} = \dfrac{1}{F_{( k )}} e^{kx}
+  \end{cases}
+
+  \\
+
+  &amp;amp;( 2 )
+  \begin{cases}
+    F_{( D^2 )} \sin ax = F_{( -a^2 )} \sin ax
+    \\
+    \dfrac{1}{F_{( D^2 )}} \sin ax = \dfrac{1}{F_{( -a^2 )}} \sin ax
+  \end{cases}
+
+  \\
+
+  &amp;amp;( 3 )
+  \begin{cases}
+    F_{( D )} e^{kx} f_{( x )} = e^{kx} F_{( D + k )} f_{( x )}
+    \\
+    \dfrac{1}{F_{( D )}} e^{kx} f_{( x )} = e^{kx} \dfrac{1}{F_{( D + k )}} f_{( x )}
+  \end{cases}
+
+  \\
+
+  &amp;amp;( 4 )
+  \begin{cases}
+    F_{( D )} f_{( x )} = F_{1 ( D )} F_{2 ( D )} f_{( x )} = F_{2 ( D )} F_{1 ( x )} f_{( x )}
+    \\
+    \dfrac{1}{F_{( D )}} f_{( x )} = \dfrac{1}{F_{1 ( D )} F_{2 ( D )}} f_{( x )} = \dfrac{1}{F_{2 ( D )} F_{1 ( x )}} f_{( x )}
+  \end{cases}
+\end{align*}\]
+
+&lt;blockquote&gt;
+  &lt;p&gt;【注】&lt;/p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;分母均不为0&lt;/li&gt;
+    &lt;li&gt;算子式和方程式没有乘法交换律，算子式和算子式有乘法交换律&lt;/li&gt;
+    &lt;li&gt;当（1）式的分母为0时，可用（3）式，此时f(x)=1&lt;/li&gt;
+    &lt;li&gt;（4）式中 F(D) = F1(D) * F2(D)&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;题型&quot;&gt;【题型】&lt;/h2&gt;
+
+&lt;h3 id=&quot;型一&quot;&gt;型一&lt;/h3&gt;
+
+\[F_{( D )} y = f_{( x )} \; =&amp;gt; \; y^* = \dfrac{1}{F_{( D )}} f_{( x )}\]
+
+&lt;h3 id=&quot;型二&quot;&gt;型二&lt;/h3&gt;
+
+\[F_{( D )} y = e^{\lambda x} f_{( x )} \; =&amp;gt; \; y^* = \dfrac{1}{F_{( D )}} e^{\lambda x} f_{( x )} =
+\begin{cases}
+  \dfrac{1}{F_{( \lambda )}} e^{\lambda x} f_{( x )} &amp;amp; , \; F_{( \lambda )} \neq 0
+  \\
+  e^{\lambda x} \dfrac{1}{F_{( D + \lambda )}} f_{( x )} &amp;amp; , \; F_{( \lambda )} = 0
+\end{cases}\]
+
+&lt;h3 id=&quot;型三&quot;&gt;型三&lt;/h3&gt;
+
+\[\begin{aligned}
+
+  &amp;amp;( 1 )
+  \begin{cases}
+    F_{( D )} y = e^{\lambda x} f_{( x )} \sin ax
+    \\
+    F_{( D )} y = e^{\lambda x} f_{( x )} \cos ax
+  \end{cases}
+
+  \\
+
+  &amp;amp;( 2 )
+  利用欧拉公式：
+  \begin{cases}
+    e^{iax} = \cos ax + i \sin ax
+    \\
+    i = \sqrt{-1} \; 或 \; i^2 = -1
+  \end{cases}
+
+  \\
+
+  &amp;amp;( 3 )
+  令 \; F_{( D )} y = e^{( \lambda + ia ) x} f_{( x )} \; =&amp;gt; \; y = e^{( \lambda + ia ) x} \dfrac{1}{F_{( D + \lambda + ia )}} f_{( x )}
+
+  \\
+
+  &amp;amp;( 4 )
+  算出 \; y \; 后将欧拉公式回代，可得到带有（虚部）和（实部）的解
+
+  \\
+
+  &amp;amp;( 5 )
+  \begin{cases}
+    F_{( D )} y = e^{\lambda x} f_{( x )} \sin ax =&amp;gt; 取（虚部）为特解 \; y^*
+    \\
+    F_{( D )} y = e^{\lambda x} f_{( x )} \cos ax =&amp;gt; 取（实部）为特解 \; y^*
+  \end{cases}
+
+\end{aligned}\]
+
+&lt;blockquote&gt;
+  &lt;p&gt;【注】&lt;/p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;λ可以是0&lt;/li&gt;
+    &lt;li&gt;考研中出现的微分方程，一般就是这三种题型&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;例题&quot;&gt;例题&lt;/h3&gt;
+
+&lt;h4 id=&quot;型一型二&quot;&gt;型一、型二&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/post-differential-operators/differential-operators.jpg&quot; alt=&quot;differential-operators.jpg&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 22 Sep 2018 22:48:00 +0000</pubDate>
+        <link>https://www.oscaner.com/life/math/2018-09-22/differential-operators.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/life/math/2018-09-22/differential-operators.html</guid>
+        
+        <category>Life</category>
+        
+        <category>Math</category>
+        
+        <category>Graduate</category>
+        
+        
+        <category>life</category>
+        
+        <category>math</category>
+        
+        <category>graduate</category>
+        
+      </item>
+    
+      <item>
+        <title>考研数学笔记 - 积分公式</title>
+        <description>&lt;h2 id=&quot;基本积分公式&quot;&gt;基本积分公式&lt;/h2&gt;
+
+\[\begin{align*}
+
+  &amp;amp; \int x^k dx = \dfrac{1}{k + 1} x^{k + 1} + C
+
+  \\
+
+  &amp;amp; \int \dfrac{1}{x} dx = \ln | x | + C
+
+  \\
+
+  &amp;amp; \int a^x dx = \dfrac{1}{\ln a} a^x + C \; ( a &amp;gt; 0 且 a \neq 1 )
+
+  \\
+
+  &amp;amp; \int e^x dx = e^x + C
+
+  \\
+  \\
+
+  &amp;amp; \int \sin x dx = -\cos x + C
+
+  \\
+
+  &amp;amp; \int \cos x dx = \sin x + C
+
+  \\
+
+  &amp;amp; \int \tan x dx = -\ln | \cos x | + C
+
+  \\
+
+  &amp;amp; \int \cot x dx = \ln | \sin x | + C
+
+  \\
+
+  &amp;amp; \int \sec x dx = \ln | \sec x + \tan x | + C
+
+  \\
+
+  &amp;amp; \int \csc x dx = \ln | \csc x - \cot x | + C
+
+  \\
+  \\
+
+  &amp;amp; \int \sec^2 x dx = \tan x + C
+
+  \\
+
+  &amp;amp; \int \csc^2 x dx = -\cot x + C
+
+  \\
+
+  &amp;amp; \int \sec x \tan x dx = \int \dfrac{\sin x}{\cos^2 x} dx = \sec x + C
+
+  \\
+
+  &amp;amp; \int \csc x \cot x dx = \int \dfrac{\cos x}{\sin^2 x} = -\csc x + C
+
+  \\
+  \\
+
+  &amp;amp; \int \dfrac{1}{\sqrt{1 - x^2}} dx = \arcsin x + C
+
+  \\
+
+  &amp;amp; \int \dfrac{1}{\sqrt{a^2 - x^2}} dx = \arcsin \dfrac{x}{a} + C
+
+  \\
+
+  &amp;amp; \int \dfrac{1}{\sqrt{x^2 + a^2}} dx = \ln | x + \sqrt{x^2 + a^2} | + C
+
+  \\
+
+  &amp;amp; \int \dfrac{1}{\sqrt{x^2 - a^2}} dx = \ln | x + \sqrt{x^2 - a^2} | + C
+
+  \\
+  \\
+
+  &amp;amp; \int \dfrac{1}{1 + x^2} dx = \arctan x + C
+
+  \\
+
+  &amp;amp; \int \dfrac{1}{a^2 + x^2} dx = \dfrac{1}{a} \arctan \dfrac{x}{a} + C
+
+  \\
+  \\
+
+  &amp;amp; \int \dfrac{1}{a^2 - x^2} dx = \dfrac{1}{2a} \ln | \dfrac{a + x}{a - x} | + C
+
+  \\
+
+  &amp;amp; \int \dfrac{1}{x^2 - a^2} dx = \dfrac{1}{2a} \ln | \dfrac{x - a}{x + a} | + C
+
+  \\
+  \\
+
+  &amp;amp; \int \sqrt{a^2 - x^2} dx = \dfrac{a^2}{2} \arcsin \dfrac{x}{a} + \dfrac{x}{2} \sqrt{a^2 - x^2} + C
+
+  \\
+  \\
+
+  &amp;amp; \begin{cases}
+
+    I_n = \int_0^{\frac{\pi}{2}} \sin^n x dx = \int_0^{\frac{\pi}{2}} \cos^n x dx
+
+    \\
+
+    I_n = \frac{n - 1}{n} I_{n - 2}
+
+    \\
+
+    I_0 = \dfrac{\pi}{2} \; , \; I_1 = 1
+
+  &amp;amp; \end{cases}
+
+\end{align*}\]
+
+&lt;h2 id=&quot;积分应用&quot;&gt;积分应用&lt;/h2&gt;
+
+&lt;h3 id=&quot;长度公式&quot;&gt;长度公式&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/post-integral-formula/IMG_20180918_230857.jpg&quot; alt=&quot;IMG_20180918_230857.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;rt坐标系&quot;&gt;Rt坐标系&lt;/h4&gt;
+
+\[\begin{cases}
+
+  dl = \sqrt{( dx )^2 + ( dy )^2} = \sqrt{1 + ( y^\prime )^2} dx
+
+  \\
+  \\
+
+  s = \int_a^b dl = \int_a^b \sqrt{1 + ( y^\prime )^2} dx
+
+\end{cases}\]
+
+&lt;h4 id=&quot;极坐标系&quot;&gt;极坐标系&lt;/h4&gt;
+
+\[\begin{cases}
+
+  dl = \sqrt{( r d\theta )^2 + ( dr )^2} = \sqrt{r^2 + ( r^\prime )^2} d\theta
+
+  \\
+  \\
+
+  s = \int_{\alpha}^{\beta} dl = \int_{\alpha}^{\beta} \sqrt{r^2 + ( r^\prime )^2} d\theta
+
+\end{cases}\]
+
+&lt;h3 id=&quot;面积公式&quot;&gt;面积公式&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/post-integral-formula/IMG_20180918_234741.jpg&quot; alt=&quot;IMG_20180918_234741.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;rt坐标系-1&quot;&gt;Rt坐标系&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;不旋转&lt;/p&gt;
+
+    &lt;p&gt;略&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;绕y轴旋转&lt;/p&gt;
+
+    &lt;p&gt;少见，原理同绕x轴旋转一致，视具体情况自推&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;绕x轴旋转&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+\[\begin{cases}
+
+  ds = 2 \pi \lvert y \rvert \sqrt{( dx )^2 + ( dy )^2} = 2 \pi \lvert y \rvert \sqrt{1 + ( y^\prime )^2} dx
+
+  \\
+  \\
+
+  s = \int_a^b ds = \int_a^b 2 \pi \lvert y \rvert \sqrt{1 + ( y\prime )^2} dx
+
+\end{cases}\]
+
+&lt;h4 id=&quot;极坐标系-1&quot;&gt;极坐标系&lt;/h4&gt;
+
+\[\begin{cases}
+
+  ds = \pi r_2^2 * \dfrac{d\theta}{2 \pi} - \pi r_1^2 * \dfrac{d\theta}{2 \pi} = \dfrac{1}{2} ( r_2^2 - r_1^2 ) d\theta
+
+  \\
+  \\
+
+  s = \int_{\alpha}^{\beta} ds = \int_{\alpha}^{\beta} \dfrac{1}{2} ( r_2^2 - r_1^2 ) d\theta
+
+\end{cases}\]
+
+&lt;h3 id=&quot;体积公式&quot;&gt;体积公式&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/post-integral-formula/IMG_20180920_232536.jpg&quot; alt=&quot;IMG_20180920_232536.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;rt坐标系-2&quot;&gt;Rt坐标系&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;绕x轴旋转&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\begin{cases}
+
+  dV = \pi y^2 dx
+
+  \\
+  \\
+
+  V = \int_a^b dV = \int_a^b \pi y^2 dx
+
+\end{cases}\]
+
+&lt;ul&gt;
+  &lt;li&gt;绕y轴旋转&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\begin{cases}
+
+  dV = 2 \pi \lvert x \rvert \lvert y \rvert dx
+
+  \\
+  \\
+
+  V = \int_a^b dV = \int_a^b 2 \pi \lvert x \rvert \lvert y \rvert dx
+
+\end{cases}\]
+
+&lt;blockquote&gt;
+  &lt;p&gt;【注】&lt;/p&gt;
+
+  &lt;p&gt;在绕x轴旋转的时候，计算体积时宽用的是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dx&lt;/code&gt;，而计算长度和面积时宽用的是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;√[1+（y')^2] dx&lt;/code&gt;.&lt;/p&gt;
+
+  &lt;p&gt;虽然 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dx&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;√[1+（y')^2] dx&lt;/code&gt; 这两者之间的差距微乎其微，&lt;/p&gt;
+
+  &lt;p&gt;但是在计算长度和面积的时候，这一点点的长度差是不能忽视的。&lt;/p&gt;
+
+  &lt;p&gt;而在计算体积的时候，相对体积来说，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dx&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;√[1+（y')^2] dx&lt;/code&gt; 的长度差可以忽略不计。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;其他公式&quot;&gt;其他公式&lt;/h3&gt;
+
+&lt;h4 id=&quot;rt坐标和极坐标之间的转换&quot;&gt;Rt坐标和极坐标之间的转换&lt;/h4&gt;
+
+\[\begin{cases}
+
+  x = r \cos \theta
+
+  \\
+  \\
+
+  y = r \sin \theta
+
+\end{cases}\]
+
+&lt;h4 id=&quot;椭圆弧的重心坐标公式&quot;&gt;椭圆弧的重心坐标公式&lt;/h4&gt;
+
+&lt;p&gt;均匀密度情况下，重心和形心重合&lt;/p&gt;
+
+\[\begin{cases}
+
+  x^\prime = \dfrac{\iint_D x d \sigma}{\iint_D d \sigma}
+
+  \\
+  \\
+
+  y^\prime = \dfrac{\iint_D y d \sigma}{\iint_D d \sigma}
+
+\end{cases}\]
+
+&lt;center&gt;( 其中 D 为椭圆弧的左右上下限与椭圆弧所围成的区域 )&lt;/center&gt;
+</description>
+        <pubDate>Mon, 17 Sep 2018 23:00:00 +0000</pubDate>
+        <link>https://www.oscaner.com/life/math/2018-09-17/integral-formula.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/life/math/2018-09-17/integral-formula.html</guid>
+        
+        <category>Life</category>
+        
+        <category>Math</category>
+        
+        <category>Graduate</category>
+        
+        
+        <category>life</category>
+        
+        <category>math</category>
+        
+      </item>
+    
+      <item>
+        <title>考研数学笔记 - 泰勒公式</title>
+        <description>&lt;h2 id=&quot;公式&quot;&gt;公式&lt;/h2&gt;
+
+\[f_{( x )} = f_{( x_0 )} + f^\prime_{( x_0 )} ( x - x_0 ) + \dfrac{f^{\prime \prime}_{( x_0 )}}{2!} ( x - x_0 )^2 + \dots + \dfrac{f_{( x_0 )}^{( n )}}{n!} ( x - x_0 )^n + R_n ( x )\]
+
+&lt;ul&gt;
+  &lt;li&gt;标准公式 — 主要用于计算级数&lt;/li&gt;
+&lt;/ul&gt;
+
+\[f_{( x )} = \sum_{n = 0}^{\infty} \dfrac{f^{( n )}_{( x_0 )}}{n!} ( x - x_0 )^n\]
+
+&lt;ul&gt;
+  &lt;li&gt;带余项的公式 — 主要用于证明题和计算n阶导数&lt;/li&gt;
+&lt;/ul&gt;
+
+\[f_{( x )} = \sum_{k = 0}^{n} \dfrac{f_{( x_0 )}^{( k )}}{k!} ( x - x_0 )^k + R_n ( x )\]
+
+&lt;h2 id=&quot;rnx余项&quot;&gt;Rn(x)余项&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;拉氏余项 — 主要用于证明题&lt;/li&gt;
+&lt;/ul&gt;
+
+\[R_n ( x ) = \dfrac{f^{( n + 1 )}_{( \xi )}}{( n + 1 )!} ( x - x_0 )^{n + 1}\]
+
+&lt;ul&gt;
+  &lt;li&gt;佩氏余项 — 主要用于极限计算题&lt;/li&gt;
+&lt;/ul&gt;
+
+\[R_n ( x ) = \mathrm{o} [ ( x - x_0 )^n ]\]
+</description>
+        <pubDate>Fri, 14 Sep 2018 23:54:00 +0000</pubDate>
+        <link>https://www.oscaner.com/life/math/2018-09-14/taylor-formula.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/life/math/2018-09-14/taylor-formula.html</guid>
+        
+        <category>Life</category>
+        
+        <category>Math</category>
+        
+        <category>Graduate</category>
+        
+        
+        <category>life</category>
+        
+        <category>math</category>
+        
+      </item>
+    
+      <item>
+        <title>Walking on our own zone</title>
+        <description>&lt;!-- Chinese Version --&gt;
+&lt;div class=&quot;zh post-container&quot;&gt;
+    
+    
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;New York is 3 hours ahead of California,&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;纽约比加利福尼亚早3个小时，&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;but it does not make California slow.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;但是它并不能使加利福尼亚变慢。&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Someone graduated at the age of 22,&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;有人在22岁毕业，&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;but waited 5 years before securing a good job!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;但是等了5年才找到一份好工作！&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Someone became a CEO at 25, and died at 50.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;有人在25岁成为CEO，却在50岁去世。&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;While another became a CEO at 50, and lived to 90 years.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;然而另一位在50岁成为CEO，并且活到了90岁。&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Someone is still single, while someone else got married.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;有的人任然单身，然而有的人已经结婚。&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Obama retires at 55, but Trump starts at 70.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;奥巴马在55岁退休，但是特朗普在70岁才开始。&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Absolutely everyone in this world works based on their time zone.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;毫无疑问，这个世界上的每个人都是根据他们的时区在工作。&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;People around you might seem to go ahead of you,&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;你周围的人似乎走的比你更远，&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;some might seem to be behind you.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;一些人也许落后于你。&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;But everyone is running their own race, in their own time.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;但是每个人都在他们自己的时间里，跑他们自己的比赛。&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Don’t envy them or mock them.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;不要去嫉妒他们或者嘲笑他们。&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;They are in their time zone, and you are in yours!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;他们在他们的时区里，而你在你的时区里！&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Life is about waiting for the right moment to act.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;收获就是等待在正确的时刻行动&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;So, relax. You’re not late. You’re not early.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;所以，放轻松。你并不会迟到，也不会早到。&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;You are very much on time,&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;你非常准时，&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;and in your time zone destiny set up for you.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;并且在你的时区里，命运由你而定&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;转载自互联网&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;/div&gt;
+
+&lt;!-- English Version --&gt;
+&lt;div class=&quot;en post-container&quot;&gt;
+    
+    
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;New York is 3 hours ahead of California,&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;but it does not make California slow.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Someone graduated at the age of 22,&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;but waited 5 years before securing a good job!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Someone became a CEO at 25, and died at 50.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;While another became a CEO at 50, and lived to 90 years.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Someone is still single, while someone else got married.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Obama retires at 55, but Trump starts at 70.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Absolutely everyone in this world works based on their time zone.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;People around you might seem to go ahead of you,&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;some might seem to be behind you.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;But everyone is running their own race, in their own time.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Don’t envy them or mock them.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;They are in their time zone, and you are in yours!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Life is about waiting for the right moment to act.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;So, relax. You’re not late. You’re not early.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;You are very much on time,&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;and in your time zone destiny set up for you.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Reprinted from the Internet.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 12 Sep 2018 10:56:00 +0000</pubDate>
+        <link>https://www.oscaner.com/life/english/2018-09-12/walking-on-our-own-zone.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/life/english/2018-09-12/walking-on-our-own-zone.html</guid>
+        
+        <category>Life</category>
+        
+        <category>English</category>
+        
+        <category>Prose</category>
+        
+        
+        <category>life</category>
+        
+        <category>english</category>
+        
+        <category>prose</category>
+        
+      </item>
+    
+      <item>
+        <title>Node.js - 环境设置</title>
+        <description>&lt;h2 id=&quot;第一步---安装&quot;&gt;第一步 - 安装&lt;/h2&gt;
+
+&lt;h3 id=&quot;windows&quot;&gt;Windows&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://nodejs.cn/download/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;下载地址&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;下载 Node.js 并安装， 默认安装就行了.&lt;/p&gt;
+
+&lt;h3 id=&quot;macos&quot;&gt;MacOS&lt;/h3&gt;
+
+&lt;p&gt;利用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;brew&lt;/code&gt; 进行安装&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;nvm
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; nvm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;node &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; nvm &lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;default node
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;ubuntu&quot;&gt;Ubuntu&lt;/h3&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;curl
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; nvm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;node &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; nvm &lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;default node
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;第二步---查看版本&quot;&gt;第二步 - 查看版本&lt;/h2&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; node &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# v16.3.0&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; npm &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 7.15.1&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/post-node-setup/node-version.png&quot; alt=&quot;node-version.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;第三步---淘宝镜像-可选&quot;&gt;第三步 - 淘宝镜像 (可选)&lt;/h2&gt;
+
+&lt;p&gt;如果用 npm 安装 package 经常卡住，有可能是网络问题，镜像源在国外。&lt;/p&gt;
+
+&lt;p&gt;可以安装淘宝镜像来避免此类问题。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;cnpm &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--registry&lt;/span&gt; https://registry.npm.taobao.org
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;cnpm &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# cnpm@6.2.0&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# npm@6.14.13&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# node@16.3.0&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# npminstall@3.28.0&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# prefix=xxx&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# darwin x64 20.5.0&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# registry=https://registry.nlark.com&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Tue, 11 Sep 2018 23:10:00 +0000</pubDate>
+        <link>https://www.oscaner.com/skill/nodejs/2018-09-11/node-setup.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/skill/nodejs/2018-09-11/node-setup.html</guid>
+        
+        <category>Skill</category>
+        
+        <category>Node.js</category>
+        
+        <category>NPM</category>
+        
+        
+        <category>skill</category>
+        
+        <category>node.js</category>
+        
+        <category>npm</category>
+        
+      </item>
+    
+      <item>
+        <title>考研数学笔记 - 等价无穷小</title>
+        <description>\[\begin{align*}
+
+  \sin x &amp;amp;\sim x
+
+  \\
+
+  \arcsin x &amp;amp;\sim x
+
+  \\
+
+  \tan x &amp;amp;\sim x
+
+  \\
+
+  \arctan x &amp;amp;\sim x
+
+  \\
+
+  e^x-1 &amp;amp;\sim x
+
+  \\
+
+  \ln(1+x) &amp;amp;\sim x
+
+  \\
+
+  \sqrt{1+x}-\sqrt{1-x} &amp;amp;\sim x
+
+  \\
+
+  (1+ax)^b-1 &amp;amp;\sim abx
+
+\end{align*}\]
+
+&lt;hr /&gt;
+
+\[\begin{align*}
+
+  1-\cos x &amp;amp;\sim \dfrac{1}{2}x^2
+
+  \\
+
+  x-\ln(1+x) &amp;amp;\sim \dfrac{1}{2}x^2
+
+\end{align*}\]
+
+&lt;hr /&gt;
+
+\[\begin{align*}
+
+  \tan x-x &amp;amp;\sim \dfrac{1}{3}x^3
+
+  \\
+
+  x-\arctan x &amp;amp;\sim \dfrac{1}{3}x^3
+
+  \\
+
+  x-\sin x &amp;amp;\sim \dfrac{1}{6}x^3
+
+  \\
+
+  \arcsin x-x &amp;amp;\sim \dfrac{1}{6}x^3
+
+  \\
+
+  \tan x-\sin x &amp;amp;\sim \dfrac{1}{2}x^3
+
+\end{align*}\]
+</description>
+        <pubDate>Sun, 09 Sep 2018 13:39:00 +0000</pubDate>
+        <link>https://www.oscaner.com/life/math/2018-09-09/equivalent-infinitesimal.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/life/math/2018-09-09/equivalent-infinitesimal.html</guid>
+        
+        <category>Life</category>
+        
+        <category>Math</category>
+        
+        <category>Graduate</category>
+        
+        
+        <category>life</category>
+        
+        <category>math</category>
+        
+      </item>
+    
+      <item>
+        <title>考研数学笔记 - 求导公式</title>
+        <description>\[\begin{align*}
+
+  ( c )^\prime &amp;amp;= 0
+
+  \\
+
+  ( x^a )^\prime &amp;amp;= ax^{a - 1}
+
+  \\
+
+  ( \log_a x )^\prime &amp;amp;= \dfrac{1}{x \ln a}
+
+  \\
+
+  ( \ln x )^\prime &amp;amp;= \dfrac{1}{x}
+
+  \\
+
+  ( a^x )^\prime &amp;amp;= x \ln a
+
+  \\
+
+  ( \sin x )^\prime &amp;amp;= \cos x
+
+  \\
+
+  ( \cos x )^\prime &amp;amp;= - \sin x
+
+  \\
+
+  ( \tan x )^\prime &amp;amp;= \dfrac{1}{\cos^2 x} = \sec^2 x
+
+  \\
+
+  ( \cot x )^\prime &amp;amp;= -\dfrac{1}{\sin^2 x} = - \csc^2 x
+
+  \\
+
+  ( \sec x )^\prime &amp;amp;= \dfrac{\sin x}{\cos^2 x} = \sec x \tan x
+
+  \\
+
+  ( \csc x )^\prime &amp;amp;= -\dfrac{\cos x}{\sin^2 x} = -\csc x \cot x
+
+  \\
+
+  ( \arcsin x )^\prime &amp;amp;= \dfrac{1}{\sqrt{1 - x^2}}
+
+  \\
+
+  ( \arccos x )^\prime &amp;amp;= -\dfrac{1}{\sqrt{1 - x^2}}
+
+  \\
+
+  ( \arctan x )^\prime &amp;amp;= \dfrac{1}{1 + x^2}
+
+  \\
+
+  ( \mathrm{arccot} \, x )^\prime &amp;amp;= -\dfrac{1}{1 + x^2}
+
+  \\
+
+  [ \ln ( x + \sqrt{x^2 - 1} )]^\prime &amp;amp;= \dfrac{1}{\sqrt{x^2 - 1}}
+
+  \\
+
+  [ \ln ( x + \sqrt{x^2 + 1} )]^\prime &amp;amp;= \dfrac{1}{\sqrt{x^2 + 1}}
+
+\end{align*}\]
+
+&lt;hr /&gt;
+
+\[\begin{align*}
+
+  ( u \pm v )^{( n )} &amp;amp;= u^{( n )} \pm v^{( n )}
+
+  \\
+
+  ( uv )^{( n )} &amp;amp;= \sum_{k = 0}^{n} \mathrm{C}_{n}^{k} u^{(n - k )} v^{( k )}
+
+\end{align*}\]
+
+&lt;hr /&gt;
+
+\[\begin{align*}
+
+  ( a^x )^{( n )} &amp;amp;= a^x ( \ln a )^n
+
+  \\
+
+  ( e^x )^{( n )} &amp;amp;= e^x
+
+\end{align*}\]
+
+&lt;hr /&gt;
+
+\[\begin{align*}
+
+  [ \sin ( kx ) ]^{( n )} &amp;amp;= k^n \sin ( kx + \dfrac{n}{2} \pi )
+
+  \\
+
+  [ \cos ( kx ) ]^{( n )} &amp;amp;= k^n \cos ( kx + \dfrac{n}{2} \pi )
+
+\end{align*}\]
+
+&lt;hr /&gt;
+
+\[\begin{align*}
+
+  ( \ln x )^{( n )} &amp;amp;= ( -1 )^{n - 1} \dfrac{( n - 1 ) !}{x^n} ( x &amp;gt; 0 )
+
+  \\
+
+  [ \ln ( x + 1 ) ]^{( n )} &amp;amp;= ( -1 )^{n-1} \dfrac{( n - 1 ) !}{( x + 1 )^{n}} ( x &amp;gt; -1 )
+
+\end{align*}\]
+
+&lt;hr /&gt;
+
+\[\begin{align*}
+
+  ( \dfrac{1}{x + a} )^{( n )} &amp;amp;= ( -1 )^n \dfrac{n !}{( x + a )^{n + 1}}
+
+  \\
+
+  [ ( x + x_0 )^m ]^{( n )} &amp;amp;= m ( m - 1) ( m - 2) \cdots ( m - n + 1 ) ( x + x_0 )^{m - n}
+
+\end{align*}\]
+</description>
+        <pubDate>Sun, 09 Sep 2018 13:39:00 +0000</pubDate>
+        <link>https://www.oscaner.com/life/math/2018-09-09/derivation-formula.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/life/math/2018-09-09/derivation-formula.html</guid>
+        
+        <category>Life</category>
+        
+        <category>Math</category>
+        
+        <category>Graduate</category>
+        
+        
+        <category>life</category>
+        
+        <category>math</category>
+        
+      </item>
+    
+  </channel>
+</rss>
