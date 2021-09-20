@@ -1,0 +1,12 @@
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+    },
+    svg: {
+      fontCache: 'global',
+    }
+  };
+</script>
+<script id="MathJax-script" async src='{{ "/packages/mathjax/3.2.0/tex-svg.js" | prepend: site.baseurl }}'></script>
