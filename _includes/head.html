@@ -1,7 +1,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    {% if site.google.site_verification %}
+    <meta name="google-site-verification" content="{{ site.google.site_verification }}" />
+    {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="description" content="{{ site.description }}">
     <meta name="keywords" content="{{ site.keyword }}">
@@ -68,10 +70,21 @@
     <script></script>
 
     <!-- Google AdSense -->
-    <script data-ad-client="ca-pub-6487568398225121" async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="{{ site.google.adsense.data_ad_client }}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
 
     <!-- MD5 -->
     <script src="{{ "/js/md5.min.js" | prepend: site.baseurl }}"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    {% if site.google.analytics.measurement_id %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google.analytics.measurement_id }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '{{ site.google.analytics.measurement_id }}');
+    </script>
+    {% endif %}
 
 </head>

@@ -1,7 +1,29 @@
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- first shot -->
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6487568398225121" data-ad-slot="4814308751"
-     data-ad-format="auto" data-full-width-responsive="true"></ins>
+<hr>
+
+<!-- <script async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.google.adsense.data_ad_client }}"
+  crossorigin="anonymous"></script> -->
+
+<!-- Oscaner's Vertical Ad -->
+{% if include.type == 'vertical' %}
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="{{ site.google.adsense.data_ad_client }}"
+     data-ad-slot="9854314539"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+
+<!-- Oscaner's Horizontal Ad -->
+{% elsif include.type == 'herizontal' %}
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="{{ site.google.adsense.data_ad_client }}"
+     data-ad-slot="2277392638"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+
+{% endif %}
+
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

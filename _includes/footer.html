@@ -117,11 +117,11 @@
 
 
 <!-- Google Analytics -->
-{% if site.ga_track_id %}
+{% if site.google.analytics.track_id %}
 <script>
-    // dynamic User by Hux
-    var _gaId = '{{ site.ga_track_id }}';
-    var _gaDomain = '{{ site.ga_domain }}';
+    // dynamic User by Oscaner
+    var _gaId = '{{ site.google.analytics.track_id }}';
+    var _gaDomain = '{{ site.google.analytics.domain }}';
 
     // Originial
     (function (i, s, o, g, r, a, m) {
@@ -135,7 +135,6 @@
     ga('send', 'pageview');
 </script>
 {% endif %}
-
 
 <!-- Baidu Tongji -->
 {% if site.ba_track_id %}

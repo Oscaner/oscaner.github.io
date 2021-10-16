@@ -80,6 +80,16 @@ jekyll-spaceship:
     - emoji-processor
 
 
+# Sitemap settings
+defaults:
+  -
+    scope:
+      path: "googlee58ffc7a9a1ba566.html"
+    values:
+      sitemap: false
+
+
+
 # Markdown settings
 # replace redcarpet to kramdown,
 # although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
@@ -104,9 +114,19 @@ netease_comment: false
 # Baidu Analytics
 # ba_track_id: [your track id]
 
-# Google Analytics
-ga_track_id: ''            # Format: UA-xxxxxx-xx
-ga_domain: ''
+# Google.
+google:
+  # Google site verification
+  site_verification: 'clzGAgkJY2WD5IGr5G6KZS9xymJYL_IH2QIEettmobY'
+  # Google Analytics
+  analytics:
+    track_id: '' # Format: UA-xxxxxx-xx
+    measurement_id: 'G-R9FFJYC4P1'
+    domain: www.oscaner.com
+  # Google Adsense
+  adsense:
+    data_ad_client: 'ca-pub-3286495153411959'
+    # data_ad_client: ''
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
