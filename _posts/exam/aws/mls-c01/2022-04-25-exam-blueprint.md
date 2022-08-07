@@ -10,11 +10,11 @@ no-catalog: false
 categories:
   - exam
   - aws
-  - machine learning
+  - mls
 tags:
   - Exam
   - AWS
-  - Machine Learning
+  - MLS
 ---
 
 ![1.png](/img/in-post/skill/machine-learning/post-exam-blueprint/1.png)
