@@ -245,6 +245,10 @@ div.directories .post-preview .post-subtitle {
   clear: both;
 }
 
+div.directories .post-preview .post-content-preview {
+  clear: both;
+}
+
 /* Page - 404 */
 body.body404 h1 {
     margin: 0 auto;
