@@ -12,12 +12,11 @@
   {% if is_sub and directory_url_size == page_url_size_plus and directory.url <> page.url %}
     <div class="post-preview">
       <a href="{{ directory.url | prepend: site.baseurl }}">
-        <h2 class="post-title" style="line-height: 1;">
+        <h2 class="post-title">
           「{{ directory.title }}」
-          <br>
-          <sub>-「{{ directory.description }}」</sub>
         </h2>
       </a>
+      <sub>-「{{ directory.description }}」</sub>
       <a href="{{ directory.url | prepend: site.baseurl }}">
         <h3 class="post-subtitle"> -> {{ directory.url | absolute_url }} </h3>
       </a>
@@ -34,11 +33,10 @@
   {% if is_sub and post_url_size == page_url_size_plus and post.url <> page.url %}
     <div class="post-preview">
         <a href="{{ post.url | prepend: site.baseurl }}">
-            <h2 class="post-title" style="line-height: 1;">
+            <h2 class="post-title">
                 {{ post.title }}
-                <br>
-                <sub>-「{{ page.description }} / {{ page.title }}」</sub>
             </h2>
+            <sub>-「{{ page.description }} / {{ page.title }}」</sub>
             {% if post.subtitle %}
             <h3 class="post-subtitle">
                 {{ post.subtitle }}

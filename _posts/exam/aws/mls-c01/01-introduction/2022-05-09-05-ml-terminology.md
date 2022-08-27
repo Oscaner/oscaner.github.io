@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[MLS-C01] [Introduction] Machine Learning Terminology"
+title: "[MLS-C01] [Intro] Machine Learning Terminology"
 date: 2022-05-09 20:31
 author: "Oscaner"
 header-img: "img/post-bg-alitrip.jpg"

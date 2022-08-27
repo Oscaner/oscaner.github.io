@@ -221,17 +221,28 @@ div.post-container h6 {
 }
 
 /* Directories */
+div.directories .post-preview .post-title {
+  margin-bottom: 5px;
+}
 
-div.directories .post-preview .post-title sub {
-  font-size: 50%;
+div.directories .post-preview sub {
+  font-size: 80%;
   font-weight: 300;
   margin-top: 0px;
+  float: right;
+  margin-right: 5%;
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+
 }
 
 div.directories .post-preview .post-subtitle {
   white-space: nowrap;
   overflow: hidden;
   text-overflow:ellipsis;
+  clear: both;
 }
 
 /* Page - 404 */

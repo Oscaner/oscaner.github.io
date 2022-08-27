@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[MLS-C01] [Introduction] Course Focus"
+title: "[MLS-C01] [Intro] Course Focus"
 subtitle: "Goals of the course"
 date: 2022-05-09 20:31
 author: "Oscaner"
