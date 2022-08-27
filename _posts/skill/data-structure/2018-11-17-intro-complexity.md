@@ -105,7 +105,7 @@ $ \ln (n) $ | $ \lg (n) $ | $ \log_{100} (n) $ | $ \log_{2013} (n) $ |
 
 从 $ O(n^c) $ 到 $ O(2^n) $, 是从有效算法到无效算法的分水岭
 
-![1.png](/img/in-post/skill/data-structure/post-intro-complexity/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-intro-complexity/1.png)
 
 很多问题的 $ O(2^n) $ 算法往往显而易见。然而, 设计出 $ O(n^c) $ 算法却极其不易, 甚至有时注定只能徒劳无功
 

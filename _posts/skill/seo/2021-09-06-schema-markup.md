@@ -43,7 +43,7 @@ Schema Markup，也称为结构化数据，是 Search Engines (搜索引擎) 的
 
 反过来，这也有助于在搜索引擎的 Rich Snippets 中为用户提供更好、更准确的信息。
 
-![1.png](/img/in-post/skill/seo/post-schema-markup/1.png)
+![1.png](/assets/img/in-post/skill/seo/post-schema-markup/1.png)
 
 有一些 Schema 您可能非常熟悉，但没有意识到，如，评级/评价，产品/服务，以及在您输入某些查询时直接出现的新闻文章。
 
@@ -75,7 +75,7 @@ Organization 阐明了您的公司介绍，包括 logo，联系方式，位置�
 
 它能够帮助用户快速查找到您的组织资料以及联系方式。
 
-![2.png](/img/in-post/skill/seo/post-schema-markup/2.png)
+![2.png](/assets/img/in-post/skill/seo/post-schema-markup/2.png)
 
 ### Person
 
@@ -87,7 +87,7 @@ Google 认为您在搜索某个人名时，可能是为了查看他的基本信�
 
 通过这个 Schema Markup，Google 会直接提供一个 Card 给您，而无需点进其他网站。
 
-![3.png](/img/in-post/skill/seo/post-schema-markup/3.png)
+![3.png](/assets/img/in-post/skill/seo/post-schema-markup/3.png)
 
 ### LocalBusiness
 
@@ -106,7 +106,7 @@ Product 和 Offer Schema Markup 用于销售产品或服务，两者都允许传
 
 但 Offer 还需要 price 和 priceCurrency，而 Product 只需要 name。
 
-![4.png](/img/in-post/skill/seo/post-schema-markup/4.png)
+![4.png](/assets/img/in-post/skill/seo/post-schema-markup/4.png)
 
 它有助于您的产品/服务脱颖而出。
 
@@ -116,7 +116,7 @@ Product 和 Offer Schema Markup 用于销售产品或服务，两者都允许传
 
 BreadcrumbList 列出了指向当前页面的路径链接。它可以帮助用户确定他们的位置，有助于降低跳出率。
 
-![5.png](/img/in-post/skill/seo/post-schema-markup/5.png)
+![5.png](/assets/img/in-post/skill/seo/post-schema-markup/5.png)
 
 ### Article
 
@@ -128,7 +128,7 @@ Article Schema Markup 在新闻和博客中非常常见。
 
 但是，对于不同类型的文章，Article 类型也有所不同，如博客、新闻以及学术文章。
 
-![6.png](/img/in-post/skill/seo/post-schema-markup/6.png)
+![6.png](/assets/img/in-post/skill/seo/post-schema-markup/6.png)
 
 ### Video
 
@@ -138,7 +138,7 @@ Video Schema Markup 可以有效的帮助 Google 抓去您网站上的视频，�
 
 它也能将您的视频放置在 Google 的搜索界面。
 
-![7.png](/img/in-post/skill/seo/post-schema-markup/7.png)
+![7.png](/assets/img/in-post/skill/seo/post-schema-markup/7.png)
 
 ### Event
 
@@ -146,7 +146,7 @@ Video Schema Markup 可以有效的帮助 Google 抓去您网站上的视频，�
 
 Event Schema Markup 用于提供一些事件的附加信息，如开始日期、结束日期、地点和价格。
 
-![8.png](/img/in-post/skill/seo/post-schema-markup/8.png)
+![8.png](/assets/img/in-post/skill/seo/post-schema-markup/8.png)
 
 这有助于人们更轻松的寻找他们需要的活动，并为他们提供基本信息。
 
@@ -156,7 +156,7 @@ Event Schema Markup 用于提供一些事件的附加信息，如开始日期、
 
 Recipe Schema Markup 旨在让食谱网站显示 Rich Snippet。
 
-![9.png](/img/in-post/skill/seo/post-schema-markup/9.png)
+![9.png](/assets/img/in-post/skill/seo/post-schema-markup/9.png)
 
 除了让搜索者感到饥饿之外，它还可以帮助他们评估成品。
 
@@ -171,7 +171,7 @@ Rating Schema Markup 直接在 SERP 页面将 Rating 展示给您。
 
 这可以帮助用户在无需深入搜索的情况下获取有用的买家信息。
 
-![10.png](/img/in-post/skill/seo/post-schema-markup/10.png)
+![10.png](/assets/img/in-post/skill/seo/post-schema-markup/10.png)
 
 ## Schema 编码类型
 
@@ -179,7 +179,7 @@ Rating Schema Markup 直接在 SERP 页面将 Rating 展示给您。
 
 这是 [Google](https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data){:target="_blank"}{:rel="nofollow"} 对于三种语言的描述，并且建议使用 `JSON-LD`。
 
-![11.png](/img/in-post/skill/seo/post-schema-markup/11.png)
+![11.png](/assets/img/in-post/skill/seo/post-schema-markup/11.png)
 
 ### RFDa
 
@@ -262,13 +262,13 @@ Microdata 与 RDFa 类似，属性包括如下:
 
 1. Goto [Google's Structure Data Markup Helper](https://www.google.com/webmasters/markup-helper/){:target="_blank"}{:rel="nofollow"}
 
-    ![12.png](/img/in-post/skill/seo/post-schema-markup/12.png)
+    ![12.png](/assets/img/in-post/skill/seo/post-schema-markup/12.png)
 
 2. 选择您的数据类型。
 3. 输入您页面的 URL。
 4. 选择您要标记的元素类型。
 
-    ![13.png](/img/in-post/skill/seo/post-schema-markup/13.png)
+    ![13.png](/assets/img/in-post/skill/seo/post-schema-markup/13.png)
 
     如果有需要，可以通过 `添加缺失的标记` 添加更多元素类型
 

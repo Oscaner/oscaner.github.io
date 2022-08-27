@@ -21,13 +21,13 @@ tags:
 
 ## 操作与接口
 
-![1.png](/img/in-post/skill/data-structure/post-stack-interface/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-stack-interface/1.png)
 
 ## 操作实例
 
 LIFO: Last In First Out
 
-![2.png](/img/in-post/skill/data-structure/post-stack-interface/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-stack-interface/2.png)
 
 ## 实现
 

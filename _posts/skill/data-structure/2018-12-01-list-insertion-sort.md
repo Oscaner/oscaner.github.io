@@ -21,7 +21,7 @@ tags:
 
 ## 构思
 
-![1.png](/img/in-post/skill/data-structure/post-list-insertion-sort/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-list-insertion-sort/1.png)
 
 始终将序列看成两部分:
 
@@ -36,7 +36,7 @@ tags:
 
 ## 实例
 
-![2.png](/img/in-post/skill/data-structure/post-list-insertion-sort/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-list-insertion-sort/2.png)
 
 ## 实现
 
@@ -59,7 +59,7 @@ void List<T>::insertionSort(Posi(T) p, int n) {
 
 ## 平均性能
 
-![3.png](/img/in-post/skill/data-structure/post-list-insertion-sort/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-list-insertion-sort/3.png)
 
 假定: 各元素的取值遵守均匀、独立分布
 

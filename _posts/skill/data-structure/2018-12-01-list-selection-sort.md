@@ -21,7 +21,7 @@ tags:
 
 ## 实例
 
-![1.png](/img/in-post/skill/data-structure/post-list-selection-sort/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-list-selection-sort/1.png)
 
 ## 实现: selectionSort()
 
@@ -38,7 +38,7 @@ void List<T>::selectionSort(Posi(T) p, int n) {
 }
 ```
 
-![2.png](/img/in-post/skill/data-structure/post-list-selection-sort/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-list-selection-sort/2.png)
 
 ## 实现: selectMax()
 
@@ -53,7 +53,7 @@ Posi(T) List<T>::selectMax(Posi(T) p, int n) { // O(n)
 }
 ```
 
-![3.png](/img/in-post/skill/data-structure/post-list-selection-sort/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-list-selection-sort/3.png)
 
 ## 性能
 

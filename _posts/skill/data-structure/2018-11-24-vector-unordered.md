@@ -55,7 +55,7 @@ Rank Vector<T>::insert(Rank r, T const & e) { // O(n - r)
 }
 ```
 
-![1.png](/img/in-post/skill/data-structure/post-vector-unordered/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-vector-unordered/1.png)
 
 ## 元素删除
 
@@ -72,7 +72,7 @@ int Vector<T>::remove(Rank lo, Rank hi) { // O(n - hi)
 }
 ```
 
-![2.png](/img/in-post/skill/data-structure/post-vector-unordered/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-vector-unordered/2.png)
 
 ### 单元素删除
 
@@ -101,7 +101,7 @@ Rank Vector<T>::find(T const & e, Rank lo, Rank hi) const { // O(hi - lo) = O(n)
 } // Excel::match(e, range, type)
 ```
 
-![3.png](/img/in-post/skill/data-structure/post-vector-unordered/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-vector-unordered/3.png)
 
 ## 元素去重
 
@@ -134,7 +134,7 @@ int Vector<T>::deduplicate() { // 繁琐版 + 错误版
 
 故算法必然终止, 且至多迭代 $ O(n) $ 轮
 
-![4.png](/img/in-post/skill/data-structure/post-vector-unordered/4.png)
+![4.png](/assets/img/in-post/skill/data-structure/post-vector-unordered/4.png)
 
 ### 复杂度
 

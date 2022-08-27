@@ -44,7 +44,7 @@ void max2(int A[], int lo, int hi, int &x1, int &x2) // 1 < n = hi - lo
 }
 ```
 
-![1.png](/img/in-post/skill/data-structure/post-intro-recursion-iteration-3/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-intro-recursion-iteration-3/1.png)
 
 无论如何, 比较次数总是 $ T(n) = hi - lo - 1 + xi - lo - 1 + hi - x1 - 1 = \Theta (2n - 3) $
 
@@ -62,7 +62,7 @@ void max2(int A[], int lo, int hi, int &x1, int &x2) // 1 < n = hi - lo
 }
 ```
 
-![2.png](/img/in-post/skill/data-structure/post-intro-recursion-iteration-3/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-intro-recursion-iteration-3/2.png)
 
 最好情况：$ 1 + (n - 2) * 1 = n - 1 $
 
@@ -100,4 +100,4 @@ void max2(int A[], int lo, int hi, int &x1, int &x2) {
 } // T(n) = 2 * T(n/2) + 2 <= 5n/3 - 2
 ```
 
-![5.png](/img/in-post/skill/data-structure/post-intro-recursion-iteration-3/5.png)
+![5.png](/assets/img/in-post/skill/data-structure/post-intro-recursion-iteration-3/5.png)

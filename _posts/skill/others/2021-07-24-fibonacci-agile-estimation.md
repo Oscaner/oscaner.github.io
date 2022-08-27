@@ -146,7 +146,7 @@ Story Points 用于表示完成或实施 User Story 所需要的规模、复杂�
 
     刚接触敏捷的团队可能会将卡片上的数字与时间进行混淆, 因此基于简单符号做估算可能更加有利。
 
-![1.png](/img/in-post/skill/others/post-fibonacci-agile-estimation/1.png)
+![1.png](/assets/img/in-post/skill/others/post-fibonacci-agile-estimation/1.png)
 
 ## 总结
 

@@ -57,7 +57,7 @@ $ T(n) = 1 + n * 1 + 1 = n + 2 = O(n) = \Omega (n) = \Theta (n) $
 
 3. 由子问题的解, 得到原问题的解
 
-![1.png](/img/in-post/skill/data-structure/post-intro-recursion-iteration-1/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-intro-recursion-iteration-1/1.png)
 
 ## 数组求和: 线性递归
 
@@ -75,7 +75,7 @@ sum (int A[], int n) {
 
 3、其总和即算法执行时间
 
-![2.png](/img/in-post/skill/data-structure/post-intro-recursion-iteration-1/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-intro-recursion-iteration-1/2.png)
 
 本例中, 单个递归实例自身只需 $ O(1) $ 时间, 故:
 

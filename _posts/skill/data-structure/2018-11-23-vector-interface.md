@@ -31,7 +31,7 @@ tags:
     | 具体实现 | 内部的表示与实现 | 完整的算法 |
     | 多种实现 | 与复杂度密切相关 | 要考虑数据的具体存储机制 |
 
-![1.png](/img/in-post/skill/data-structure/post-vector-interface/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-vector-interface/1.png)
 
 ## 向量 ADT
 
@@ -39,7 +39,7 @@ tags:
 
 - 在 C/C++ 等高级语言中, 数组 `A[]` 中的元素与 `[0, n)` 内的编号一一对应
 
-    ![2.png](/img/in-post/skill/data-structure/post-vector-interface/2.png)
+    ![2.png](/assets/img/in-post/skill/data-structure/post-vector-interface/2.png)
 
 - 反之, 每个元素均由 (非负) 编号唯一指代, 并可直接访问
 
@@ -74,7 +74,7 @@ tags:
 | uniquify() | 剔除重复元素 | 有序向量 |
 | traverse() | 遍历向量并统一处理所有元素, 处理方法由函数对象指定 | 向量 |
 
-![3.png](/img/in-post/skill/data-structure/post-vector-interface/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-vector-interface/3.png)
 
 ## Vector 模板类
 
@@ -97,7 +97,7 @@ template <typename T> class Vector { // 向量模板类
 };
 ```
 
-![4.png](/img/in-post/skill/data-structure/post-vector-interface/4.png)
+![4.png](/assets/img/in-post/skill/data-structure/post-vector-interface/4.png)
 
 ### 构造与析构
 
@@ -138,4 +138,4 @@ void Vector<T>::copyFrom(T* const A, Rank lo, Rank hi) {
 }
 ```
 
-![5.png](/img/in-post/skill/data-structure/post-vector-interface/5.png)
+![5.png](/assets/img/in-post/skill/data-structure/post-vector-interface/5.png)

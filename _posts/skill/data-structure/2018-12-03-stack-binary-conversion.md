@@ -39,7 +39,7 @@ tags:
 
 ## 进制转换
 
-![1.png](/img/in-post/skill/data-structure/post-stack-binary-conversion/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-stack-binary-conversion/1.png)
 
 ```cpp
 void convert(Stack<char> &S, __int64 n, int base) {

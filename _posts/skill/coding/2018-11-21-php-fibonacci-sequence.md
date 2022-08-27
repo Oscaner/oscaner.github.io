@@ -59,4 +59,4 @@ if ($argc > 1) {
 }
 ```
 
-![1.png](/img/in-post/skill/coding/post-php-fibonacci-sequence/1.png)
+![1.png](/assets/img/in-post/skill/coding/post-php-fibonacci-sequence/1.png)

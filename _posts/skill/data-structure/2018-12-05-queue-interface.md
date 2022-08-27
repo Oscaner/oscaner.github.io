@@ -21,7 +21,7 @@ tags:
 
 ## 操作与接口
 
-![1.png](/img/in-post/skill/data-structure/post-queue-interface/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-queue-interface/1.png)
 
 队列 (queue) 也是受限的序列: 先进先出 (FIFO)、后进后出 (LILO)
 
@@ -31,7 +31,7 @@ tags:
 
 ## 操作实例
 
-![2.png](/img/in-post/skill/data-structure/post-queue-interface/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-queue-interface/2.png)
 
 ## 模板类
 

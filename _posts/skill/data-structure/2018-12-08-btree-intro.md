@@ -31,7 +31,7 @@ tags:
 
 隐含有序
 
-![1.png](/img/in-post/skill/data-structure/post-btree-intro/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-btree-intro/1.png)
 
 ## 基数
 
@@ -43,13 +43,13 @@ tags:
 
 当 $ n = 2^(h+1) - 1 $ 时，即所谓**满二叉树** (full binary tree)
 
-![2.png](/img/in-post/skill/data-structure/post-btree-intro/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-btree-intro/2.png)
 
 ## 真二叉树
 
 所谓真二叉树，就是节点的出度只能为 `2` 或 `0` 的二叉树
 
-![3.png](/img/in-post/skill/data-structure/post-btree-intro/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-btree-intro/3.png)
 
 ## 用二叉树描述多叉树
 
@@ -57,4 +57,4 @@ tags:
 
 多叉树均可转化并表示为二叉树 —— 回忆**长子兄弟表示法**
 
-![4.png](/img/in-post/skill/data-structure/post-btree-intro/4.png)
+![4.png](/assets/img/in-post/skill/data-structure/post-btree-intro/4.png)

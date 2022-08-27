@@ -55,4 +55,4 @@ else if ($argc == 1) echo convert($argv[1], 10) . "\n";
 else echo '请输入待操作数';
 ```
 
-![1.png](/img/in-post/skill/coding/post-php-binary-conversion/1.png)
+![1.png](/assets/img/in-post/skill/coding/post-php-binary-conversion/1.png)

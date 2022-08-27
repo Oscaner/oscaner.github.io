@@ -129,7 +129,7 @@ tags:
 
 最终的外包工作关系图如图所示:
 
-![1.png](/img/in-post/skill/others/post-web-load-balancing/1.png)
+![1.png](/assets/img/in-post/skill/others/post-web-load-balancing/1.png)
 
 ### 总结
 

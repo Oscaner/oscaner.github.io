@@ -67,4 +67,4 @@ for ($i = 0; $i < count($A); $i++) {
 }
 ```
 
-![1.png](/img/in-post/skill/coding/post-php-bubble-sort/1.png)
+![1.png](/assets/img/in-post/skill/coding/post-php-bubble-sort/1.png)

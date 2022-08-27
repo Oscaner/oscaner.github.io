@@ -31,19 +31,19 @@ void traverse(BinNodePosi(T) x, VST &visit) {
 } // T(n) = T(a) + O(1) + T(n-a-1) = O(n)
 ```
 
-![1.png](/img/in-post/skill/data-structure/post-btree-inorder/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-btree-inorder/1.png)
 
 ## 迭代
 
 ### 观察
 
-![2.png](/img/in-post/skill/data-structure/post-btree-inorder/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-btree-inorder/2.png)
 
 ### 思路
 
 从根出发沿左分支下行, 直到最深的节点 —— 它就是全局首先被访问者
 
-![3.png](/img/in-post/skill/data-structure/post-btree-inorder/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-btree-inorder/3.png)
 
 ### 算法
 
@@ -68,4 +68,4 @@ void travIn_I1(BinNodePosi(T) x, V &visit) {
 
 ### 实例
 
-![4.png](/img/in-post/skill/data-structure/post-btree-inorder/4.png)
+![4.png](/assets/img/in-post/skill/data-structure/post-btree-inorder/4.png)

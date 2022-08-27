@@ -98,4 +98,4 @@ echo 'A[x1] = ' . 'A[' . $x1 . '] = ' . $A[$x1] . "\n" .
      'A[x2] = ' . 'A[' . $x2 . '] = ' . $A[$x2] . "\n";
 ```
 
-![1.png](/img/in-post/skill/coding/post-php-two-max/1.png)
+![1.png](/assets/img/in-post/skill/coding/post-php-two-max/1.png)

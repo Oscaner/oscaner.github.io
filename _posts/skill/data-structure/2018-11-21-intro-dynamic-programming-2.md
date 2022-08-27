@@ -23,11 +23,11 @@ tags:
 
 子序列 (Subsequence): 由序列中若干字符, 按原相对次序构成
 
-![1.png](/img/in-post/skill/data-structure/post-intro-dynamic-programming-2/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-intro-dynamic-programming-2/1.png)
 
 最长公共子序列 (Longest Common Subsequence): 两个序列公共子序列中的最长者
 
-![2.png](/img/in-post/skill/data-structure/post-intro-dynamic-programming-2/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-intro-dynamic-programming-2/2.png)
 
 ## LCS(): 递归
 
@@ -37,15 +37,15 @@ tags:
 
 2. 减而治之: 若 `A[n] = 'X' = B[m]`, 则取作 `LCS(A[0, n), B[0, m)) + 'X'`
 
-![3.png](/img/in-post/skill/data-structure/post-intro-dynamic-programming-2/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-intro-dynamic-programming-2/3.png)
 
 3. 分而治之: 若 `A[n] ≠ B[m]`, 则在 `LCS(A[0, n], B[0, m))` 与 `LCS(A[0, n), B[0, m])` 中取更长者
 
-![4.png](/img/in-post/skill/data-structure/post-intro-dynamic-programming-2/4.png)
+![4.png](/assets/img/in-post/skill/data-structure/post-intro-dynamic-programming-2/4.png)
 
 ## LCS(): 理解
 
-![5.png](/img/in-post/skill/data-structure/post-intro-dynamic-programming-2/5.png)
+![5.png](/assets/img/in-post/skill/data-structure/post-intro-dynamic-programming-2/5.png)
 
 1. 单调性: 无论如何, 每经过一次比对, 原问题的规模必可减小。
 
@@ -57,7 +57,7 @@ tags:
 
     更糟糕的是, 它们在随后进一步导出的子问题, 可能雷同。
 
-    ![6.png](/img/in-post/skill/data-structure/post-intro-dynamic-programming-2/6.png)
+    ![6.png](/assets/img/in-post/skill/data-structure/post-intro-dynamic-programming-2/6.png)
 
     在最坏情况下, `LCS(A[0, a], B[0, b])` 出现的次数为
 
@@ -107,7 +107,7 @@ tags:
 
 2. 颠倒计算方向, 从 `LCS(A[0], B[0])` 出发依次计算出所有项
 
-![7.png](/img/in-post/skill/data-structure/post-intro-dynamic-programming-2/7.png)
+![7.png](/assets/img/in-post/skill/data-structure/post-intro-dynamic-programming-2/7.png)
 
 ## 算法实现
 

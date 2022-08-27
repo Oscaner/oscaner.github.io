@@ -39,7 +39,7 @@ int Vector<T>::disordered() const {
 
 ## 元素去重 (低效版)
 
-![1.png](/img/in-post/skill/data-structure/post-vector-ordered/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-vector-ordered/1.png)
 
 - 观察: 在有序向量中, 重复的元素必然相互紧邻构成一个区间。因此, 每一区间只需保留单个元素即可
 
@@ -57,7 +57,7 @@ int Vector<T>::disordered() const {
 
     运行时间主要取决于 `while` 循环, 次数共计: `_size - 1 = n - 1`
 
-    ![2.png](/img/in-post/skill/data-structure/post-vector-ordered/2.png)
+    ![2.png](/assets/img/in-post/skill/data-structure/post-vector-ordered/2.png)
 
     最坏情况: 每次都需调用 `remove()`, 耗时 $ O(n - 1) \sim O(1) $, 累计 $ O(n^2) $
 
@@ -69,7 +69,7 @@ int Vector<T>::disordered() const {
 
 - 启示: 若能以重复区间为单位, 成批删除雷同元素, 性能必将改进
 
-    ![3.png](/img/in-post/skill/data-structure/post-vector-ordered/3.png)
+    ![3.png](/assets/img/in-post/skill/data-structure/post-vector-ordered/3.png)
 
     ```cpp
     template <typename T>
@@ -84,4 +84,4 @@ int Vector<T>::disordered() const {
 
 - 实例与复杂度
 
-    ![4.png](/img/in-post/skill/data-structure/post-vector-ordered/4.png)
+    ![4.png](/assets/img/in-post/skill/data-structure/post-vector-ordered/4.png)

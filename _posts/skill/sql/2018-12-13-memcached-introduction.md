@@ -130,7 +130,7 @@ length 设置有多长，值也必须有多长，不然会报 `CLIENT_ERROR bad 
 
 Slab Allocation 的基本原理是将分配的内存分割成各种尺寸的块（chunk）， 并把尺寸相同的块分成组（chunk的集合），每个chunk集合被称为 slab。
 
-![slab_allocation.png](/img/in-post/skill/sql/post-memcached-introduction/slab_allocation.png)
+![slab_allocation.png](/assets/img/in-post/skill/sql/post-memcached-introduction/slab_allocation.png)
 
 ### Slab Allocation 缓存原理
 
@@ -138,7 +138,7 @@ Memcached 根据收到的数据大小，选择最适合数据大小的 slab。
 
 并且 Memcached 中保存着 slab 内空闲 chunk 的列表，根据该列表选择 chunk，然后将数据缓存于其中。
 
-![slab_classes.png](/img/in-post/skill/sql/post-memcached-introduction/slab_classes.png)
+![slab_classes.png](/assets/img/in-post/skill/sql/post-memcached-introduction/slab_classes.png)
 
 ### Slab Allocation 缺点
 

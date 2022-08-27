@@ -63,7 +63,7 @@ Posi(T) ListNode<T>::insertAsPred(T const &e) { // O(10
 }
 ```
 
-![1.png](/img/in-post/skill/data-structure/post-list-unordered/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-list-unordered/1.png)
 
 ## 复制
 
@@ -89,7 +89,7 @@ T List<T>::remove(Posi(T) p) { // O(1)
 }
 ```
 
-![2.png](/img/in-post/skill/data-structure/post-list-unordered/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-list-unordered/2.png)
 
 ## 析构
 
@@ -108,7 +108,7 @@ int List<T>::clear() { // 清空列表
 } // O(n)，线性正比于列表规模
 ```
 
-![3.png](/img/in-post/skill/data-structure/post-list-unordered/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-list-unordered/3.png)
 
 ## 唯一化
 

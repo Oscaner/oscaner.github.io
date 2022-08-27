@@ -31,7 +31,7 @@ $ T = V \cup L \cup R $
 | :--: | :--: | :--: | :--: |
 | **V** \| L \| R | L \| **V** \| R | L \| R \| **V** | 自上而下，先左后右 |
 
-![1.png](/img/in-post/skill/data-structure/post-btree-preorder/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-btree-preorder/1.png)
 
 ## 递归
 
@@ -45,7 +45,7 @@ void traverse(BinNodePosi(T) x, VST &visit) {
 } // T(n) = O(1) + T(a) + T(n-a-1) = O(n)
 ```
 
-![2.png](/img/in-post/skill/data-structure/post-btree-preorder/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-btree-preorder/2.png)
 
 ## 迭代1
 
@@ -66,17 +66,17 @@ void travPre_I1(BinNodePosi(T) x, VST &visit) {
 
 ### 实例
 
-![3.png](/img/in-post/skill/data-structure/post-btree-preorder/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-btree-preorder/3.png)
 
 ## 迭代2
 
 ### 思路
 
-![4.png](/img/in-post/skill/data-structure/post-btree-preorder/4.png)
+![4.png](/assets/img/in-post/skill/data-structure/post-btree-preorder/4.png)
 
 ### 构思
 
-![5.png](/img/in-post/skill/data-structure/post-btree-preorder/5.png)
+![5.png](/assets/img/in-post/skill/data-structure/post-btree-preorder/5.png)
 
 ### 算法
 
@@ -103,4 +103,4 @@ void travPre_I2(BinNodePosi(T) x, VST &visit) {
 
 ### 实例
 
-![6.png](/img/in-post/skill/data-structure/post-btree-preorder/6.png)
+![6.png](/assets/img/in-post/skill/data-structure/post-btree-preorder/6.png)

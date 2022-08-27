@@ -97,41 +97,41 @@ dbfilename dump_6381.rdb
 
 1. Init 初始化
 
-    ![1.png](/img/in-post/skill/sql/post-redis-master-slave/1.png)
+    ![1.png](/assets/img/in-post/skill/sql/post-redis-master-slave/1.png)
 
-    ![2.png](/img/in-post/skill/sql/post-redis-master-slave/2.png)
+    ![2.png](/assets/img/in-post/skill/sql/post-redis-master-slave/2.png)
 
 2. 一个 Master 两个 Slave
 
-    ![3.png](/img/in-post/skill/sql/post-redis-master-slave/3.png)
+    ![3.png](/assets/img/in-post/skill/sql/post-redis-master-slave/3.png)
 
-    ![4.png](/img/in-post/skill/sql/post-redis-master-slave/4.png)
+    ![4.png](/assets/img/in-post/skill/sql/post-redis-master-slave/4.png)
 
 3. 日志查看
 
-    ![10.png](/img/in-post/skill/sql/post-redis-master-slave/10.png)
+    ![10.png](/assets/img/in-post/skill/sql/post-redis-master-slave/10.png)
 
 4. 主从问题演示
 
     - 读写分离: Master can read and write, Slave only read
 
-        ![5.png](/img/in-post/skill/sql/post-redis-master-slave/5.png)
+        ![5.png](/assets/img/in-post/skill/sql/post-redis-master-slave/5.png)
 
     - 主机故障: Master shutdown, Slave waitting
 
-        ![6.png](/img/in-post/skill/sql/post-redis-master-slave/6.png)
+        ![6.png](/assets/img/in-post/skill/sql/post-redis-master-slave/6.png)
 
     - 主机恢复: Master recover, Slave auto relink
 
-        ![7.png](/img/in-post/skill/sql/post-redis-master-slave/7.png)
+        ![7.png](/assets/img/in-post/skill/sql/post-redis-master-slave/7.png)
 
     - 从机故障: Slave shutdown and then recover, but it become a master
 
-        ![8.png](/img/in-post/skill/sql/post-redis-master-slave/8.png)
+        ![8.png](/assets/img/in-post/skill/sql/post-redis-master-slave/8.png)
 
     - 每次与 Master 断开连接后, 都需要重新连接, 除非在 redis.conf 中进行配置
 
-        ![9.png](/img/in-post/skill/sql/post-redis-master-slave/9.png)
+        ![9.png](/assets/img/in-post/skill/sql/post-redis-master-slave/9.png)
 
 #### 薪火相传: 去中心化
 
@@ -139,9 +139,9 @@ dbfilename dump_6381.rdb
 
 中途变更转向: 会清除之前的数据, 重新建立拷贝最新的
 
-![11.png](/img/in-post/skill/sql/post-redis-master-slave/11.png)
+![11.png](/assets/img/in-post/skill/sql/post-redis-master-slave/11.png)
 
-![12.png](/img/in-post/skill/sql/post-redis-master-slave/12.png)
+![12.png](/assets/img/in-post/skill/sql/post-redis-master-slave/12.png)
 
 #### 反客为主
 
@@ -149,7 +149,7 @@ Master shutdown, 两个 Slave 中选择一个成为 Master
 
 `slaveof no one`: 使当前数据库停止与其他数据库的同步, 转成主数据库
 
-![13.png](/img/in-post/skill/sql/post-redis-master-slave/13.png)
+![13.png](/assets/img/in-post/skill/sql/post-redis-master-slave/13.png)
 
 ## 复制原理
 
@@ -183,17 +183,17 @@ Master shutdown, 两个 Slave 中选择一个成为 Master
 
     上面最后一个数字 1, 表示 Master shutdown 后, Slave 投票看让谁接替成为 Master, 得票多者成为 Master
 
-    ![14.png](/img/in-post/skill/sql/post-redis-master-slave/14.png)
+    ![14.png](/assets/img/in-post/skill/sql/post-redis-master-slave/14.png)
 
 4. 启动哨兵
 
     `redis-sentinel /backup_conf/sentinel.conf`
 
-    ![15.png](/img/in-post/skill/sql/post-redis-master-slave/15.png)
+    ![15.png](/assets/img/in-post/skill/sql/post-redis-master-slave/15.png)
 
 5. 正常主从演示
 
-    ![16.png](/img/in-post/skill/sql/post-redis-master-slave/16.png)
+    ![16.png](/assets/img/in-post/skill/sql/post-redis-master-slave/16.png)
 
 6. Master shutdown
 
@@ -201,13 +201,13 @@ Master shutdown, 两个 Slave 中选择一个成为 Master
 
 8. 重新主从, 继续开工
 
-    ![17.png](/img/in-post/skill/sql/post-redis-master-slave/17.png)
+    ![17.png](/assets/img/in-post/skill/sql/post-redis-master-slave/17.png)
 
 9. Q&A: 如果之前的 Master 重启回来, 是否会造成双 Master 冲突？
 
     不会造成冲突, 并且之前的 Master 会变成新 Master 的 Slave (老领导变小弟)
 
-    ![18.png](/img/in-post/skill/sql/post-redis-master-slave/18.png)
+    ![18.png](/assets/img/in-post/skill/sql/post-redis-master-slave/18.png)
 
 ### 最后
 

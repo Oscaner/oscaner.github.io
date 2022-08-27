@@ -58,7 +58,7 @@ $ L = \lbrace a_0, a_1, \cdots , a_{n-1} \rbrace $
 
 没有前驱/后继的**唯一**节点称作**首** (first/front) /**末** (last/rear) 节点
 
-![1.png](/img/in-post/skill/data-structure/post-list-interface/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-list-interface/1.png)
 
 ## 从秩到位置
 
@@ -76,7 +76,7 @@ V[i] 的物理地址 = V + i * s, s 为单个单元占用的空间量
 
 亦即, 应转而利用节点之间的相互引用, 找到特定的节点
 
-![2.png](/img/in-post/skill/data-structure/post-list-interface/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-list-interface/2.png)
 
 ## 列表节点：ADT 接口
 
@@ -110,7 +110,7 @@ struct ListNode { .. 列表节点模板类 (以双向链表形式实现)
 }
 ```
 
-![3.png](/img/in-post/skill/data-structure/post-list-interface/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-list-interface/3.png)
 
 ## 列表：ADT 接口
 
@@ -144,7 +144,7 @@ template <typename T> class List { // 列表模板类
 };
 ```
 
-![4.png](/img/in-post/skill/data-structure/post-list-interface/4.png)
+![4.png](/assets/img/in-post/skill/data-structure/post-list-interface/4.png)
 
 等效的, **头、首、末、尾**节点的秩可分别理解为`-1、0、n-1、n`
 
@@ -161,4 +161,4 @@ void List<T>::init() { // 初始化, 创建列表对象时统一调用
 }
 ```
 
-![5.png](/img/in-post/skill/data-structure/post-list-interface/5.png)
+![5.png](/assets/img/in-post/skill/data-structure/post-list-interface/5.png)

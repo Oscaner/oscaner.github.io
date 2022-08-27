@@ -37,4 +37,4 @@ void BinNode<T>::travLevel(VST &visit) { // 二叉树层次遍历
 
 ## 实例
 
-![1.png](/img/in-post/skill/data-structure/post-btree-postorder/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-btree-postorder/1.png)

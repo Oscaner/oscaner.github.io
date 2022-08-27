@@ -123,7 +123,7 @@ tags:
 
 1. 演变过程
 
-    ![1.png](/img/in-post/skill/sql/post-nosql-intro/1.png)
+    ![1.png](/assets/img/in-post/skill/sql/post-nosql-intro/1.png)
 
 2. 第四代网站架构
 
@@ -148,7 +148,7 @@ tags:
 
 #### 多数据源多数据类型的存储问题
 
-![2.png](/img/in-post/skill/sql/post-nosql-intro/2.png)
+![2.png](/assets/img/in-post/skill/sql/post-nosql-intro/2.png)
 
 #### 商品基本信息
 
@@ -217,16 +217,16 @@ tags:
     - 并发保护: 拒绝访问频率过高的主机 IP 或 IP 段
     - 过滤高危的查询: 例如会导致数据库崩溃的全表扫描
 
-![3.png](/img/in-post/skill/sql/post-nosql-intro/3.png)
+![3.png](/assets/img/in-post/skill/sql/post-nosql-intro/3.png)
 
 #### 映射
 
-![4.png](/img/in-post/skill/sql/post-nosql-intro/4.png)
+![4.png](/assets/img/in-post/skill/sql/post-nosql-intro/4.png)
 
 #### API
 
-![5.png](/img/in-post/skill/sql/post-nosql-intro/5.png)
+![5.png](/assets/img/in-post/skill/sql/post-nosql-intro/5.png)
 
 #### 热点缓存
 
-![6.png](/img/in-post/skill/sql/post-nosql-intro/6.png)
+![6.png](/assets/img/in-post/skill/sql/post-nosql-intro/6.png)

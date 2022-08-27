@@ -48,17 +48,17 @@ tags:
 
 ## 构思
 
-![1.png](/img/in-post/skill/data-structure/post-stack-infix-expression/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-stack-infix-expression/1.png)
 
 延迟缓冲
 
-![3.png](/img/in-post/skill/data-structure/post-stack-infix-expression/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-stack-infix-expression/3.png)
 
 ## 实例
 
 求值算法 = 栈 + 线性扫描
 
-![3.png](/img/in-post/skill/data-structure/post-stack-infix-expression/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-stack-infix-expression/3.png)
 
 ## 实现：主算法
 
@@ -116,4 +116,4 @@ switch(orderBetween(optr.top(), *S) {
 
 ## 实例
 
-![4.png](/img/in-post/skill/data-structure/post-stack-infix-expression/4.png)
+![4.png](/assets/img/in-post/skill/data-structure/post-stack-infix-expression/4.png)

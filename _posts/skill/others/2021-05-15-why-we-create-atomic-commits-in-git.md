@@ -214,7 +214,7 @@ Atomic Commits (原子提交) 能够帮您解决此类问题, 使您的工作更
     3. 提及您所修复的 bug
     4. 如果可能, 在您的 commit message 中 reference 相应的 issue, 这在 Github 中非常常见 (e.g. `Fix #123: xxx`, `Fix xxx (#123)`)
 
-        ![1.png](/img/in-post/skill/others/post-why-we-create-atomic-commits-in-git/1.png)
+        ![1.png](/assets/img/in-post/skill/others/post-why-we-create-atomic-commits-in-git/1.png)
 
     当然, 这取决于您与您的开发人员之间的约定, 并非强制。
 

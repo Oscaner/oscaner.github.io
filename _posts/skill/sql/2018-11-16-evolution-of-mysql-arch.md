@@ -27,7 +27,7 @@ tags:
 
 在那个时候, 更多的都是静态网页, 动态交互类型的网站不多
 
-![1.png](/img/in-post/skill/sql/post-evolution-of-mysql-arch/1.png)
+![1.png](/assets/img/in-post/skill/sql/post-evolution-of-mysql-arch/1.png)
 
 从上述架构中, 我们很容易看到数据存储的瓶颈：
 
@@ -53,7 +53,7 @@ WEB 程序不再仅仅专注在功能上, 同时也在追求性能
 
 在这个时候, Memcached 就自然的成为了一个非常时尚的技术产品
 
-![2.png](/img/in-post/skill/sql/post-evolution-of-mysql-arch/2.png)
+![2.png](/assets/img/in-post/skill/sql/post-evolution-of-mysql-arch/2.png)
 
 ## MySQL 主从复制 + 读写分离
 
@@ -63,7 +63,7 @@ WEB 程序不再仅仅专注在功能上, 同时也在追求性能
 
 MySQL 的 master-slave 模式成为这个时候的网站标配
 
-![3.png](/img/in-post/skill/sql/post-evolution-of-mysql-arch/3.png)
+![3.png](/assets/img/in-post/skill/sql/post-evolution-of-mysql-arch/3.png)
 
 ## 分表分库 + 水平拆分 + MySQL 集群
 
@@ -83,7 +83,7 @@ MySQL 的 master-slave 模式成为这个时候的网站标配
 
 虽然 MySQL 推出了 MySQL Cluster 集群, 但性能也不能很好满足互联网的要求, 只是在高可靠性上提供了非常大的保证
 
-![4.png](/img/in-post/skill/sql/post-evolution-of-mysql-arch/4.png)
+![4.png](/assets/img/in-post/skill/sql/post-evolution-of-mysql-arch/4.png)
 
 ## MySQL 的扩展性瓶颈
 
@@ -97,7 +97,7 @@ MySQL 的扩展性差（需要复杂的技术来实现）, 大数据下 IO 压�
 
 ## 今天是什么样子
 
-![5.png](/img/in-post/skill/sql/post-evolution-of-mysql-arch/5.png)
+![5.png](/assets/img/in-post/skill/sql/post-evolution-of-mysql-arch/5.png)
 
 ## NoSQL 的发展
 

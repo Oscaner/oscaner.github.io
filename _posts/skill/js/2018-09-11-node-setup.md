@@ -51,7 +51,7 @@ tags:
 # 7.15.1
 ```
 
-![node-version.png](/img/in-post/skill/js/post-node-setup/node-version.png)
+![node-version.png](/assets/img/in-post/skill/js/post-node-setup/node-version.png)
 
 ## 第三步 - 淘宝镜像 (可选)
 

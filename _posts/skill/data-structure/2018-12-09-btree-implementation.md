@@ -38,7 +38,7 @@ struct BinNode {
 }
 ```
 
-![1.png](/img/in-post/skill/data-structure/post-btree-implementation/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-btree-implementation/1.png)
 
 ## BinNode: 接口
 
@@ -61,7 +61,7 @@ int BinNode<T>::size() { // 后代总数，亦即以其为根的子树的规模
 } // O(n = |size|)
 ```
 
-![2.png](/img/in-post/skill/data-structure/post-btree-implementation/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-btree-implementation/2.png)
 
 ## BinTree: 模板类
 
@@ -113,4 +113,4 @@ BinNodePosi(T) BinTree<T>::insertAsRC(BinNodePosi(T) x, T const &e) { // insertA
 }
 ```
 
-![3.png](/img/in-post/skill/data-structure/post-btree-implementation/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-btree-implementation/3.png)

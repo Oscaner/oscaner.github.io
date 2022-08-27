@@ -71,7 +71,7 @@ void bubbleSort(int A[], int n)
 
 3. 正确性: 经过至多 n 趟扫描后, 算法必然终止, 且能给出正确解答
 
-![6.png](/img/in-post/skill/data-structure/post-vector-bubble-sort/6.png)
+![6.png](/assets/img/in-post/skill/data-structure/post-vector-bubble-sort/6.png)
 
 ### 改进
 
@@ -113,7 +113,7 @@ Rank Vector<T>::bubble(Rank lo, Rank hi) {
 } // 前一版本中的逻辑型标志 sorted, 改为秩 last
 ```
 
-![1.png](/img/in-post/skill/data-structure/post-vector-bubble-sort/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-vector-bubble-sort/1.png)
 
 ## 综合评价
 
@@ -123,7 +123,7 @@ Rank Vector<T>::bubble(Rank lo, Rank hi) {
 
 重复元素在输入、输出序列中的相对次序, 是否保持不变?
 
-![2.png](/img/in-post/skill/data-structure/post-vector-bubble-sort/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-vector-bubble-sort/2.png)
 
 在起泡排序中, 元素 a 和 b 的相对位置发生变化, 只有一种可能:
 

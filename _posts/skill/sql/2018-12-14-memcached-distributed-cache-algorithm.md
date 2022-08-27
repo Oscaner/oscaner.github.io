@@ -109,6 +109,6 @@ echo 'name 键所在服务器: '; echo $con->lookup('name') . "\n";
 
 ```
 
-![1.png](/img/in-post/skill/sql/post-memcached-distributed-cache-algorithm/1.png)
+![1.png](/assets/img/in-post/skill/sql/post-memcached-distributed-cache-algorithm/1.png)
 
 事实上, 一致性哈希算法也做不到百分百缓存命中, 只不过相对于余数分步法来说, 缓存命中率得到了极大的提升。

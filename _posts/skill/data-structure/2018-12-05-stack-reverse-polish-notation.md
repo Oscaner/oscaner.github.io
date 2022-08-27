@@ -47,15 +47,15 @@ J.Lukasiewicz (12/21/1878 - 02/13/1956)
 
 在由运算符 (operator) 和操作数 (operand) 组成的表达式中不使用括号 (parenthesis-free), 即可表达带优先级的运算关系
 
-![1.png](/img/in-post/skill/data-structure/post-stack-reverse-polish-notation/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-stack-reverse-polish-notation/1.png)
 
-![2.png](/img/in-post/skill/data-structure/post-stack-reverse-polish-notation/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-stack-reverse-polish-notation/2.png)
 
-![3.png](/img/in-post/skill/data-structure/post-stack-reverse-polish-notation/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-stack-reverse-polish-notation/3.png)
 
 ## 体验
 
-![4.png](/img/in-post/skill/data-structure/post-stack-reverse-polish-notation/4.png)
+![4.png](/assets/img/in-post/skill/data-structure/post-stack-reverse-polish-notation/4.png)
 
 ## infix 到 postfix: 手工转换
 

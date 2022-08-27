@@ -103,7 +103,7 @@ for (int i = 0; i < n; i++) {
 }
 ```
 
-![1.png](/img/in-post/skill/data-structure/post-intro-algorithm-analysis/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-intro-algorithm-analysis/1.png)
 
 ### 算数级数: $ \sum_{i=0}^{n-1} i = 0 + 1 + \cdots + (n-1) = \frac{n(n-1)}{2} = O(n^2) $
 
@@ -115,7 +115,7 @@ for (int i = 0; i < n; i++) {
 }
 ```
 
-![2.png](/img/in-post/skill/data-structure/post-intro-algorithm-analysis/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-intro-algorithm-analysis/2.png)
 
 ### 算数级数: ...
 
@@ -127,7 +127,7 @@ for (int i = 0; i < n; i++) {
 }
 ```
 
-![3.png](/img/in-post/skill/data-structure/post-intro-algorithm-analysis/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-intro-algorithm-analysis/3.png)
 
 ### 几何级数: $ 1 + 2 + 4 + \cdots + 2^{ \lfloor \log_2 (n-1) \rfloor } = \sum_{k=0}^{ \lfloor \log_2 (n-1) \rfloor } 2^k = 2^{ \lceil \log_2 n \rceil } = O(n) $
 
@@ -139,7 +139,7 @@ for (int i = 1; i < n; i <<= 1) {
 }
 ```
 
-![4.png](/img/in-post/skill/data-structure/post-intro-algorithm-analysis/4.png)
+![4.png](/assets/img/in-post/skill/data-structure/post-intro-algorithm-analysis/4.png)
 
 ### 几何级数: ...
 
@@ -163,7 +163,7 @@ for (int i = 0; i <= n; i++) {
 }
 ```
 
-![5.png](/img/in-post/skill/data-structure/post-intro-algorithm-analysis/5.png)
+![5.png](/assets/img/in-post/skill/data-structure/post-intro-algorithm-analysis/5.png)
 
 ## 示例
 

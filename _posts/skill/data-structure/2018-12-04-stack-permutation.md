@@ -41,11 +41,11 @@ tags:
 
 ### 实例
 
-![2.png](/img/in-post/skill/data-structure/post-stack-permutation/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-stack-permutation/2.png)
 
 观察: 除了各种括号, 其余符号均可暂时忽略
 
-![3.png](/img/in-post/skill/data-structure/post-stack-permutation/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-stack-permutation/3.png)
 
 ### 尝试
 
@@ -53,23 +53,23 @@ tags:
 
 1. 减治?
 
-![4.png](/img/in-post/skill/data-structure/post-stack-permutation/4.png)
+![4.png](/assets/img/in-post/skill/data-structure/post-stack-permutation/4.png)
 
 2. 分治?
 
-![5.png](/img/in-post/skill/data-structure/post-stack-permutation/5.png)
+![5.png](/assets/img/in-post/skill/data-structure/post-stack-permutation/5.png)
 
 然而, 根据以上性质, 却不易直接应用已知的策略
 
 究其根源在于, 1 和 2 均为**必要性**, 比如反例:
 
-![6.png](/img/in-post/skill/data-structure/post-stack-permutation/6.png)
+![6.png](/assets/img/in-post/skill/data-structure/post-stack-permutation/6.png)
 
 ### 构思
 
 颠倒以上思路: 消去一对紧邻的左右括号, 不影响全局的匹配判断。亦即:
 
-![7.png](/img/in-post/skill/data-structure/post-stack-permutation/7.png)
+![7.png](/assets/img/in-post/skill/data-structure/post-stack-permutation/7.png)
 
 那么, 如何找到这对括号?
 
@@ -79,7 +79,7 @@ tags:
 
 反复迭代: 反遇 `(`, 则进栈；凡遇 `)`, 则出栈
 
-![8.png](/img/in-post/skill/data-structure/post-stack-permutation/8.png)
+![8.png](/assets/img/in-post/skill/data-structure/post-stack-permutation/8.png)
 
 ### 实现
 
@@ -96,7 +96,7 @@ bool paren(const char exp[], int lo, int hi) // exp[lo, hi)
 
 ### 实例
 
-![9.png](/img/in-post/skill/data-structure/post-stack-permutation/9.png)
+![9.png](/assets/img/in-post/skill/data-structure/post-stack-permutation/9.png)
 
 ### 拓展
 
@@ -106,7 +106,7 @@ bool paren(const char exp[], int lo, int hi) // exp[lo, hi)
 
 因此, 栈结构的思路和算法, 可便捷地推广至多种括号并存地情况
 
-![10.png](/img/in-post/skill/data-structure/post-stack-permutation/10.png)
+![10.png](/assets/img/in-post/skill/data-structure/post-stack-permutation/10.png)
 
 甚至, 只需约定"括号"地通用格式, 而不必事先固定括号地类型与数目
 
@@ -124,7 +124,7 @@ bool paren(const char exp[], int lo, int hi) // exp[lo, hi)
 
 则称之为 A 的一个栈混洗 (stack permutation)
 
-![11.png](/img/in-post/skill/data-structure/post-stack-permutation/11.png)
+![11.png](/assets/img/in-post/skill/data-structure/post-stack-permutation/11.png)
 
 ### 计数
 
@@ -136,7 +136,7 @@ bool paren(const char exp[], int lo, int hi) // exp[lo, hi)
 
 $$ SP(n) = \sum_{k=1}^{n} SP(k - 1) * SP(n - k) = catalan(n) = \frac{(2n)!}{(n+1)!n!} \leqslant n! $$
 
-![12.png](/img/in-post/skill/data-structure/post-stack-permutation/12.png)
+![12.png](/assets/img/in-post/skill/data-structure/post-stack-permutation/12.png)
 
 ### 甄别
 
@@ -146,7 +146,7 @@ $$ SP(n) = \sum_{k=1}^{n} SP(k - 1) * SP(n - k) = catalan(n) = \frac{(2n)!}{(n+1
 
 栈混洗 6! / 4! / 3! = 5 种, 全排列 3! = 6 种, 少了一种? 少的是 `[ 3, 1, 2 >`
 
-![13.png](/img/in-post/skill/data-structure/post-stack-permutation/13.png)
+![13.png](/assets/img/in-post/skill/data-structure/post-stack-permutation/13.png)
 
 观察: 任意三个元素能否按某相对次序出现于混洗中, 于其他元素无关。`123` 不能混洗成 `312`, 这是一类 **禁形**
 
@@ -172,4 +172,4 @@ $$ SP(n) = \sum_{k=1}^{n} SP(k - 1) * SP(n - k) = catalan(n) = \frac{(2n)!}{(n+1
 
 观察: 每一栈混洗, 都对应于栈 S 的 `n次push` 与 `n次pop` 操作构成的序列
 
-![14.png](/img/in-post/skill/data-structure/post-stack-permutation/14.png)
+![14.png](/assets/img/in-post/skill/data-structure/post-stack-permutation/14.png)

@@ -52,7 +52,7 @@ tags:
 
 `例如: 在平面上的 n 个点中, 找到所成三角形面积最小的三个点`
 
-![1.png](/img/in-post/skill/data-structure/post-intro-calc-mode/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-intro-calc-mode/1.png)
 
 以蛮力算法为例, 最坏情况下需枚举所有 $ C_n^3 $ 种组合, 但运气好的话一次即可
 
@@ -79,7 +79,7 @@ tags:
 
 ### 图灵机 (TM) 模型
 
-![2.png](/img/in-post/skill/data-structure/post-intro-calc-mode/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-intro-calc-mode/2.png)
 
 - Tape 依次均匀地划分为单元格, 各注有某一字符, 默认为 '#'
 - Alphabet 字符的种类有限
@@ -102,7 +102,7 @@ tags:
 (>, #, #, L, h) // 复位
 ```
 
-![3.png](/img/in-post/skill/data-structure/post-intro-calc-mode/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-intro-calc-mode/3.png)
 
 ### Random Access Machine (RAM) 模型
 
@@ -130,7 +130,7 @@ tags:
 
 功能: 向下取整的除法, $ 0 \leq c $, $ 0 < d $
 
-![4.png](/img/in-post/skill/data-structure/post-intro-calc-mode/4.png)
+![4.png](/assets/img/in-post/skill/data-structure/post-intro-calc-mode/4.png)
 
 反复地从 $ R[0] = 1 + c $ 中减去 $ R[1] = d $
 
@@ -146,4 +146,4 @@ R[0] <- R[2] - R[3]   // else x-- and
 STOP                  // return R[0] = x = (c/d) 向下取整
 ```
 
-![5.png](/img/in-post/skill/data-structure/post-intro-calc-mode/5.png)
+![5.png](/assets/img/in-post/skill/data-structure/post-intro-calc-mode/5.png)

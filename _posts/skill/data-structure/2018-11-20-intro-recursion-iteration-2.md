@@ -38,7 +38,7 @@ void reverse(int *A, int lo, int hi) {
 }
 ```
 
-![1.png](/img/in-post/skill/data-structure/post-intro-recursion-iteration-2/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-intro-recursion-iteration-2/1.png)
 
 ### 迭代原始版
 
@@ -72,7 +72,7 @@ void reverse(int *A, int lo, int hi) {
 
 3. 由子问题的解, 得到原问题的解
 
-![2.png](/img/in-post/skill/data-structure/post-intro-recursion-iteration-2/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-intro-recursion-iteration-2/2.png)
 
 ## 数组求和: 二分递归
 
@@ -88,7 +88,7 @@ sum(int A[], int lo, int hi) {
 }
 ```
 
-![3.png](/img/in-post/skill/data-structure/post-intro-recursion-iteration-2/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-intro-recursion-iteration-2/3.png)
 
 ## 递归跟踪分析
 
@@ -101,7 +101,7 @@ T(n) &= 各层递归实例所需时间之和 \\
 \end{aligned}
 $$
 
-![4.png](/img/in-post/skill/data-structure/post-intro-recursion-iteration-2/4.png)
+![4.png](/assets/img/in-post/skill/data-structure/post-intro-recursion-iteration-2/4.png)
 
 ## 递推方程
 

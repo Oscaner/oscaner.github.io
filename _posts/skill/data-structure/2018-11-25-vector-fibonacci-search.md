@@ -35,7 +35,7 @@ tags:
 
 于是, 前、后子向量的长度分别为 `fib(k - 1) - 1`、`fib(k - 2) - 1`
 
-![1.png](/img/in-post/skill/data-structure/post-vector-fibonacci-search/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-vector-fibonacci-search/1.png)
 
 ## 查找长度
 
@@ -47,7 +47,7 @@ $ 平均成功查找长度 = \frac{5 + 4 + 3 + 5 + 2 + 5 + 4}{7} = \frac{28}{7} 
 
 $ 平均失败查找长度 = \frac{4 + 5 + 4 + 4 + 5 + 4 + 5 + 4}{8} = \frac{35}{8} = 4.38 $
 
-![2.png](/img/in-post/skill/data-structure/post-vector-fibonacci-search/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-vector-fibonacci-search/2.png)
 
 ## 实现
 
@@ -79,4 +79,4 @@ static Rank fibSearch(T *A, T const &amp;e, Rank lo, Rank hi) {
 
 整理后: $ \frac{- \ln 2}{\alpha (\lambda)} = \frac{\lambda * \ln \lambda + (1 - \lambda) * \ln (1 - \lambda)}{2 - \lambda} $, 当 $ \lambda = \phi $ 时, $ \alpha (\lambda) = 1.440420 \cdots $ 达到最小
 
-![3.png](/img/in-post/skill/data-structure/post-vector-fibonacci-search/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-vector-fibonacci-search/3.png)

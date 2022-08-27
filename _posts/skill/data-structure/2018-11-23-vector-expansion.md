@@ -26,7 +26,7 @@ tags:
     - _capacity: 总容量
     - _size: 当前的实际规模 n
 
-    ![1.png](/img/in-post/skill/data-structure/post-vector-expansion/1.png)
+    ![1.png](/assets/img/in-post/skill/data-structure/post-vector-expansion/1.png)
 
 - 若采用静态空间管理策略, 容量 _capacity 固定, 则有明显的不足
 
@@ -48,7 +48,7 @@ tags:
 
 在向量即将发生上溢时, 适当地扩大内部数组得容量
 
-![2.png](/img/in-post/skill/data-structure/post-vector-expansion/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-vector-expansion/2.png)
 
 ## 扩容算法实现
 
@@ -76,7 +76,7 @@ void Vector<T>::expand() { // 向量空间不足时扩容
 
 ### 递增式扩容
 
-![3.png](/img/in-post/skill/data-structure/post-vector-expansion/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-vector-expansion/3.png)
 
 ```cpp
 T *oldElem = _elem;
@@ -93,7 +93,7 @@ _elem = new T[_capacity += INCREMENT]; // 追加固定大小的容量
 
 ### 加倍式扩容
 
-![4.png](/img/in-post/skill/data-structure/post-vector-expansion/4.png)
+![4.png](/assets/img/in-post/skill/data-structure/post-vector-expansion/4.png)
 
 ```cpp
 T *oldElem = _elem;
@@ -110,7 +110,7 @@ _elem = new T[_capacity <<= 1]; // 容量加倍
 
 ### 对比
 
-![5.png](/img/in-post/skill/data-structure/post-vector-expansion/5.png)
+![5.png](/assets/img/in-post/skill/data-structure/post-vector-expansion/5.png)
 
 ## 分摊复杂度
 

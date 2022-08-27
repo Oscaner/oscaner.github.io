@@ -46,15 +46,15 @@ tags:
 - firstChild(): $ O(n) $
 - nextSibling(): $ O(n) $
 
-![1.png](/img/in-post/skill/data-structure/post-tree-representation/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-tree-representation/1.png)
 
 ## 孩子节点表示法
 
-![2.png](/img/in-post/skill/data-structure/post-tree-representation/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-tree-representation/2.png)
 
 ## 父亲孩子表示法
 
-![3.png](/img/in-post/skill/data-structure/post-tree-representation/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-tree-representation/3.png)
 
 ## 长子兄弟表示法
 
@@ -63,4 +63,4 @@ tags:
 - 纵: firstChild()
 - 横: nextSibling()
 
-![4.png](/img/in-post/skill/data-structure/post-tree-representation/4.png)
+![4.png](/assets/img/in-post/skill/data-structure/post-tree-representation/4.png)

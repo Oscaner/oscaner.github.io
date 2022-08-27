@@ -41,7 +41,7 @@ tags:
 
 移动点 C, 将剩余的 3 + 5 段绳索伸直
 
-![1.png](/img/in-post/skill/data-structure/post-intro-calc/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-intro-calc/1.png)
 
 #### 总结
 
@@ -63,7 +63,7 @@ tags:
 
 经 $ C' $ 做 $ B'B $ 的平行线, 交 $ AB $ 于 $ C $
 
-![2.png](/img/in-post/skill/data-structure/post-intro-calc/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-intro-calc/2.png)
 
 #### 总结
 

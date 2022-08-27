@@ -91,4 +91,4 @@ foreach ($array as $k => $v) {
 }
 ```
 
-![1.png](/img/in-post/skill/coding/post-php-foreach-object/1.png)
+![1.png](/assets/img/in-post/skill/coding/post-php-foreach-object/1.png)

@@ -141,7 +141,7 @@ $$
 
 ### 长度公式
 
-![IMG_20180918_230857.jpg](/img/in-post/skill/math/post-integral-formula/IMG_20180918_230857.jpg)
+![IMG_20180918_230857.jpg](/assets/img/in-post/skill/math/post-integral-formula/IMG_20180918_230857.jpg)
 
 #### Rt坐标系
 
@@ -175,7 +175,7 @@ $$
 
 ### 面积公式
 
-![IMG_20180918_234741.jpg](/img/in-post/skill/math/post-integral-formula/IMG_20180918_234741.jpg)
+![IMG_20180918_234741.jpg](/assets/img/in-post/skill/math/post-integral-formula/IMG_20180918_234741.jpg)
 
 #### Rt坐标系
 
@@ -219,7 +219,7 @@ $$
 
 ### 体积公式
 
-![IMG_20180920_232536.jpg](/img/in-post/skill/math/post-integral-formula/IMG_20180920_232536.jpg)
+![IMG_20180920_232536.jpg](/assets/img/in-post/skill/math/post-integral-formula/IMG_20180920_232536.jpg)
 
 #### Rt坐标系
 

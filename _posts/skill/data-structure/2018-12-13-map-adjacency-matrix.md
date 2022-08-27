@@ -40,7 +40,7 @@ class Graph {
 
 ## 实例
 
-![4.png](/img/in-post/skill/data-structure/post-map-adjacency-matrix/4.png)
+![4.png](/assets/img/in-post/skill/data-structure/post-map-adjacency-matrix/4.png)
 
 ## Vertex 顶点类
 

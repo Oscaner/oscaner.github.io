@@ -31,7 +31,7 @@ tags:
 
 合并有序子序列 $ O(n) $
 
-![1.png](/img/in-post/skill/data-structure/post-vector-merge-sort/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-vector-merge-sort/1.png)
 
 若真能如此，归并排序的运行时间应该是 $ O(n * \log n) $
 
@@ -48,7 +48,7 @@ void Vector<T>::mergeSort(Rank lo, Rank hi) { // [lo, hi)
 }
 ```
 
-![2.png](/img/in-post/skill/data-structure/post-vector-merge-sort/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-vector-merge-sort/2.png)
 
 ## 二路归并
 
@@ -56,7 +56,7 @@ void Vector<T>::mergeSort(Rank lo, Rank hi) { // [lo, hi)
 
 two way merge: 将两个有序序列合并为一个有序序列, `S[lo, hi) = S[lo, mi) + S[mi, hi)`
 
-![3.png](/img/in-post/skill/data-structure/post-vector-merge-sort/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-vector-merge-sort/3.png)
 
 ### 基本实现
 
@@ -77,11 +77,11 @@ void Vector<T>::merge(Rank lo, Rank mi, Rank hi) {
 }
 ```
 
-![4.png](/img/in-post/skill/data-structure/post-vector-merge-sort/4.png)
+![4.png](/assets/img/in-post/skill/data-structure/post-vector-merge-sort/4.png)
 
 ### 正确性
 
-![5.png](/img/in-post/skill/data-structure/post-vector-merge-sort/5.png)
+![5.png](/assets/img/in-post/skill/data-structure/post-vector-merge-sort/5.png)
 
 ## 性能分析
 

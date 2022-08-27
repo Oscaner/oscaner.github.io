@@ -34,7 +34,7 @@ Rank Vector<T>::search(T const &e, Rank lo, Rank hi) const {
 
 ## 语义
 
-![1.png](/img/in-post/skill/data-structure/post-vector-binary-search/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-vector-binary-search/1.png)
 
 应该便于有序向量自身的维护: `V.insert(1 + V.search(e), e)`
 
@@ -52,7 +52,7 @@ Rank Vector<T>::search(T const &e, Rank lo, Rank hi) const {
 
 ### 原理
 
-![2.png](/img/in-post/skill/data-structure/post-vector-binary-search/2.png)
+![2.png](/assets/img/in-post/skill/data-structure/post-vector-binary-search/2.png)
 
 减而治之: 以任一元素 `x = S[mi]` 为界, 都可将待查找区间分为三部分, `S[lo, mi) <= S[mi] <= S(mi, hi)`
 
@@ -83,7 +83,7 @@ static Rank binSearch(T *A, T const &e, Rank lo, Rank hi) {
 
 ### 实例
 
-![3.png](/img/in-post/skill/data-structure/post-vector-binary-search/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-vector-binary-search/3.png)
 
 `S.search(8, 0, 7)`: 共经 2 + 1 + 2 = 5 次比较, 在 `S[4]` 处命中
 
@@ -103,7 +103,7 @@ static Rank binSearch(T *A, T const &e, Rank lo, Rank hi) {
 
 比如, 成功、失败时地平均查找长度均大致为 $ O(1.50 * \log n) $
 
-![4.png](/img/in-post/skill/data-structure/post-vector-binary-search/4.png)
+![4.png](/assets/img/in-post/skill/data-structure/post-vector-binary-search/4.png)
 
 ## 版本B
 
@@ -123,7 +123,7 @@ static Rank binSearch(T *A, T const &e, Rank lo, Rank hi) {
 
 只有当元素数目 `hi - lo = 1` 时, 才判断该元素是否命中
 
-![5.png](/img/in-post/skill/data-structure/post-vector-binary-search/5.png)
+![5.png](/assets/img/in-post/skill/data-structure/post-vector-binary-search/5.png)
 
 ### 实现
 
@@ -149,7 +149,7 @@ template <typename T> static Rank binSearch(T *A, T const &e, Rank lo, Rank hi) 
 
 2. 失败时, 应返回 **小于 e 的最大者 (含哨兵[lo - 1])**
 
-![6.png](/img/in-post/skill/data-structure/post-vector-binary-search/6.png)
+![6.png](/assets/img/in-post/skill/data-structure/post-vector-binary-search/6.png)
 
 ## 版本C (最终版)
 
@@ -181,4 +181,4 @@ template <typename T> static Rank binSearch(T *A, T const &e, Rank lo, Rank hi) 
 
 数学归纳: 假设不变性一直保持至(a), 以下无非两种情况 ...
 
-![7.png](/img/in-post/skill/data-structure/post-vector-binary-search/7.png)
+![7.png](/assets/img/in-post/skill/data-structure/post-vector-binary-search/7.png)

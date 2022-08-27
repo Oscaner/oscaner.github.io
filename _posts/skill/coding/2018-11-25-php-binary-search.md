@@ -49,4 +49,4 @@ $A = [1, 3, 5, 8, 13, 19, 20, 31, 43, 50];
 if ($argc > 1) echo binSearch($A, $argv[1], 0, count($A)) . "\n";
 ```
 
-![1.png](/img/in-post/skill/coding/post-php-binary-search/1.png)
+![1.png](/assets/img/in-post/skill/coding/post-php-binary-search/1.png)

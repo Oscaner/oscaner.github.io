@@ -53,17 +53,17 @@ tags:
 
 ### 正常执行
 
-![1.png](/img/in-post/skill/sql/post-redis-transaction/1.png)
+![1.png](/assets/img/in-post/skill/sql/post-redis-transaction/1.png)
 
 ### 放弃事务
 
-![2.png](/img/in-post/skill/sql/post-redis-transaction/2.png)
+![2.png](/assets/img/in-post/skill/sql/post-redis-transaction/2.png)
 
 ### 全体连坐
 
 一错全错, 全体连坐
 
-![3.png](/img/in-post/skill/sql/post-redis-transaction/3.png)
+![3.png](/assets/img/in-post/skill/sql/post-redis-transaction/3.png)
 
 ### 冤头债主
 
@@ -73,7 +73,7 @@ tags:
 
 2. 冤头债主是入队正常, 仅执行出错, 属于数据结构上的错误, 而非指令上的错误。
 
-![4.png](/img/in-post/skill/sql/post-redis-transaction/4.png)
+![4.png](/assets/img/in-post/skill/sql/post-redis-transaction/4.png)
 
 
 ### watch 监控
@@ -88,21 +88,21 @@ tags:
 
 2. 初始化信用卡可用余额和欠额
 
-    ![5.png](/img/in-post/skill/sql/post-redis-transaction/5.png)
+    ![5.png](/assets/img/in-post/skill/sql/post-redis-transaction/5.png)
 
 3. 无加塞篡改, 先 watch 再 multi, 保证两笔金额变动在同一个事务内
 
-    ![6.png](/img/in-post/skill/sql/post-redis-transaction/6.png)
+    ![6.png](/assets/img/in-post/skill/sql/post-redis-transaction/6.png)
 
 4. 有篡改, 先 watch 再 set, 导致监控前后数据不一致, 事务执行中断返回 nil
 
     原因请看 [#常用命令](#常用命令)
 
-    ![7.png](/img/in-post/skill/sql/post-redis-transaction/7.png)
+    ![7.png](/assets/img/in-post/skill/sql/post-redis-transaction/7.png)
 
 5. 有篡改, 则放弃监控 unwatch 再 watch, 再执行 multi
 
-    ![8.png](/img/in-post/skill/sql/post-redis-transaction/8.png)
+    ![8.png](/assets/img/in-post/skill/sql/post-redis-transaction/8.png)
 
 
 6. 一旦执行 exec, 之前加的监控锁将都会被取消

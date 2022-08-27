@@ -54,4 +54,4 @@ selectionSort($A, 0, count($A));
 print_r($A);
 ```
 
-![1.png](/img/in-post/skill/coding/post-php-selection-sort/1.png)
+![1.png](/assets/img/in-post/skill/coding/post-php-selection-sort/1.png)

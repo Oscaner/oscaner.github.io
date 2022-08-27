@@ -23,7 +23,7 @@ tags:
 
 进程间的一种消息通信模式：发送者 (pub) 发送消息, 订阅者 (sub) 接收消息
 
-![1.png](/img/in-post/skill/sql/post-redis-subscribe/1.png)
+![1.png](/assets/img/in-post/skill/sql/post-redis-subscribe/1.png)
 
 ## 命令
 
@@ -37,6 +37,6 @@ tags:
 
 2. 消息发布 `publish c2 hello-redis`、`publish new1 redis2015`
 
-![2.png](/img/in-post/skill/sql/post-redis-subscribe/2.png)
+![2.png](/assets/img/in-post/skill/sql/post-redis-subscribe/2.png)
 
-![3.png](/img/in-post/skill/sql/post-redis-subscribe/3.png)
+![3.png](/assets/img/in-post/skill/sql/post-redis-subscribe/3.png)

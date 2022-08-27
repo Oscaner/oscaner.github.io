@@ -94,7 +94,7 @@ $$
 
 递归版 `fib()` 低效的根源在于，各递归实例均被大量重复调用
 
-![1.png](/img/in-post/skill/data-structure/post-intro-dynamic-programming/1.png)
+![1.png](/assets/img/in-post/skill/data-structure/post-intro-dynamic-programming/1.png)
 
 ## fib(): 迭代
 
@@ -108,7 +108,7 @@ $$
 
 $ T(n) = O(n)，而且仅需 \  O(1) \  空间 $
 
-![3.png](/img/in-post/skill/data-structure/post-intro-dynamic-programming/3.png)
+![3.png](/assets/img/in-post/skill/data-structure/post-intro-dynamic-programming/3.png)
 
 ```cpp
 f = 0; g = 1; // fib(0); fib(1)

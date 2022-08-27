@@ -74,4 +74,4 @@ mergeSort($A, 0, count($A));
 for ($i = 0; $i < count($A); $i++) echo $A[$i] . ' ';
 ```
 
-![1.png](/img/in-post/skill/coding/post-php-merge-sort/1.png)
+![1.png](/assets/img/in-post/skill/coding/post-php-merge-sort/1.png)

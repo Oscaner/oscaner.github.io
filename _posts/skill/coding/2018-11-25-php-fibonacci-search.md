@@ -69,4 +69,4 @@ if ($argc > 1) echo fibSearch($A, $argv[1], 0, count($A), $fibArr) . "\n";
 else echo fibSearch($A, 8, 0, count($A), $fibArr) . "\n";
 ```
 
-![1.png](/img/in-post/skill/coding/post-php-fibonacci-search/1.png)
+![1.png](/assets/img/in-post/skill/coding/post-php-fibonacci-search/1.png)

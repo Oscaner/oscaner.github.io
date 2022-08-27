@@ -43,7 +43,7 @@ Fork 的作用是复制一个与当前进程一样的进程
 
 ### 配置文件
 
-![1.png](/img/in-post/skill/sql/post-redis-persistence/1.png)
+![1.png](/assets/img/in-post/skill/sql/post-redis-persistence/1.png)
 
 1. save
 
@@ -149,7 +149,7 @@ RDB 是整个内存压缩过的 Snapshot RDB 的数据结构, 可以配置复合
 
 ### 配置文件
 
-![2.png](/img/in-post/skill/sql/post-redis-persistence/2.png)
+![2.png](/assets/img/in-post/skill/sql/post-redis-persistence/2.png)
 
 1. appendonly
 
