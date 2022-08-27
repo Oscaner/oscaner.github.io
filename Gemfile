@@ -6,5 +6,6 @@ gem "rake"
 
 gem 'jekyll-sitemap'
 gem 'jekyll-spaceship'
+gem 'jekyll-wikilinks'
 
 gem "webrick", "~> 1.7"
