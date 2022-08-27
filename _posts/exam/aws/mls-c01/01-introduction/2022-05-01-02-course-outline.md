@@ -12,10 +12,12 @@ categories:
   - exam
   - aws
   - mls
+  - machine learning
 tags:
   - Exam
   - AWS
   - MLS
+  - Machine Learning
 ---
 
 ## Outline
