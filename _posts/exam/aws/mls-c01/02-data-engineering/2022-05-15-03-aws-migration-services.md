@@ -46,7 +46,7 @@ tags:
 
 ## AWS Glue
 
-![[aws/mls-c01/assets/aws-glue.png]]
+![[aws-glue.png]]
 
 - Extract, Transform, and Load (ETL)
     - Determine data type and schema
