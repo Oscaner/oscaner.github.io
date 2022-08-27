@@ -3,7 +3,7 @@ layout: post
 title: "PHP - Bubble Sort"
 date: 2018-11-19 15:59
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

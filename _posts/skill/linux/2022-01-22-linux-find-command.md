@@ -3,7 +3,7 @@ layout: post
 title: "笔记 - Linux Find command"
 date: 2022-01-22 14:12
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

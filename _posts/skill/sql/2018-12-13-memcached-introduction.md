@@ -3,7 +3,7 @@ layout: post
 title: "Memcached 的介绍及使用"
 date: 2018-12-13 19:23
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

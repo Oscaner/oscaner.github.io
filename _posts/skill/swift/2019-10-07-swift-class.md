@@ -4,7 +4,7 @@ layout: post
 title: "Swift 5 - 枚举、结构体与类"
 date: 2019-10-07 20:54
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

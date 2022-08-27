@@ -3,7 +3,7 @@ layout: post
 title: "Memcached 分布式缓存算法"
 date: 2018-12-14 20:13
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

@@ -3,7 +3,7 @@ layout: post
 title: "数学笔记 - 中值定理"
 date: 2018-10-01 22:16
 author: "Oscaner"
-header-img: "img/post-bg-2015.jpg"
+header-img: "assets/img/post-bg-2015.jpg"
 multilingual: false
 mathjax: true
 catalog: true

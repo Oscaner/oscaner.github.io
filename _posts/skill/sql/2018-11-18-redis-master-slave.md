@@ -3,7 +3,7 @@ layout: post
 title: "Redis 主从复制"
 date: 2018-11-18 22:13
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

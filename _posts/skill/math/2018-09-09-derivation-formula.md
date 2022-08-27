@@ -4,7 +4,7 @@ title: "数学笔记 - 求导公式"
 subtitle: "考研中常用的一些求导公式"
 date: 2018-09-09 13:39
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: true

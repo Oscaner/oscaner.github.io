@@ -3,7 +3,7 @@ layout: post
 title: "PHP - Binary Search"
 date: 2018-11-25 14:54
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

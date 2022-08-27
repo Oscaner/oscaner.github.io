@@ -3,7 +3,7 @@ layout: post
 title: "Linux 基础命令"
 date: 2018-12-07 20:00
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

@@ -3,7 +3,7 @@ layout: post
 title: "PHP - Binary Conversion"
 date: 2018-12-03 15:20
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

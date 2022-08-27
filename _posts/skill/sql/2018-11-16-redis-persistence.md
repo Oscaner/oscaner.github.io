@@ -3,7 +3,7 @@ layout: post
 title: "Redis 持久化"
 date: 2018-11-16 21:36
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

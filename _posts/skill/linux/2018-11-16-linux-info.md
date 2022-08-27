@@ -3,7 +3,7 @@ layout: post
 title: "Linux 查看系统信息"
 date: 2018-11-16 14:56
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: true

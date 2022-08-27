@@ -3,7 +3,7 @@ layout: post
 title: "C++ 数据结构 (一) 绪论 (5) 迭代与递归 (1)"
 date: 2018-11-19 16:24
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

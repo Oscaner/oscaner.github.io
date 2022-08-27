@@ -3,7 +3,7 @@ layout: post
 title: "MongoDB 介绍"
 date: 2018-11-21 18:31
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

@@ -4,7 +4,7 @@ title: "[MLS-C01] [Introduction] Course Outline"
 subtitle: "Outline of the course"
 date: 2022-05-01 10:47
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

@@ -4,7 +4,7 @@ layout: post
 title: "Swift 5 – 属性与方法"
 date: 2019-11-23 13:20
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

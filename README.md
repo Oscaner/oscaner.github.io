@@ -1,7 +1,7 @@
 [Oscaner Blog](https://www.oscaner.com)
 ================================
 
-![](http://www.oscaner.com/img/blog-desktop.png)
+![](http://www.oscaner.com/assets/img/blog-desktop.png)
 
 > Fork from [Hux Blog](http://huangxuan.me), and 👉 [Original User Manual](https://github.com/Huxpro/huxpro.github.io/blob/master/_doc/Manual.md)
 

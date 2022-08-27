@@ -3,7 +3,7 @@ layout: post
 title: "Swift 5 - 基础语法"
 date: 2019-07-23 22:57
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

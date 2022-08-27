@@ -3,7 +3,7 @@ layout: post
 title: "C++ 数据结构 (三) 列表 (3) 有序列表"
 date: 2018-11-30 16:17
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

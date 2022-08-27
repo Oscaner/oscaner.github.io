@@ -3,7 +3,7 @@ layout: post
 title: "SEO - Schema Markup"
 date: 2021-09-06 21:10
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

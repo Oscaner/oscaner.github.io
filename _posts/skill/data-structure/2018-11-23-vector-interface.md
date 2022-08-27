@@ -3,7 +3,7 @@ layout: post
 title: "C++ 数据结构 (二) 向量 (1) 接口与实现"
 date: 2018-11-23 14:09
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

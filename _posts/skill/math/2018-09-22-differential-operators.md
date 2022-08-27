@@ -4,7 +4,7 @@ title: "数学笔记 - 微分算子法"
 subtitle: "微分算子法主要用于求微分方程的特解"
 date: 2018-09-22 22:48
 author: "Oscaner"
-header-img: "img/post-bg-2015.jpg"
+header-img: "assets/img/post-bg-2015.jpg"
 multilingual: false
 mathjax: true
 catalog: true

@@ -3,7 +3,7 @@ layout: post
 title: "PHP 面向对象与设计模式"
 date: 2018-12-20 15:53
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

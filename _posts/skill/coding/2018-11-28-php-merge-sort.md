@@ -3,7 +3,7 @@ layout: post
 title: "PHP - Merge Sort"
 date: 2018-11-28 14:20
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

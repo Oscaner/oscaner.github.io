@@ -3,7 +3,7 @@ layout: post
 title: "PHP - Search Two Max"
 date: 2018-11-21 14:48
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

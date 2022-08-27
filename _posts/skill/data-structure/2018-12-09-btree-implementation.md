@@ -3,7 +3,7 @@ layout: post
 title: "C++ 数据结构 (五) 二叉树 (4) 二叉树实现"
 date: 2018-12-09 14:47
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

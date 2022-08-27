@@ -3,7 +3,7 @@ layout: post
 title: "C++ 数据结构 (四) 栈与队列 (2) 栈应用 (1) 进制转换"
 date: 2018-12-03 12:05
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

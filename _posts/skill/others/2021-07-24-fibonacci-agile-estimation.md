@@ -4,7 +4,7 @@ title: "Fibonacci Agile Estimation"
 subtitle: "敏捷估算之斐波那契数列"
 date: 2021-07-24 20:17
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

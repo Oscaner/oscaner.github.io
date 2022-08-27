@@ -3,7 +3,7 @@ layout: post
 title: "C++ 数据结构 (四) 栈与队列 (2) 栈应用 (2) 栈混洗与括号匹配"
 date: 2018-12-04 14:09
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

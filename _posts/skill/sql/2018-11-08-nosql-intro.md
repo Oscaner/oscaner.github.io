@@ -3,7 +3,7 @@ layout: post
 title: "NoSQL 入门及概述"
 date: 2018-11-08 23:44
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

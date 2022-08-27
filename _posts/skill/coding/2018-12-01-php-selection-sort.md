@@ -3,7 +3,7 @@ layout: post
 title: "PHP - Selection Sort"
 date: 2018-12-01 16:30
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

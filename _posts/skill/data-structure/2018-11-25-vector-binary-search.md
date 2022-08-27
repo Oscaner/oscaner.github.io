@@ -3,7 +3,7 @@ layout: post
 title: "C++ 数据结构 (二) 向量 (5) 二分查找"
 date: 2018-11-25 14:39
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

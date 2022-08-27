@@ -4,7 +4,7 @@ title: "MySQL - 常用语法及函数"
 subtitle: "MySQL 开发中常用的一些语法及函数归总"
 date: 2018-08-05 22:18
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

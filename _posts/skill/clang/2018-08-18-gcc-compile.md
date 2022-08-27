@@ -3,7 +3,7 @@ layout: post
 title: "Clang - GCC 编译"
 date: 2018-08-18 22:59
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

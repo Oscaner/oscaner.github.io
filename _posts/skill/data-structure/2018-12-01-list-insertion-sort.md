@@ -3,7 +3,7 @@ layout: post
 title: "C++ 数据结构 (三) 列表 (5) 插入排序"
 date: 2018-12-01 16:43
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

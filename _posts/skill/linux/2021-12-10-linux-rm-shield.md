@@ -3,7 +3,7 @@ layout: post
 title: "Linux 屏蔽 rm 命令"
 date: 2021-12-10 10:00
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: true

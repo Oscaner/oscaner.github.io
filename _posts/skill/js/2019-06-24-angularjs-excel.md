@@ -3,7 +3,7 @@ layout: post
 title: "AngularJS 实现 Excel 导入导出"
 date: 2019-06-24 23:12
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

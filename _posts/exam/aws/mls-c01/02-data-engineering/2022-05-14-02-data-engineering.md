@@ -3,7 +3,7 @@ layout: post
 title: "[MLS-C01] [Data Engineering] Gathering data"
 date: 2022-05-14 14:34
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

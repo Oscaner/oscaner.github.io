@@ -4,7 +4,7 @@ title: "Walking on our own zone"
 subtitle: "走在自己的时区里"
 date: 2018-09-12 10:56
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: true
 mathjax: false
 no-catalog: true

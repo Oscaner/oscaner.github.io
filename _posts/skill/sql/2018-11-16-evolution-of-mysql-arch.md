@@ -3,7 +3,7 @@ layout: post
 title: "互联网时代下的 MySQL 架构演变之旅"
 date: 2018-11-16 14:19
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

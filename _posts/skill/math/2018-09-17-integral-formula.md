@@ -4,7 +4,7 @@ title: "数学笔记 - 积分公式"
 subtitle: "考研常用的一些积分公式"
 date: 2018-09-17 23:00
 author: "Oscaner"
-header-img: "img/post-bg-2015.jpg"
+header-img: "assets/img/post-bg-2015.jpg"
 mathjax: true
 no-catalog: false
 categories:

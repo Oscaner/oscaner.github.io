@@ -3,7 +3,7 @@ layout: post
 title: "C++ 数据结构 (五) 二叉树 (2) 树的表示"
 date: 2018-12-08 15:16
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

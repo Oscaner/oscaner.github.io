@@ -4,7 +4,7 @@ title: "数学笔记 - 泰勒公式"
 subtitle: "考研中的泰勒公式"
 date: 2018-09-14 23:54
 author: "Oscaner"
-header-img: "img/post-bg-2015.jpg"
+header-img: "assets/img/post-bg-2015.jpg"
 mathjax: true
 catalog: true
 categories:

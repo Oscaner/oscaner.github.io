@@ -4,7 +4,7 @@ title: "[MLS-C01] [Introduction] Course Focus"
 subtitle: "Goals of the course"
 date: 2022-05-09 20:31
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

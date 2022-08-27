@@ -3,7 +3,7 @@ layout: post
 title: "C++ 数据结构 (二) 向量 (3) 无序向量"
 date: 2018-11-24 14:50
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

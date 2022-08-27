@@ -3,7 +3,7 @@ layout: post
 title: "数学笔记 - 距离公式"
 date: 2018-10-06 16:14
 author: "Oscaner"
-header-img: "img/post-bg-2015.jpg"
+header-img: "assets/img/post-bg-2015.jpg"
 multilingual: false
 mathjax: true
 catalog: true

@@ -4,7 +4,7 @@ title: "数学笔记 - 等价无穷小"
 subtitle: "考研中常用的一些等价无穷小"
 date: 2018-09-09 13:39
 author: "Oscaner"
-header-img: "img/post-bg-2015.jpg"
+header-img: "assets/img/post-bg-2015.jpg"
 multilingual: false
 mathjax: true
 no-catalog: true

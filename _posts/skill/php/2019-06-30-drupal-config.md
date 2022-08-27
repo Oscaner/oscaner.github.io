@@ -3,7 +3,7 @@ layout: post
 title: "Drupal 配置开发"
 date: 2019-06-30 14:02
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

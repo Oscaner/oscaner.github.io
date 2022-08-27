@@ -3,7 +3,7 @@ layout: post
 title: "C++ 数据结构 (一) 绪论 (1) 计算"
 date: 2018-11-09 14:25
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

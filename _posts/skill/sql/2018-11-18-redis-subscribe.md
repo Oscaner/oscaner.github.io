@@ -3,7 +3,7 @@ layout: post
 title: "Redis 消息发布订阅"
 date: 2018-11-18 19:42
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

@@ -4,7 +4,7 @@ title: "Why we create Atomic Commits in Git"
 subtitle: "为什么我们要创建 Git 原子提交"
 date: 2021-05-15 18:34
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

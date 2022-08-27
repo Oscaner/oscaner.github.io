@@ -3,7 +3,7 @@ layout: post
 title: "C++ 数据结构 (一) 绪论 (3) 复杂度"
 date: 2018-11-17 15:34
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

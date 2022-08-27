@@ -3,7 +3,7 @@ layout: post
 title: "PHP - Fibonacci Search"
 date: 2018-11-25 16:33
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

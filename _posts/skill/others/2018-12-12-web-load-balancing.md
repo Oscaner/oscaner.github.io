@@ -3,7 +3,7 @@ layout: post
 title: "WEB 负载均衡"
 date: 2018-12-12 18:49
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

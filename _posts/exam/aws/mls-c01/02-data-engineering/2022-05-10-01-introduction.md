@@ -3,7 +3,7 @@ layout: post
 title: "[MLS-C01] [Data Engineering] Introduction"
 date: 2022-05-10 21:42
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

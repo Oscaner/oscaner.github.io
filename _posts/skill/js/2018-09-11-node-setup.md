@@ -3,7 +3,7 @@ layout: post
 title: "Node.js - 环境设置"
 date: 2018-09-11 23:10
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false

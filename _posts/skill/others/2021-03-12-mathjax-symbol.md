@@ -3,7 +3,7 @@ layout: post
 title: "MathJax 常用数学符号表"
 date: 2021-03-12 21:24
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

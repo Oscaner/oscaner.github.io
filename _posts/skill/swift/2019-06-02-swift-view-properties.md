@@ -4,7 +4,7 @@ layout: post
 title: "Swift 4 - 开放 View 属性"
 date: 2019-06-02 20:15
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: true

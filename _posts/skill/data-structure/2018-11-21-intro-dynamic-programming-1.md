@@ -3,7 +3,7 @@ layout: post
 title: "C++ 数据结构 (一) 绪论 (6) 动态规划 (1)"
 date: 2018-11-21 15:15
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: true
 no-catalog: false

@@ -4,7 +4,7 @@ layout: post
 title: "Swift 5 - 函数与闭包"
 date: 2019-08-03 14:53
 author: "Oscaner"
-header-img: "img/post-bg-alitrip.jpg"
+header-img: "assets/img/post-bg-alitrip.jpg"
 multilingual: false
 mathjax: false
 no-catalog: false
