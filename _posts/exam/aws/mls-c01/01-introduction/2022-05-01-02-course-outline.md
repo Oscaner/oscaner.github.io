@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[MLS-C01] [Intro] Course Outline"
+title: "[MLS-C01] [Introduction] Course Outline"
 subtitle: "Outline of the course"
 date: 2022-05-01 10:47
 author: "Oscaner"

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[MLS-C01] [Intro] Machine Learning Terminology"
+title: "[MLS-C01] [Introduction] Machine Learning Terminology"
 date: 2022-05-09 20:31
 author: "Oscaner"
 header-img: "img/post-bg-alitrip.jpg"
@@ -30,7 +30,7 @@ tags:
 ![[datasets.png]]
 
 1. `Datasets`: A collection of data used as the "fuel" for our machine learning models.
-2. `Features`: describe information about your data set in a columnar way. 
+2. `Features`: describe information about your data set in a columnar way.
 3. `Observations`: describing your data as each instance of a set of features.
 
 ## Dataset Types
