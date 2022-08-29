@@ -131,6 +131,6 @@ tags:
 
 ## Labs
 
-1. [bank-additional-full.csv](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/05-algorithms/05-classification-algorithms/bank-additional-full.csv "bank-additional-full.csv")
-2. [client.py](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/05-algorithms/05-classification-algorithms/client.py "client.py")
-3. [XGBoost Classification Example.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/05-algorithms/05-classification-algorithms/XGBoost%20Classification%20Example.ipynb "XGBoost Classification Example.ipynb")
+1. [bank-additional-full.csv](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/code/05-algorithms/05-classification-algorithms/bank-additional-full.csv "bank-additional-full.csv")
+2. [client.py](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/code/05-algorithms/05-classification-algorithms/client.py "client.py")
+3. [XGBoost Classification Example.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/code/05-algorithms/05-classification-algorithms/XGBoost%20Classification%20Example.ipynb "XGBoost Classification Example.ipynb")

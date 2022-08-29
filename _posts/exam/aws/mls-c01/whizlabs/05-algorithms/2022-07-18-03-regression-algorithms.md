@@ -94,6 +94,6 @@ tags:
 
 ## Labs
 
-1. [LinearLearnerModel.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/05-algorithms/03-regression-algorithms/LinearLearnerModel.ipynb "LinearLearnerModel.ipynb")
-2. [client.py](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/05-algorithms/03-regression-algorithms/client.py "client.py")
-3. [day.csv](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/05-algorithms/03-regression-algorithms/day.csv "day.csv")
+1. [LinearLearnerModel.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/code/05-algorithms/03-regression-algorithms/LinearLearnerModel.ipynb "LinearLearnerModel.ipynb")
+2. [client.py](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/code/05-algorithms/03-regression-algorithms/client.py "client.py")
+3. [day.csv](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/code/05-algorithms/03-regression-algorithms/day.csv "day.csv")

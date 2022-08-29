@@ -49,5 +49,5 @@ tags:
 
 ## Labs
 
-1. [Clustering Lab.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/05-algorithms/04-clustering-algorithms/Clustering%20Lab.ipynb "Clustering Lab.ipynb")
-2. [Absenteeism_at_work.csv](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/05-algorithms/04-clustering-algorithms/Absenteeism_at_work.csv "Absenteeism_at_work.csv")
+1. [Clustering Lab.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/code/05-algorithms/04-clustering-algorithms/Clustering%20Lab.ipynb "Clustering Lab.ipynb")
+2. [Absenteeism_at_work.csv](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/code/05-algorithms/04-clustering-algorithms/Absenteeism_at_work.csv "Absenteeism_at_work.csv")

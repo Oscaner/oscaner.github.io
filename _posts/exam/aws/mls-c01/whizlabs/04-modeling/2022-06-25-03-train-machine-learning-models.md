@@ -98,8 +98,8 @@ Three steps:
 
 ## Labs
 
-- [train-deploy-evaluate-model.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/04-modeling/train-deploy-evaluate-model.ipynb "train-deploy-evaluate-model.ipynb")
-- [adult_census_clean.csv](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/04-modeling/adult_census_clean.csv "adult_census_clean.csv")
+- [train-deploy-evaluate-model.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/code/04-modeling/train-deploy-evaluate-model.ipynb "train-deploy-evaluate-model.ipynb")
+- [adult_census_clean.csv](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/code/04-modeling/adult_census_clean.csv "adult_census_clean.csv")
 - [[2022-06-24-01-introduction#SageMaker Hosting Services|SageMaker Hosting Services]]
 - [XGBoost Algorithm - Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost.html)
 

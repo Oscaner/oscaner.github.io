@@ -103,4 +103,4 @@ tags:
 
 1. [English word vectors](https://fasttext.cc/docs/en/english-vectors.html)
 2. [Language identification](https://fasttext.cc/docs/en/language-identification.html)
-3. [fasttext.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/05-algorithms/07-text-analysis-algorithms/fasttext.ipynb "fasttext.ipynb")
+3. [fasttext.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/code/05-algorithms/07-text-analysis-algorithms/fasttext.ipynb "fasttext.ipynb")
