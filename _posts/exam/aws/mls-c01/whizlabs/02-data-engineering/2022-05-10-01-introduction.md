@@ -102,5 +102,5 @@ Several approaches to the problem
 
 ## Labs
 
-- [MachineLearningCertification-1.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/02-data-engineering/MachineLearningCertification-1.ipynb "MachineLearningCertification-1.ipynb")
+- [MachineLearningCertification-1.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/02-data-engineering/MachineLearningCertification-1.ipynb "MachineLearningCertification-1.ipynb")
 

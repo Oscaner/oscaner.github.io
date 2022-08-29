@@ -43,7 +43,7 @@ Several AWS services to help gather data
 
 ### Labs
 
-- [load_data_and_clean.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/02-data-engineering/load_data_and_clean.ipynb "load_data_and_clean.ipynb")
+- [load_data_and_clean.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/02-data-engineering/load_data_and_clean.ipynb "load_data_and_clean.ipynb")
 
 ## Handling Missing Data
 
@@ -81,7 +81,7 @@ Risk losing data points with valuable information
 
 #### Labs
 
-- [drop_features_with_missing_values.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/02-data-engineering/drop_features_with_missing_values.ipynb "drop_features_with_missing_values.ipynb")
+- [drop_features_with_missing_values.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/02-data-engineering/drop_features_with_missing_values.ipynb "drop_features_with_missing_values.ipynb")
 
 ### Median/Average Value Replacement
 
@@ -93,7 +93,7 @@ Replace the missing values with a simple median, or mean
 
 #### Labs
 
-- [impute_using_simpleimpute_mean.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/02-data-engineering/impute_using_simpleimpute_mean.ipynb "impute_using_simpleimpute_mean.ipynb")
+- [impute_using_simpleimpute_mean.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/02-data-engineering/impute_using_simpleimpute_mean.ipynb "impute_using_simpleimpute_mean.ipynb")
 
 ### Most Frequent Value
 
@@ -118,7 +118,7 @@ Use a machine learning algorithm to impute the missing values
 
 #### Labs
 
-- [impute_using_k-nearest_neighbors.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/02-data-engineering/impute_using_k-nearest_neighbors.ipynb "impute_using_k-nearest_neighbors.ipynb")
+- [impute_using_k-nearest_neighbors.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/02-data-engineering/impute_using_k-nearest_neighbors.ipynb "impute_using_k-nearest_neighbors.ipynb")
 
 ### Other Methods
 
@@ -188,8 +188,8 @@ Creating new features from your existing features, feature extraction creates a 
 
 ### Labs
 
-- [feature_extraction_and_feature_selection_with_principal_component_analysis_and_variance_thresholds_-_lab_part_1.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/02-data-engineering/feature_extraction_and_feature_selection_with_principal_component_analysis_and_variance_thresholds_-_lab_part_1.ipynb "feature_extraction_and_feature_selection_with_principal_component_analysis_and_variance_thresholds_-_lab_part_1.ipynb")
-- [feature_extraction_and_feature_selection_with_principal_component_analysis_and_variance_thresholds_-_lab_part_2.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/02-data-engineering/feature_extraction_and_feature_selection_with_principal_component_analysis_and_variance_thresholds_-_lab_part_2.ipynb "feature_extraction_and_feature_selection_with_principal_component_analysis_and_variance_thresholds_-_lab_part_2.ipynb")
+- [feature_extraction_and_feature_selection_with_principal_component_analysis_and_variance_thresholds_-_lab_part_1.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/02-data-engineering/feature_extraction_and_feature_selection_with_principal_component_analysis_and_variance_thresholds_-_lab_part_1.ipynb "feature_extraction_and_feature_selection_with_principal_component_analysis_and_variance_thresholds_-_lab_part_1.ipynb")
+- [feature_extraction_and_feature_selection_with_principal_component_analysis_and_variance_thresholds_-_lab_part_2.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/02-data-engineering/feature_extraction_and_feature_selection_with_principal_component_analysis_and_variance_thresholds_-_lab_part_2.ipynb "feature_extraction_and_feature_selection_with_principal_component_analysis_and_variance_thresholds_-_lab_part_2.ipynb")
 
 ## Encoding categorical values
 
@@ -199,7 +199,7 @@ Creating new features from your existing features, feature extraction creates a 
 
 ### Labs
 
-- [encoding_categorical_values.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/02-data-engineering/encoding_categorical_values.ipynb "encoding_categorical_values.ipynb")
+- [encoding_categorical_values.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/02-data-engineering/encoding_categorical_values.ipynb "encoding_categorical_values.ipynb")
 
 ## Numerical engineering
 
@@ -226,7 +226,7 @@ AKA discretization or quantization
 
 ### Labs
 
-- [numerical_engineering_34_26.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/02-data-engineering/numerical_engineering_34_26.ipynb "numerical_engineering_34_26.ipynb")
+- [numerical_engineering_34_26.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/02-data-engineering/numerical_engineering_34_26.ipynb "numerical_engineering_34_26.ipynb")
 
 ## Text Feature Editing
 
@@ -269,6 +269,6 @@ AKA discretization or quantization
 
 ### Labs
 
-- [text_feature_editing.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/02-data-engineering/text_feature_editing.ipynb "text_feature_editing.ipynb")
+- [text_feature_editing.ipynb](https://github.com/Oscaner/Exam/blob/master/aws/mls-c01/whizlabs/02-data-engineering/text_feature_editing.ipynb "text_feature_editing.ipynb")
 
 
