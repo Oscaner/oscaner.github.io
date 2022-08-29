@@ -33,6 +33,17 @@ Machine Learning with SageMaker
 - Evaluate the model and find the hyperparameters to produce the most accurate, best performing model
     - Run a hyperparameter tuning job
 
+## Evaluate the Model
+
+- After training and deploying the model, evaluate it to determine performance and accuracy
+- Often generate multiple models with different algorithms/hyperparameters and evaluate each 
+- Two different validation approaches
+    - `Offline testing`: use historical data to send requests to the model for inferences
+    - `Online testing with live data`: use production variants
+- Options for offline evaluation
+    - `Holdout set`: set aside a subset of the data for evaluation after training
+    - `K-fold validation`: split the example dataset into k parts, treat each as a holdout set for k training runs
+
 ## Hyperparameter Tuning Job
 
 - Finds the best version of a model by running many training jobs on your dataset using the algorithm and specified ranges of hyperparameters

@@ -31,39 +31,70 @@ Training and inference instances for SageMaker built-in algorithms
 
 ## The Steps of Training ML Model
 
-### Gather/Engineer
+### 1. Gather/Engineer
 
-1. Gather/engineer data into your dataset
+- Gather/engineer data into your dataset
 
 ![[training-ml-model--gather-engineer.png]]
 
-### Randomize & Split
+### 2. Randomize & Split
 
-2. Randomize the dataset
-3. Split the dataset into train and test datasets
+- Randomize the dataset
+- Split the dataset into train and test datasets
 
 ![[training-ml-model--randomize-&-split.png]]
 
-### Choose Algorithm
+### 3. Choose Algorithm
 
-4. Choose best algorithm
+- Choose best algorithm
 
 ![[training-ml-model--choose-algorithm.png]]
 
-### Load Container & Define Hyperparameters
+### 4. Load Container & Define Hyperparameters
 
-5. Load container for chosen model
-6. Manage compute capacity
-7. Create an instance of chosen model
-8. Define the model's hyperparameter values
+- Load container for chosen model
+- Manage compute capacity
+- Create an instance of chosen model
+- Define the model's hyperparameter values
 
 ![[training-ml-model--load-container-&-define-hyperparameters.png]]
 
-### Train the Model
+### 5. Train the Model
 
-9. Train the model
+- Train the model
 
 ![[training-ml-model--train-the-model.png]]
+
+![[activity-of-machine-learning.png]]
+
+### 6. Deploy the Model
+
+Deploy in one of two ways
+
+- Persistent endpoint to get one prediction at a time: SageMaker Hosting Services
+- Get predictions for an entire dataset: SageMaker Batch Transform
+
+#### SageMaker Hosting Services
+
+SageMaker provides an HTTPS endpoint, making your model available for inference requests
+
+Three steps:
+
+1. Create model in SageMaker
+2. Create an endpoint configuration
+3. Create HTTPS endpoint
+
+#### SageMaker Batch Transform
+
+![[lifecycle-batch.png]]
+
+SageMaker batch transform provides inferences for an entire dataset
+
+Three steps:
+
+1. Create batch transform job using trained model and dataset
+2. Run the batch transform job
+3. SageMaker saves in a results S3 bucket
 
 ## Labs
 
