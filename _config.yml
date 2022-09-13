@@ -73,6 +73,7 @@ plugins:
   - jekyll-spaceship
   - jekyll-sitemap
   - jekyll-wikilinks
+  - jekyll-mermaid
 
 
 jekyll-spaceship:
@@ -114,6 +115,12 @@ wikilinks:
       embed_image: 'embed-image'
   enabled: true
   exclude: []
+
+
+# Mermaid.
+mermaid:
+  src: '/packages/mermaid/9.1.6/mermaid.min.js'
+
 
 # Markdown settings
 # replace redcarpet to kramdown,
