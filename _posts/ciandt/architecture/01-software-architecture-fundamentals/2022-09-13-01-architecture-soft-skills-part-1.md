@@ -77,12 +77,14 @@ This is an enormous anti-patterning in a lot of organizations who choose product
 
 - What are the expectations of an architect ?
 
+{:start="1"}
 1. The first and foremost of these really is to analyze the technology, industry, and market trends and keep current in those trends.
 
 Keeping tabs with the industry and the market trends is incredibly important in understanding how that architecture should be formed.
 
 So that's kind of the first expectation.
 
+{:start="2"}
 2. Another common expectation is to analyze the current technology environment and recommend solutions for improvement.
 
 This is core thing of what an architect does.
@@ -95,6 +97,7 @@ Let me give you an example:
 
 This is also what we need to analyze and recommend solutions for improvement.
 
+{:start="3"}
 3. Another expectation is to ensure compliance with the architecture.
 
 As an architect, you're going to create all sorts of lines and boxes and standards and principles, and you expect people to follow them.
@@ -107,6 +110,7 @@ So this is one of the ongoing things that an architect needs to do is ensure com
 
 As the architect, you need to make sure that everybody is complying with that architecture.
 
+{:start="4"}
 4. The other expectation, which is also difficult, is having exposure to multiple platforms, technologies, environments, all this.
 
 The point is, if you're just a J2EE architect, every single solution is going to be J2EE.
@@ -117,10 +121,12 @@ So yes, this is very critical, and we're going to dive into depth on this one ac
 
 Sure, you don't hove to know every single detail of all these other architectures. But knowing how they work, how the fundamental building blocks work is really valuable because it allows you to compare and contrast when you have particular problems you're trying to solve.
 
+{:start="5"}
 5. This particular expectation is the reason why we don't have a whole lot of architects. it is expected that an architect will possess exceptional interpersonal skills, including teamwork, facilitation, and negotiation
 
 In other words, an architect needs to also lead teams.  This is a very critical part of the architecture.
 
+{:start="6"}
 6. One of the core pieces that an architect is to define the architecture and design principles to guide technology decisions for the enterprise.
 
 Obviously, that's what we do as an architect.
@@ -133,6 +139,7 @@ It should never, be the other way around. We're going to use Ruby or Rails, Ther
 
 So it is important as an architect that we actually define those principles. Sometimes we make those technology decisions, but most importantly, the architect is helping to guide those technology decisions for the enterprise.
 
+{:start="7"}
 7. Sometimes the most important aspect of an architect is to understand the political climate of the environmental or project or company, and be able to navigate the politics.
 
 There will be arguments, there will be disagreements about your architecture, and to be able to negotiate and compromise and get buy-in from everybody is absolutely key to becoming a successful architect.
