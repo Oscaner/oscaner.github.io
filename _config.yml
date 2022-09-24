@@ -4,7 +4,7 @@ SEOTitle: Oscaner 的博客 | Oscaner Blog
 # logo: ""
 header-img: assets/img/home-bg.jpg
 email: oscaner1997@gmail.com
-description: "Of Course I Still Love You."
+description: "心若浮沉，浅笑安然"
 keyword: "Kang Oscaner China Blog"
 url: 'https://www.oscaner.com'              # your host, for absolute URL
 baseurl: ''                             # for example, '/blog' if your blog hosted on 'host/blog'
@@ -182,7 +182,7 @@ google:
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
-sidebar-about-description: 'Of Course I Still Love You.'
+sidebar-about-description: '未曾青梅，不见竹马.'
 sidebar-avatar: 'https://q2.qlogo.cn/headimg_dl?bs=2573226076&dst_uin=2573226076&spec=640&url_enc=0&referer=bu_interface&term_type=PC' # use absolute URL, seeing it's used in both `/` and `/about/`
 
 

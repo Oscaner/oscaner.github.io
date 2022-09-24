@@ -31,11 +31,13 @@
                         </li>
                         {% assign sorted_nav = site.navbar | sort: "weight" %}
                         {% for nav in sorted_nav %}
+                        {% unless nav.hidden %}
                         {% if nav.title %}
                         <li>
                             <a href="{{ nav.url | prepend: nav.baseurl }}">{{ nav.title }}</a>
                         </li>
                         {% endif %}
+                        {% endunless %}
                         {% endfor %}
                         <li class="search-icon">
                             <a href="javascript:void(0)">
