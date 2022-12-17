@@ -23,8 +23,11 @@ WIP
 
 ## Prerequisites
 
-- [Georgia Tech Computer Science Degrees | Udacity](https://www.udacity.com/georgia-tech)
 - [Preparing Yourself for OMSCS | OMSCS | Georgia Institute of Technology | Atlanta, GA (gatech.edu)](https://omscs.gatech.edu/preparing-yourself-omscs)
+- [Georgia Tech Computer Science Degrees | Udacity](https://www.udacity.com/georgia-tech)
+- [OMSCS 2022 Fall 申请总结,生物PhD在读,无CS背景,收到AD|一亩三分地研究生申请版 (1point3acres.com)](https://www.1point3acres.com/bbs/thread-892968-1-1.html)
+- [Catalog Home | Codecademy](https://www.codecademy.com/catalog)
+- [Computer Science (Online) | Graduate Education (gatech.edu)](https://grad.gatech.edu/degree-programs/computer-science-online)
 
 ## Additional Infomation
 
@@ -32,4 +35,4 @@ WIP
 - [Computer Science – Online Degree (OMSCS) (gatech.edu)](https://www.gatech.edu/academics/degrees/masters/computer-science-online-degree-ms)
 - [Why OMS CS? | OMSCS | Georgia Institute of Technology | Atlanta, GA (gatech.edu)](https://omscs.gatech.edu/explore-oms-cs)
 - [Application Deadlines, Process and Requirements | OMSCS | Georgia Institute of Technology | Atlanta, GA (gatech.edu)](https://omscs.gatech.edu/program-info/application-deadlines-process-requirements)
-- 
+-
