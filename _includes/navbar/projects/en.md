@@ -1,20 +1,52 @@
 ## Pipeline
 
-### [Yiipal CMS](https://github.com/yiipal-cms){:target="_blank"}
+### [maimemo-cli](https://github.com/orgs/maimemo-cli/repositories)
 
-This is a developer oriented Framework Engine based on Yii2.0, designed to make secondary development as enjoyable as building blocks.
+Maimemo is a series of products of Qingyuan Momo Education Technology Co., Ltd
 
-Goal: As powerful as Drupal
-
-In the plan, but only preliminary preparations have been made.
-
-### [Project VM](https://github.com/Oscaner/project-vm){:target="_blank"}
-
-A Vagrant VM that want apply for each Web Project.
+I love their products, so I want to make a CLI to manage them. This is My Geek.
 
 ## Online
 
-### MHI Series
+### Johnson&Johnson China
+
+| 时间 | 介绍 | 链接 | 公司 | 技术栈 |
+| :-- | :-- | :-- | :-- | :-- |
+| 2021/11 - 至今 | J&J China Data Project | *Secrecy* | CI&T China | *Secrecy* |
+
+### Budweiser China
+
+| 时间 | 介绍 | 链接 | 公司 | 技术栈 |
+| :-- | :-- | :-- | :-- | :-- |
+| 2021/09 - 2022/10 | Budweiser China Data Project | *Secrecy* | CI&T China | *Secrecy* |
+
+### Cetaphil
+
+| 时间 | 介绍 | 链接 | 公司 | 技术栈 |
+| :-- | :-- | :-- | :-- | :-- |
+| 2021/04 - 2022/08 | Cetaphil Sites | [https://www.cetaphil.com/](https://www.cetaphil.com/){:target="_blank"}{:rel="nofollow"} | CI&T China | 1. Git \
+||||| 2. Drupal 9+ \
+||||| 3. Docker \
+||||| 4. Varnish \
+||||| 5. JS + Webpack \
+||||| 6. LNMP \
+||||| 7. Bitbucket \
+||||| ... |
+
+### Yusen Logistics
+
+| 时间 | 介绍 | 链接 | 公司 | 技术栈 |
+| :-- | :-- | :-- | :-- | :-- |
+| 2021/09 - 2022/04 | Yusen Logistics Global Series Sites | [https://www.yusen-logistics.com/](https://www.yusen-logistics.com/){:target="_blank"}{:rel="nofollow"} | CI&T China | 1. Git \
+||||| 2. Drupal 9+ \
+||||| 3. AWS \
+||||| 4. Varnish \
+||||| 5. JS + Webpack \
+||||| 6. Nodejs \
+||||| 7. Bitbucket \
+||||| ... |
+
+### Mitsubishi Heavy Industries
 
 | Date | Description | Link | Company | Knowledge Map |
 | :-- | :-- | :-- | :-- | :-- |
@@ -67,6 +99,18 @@ A Vagrant VM that want apply for each Web Project.
 Bacause of my knowledge so poor at my student lifetime, the project logic is mess.
 
 I think reconstruction costs are too high, so deleted the project, wow.
+
+### [Yiipal CMS](https://github.com/yiipal-cms){:target="_blank"}
+
+This is a developer oriented Framework Engine based on Yii2.0, designed to make secondary development as enjoyable as building blocks.
+
+Goal: As powerful as Drupal
+
+In the plan, but only preliminary preparations have been made.
+
+### [Project VM](https://github.com/Oscaner/project-vm){:target="_blank"}
+
+A Vagrant VM that want apply for each Web Project.
 
 ## My coding life
 

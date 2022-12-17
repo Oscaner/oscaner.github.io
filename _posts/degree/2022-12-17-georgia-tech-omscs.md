@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The OMSCS project of Georgia Tech"
+title: "(WIP) The OMSCS project of Georgia Tech"
 date: 2022-12-17 10:56
 author: "Oscaner"
 header-img: "assets/img/post-bg-alitrip.jpg"
