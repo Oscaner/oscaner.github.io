@@ -8,21 +8,27 @@ I love their products, so I want to make a CLI to manage them. This is My Geek.
 
 ## Online
 
+### Toray China
+
+| Date | Description | Link | Company | Knowledge Map |
+| :-- | :-- | :-- | :-- | :-- |
+| 2023/1 - Now | Toray China ML Project | *Secrecy* | CI&T China | *Secrecy* |
+
 ### Johnson&Johnson China
 
-| 时间 | 介绍 | 链接 | 公司 | 技术栈 |
+| Date | Description | Link | Company | Knowledge Map |
 | :-- | :-- | :-- | :-- | :-- |
-| 2021/11 - 至今 | J&J China Data Project | *Secrecy* | CI&T China | *Secrecy* |
+| 2021/11 - Now | J&J China BigData Project | *Secrecy* | CI&T China | *Secrecy* |
 
 ### Budweiser China
 
-| 时间 | 介绍 | 链接 | 公司 | 技术栈 |
+| Date | Description | Link | Company | Knowledge Map |
 | :-- | :-- | :-- | :-- | :-- |
-| 2021/09 - 2022/10 | Budweiser China Data Project | *Secrecy* | CI&T China | *Secrecy* |
+| 2021/09 - Now | Budweiser China BigData Project | *Secrecy* | CI&T China | *Secrecy* |
 
 ### Cetaphil
 
-| 时间 | 介绍 | 链接 | 公司 | 技术栈 |
+| Date | Description | Link | Company | Knowledge Map |
 | :-- | :-- | :-- | :-- | :-- |
 | 2021/04 - 2022/08 | Cetaphil Sites | [https://www.cetaphil.com/](https://www.cetaphil.com/){:target="_blank"}{:rel="nofollow"} | CI&T China | 1. Git \
 ||||| 2. Drupal 9+ \
@@ -35,7 +41,7 @@ I love their products, so I want to make a CLI to manage them. This is My Geek.
 
 ### Yusen Logistics
 
-| 时间 | 介绍 | 链接 | 公司 | 技术栈 |
+| Date | Description | Link | Company | Knowledge Map |
 | :-- | :-- | :-- | :-- | :-- |
 | 2021/09 - 2022/04 | Yusen Logistics Global Series Sites | [https://www.yusen-logistics.com/](https://www.yusen-logistics.com/){:target="_blank"}{:rel="nofollow"} | CI&T China | 1. Git \
 ||||| 2. Drupal 9+ \
