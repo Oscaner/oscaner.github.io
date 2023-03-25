@@ -12,19 +12,19 @@ I love their products, so I want to make a CLI to manage them. This is My Geek.
 
 | Date | Description | Link | Company | Knowledge Map |
 | :-- | :-- | :-- | :-- | :-- |
-| 2023/1 - Now | Toray China ML Project | *Secrecy* | CI&T China | *Secrecy* |
+| 2023/01 - Now | Toray China ML Project | *Secrecy* | CI&T China | *Secrecy* |
 
 ### Johnson&Johnson China
 
 | Date | Description | Link | Company | Knowledge Map |
 | :-- | :-- | :-- | :-- | :-- |
-| 2021/11 - Now | J&J China BigData Project | *Secrecy* | CI&T China | *Secrecy* |
+| 2021/11 - 2023/01 | J&J China BigData Project | *Secrecy* | CI&T China | *Secrecy* |
 
 ### Budweiser China
 
 | Date | Description | Link | Company | Knowledge Map |
 | :-- | :-- | :-- | :-- | :-- |
-| 2021/09 - Now | Budweiser China BigData Project | *Secrecy* | CI&T China | *Secrecy* |
+| 2021/09 - 2023/03 | Budweiser China BigData Project | *Secrecy* | CI&T China | *Secrecy* |
 
 ### Cetaphil
 
