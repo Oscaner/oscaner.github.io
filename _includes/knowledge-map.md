@@ -15,7 +15,7 @@
 | ![](/assets/img/icon/acquia_cloud_site_factory.png) | Acquia Cloud Site Factory | 🌟🌟🌟 | [https://docs.acquia.com/site-factory](https://docs.acquia.com/site-factory){:target="_blank"}{:rel="nofollow"} |
 | ![](/assets/img/icon/angular.png) | Angular JS | 🌟🌟 | [https://angularjs.org/](https://angularjs.org/){:target="_blank"}{:rel="nofollow"} |
 | ![](/assets/img/icon/apache.png) | Apache | 🌟🌟 | [https://httpd.apache.org/](https://httpd.apache.org/){:target="_blank"}{:rel="nofollow"} |
-| ![](/assets/img/icon/apachespark.png) | Apache Spark | 🌟🌟 | [https://spark.apache.org/](https://spark.apache.org/){:target="_blank"}{:rel="nofollow"} |
+| ![](/assets/img/icon/apachespark.png) | Apache Spark | 🌟🌟🌟 | [https://spark.apache.org/](https://spark.apache.org/){:target="_blank"}{:rel="nofollow"} |
 | ![](/assets/img/icon/azure_blob_storage.png) | Azure Blob Storage | 🌟🌟🌟 | [https://azure.microsoft.com/en-us/products/storage/blobs/](https://azure.microsoft.com/en-us/products/storage/blobs/){:target="_blank"}{:rel="nofollow"} |
 | ![](/assets/img/icon/behat.png) | Behat | 🌟🌟🌟 | [http://docs.behat.org/](http://docs.behat.org/){:target="_blank"}{:rel="nofollow"} |
 | ![](/assets/img/icon/css.png) | CSS | 🌟🌟🌟 | [https://www.w3.org/Style/CSS/Overview.en.html](https://www.w3.org/Style/CSS/Overview.en.html){:target="_blank"}{:rel="nofollow"} |
@@ -43,7 +43,7 @@
 | ![](/assets/img/icon/phpunit.png) | PHPUnit | 🌟🌟 | [https://phpunit.de/manual/current/en/installation.html](https://phpunit.de/manual/current/en/installation.html){:target="_blank"}{:rel="nofollow"} |
 | ![](/assets/img/icon/puppeteer.png) | Puppeteer | 🌟🌟🌟 | [https://developers.google.com/web/tools/puppeteer/](https://developers.google.com/web/tools/puppeteer/){:target="_blank"}{:rel="nofollow"} |
 | ![](/assets/img/icon/pyspark.png) | PySpark | 🌟🌟🌟 | [https://spark.apache.org/docs/latest/api/python/getting_started/index.html](https://spark.apache.org/docs/latest/api/python/getting_started/index.html){:target="_blank"}{:rel="nofollow"} |
-| ![](/assets/img/icon/python.png) | Python | 🌟🌟 | [https://www.python.org/](https://www.python.org/){:target="_blank"}{:rel="nofollow"} |
+| ![](/assets/img/icon/python.png) | Python | 🌟🌟🌟 | [https://www.python.org/](https://www.python.org/){:target="_blank"}{:rel="nofollow"} |
 | ![](/assets/img/icon/react.png) | React | 🌟🌟 | [https://facebook.github.io/react/](https://facebook.github.io/react/){:target="_blank"}{:rel="nofollow"} |
 | ![](/assets/img/icon/ruby.png) | Ruby | 🌟🌟 | [https://www.ruby-lang.org/](https://www.ruby-lang.org/){:target="_blank"}{:rel="nofollow"} |
 | ![](/assets/img/icon/sass.png) | SASS | 🌟🌟 | [http://sass-lang.com/](http://sass-lang.com/){:target="_blank"}{:rel="nofollow"} |
