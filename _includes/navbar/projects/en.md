@@ -18,7 +18,7 @@ I love their products, so I want to make a CLI to manage them. This is My Geek.
 
 | Date | Description | Link | Company | Knowledge Map |
 | :-- | :-- | :-- | :-- | :-- |
-| 2021/11 - 2023/01 | J&J China BigData Project | *Secrecy* | CI&T China | *Secrecy* |
+| 2022/11 - 2023/01 | J&J China BigData Project | *Secrecy* | CI&T China | *Secrecy* |
 
 ### Budweiser China
 
