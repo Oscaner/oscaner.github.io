@@ -5,3 +5,5 @@
 [![](/assets/certification/association_drupalcon_na_2021_gold_badge.svg){:class="my-certification"}{:style="width: 12.5%;"}](https://events.drupal.org/northamerica2021/why-sponsor){:target="_blank"}
 [![](/assets/certification/google-data-analytics.png){:class="my-certification"}{:style="width: 14.5%;"}](/assets/certification/google-data-analytics.png){:target="_blank"}
 [![](/assets/certification/google-it-support-specialization.png){:class="my-certification"}{:style="width: 14.5%;"}](/assets/certification/google-it-support-specialization.png){:target="_blank"}
+[![](/assets/certification/google-project-management.png){:class="my-certification"}{:style="width: 14.5%;"}](/assets/certification/google-project-management.png){:target="_blank"}
+[![](/assets/certification/ibm-data-analyst-specialization.png){:class="my-certification"}{:style="width: 14.5%;"}](/assets/certification/ibm-data-analyst-specialization.png){:target="_blank"}
