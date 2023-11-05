@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="baidu-site-verification" content="code-RlNzeiqm6B">
+    
+    
+    <meta name="google-site-verification" content="clzGAgkJY2WD5IGr5G6KZS9xymJYL_IH2QIEettmobY">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="心若浮沉，浅笑安然">
+    <meta name="keywords" content="Kang Oscaner China Blog">
+    <meta name="theme-color" content="#000000">
+    <meta name="site" content="https://www.oscaner.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="搭建属于自己的 VPN - Oscaner 的博客 | Oscaner Blog">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="前言
+">
+    
+    <meta property="article:published_time" content=" 2018-08-19T00:07:00Z">
+    
+    
+    <meta property="article:author" content="Oscaner">
+    
+    
+    <meta property="article:tag" content="Skill">
+    
+    <meta property="article:tag" content="Others">
+    
+    <meta property="article:tag" content="VPN">
+    
+    
+    <meta property="og:image" content="https://q2.qlogo.cn/headimg_dl?bs=2573226076&dst_uin=2573226076&spec=640&url_enc=0&referer=bu_interface&term_type=PC">
+    <meta property="og:url" content="https://www.oscaner.com/skill/others/vpn-setup.html">
+    <meta property="og:site_name" content="Oscaner 的博客 | Oscaner Blog">
+
+    <title>搭建属于自己的 VPN - Oscaner 的博客 | Oscaner Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.oscaner.com/skill/others/vpn-setup.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/hux-blog.min.css">
+    <link rel="stylesheet" href="/assets/css/oscaner-blog.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="/packages/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    <!-- Google AdSense -->
+    <script data-ad-client="ca-pub-3286495153411959" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+
+    <!-- MD5 -->
+    <script src="/assets/js/md5.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R9FFJYC4P1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-R9FFJYC4P1');
+    </script>
+    
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                  
+                    Oscaner
+                  
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="huxblog_navbar">
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/friends/">Friends</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/projects/">Projects</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/archive/">Archive</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="search-icon">
+                            <a href="javascript:void(0)">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <script>
+        // Drop Bootstarp low-performance Navbar
+        // Use customize navbar with high-quality material design animation
+        // in high-perf jank-free CSS3 implementation
+        var $body = document.body;
+        var $toggle = document.querySelector('.navbar-toggle');
+        var $navbar = document.querySelector('#huxblog_navbar');
+        var $collapse = document.querySelector('.navbar-collapse');
+
+        var __HuxNav__ = {
+            close: function () {
+                $navbar.className = " ";
+                // wait until animation end.
+                setTimeout(function () {
+                    // prevent frequently toggle
+                    if ($navbar.className.indexOf('in') < 0) {
+                        $collapse.style.height = "0px"
+                    }
+                }, 400)
+            },
+            open: function () {
+                $collapse.style.height = "auto"
+                $navbar.className += " in";
+            }
+        }
+
+        // Bind Event
+        $toggle.addEventListener('click', function (e) {
+            if ($navbar.className.indexOf('in') > 0) {
+                __HuxNav__.close()
+            } else {
+                __HuxNav__.open()
+            }
+        })
+
+        /**
+         * Since Fastclick is used to delegate 'touchstart' globally
+         * to hack 300ms delay in iOS by performing a fake 'click',
+         * Using 'e.stopPropagation' to stop 'touchstart' event from
+         * $toggle/$collapse will break global delegation.
+         *
+         * Instead, we use a 'e.target' filter to prevent handler
+         * added to document close HuxNav.
+         *
+         * Also, we use 'click' instead of 'touchstart' as compromise
+         */
+        document.addEventListener('click', function (e) {
+            if (e.target == $toggle) return;
+            if (e.target.className == 'icon-bar') return;
+            __HuxNav__.close();
+        })
+    </script>
+
+    <!-- Search -->
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/assets/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/assets/img/post-bg-alitrip.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+
+
+
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/assets/img/post-bg-alitrip.jpg');
+        background: ;
+    }
+
+    
+</style>
+
+
+
+
+<header class="intro-header">
+
+    <div class="header-mask"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/archive/?tag=Skill" title="Skill">Skill</a>
+                        
+                        <a class="tag" href="/archive/?tag=Others" title="Others">Others</a>
+                        
+                        <a class="tag" href="/archive/?tag=VPN" title="VPN">VPN</a>
+                        
+                    </div>
+                    <h1>搭建属于自己的 VPN</h1>
+                    
+                    <h2 class="subheading"></h2>
+                    <span class="meta">Posted by Oscaner on August 19, 2018</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+                <h2 id="前言">前言</h2>
+
+<blockquote>
+  <p><strong><em>访问外网仅为学习国外最新技术, 了解最新科技资讯, 请避免接受反动政治言论洗脑以危害国家安全！</em></strong></p>
+</blockquote>
+
+<blockquote>
+  <p>作为一名程序员, 难免会需要访问“外网”, 查找资料。于是我决定自己搭建一个VPN</p>
+</blockquote>
+
+<h2 id="第零步选择合适的-vps">第零步：选择合适的 VPS</h2>
+
+<p>什么是 VPS 请自己百度吼</p>
+
+<p>国外常见的 VPS 有很多, 如 <code class="language-plaintext highlighter-rouge">Linode</code>、<code class="language-plaintext highlighter-rouge">Vultr</code>、<code class="language-plaintext highlighter-rouge">SugarHosts</code> 等, 具体请看该网站 <a href="https://www.vpser.net/" target="_blank" rel="nofollow" class="web-link">https://www.vpser.net/</a></p>
+
+<p>我选择的是 <code class="language-plaintext highlighter-rouge">Vultr</code>, 他们家有 $2.5/m 的廉价 VPS, 每月 500G 流量, 当然, 能不能抢到货就看你们自己咯</p>
+
+<p>具体购买流程我就不多说了（买东西应该不用教吧, 哈哈）</p>
+
+<p>操作系统：CentOS 7</p>
+
+<p>搭建 VPN 的方式有很多, 我也只查阅了 ss 的搭建方式（略略略</p>
+
+<h2 id="第一步搭建-ss">第一步：搭建 ss</h2>
+
+<p>啥是ss？？？</p>
+
+<p>ss 是 shadowsocks 的简称, 一个可穿透防火墙的快速代理（<a href="https://github.com/shadowsocks/shadowsocks/wiki" target="_blank" rel="nofollow" class="web-link">官方文档</a>）</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td>
+<td class="rouge-code"><pre><span class="c"># CentOS:</span>
+<span class="o">&gt;</span> yum <span class="nb">install </span>python-setuptools <span class="o">&amp;&amp;</span> easy_install pip
+<span class="o">&gt;</span> pip <span class="nb">install </span>shadowsocks
+<span class="c"># 其他操作系统请查看官方文档</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h2 id="第二步编写-ss-配置">第二步：编写 ss 配置</h2>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> vim /etc/shadowsocks.json
+<span class="c"># 如果提示 vim: command not found</span>
+<span class="c"># 可以使用 vi /etc/shadowsocks.json</span>
+<span class="c"># vi 是 Linux 系统下标准的编辑器, 类似于 windows 的记事本</span>
+<span class="c"># vim 需要另外安装</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<p>如果不懂 vi 怎么使用, 请自行百度</p>
+
+<h3 id="单用户模式">单用户模式</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td>
+<td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"120.0.0.1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"server_port"</span><span class="p">:</span><span class="w"> </span><span class="mi">8388</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"local_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"120.0.0.1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"local_port"</span><span class="p">:</span><span class="w"> </span><span class="mi">1080</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"timeout"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aes-256-cfb"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fast_open"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">server</code>: 这里填写你的服务器外网 IP</p>
+
+<p><code class="language-plaintext highlighter-rouge">server_port</code>: 这是你要连接 ss 的端口</p>
+
+<p><code class="language-plaintext highlighter-rouge">local_address</code>: 默认填写 120.0.0.1 即可</p>
+
+<p><code class="language-plaintext highlighter-rouge">local_port</code>: 默认填写 1080 即可</p>
+
+<p><code class="language-plaintext highlighter-rouge">password</code>: 密码</p>
+
+<h3 id="多用户模式">多用户模式</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td>
+<td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"120.0.0.1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"local_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"120.0.0.1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"local_port"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1080"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"port_password"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"8381"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"8382"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"8383"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password3"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"timeout"</span><span class="p">:</span><span class="mi">300</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"method"</span><span class="p">:</span><span class="s2">"aes-256-cfb"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fast_open"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">server</code>: 你的服务器外网 IP, Google Cloud VM 有可能会将外网 IP 镜像到内网, 通过 /etc/hosts 查看</p>
+
+<h3 id="开启-fast_open-模式-可选">开启 fast_open 模式 (可选)</h3>
+
+<p>设置 <code class="language-plaintext highlighter-rouge">fast_open</code> 为 <code class="language-plaintext highlighter-rouge">true</code>, 并且</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre><span class="nb">echo </span>3 <span class="o">&gt;</span> /proc/sys/net/ipv4/tcp_fastopen
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h2 id="第三步配置开机启动">第三步：配置开机启动</h2>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> vim /etc/init.d/shadowsocks.sh
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<p>写入以下内容</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td>
+<td class="rouge-code"><pre><span class="c">#!/bin/sh</span>
+<span class="c">#</span>
+<span class="c"># chkconfig: 2345 85 15</span>
+<span class="c"># description: run shadowsocks.</span>
+<span class="c"># processname: shadowsocks</span>
+
+<span class="nb">rm</span> <span class="nt">-rf</span> ~/shadowsocks.log <span class="o">||</span> <span class="nb">true
+</span>ssserver <span class="nt">-c</span> /etc/shadowsocks.json <span class="nt">-d</span> start <span class="nt">--log-file</span> ~/shadowsocks.log
+
+
+<span class="o">&gt;</span> <span class="nb">chmod</span> +x /etc/init.d/shadowsocks.sh
+<span class="o">&gt;</span> chkconfig <span class="nt">--add</span> /etc/init.d/shadowsocks.sh
+<span class="c"># systemctl enable /etc/init.d/shadowsocks.sh</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h2 id="第四步开启端口">第四步：开启端口</h2>
+
+<p><strong>注意：接下来开始对 CentOS 的版本有要求了！</strong></p>
+
+<p>我使用的是 <code class="language-plaintext highlighter-rouge">CentOS 7</code></p>
+
+<p>CentOS 6 的童鞋们我会在下面给相关链接, 请自行查阅.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td>
+<td class="rouge-code"><pre><span class="c"># 查看已开放端口</span>
+<span class="o">&gt;</span> firewall-cmd <span class="nt">--list-ports</span>
+
+<span class="c"># 开启端口 以开启 8388 端口为例</span>
+<span class="o">&gt;</span> firewall-cmd <span class="nt">--zone</span><span class="o">=</span>public <span class="nt">--add-port</span><span class="o">=</span>8388/tcp <span class="nt">--permanent</span>
+
+<span class="c"># 重启防火墙</span>
+<span class="o">&gt;</span> firewall-cmd <span class="nt">--reload</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<p>CentOS 7 以下版本请看<a href="/skill/linux/2018-11-22/firewall.html" class="web-link">这里</a></p>
+
+<h2 id="第五步安装-tcp-加速-可选">第五步：安装 TCP 加速 (可选)</h2>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td>
+<td class="rouge-code"><pre><span class="c"># 安装</span>
+<span class="o">&gt;</span> wget <span class="nt">-N</span> <span class="nt">--no-check-certificate</span> https://github.com/91yun/serverspeeder/raw/master/serverspeeder.sh <span class="o">&amp;&amp;</span> bash serverspeeder.sh
+
+<span class="c"># 卸载</span>
+<span class="o">&gt;</span> chattr <span class="nt">-i</span> /serverspeeder/etc/apx<span class="k">*</span> <span class="o">&amp;&amp;</span> /serverspeeder/bin/serverSpeeder.sh uninstall <span class="nt">-f</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<p>当然, 在你安装的时候, 有很大可能会报内核不支持</p>
+
+<p>这个时候就需要修改 Linux 内核了, 一定要选择对应系统版本的内核, 不然 VPS 可能会 die</p>
+
+<blockquote>
+  <p>CentOS 7 内核更换（内核：3.10.0-327.el7.x86_64）</p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="c"># 安装 3.10.0-327.el7.x86_64 内核</span>
+<span class="o">&gt;</span> rpm <span class="nt">-ivh</span> http://xz.wn789.com/CentOSkernel/kernel-3.10.0-229.1.2.el7.x86_64.rpm <span class="nt">--force</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<p>如果安装内核的时候报错</p>
+
+<p><em>The name of network interface is not eth0, please retry after changing the name</em></p>
+
+<p>那么请执行下面这个命令, 没报错就不用了</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> yum <span class="nb">install </span>net-tools <span class="nt">-y</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<p>查看内核是否安装成功</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> rpm <span class="nt">-qa</span> | <span class="nb">grep </span>kernel
+<span class="c"># 如果打印出来的信息里存在 3.10.0-327.el7.x86_64 , 说明安装成功</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<p>重启VPS</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> reboot
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<p>查看当前使用内核版本</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="nb">uname</span> <span class="nt">-r</span>
+<span class="c"># 3.10.0-327.el7.x86_64</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<p>至此, 再执行一下 <code class="language-plaintext highlighter-rouge">serverspeeder</code> 安装命令, 就万事大吉了 ！！！</p>
+
+<h2 id="最后一步">最后一步</h2>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td>
+<td class="rouge-code"><pre><span class="c"># 启动 ss</span>
+<span class="o">&gt;</span> ssserver <span class="nt">-c</span> /etc/shadowsocks.json <span class="nt">-d</span> start
+<span class="c"># 停止 ss</span>
+<span class="o">&gt;</span> ssserver <span class="nt">-c</span> /etc/shadowsocks.json <span class="nt">-d</span> stop
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h2 id="附ss客户端下载地址">附：ss客户端下载地址</h2>
+
+<ul>
+  <li>
+    <p><a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="nofollow" class="web-link">Windows</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/shadowsocks/ShadowsocksX-NG/releases" target="_blank" rel="nofollow" class="web-link">Mac OS</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/shadowsocks/shadowsocks-qt5/releases" target="_blank" rel="nofollow" class="web-link">Linux</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/shadowsocks/shadowsocks-iOS/releases" target="_blank" rel="nofollow" class="web-link">IOS</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="nofollow" class="web-link">Android</a></p>
+  </li>
+</ul>
+
+
+                <!-- Copyright Notice -->
+                
+<hr>
+
+<p>
+  本文由
+  <a href="/about/" target="_blank">
+    Oscaner
+  </a> 创作, 采用
+  <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">
+    知识共享署名4.0
+  </a> 国际许可协议进行许可 <br>
+  本站文章除注明转载/出处外, 均为本站原创或翻译, 转载前请务必署名
+</p>
+
+
+                
+
+                <hr>
+<hr style="visibility: hidden;">
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/skill/clang/gcc-compile.html" data-toggle="tooltip" data-placement="top" title="Clang - GCC 编译">
+                        Previous<br>
+                        <span>Clang - GCC 编译</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/skill/others/image-api.html" data-toggle="tooltip" data-placement="top" title="第三方随机图片接口">
+                        Next<br>
+                        <span>第三方随机图片接口</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr style="visibility: hidden;">
+
+                <!-- Comment start -->
+<div class="comment">
+  
+
+  
+  <!-- gitalk 评论框 start -->
+  <div id="gitalk-container"></div>
+  <!-- gitalk 评论框 end -->
+  
+
+  
+</div>
+<!-- Comment end -->
+
+
+
+
+
+
+<!-- Gitalk CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<!-- gitalk 公共JS代码 start (一个网页只需插入一次) -->
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  function getLangForGitalk() {
+    lang = new URLSearchParams(document.location.search).get("lang");
+    return lang == 'zh' ? 'zh-CN' : lang;
+  }
+
+  var body = location.href;
+
+  var subtitle = "";
+  if (subtitle) {
+    body += "\n" + subtitle;
+  }
+
+  var description = "";
+  if (description) {
+    body += "\n" + description;
+  }
+
+  var gitalk = new Gitalk({
+      clientID: 'f86fb5601466c278f223',
+      clientSecret: '8234184af9a4cbc9dfa58bbea7ff6cdb84d33f1f',
+      repo: 'oscaner.github.io',
+      owner: 'Oscaner',
+      admin: 'Oscaner',
+      labels: 'Gitalk|Skill|Others|VPN|Oscaner'.split('|'),
+      body: body,
+      language: getLangForGitalk() ? getLangForGitalk() : 'zh-CN',
+
+      id: MD5('/skill/others/vpn-setup.html'),
+      // facebook-like distraction free mode
+      distractionFreeMode: true
+  });
+
+  gitalk.render('gitalk-container');
+</script>
+<!-- gitalk 公共JS代码 end -->
+
+
+
+
+
+            </div>
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+
+<section>
+    
+        <hr class="hidden-sm hidden-xs">
+    
+    <h5><a href="/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        
+        
+        
+                <a data-sort="0040" href="/archive/?tag=Skill" title="Skill" rel="95">Skill</a>
+        
+                <a data-sort="0097" href="/archive/?tag=Clang" title="Clang" rel="38">Clang</a>
+        
+                <a data-sort="0097" href="/archive/?tag=Exam" title="Exam" rel="38">Exam</a>
+        
+                <a data-sort="0098" href="/archive/?tag=AWS" title="AWS" rel="37">AWS</a>
+        
+                <a data-sort="0098" href="/archive/?tag=C%2B%2B" title="C++" rel="37">C++</a>
+        
+                <a data-sort="0098" href="/archive/?tag=Data+Structure" title="Data Structure" rel="37">Data Structure</a>
+        
+                <a data-sort="0099" href="/archive/?tag=MLS" title="MLS" rel="36">MLS</a>
+        
+                <a data-sort="0099" href="/archive/?tag=Machine+Learning" title="Machine Learning" rel="36">Machine Learning</a>
+        
+                <a data-sort="0122" href="/archive/?tag=PHP" title="PHP" rel="13">PHP</a>
+        
+                <a data-sort="0124" href="/archive/?tag=Coding" title="Coding" rel="11">Coding</a>
+        
+                <a data-sort="0124" href="/archive/?tag=Others" title="Others" rel="11">Others</a>
+        
+                <a data-sort="0125" href="/archive/?tag=Graduate" title="Graduate" rel="10">Graduate</a>
+        
+                <a data-sort="0125" href="/archive/?tag=Math" title="Math" rel="10">Math</a>
+        
+                <a data-sort="0126" href="/archive/?tag=NoSQL" title="NoSQL" rel="9">NoSQL</a>
+        
+                <a data-sort="0129" href="/archive/?tag=SQL" title="SQL" rel="6">SQL</a>
+        
+                <a data-sort="0130" href="/archive/?tag=Linux" title="Linux" rel="5">Linux</a>
+        
+                <a data-sort="0130" href="/archive/?tag=Redis" title="Redis" rel="5">Redis</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Fibonacci" title="Fibonacci" rel="3">Fibonacci</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Git" title="Git" rel="3">Git</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Memcached" title="Memcached" rel="3">Memcached</a>
+        
+                <a data-sort="0133" href="/archive/?tag=MySQL" title="MySQL" rel="2">MySQL</a>
+    </div>
+</section>
+
+
+                <!-- Friends Blog -->
+                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://asdrt666.com" target="_blank" rel="friend">Asdrt</a></li>
+  
+  <li><a href="https://szdblog.com" target="_blank" rel="friend">Choba·乔巴博客</a></li>
+  
+  <li><a href="https://ibcl.us/" target="_blank" rel="friend">I BCL.</a></li>
+  
+  <li><a href="https://www.wmathor.com/" target="_blank" rel="friend">mathor</a></li>
+  
+  <li><a href="https://tongtaos.com" target="_blank" rel="friend">Mr. 童的博客</a></li>
+  
+  <li><a href="https://blog.kejijie.vip/" target="_blank" rel="friend">wantsget</a></li>
+  
+  <li><a href="https://o0o0o0.cn/" target="_blank" rel="friend">三十三言</a></li>
+  
+  <li><a href="http://www.gazyip.cn/" target="_blank" rel="friend">八个比特</a></li>
+  
+  <li><a href="https://www.lixuejiang.com/" target="_blank" rel="friend">李学江博客</a></li>
+  
+  <li><a href="https://5sir.cn" target="_blank" rel="friend">梁Sir的小站</a></li>
+  
+  <li><a href="http://isenchun.cn/" target="_blank" rel="friend">森纯个人博客</a></li>
+  
+  <li><a href="http://www.nothamor.cn/" target="_blank" rel="friend">欧尼酱</a></li>
+  
+  <li><a href="https://www.lkxin.cn" target="_blank" rel="friend">清酒踏月</a></li>
+  
+  <li><a href="https://www.yyhy.me" target="_blank" rel="friend">烟雨寒云博客</a></li>
+  
+  <li><a href="http://mlldxe.cn" target="_blank" rel="friend">犬の窝</a></li>
+  
+  <li><a href="https://aoppp.com" target="_blank" rel="friend">憧憬播客</a></li>
+  
+</ul>
+
+
+
+                <!-- Ads -->
+                <hr>
+
+<!-- <script async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3286495153411959"
+  crossorigin="anonymous"></script> -->
+
+<!-- Oscaner's Vertical Ad -->
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3286495153411959" data-ad-slot="2277392638" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
+
+
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- add support for mathjax by voleking-->
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async('/packages/anchor/1.1.1/anchor.min.js', function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'right',
+          // icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- SEO -->
+<!-- Schema Markup -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "搭建属于自己的 VPN",
+  "author": {
+    "@type": "Person",
+    "name": "Oscaner"
+  },
+  "datePublished": "August 19, 2018",
+  "image": "https://www.oscaner.com/assets/img/post-bg-alitrip.jpg",
+  "articleBody": "&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;\n\n&lt;blockquote&gt;\n  &lt;p&gt;&lt;strong&gt;&lt;em&gt;访问外网仅为学习国外最新技术, 了解最新科技资讯, 请避免接受反动政治言论洗脑以危害国家安全！&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;/blockquote&gt;\n\n&lt;blockquote&gt;\n  &lt;p&gt;作为一名程序员, 难免会需要访问“外网”, 查找资料。于是我决定自己搭建一个VPN&lt;/p&gt;\n&lt;/blockquote&gt;\n\n&lt;h2 id=&quot;第零步选择合适的-vps&quot;&gt;第零步：选择合适的 VPS&lt;/h2&gt;\n\n&lt;p&gt;什么是 VPS 请自己百度吼&lt;/p&gt;\n\n&lt;p&gt;国外常见的 VPS 有很多, 如 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Linode&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Vultr&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SugarHosts&lt;/code&gt; 等, 具体请看该网站 &lt;a href=&quot;https&#58;//www.vpser.net/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot; class=&quot;web-link&quot;&gt;https&#58;//www.vpser.net/&lt;/a&gt;&lt;/p&gt;\n\n&lt;p&gt;我选择的是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Vultr&lt;/code&gt;, 他们家有 $2.5/m 的廉价 VPS, 每月 500G 流量, 当然, 能不能抢到货就看你们自己咯&lt;/p&gt;\n\n&lt;p&gt;具体购买流程我就不多说了（买东西应该不用教吧, 哈哈）&lt;/p&gt;\n\n&lt;p&gt;操作系统：CentOS 7&lt;/p&gt;\n\n&lt;p&gt;搭建 VPN 的方式有很多, 我也只查阅了 ss 的搭建方式（略略略&lt;/p&gt;\n\n&lt;h2 id=&quot;第一步搭建-ss&quot;&gt;第一步：搭建 ss&lt;/h2&gt;\n\n&lt;p&gt;啥是ss？？？&lt;/p&gt;\n\n&lt;p&gt;ss 是 shadowsocks 的简称, 一个可穿透防火墙的快速代理（&lt;a href=&quot;https&#58;//github.com/shadowsocks/shadowsocks/wiki&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot; class=&quot;web-link&quot;&gt;官方文档&lt;/a&gt;）&lt;/p&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;# CentOS&#58;&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; yum &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;python-setuptools &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; easy_install pip\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;shadowsocks\n&lt;span class=&quot;c&quot;&gt;# 其他操作系统请查看官方文档&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h2 id=&quot;第二步编写-ss-配置&quot;&gt;第二步：编写 ss 配置&lt;/h2&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n5\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; vim /etc/shadowsocks.json\n&lt;span class=&quot;c&quot;&gt;# 如果提示 vim&#58; command not found&lt;/span&gt;\n&lt;span class=&quot;c&quot;&gt;# 可以使用 vi /etc/shadowsocks.json&lt;/span&gt;\n&lt;span class=&quot;c&quot;&gt;# vi 是 Linux 系统下标准的编辑器, 类似于 windows 的记事本&lt;/span&gt;\n&lt;span class=&quot;c&quot;&gt;# vim 需要另外安装&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;p&gt;如果不懂 vi 怎么使用, 请自行百度&lt;/p&gt;\n\n&lt;h3 id=&quot;单用户模式&quot;&gt;单用户模式&lt;/h3&gt;\n\n&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;server&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&#58;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;120.0.0.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;server_port&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&#58;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8388&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;local_address&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&#58;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;120.0.0.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;local_port&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&#58;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1080&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;password&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&#58;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;password&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;timeout&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&#58;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;300&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;method&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&#58;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;aes-256-cfb&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;fast_open&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&#58;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;server&lt;/code&gt;&#58; 这里填写你的服务器外网 IP&lt;/p&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;server_port&lt;/code&gt;&#58; 这是你要连接 ss 的端口&lt;/p&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;local_address&lt;/code&gt;&#58; 默认填写 120.0.0.1 即可&lt;/p&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;local_port&lt;/code&gt;&#58; 默认填写 1080 即可&lt;/p&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;password&lt;/code&gt;&#58; 密码&lt;/p&gt;\n\n&lt;h3 id=&quot;多用户模式&quot;&gt;多用户模式&lt;/h3&gt;\n\n&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;server&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&#58;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;120.0.0.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;local_address&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&#58;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;120.0.0.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;local_port&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&#58;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1080&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;port_password&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&#58;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;8381&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&#58;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;password1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;8382&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&#58;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;password2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;8383&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&#58;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;password3&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;timeout&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&#58;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;300&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;method&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&#58;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;aes-256-cfb&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;fast_open&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&#58;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;\n&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;server&lt;/code&gt;&#58; 你的服务器外网 IP, Google Cloud VM 有可能会将外网 IP 镜像到内网, 通过 /etc/hosts 查看&lt;/p&gt;\n\n&lt;h3 id=&quot;开启-fast_open-模式-可选&quot;&gt;开启 fast_open 模式 (可选)&lt;/h3&gt;\n\n&lt;p&gt;设置 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fast_open&lt;/code&gt; 为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;, 并且&lt;/p&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;3 &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /proc/sys/net/ipv4/tcp_fastopen\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h2 id=&quot;第三步配置开机启动&quot;&gt;第三步：配置开机启动&lt;/h2&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; vim /etc/init.d/shadowsocks.sh\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;p&gt;写入以下内容&lt;/p&gt;\n\n&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;\n&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;\n&lt;span class=&quot;c&quot;&gt;# chkconfig&#58; 2345 85 15&lt;/span&gt;\n&lt;span class=&quot;c&quot;&gt;# description&#58; run shadowsocks.&lt;/span&gt;\n&lt;span class=&quot;c&quot;&gt;# processname&#58; shadowsocks&lt;/span&gt;\n\n&lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-rf&lt;/span&gt; ~/shadowsocks.log &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true\n&lt;/span&gt;ssserver &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; /etc/shadowsocks.json &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; start &lt;span class=&quot;nt&quot;&gt;--log-file&lt;/span&gt; ~/shadowsocks.log\n\n\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;chmod&lt;/span&gt; +x /etc/init.d/shadowsocks.sh\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; chkconfig &lt;span class=&quot;nt&quot;&gt;--add&lt;/span&gt; /etc/init.d/shadowsocks.sh\n&lt;span class=&quot;c&quot;&gt;# systemctl enable /etc/init.d/shadowsocks.sh&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h2 id=&quot;第四步开启端口&quot;&gt;第四步：开启端口&lt;/h2&gt;\n\n&lt;p&gt;&lt;strong&gt;注意：接下来开始对 CentOS 的版本有要求了！&lt;/strong&gt;&lt;/p&gt;\n\n&lt;p&gt;我使用的是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CentOS 7&lt;/code&gt;&lt;/p&gt;\n\n&lt;p&gt;CentOS 6 的童鞋们我会在下面给相关链接, 请自行查阅.&lt;/p&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n5\n6\n7\n8\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;# 查看已开放端口&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; firewall-cmd &lt;span class=&quot;nt&quot;&gt;--list-ports&lt;/span&gt;\n\n&lt;span class=&quot;c&quot;&gt;# 开启端口 以开启 8388 端口为例&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; firewall-cmd &lt;span class=&quot;nt&quot;&gt;--zone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;public &lt;span class=&quot;nt&quot;&gt;--add-port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;8388/tcp &lt;span class=&quot;nt&quot;&gt;--permanent&lt;/span&gt;\n\n&lt;span class=&quot;c&quot;&gt;# 重启防火墙&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; firewall-cmd &lt;span class=&quot;nt&quot;&gt;--reload&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;p&gt;CentOS 7 以下版本请看&lt;a href=&quot;/skill/linux/2018-11-22/firewall.html&quot; class=&quot;web-link&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;\n\n&lt;h2 id=&quot;第五步安装-tcp-加速-可选&quot;&gt;第五步：安装 TCP 加速 (可选)&lt;/h2&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n5\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;# 安装&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; wget &lt;span class=&quot;nt&quot;&gt;-N&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-check-certificate&lt;/span&gt; https&#58;//github.com/91yun/serverspeeder/raw/master/serverspeeder.sh &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; bash serverspeeder.sh\n\n&lt;span class=&quot;c&quot;&gt;# 卸载&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; chattr &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; /serverspeeder/etc/apx&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; /serverspeeder/bin/serverSpeeder.sh uninstall &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;p&gt;当然, 在你安装的时候, 有很大可能会报内核不支持&lt;/p&gt;\n\n&lt;p&gt;这个时候就需要修改 Linux 内核了, 一定要选择对应系统版本的内核, 不然 VPS 可能会 die&lt;/p&gt;\n\n&lt;blockquote&gt;\n  &lt;p&gt;CentOS 7 内核更换（内核：3.10.0-327.el7.x86_64）&lt;/p&gt;\n&lt;/blockquote&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;# 安装 3.10.0-327.el7.x86_64 内核&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; rpm &lt;span class=&quot;nt&quot;&gt;-ivh&lt;/span&gt; http&#58;//xz.wn789.com/CentOSkernel/kernel-3.10.0-229.1.2.el7.x86_64.rpm &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;p&gt;如果安装内核的时候报错&lt;/p&gt;\n\n&lt;p&gt;&lt;em&gt;The name of network interface is not eth0, please retry after changing the name&lt;/em&gt;&lt;/p&gt;\n\n&lt;p&gt;那么请执行下面这个命令, 没报错就不用了&lt;/p&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; yum &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;net-tools &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;p&gt;查看内核是否安装成功&lt;/p&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; rpm &lt;span class=&quot;nt&quot;&gt;-qa&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;kernel\n&lt;span class=&quot;c&quot;&gt;# 如果打印出来的信息里存在 3.10.0-327.el7.x86_64 , 说明安装成功&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;p&gt;重启VPS&lt;/p&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; reboot\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;p&gt;查看当前使用内核版本&lt;/p&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;uname&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt;\n&lt;span class=&quot;c&quot;&gt;# 3.10.0-327.el7.x86_64&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;p&gt;至此, 再执行一下 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;serverspeeder&lt;/code&gt; 安装命令, 就万事大吉了 ！！！&lt;/p&gt;\n\n&lt;h2 id=&quot;最后一步&quot;&gt;最后一步&lt;/h2&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;# 启动 ss&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ssserver &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; /etc/shadowsocks.json &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; start\n&lt;span class=&quot;c&quot;&gt;# 停止 ss&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ssserver &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; /etc/shadowsocks.json &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; stop\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h2 id=&quot;附ss客户端下载地址&quot;&gt;附：ss客户端下载地址&lt;/h2&gt;\n\n&lt;ul&gt;\n  &lt;li&gt;\n    &lt;p&gt;&lt;a href=&quot;https&#58;//github.com/shadowsocks/shadowsocks-windows/releases&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot; class=&quot;web-link&quot;&gt;Windows&lt;/a&gt;&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;&lt;a href=&quot;https&#58;//github.com/shadowsocks/ShadowsocksX-NG/releases&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot; class=&quot;web-link&quot;&gt;Mac OS&lt;/a&gt;&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;&lt;a href=&quot;https&#58;//github.com/shadowsocks/shadowsocks-qt5/releases&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot; class=&quot;web-link&quot;&gt;Linux&lt;/a&gt;&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;&lt;a href=&quot;https&#58;//github.com/shadowsocks/shadowsocks-iOS/releases&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot; class=&quot;web-link&quot;&gt;IOS&lt;/a&gt;&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;&lt;a href=&quot;https&#58;//github.com/shadowsocks/shadowsocks-android/releases&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot; class=&quot;web-link&quot;&gt;Android&lt;/a&gt;&lt;/p&gt;\n  &lt;/li&gt;\n&lt;/ul&gt;\n",
+  "url": "https://www.oscaner.com/skill/others/vpn-setup.html"
+}
+</script>
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://space.bilibili.com/17118231">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-stack-1x fa-inverse iconfont icon-bilibili-fill"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+
+                <p class="copyright text-muted">
+                    Copyright © Oscaner 2023
+                    <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备17039697号-2</a>
+                    <br>
+                    Powered by <a href="https://www.oscaner.com">Oscaner Blog</a> |
+                    <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="100px" height="20px" src="https://ghbtns.com/github-btn.html?user=oscaner&repo=oscaner.github.io&type=star&count=true">
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/assets/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/assets/js/hux-blog.min.js"></script>
+
+<!-- Simple Jekyll Search -->
+<script src="/assets/js/simple-jekyll-search.min.js"></script>
+
+<!-- Service Worker -->
+
+<script src="/assets/js/snackbar.js"></script>
+<script src="/assets/js/sw-registration.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async('/packages/fastclick/1.0.6/fastclick.min.js', function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Oscaner
+    var _gaId = '';
+    var _gaDomain = 'www.oscaner.com';
+
+    // Originial
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Oscaner
+    var _baId = 'd9c74d9266af4d68f376f0fb9d5fb71c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        // interop with multilangual
+        if ('false' == 'true') {
+            _containerSelector = 'div.post-container.active';
+        } else {
+            _containerSelector = 'div.post-container';
+        }
+
+        if (!$(_containerSelector).length) {
+            _containerSelector = 'div.post-container';
+        }
+
+        // init
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        // clean
+        $(selector).html('')
+
+        // appending
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/assets/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+<!-- Multi-Lingual -->
+
+
+<!-- Simple Jekyll Search -->
+<script>
+    // https://stackoverflow.com/questions/1912501/unescape-html-entities-in-javascript
+    function htmlDecode(input) {
+        var e = document.createElement('textarea');
+        e.innerHTML = input;
+        // handle case of empty input
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    }
+
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('search-results'),
+        json: '/search.json',
+        searchResultTemplate: '<div class="post-preview item"><a href="{url}"><h2 class="post-title">{title}</h2><h3 class="post-subtitle">{subtitle}</h3><hr></a></div>',
+        noResultsText: 'No results',
+        limit: 50,
+        fuzzy: false,
+        // a hack to get escaped subtitle unescaped. for some reason,
+        // post.subtitle w/o escape filter nuke entire search.
+        templateMiddleware: function (prop, value, template) {
+            if (prop === 'subtitle' || prop === 'title') {
+                if (value.indexOf("code")) {
+                    return htmlDecode(value);
+                } else {
+                    return value;
+                }
+            }
+        }
+    });
+
+    $(document).ready(function () {
+        var $searchPage = $('.search-page');
+        var $searchOpen = $('.search-icon');
+        var $searchClose = $('.search-icon-close');
+        var $searchInput = $('#search-input');
+        var $body = $('body');
+
+        $searchOpen.on('click', function (e) {
+            e.preventDefault();
+            $searchPage.toggleClass('search-active');
+            var prevClasses = $body.attr('class') || '';
+            setTimeout(function () {
+                $body.addClass('no-scroll');
+            }, 400)
+
+            if ($searchPage.hasClass('search-active')) {
+                $searchClose.on('click', function (e) {
+                    e.preventDefault();
+                    $searchPage.removeClass('search-active');
+                    $body.attr('class', prevClasses);  // from closure
+                });
+                $searchInput.focus();
+            }
+        });
+    });
+</script>
+
+
+
+<!-- Image to hack wechat -->
+<img src="/assets/img/icon_wechat.png" width="0" height="0">
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

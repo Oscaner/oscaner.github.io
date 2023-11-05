@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="baidu-site-verification" content="code-RlNzeiqm6B">
+    
+    
+    <meta name="google-site-verification" content="clzGAgkJY2WD5IGr5G6KZS9xymJYL_IH2QIEettmobY">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="心若浮沉，浅笑安然">
+    <meta name="keywords" content="Kang Oscaner China Blog">
+    <meta name="theme-color" content="#000000">
+    <meta name="site" content="https://www.oscaner.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Clang - GCC 编译 - Oscaner 的博客 | Oscaner Blog">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="示例代码
+">
+    
+    <meta property="article:published_time" content=" 2018-08-18T22:59:00Z">
+    
+    
+    <meta property="article:author" content="Oscaner">
+    
+    
+    <meta property="article:tag" content="Skill">
+    
+    <meta property="article:tag" content="Clang">
+    
+    <meta property="article:tag" content="GCC">
+    
+    <meta property="article:tag" content="Compile">
+    
+    
+    <meta property="og:image" content="https://q2.qlogo.cn/headimg_dl?bs=2573226076&dst_uin=2573226076&spec=640&url_enc=0&referer=bu_interface&term_type=PC">
+    <meta property="og:url" content="https://www.oscaner.com/skill/clang/gcc-compile.html">
+    <meta property="og:site_name" content="Oscaner 的博客 | Oscaner Blog">
+
+    <title>Clang - GCC 编译 - Oscaner 的博客 | Oscaner Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.oscaner.com/skill/clang/gcc-compile.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/hux-blog.min.css">
+    <link rel="stylesheet" href="/assets/css/oscaner-blog.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="/packages/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    <!-- Google AdSense -->
+    <script data-ad-client="ca-pub-3286495153411959" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+
+    <!-- MD5 -->
+    <script src="/assets/js/md5.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R9FFJYC4P1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-R9FFJYC4P1');
+    </script>
+    
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                  
+                    Oscaner
+                  
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="huxblog_navbar">
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/friends/">Friends</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/projects/">Projects</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/archive/">Archive</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="search-icon">
+                            <a href="javascript:void(0)">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <script>
+        // Drop Bootstarp low-performance Navbar
+        // Use customize navbar with high-quality material design animation
+        // in high-perf jank-free CSS3 implementation
+        var $body = document.body;
+        var $toggle = document.querySelector('.navbar-toggle');
+        var $navbar = document.querySelector('#huxblog_navbar');
+        var $collapse = document.querySelector('.navbar-collapse');
+
+        var __HuxNav__ = {
+            close: function () {
+                $navbar.className = " ";
+                // wait until animation end.
+                setTimeout(function () {
+                    // prevent frequently toggle
+                    if ($navbar.className.indexOf('in') < 0) {
+                        $collapse.style.height = "0px"
+                    }
+                }, 400)
+            },
+            open: function () {
+                $collapse.style.height = "auto"
+                $navbar.className += " in";
+            }
+        }
+
+        // Bind Event
+        $toggle.addEventListener('click', function (e) {
+            if ($navbar.className.indexOf('in') > 0) {
+                __HuxNav__.close()
+            } else {
+                __HuxNav__.open()
+            }
+        })
+
+        /**
+         * Since Fastclick is used to delegate 'touchstart' globally
+         * to hack 300ms delay in iOS by performing a fake 'click',
+         * Using 'e.stopPropagation' to stop 'touchstart' event from
+         * $toggle/$collapse will break global delegation.
+         *
+         * Instead, we use a 'e.target' filter to prevent handler
+         * added to document close HuxNav.
+         *
+         * Also, we use 'click' instead of 'touchstart' as compromise
+         */
+        document.addEventListener('click', function (e) {
+            if (e.target == $toggle) return;
+            if (e.target.className == 'icon-bar') return;
+            __HuxNav__.close();
+        })
+    </script>
+
+    <!-- Search -->
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/assets/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/assets/img/post-bg-alitrip.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+
+
+
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/assets/img/post-bg-alitrip.jpg');
+        background: ;
+    }
+
+    
+</style>
+
+
+
+
+<header class="intro-header">
+
+    <div class="header-mask"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/archive/?tag=Skill" title="Skill">Skill</a>
+                        
+                        <a class="tag" href="/archive/?tag=Clang" title="Clang">Clang</a>
+                        
+                        <a class="tag" href="/archive/?tag=GCC" title="GCC">GCC</a>
+                        
+                        <a class="tag" href="/archive/?tag=Compile" title="Compile">Compile</a>
+                        
+                    </div>
+                    <h1>Clang - GCC 编译</h1>
+                    
+                    <h2 class="subheading"></h2>
+                    <span class="meta">Posted by Oscaner on August 18, 2018</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+                <p>示例代码</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td>
+<td class="rouge-code"><pre><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Hello World!</span><span class="se">\n</span><span class="s">"</span> <span class="p">);</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h2 id="编译">编译</h2>
+
+<h3 id="一步到位">一步到位</h3>
+
+<p>编译总共分四个阶段：</p>
+
+<ul>
+  <li>预处理（也称之为预编译，Preprocessing）</li>
+  <li>编译（Compilation）</li>
+  <li>汇编（Assembly）</li>
+  <li>链接（Linking）</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> gcc <span class="nt">-o</span> <span class="nb">test</span> ./test.c
+<span class="c"># 将 text.c 文件编译生成 test 程序（一步到位）</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">-o</code>: 输出文件</p>
+
+<h3 id="分步介绍">分步介绍</h3>
+
+<h4 id="1-预处理">1. 预处理</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> gcc <span class="nt">-E</span> ./test.c
+<span class="c"># 直接在命令行窗口输出预处理代码</span>
+<span class="o">&gt;</span> gcc <span class="nt">-E</span> ./test.c <span class="nt">-o</span> ./test.i
+<span class="c"># 输出 test.i 文件，存放 test.c 预处理代码</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">-E</code>: 让编译器在预处理后停止，并输出预处理结果。本示例的预处理结果就是将 <code class="language-plaintext highlighter-rouge">stdio.h</code> 文件中的内容插入到 <code class="language-plaintext highlighter-rouge">test.c</code> 中</p>
+
+<h4 id="2-编译">2. 编译</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> gcc <span class="nt">-S</span> ./test.i <span class="nt">-o</span> ./test.s
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">-S</code>: 让编译器在编译生成汇编代码后停止。</p>
+
+<h4 id="3-汇编">3. 汇编</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> gcc <span class="nt">-c</span> ./test.s <span class="nt">-o</span> ./test.o
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">-c</code>: 让编译器在汇编生成机器码后停止。</p>
+
+<h4 id="4-链接">4. 链接</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> gcc ./test.o <span class="nt">-o</span> <span class="nb">test</span>
+<span class="c"># 将 test.o 文件与 C 标准输入输出库进行链接，生成 test 程序</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h2 id="debug">Debug</h2>
+
+<h3 id="pedantic">pedantic</h3>
+
+<p><code class="language-plaintext highlighter-rouge">-pedantic</code>: 能够发现一些不符合 ANSI/ISO C 标准的代码，但不是全部。只有 ANSI/ISO C 语言标准中要求进行编译器诊断的那些情况，才会被 GCC 发现并提出警告。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> gcc <span class="nt">-pedantic</span> test.c <span class="nt">-o</span> <span class="nb">test</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h3 id="wall">Wall</h3>
+
+<p>除了 <code class="language-plaintext highlighter-rouge">-pedantic</code> 之外，Gcc 还有一些编译选项也能够产生有用的警告信息。</p>
+
+<p>这些选项大多以 <code class="language-plaintext highlighter-rouge">-W</code> 开头，其中最有价值的当数 <code class="language-plaintext highlighter-rouge">-Wall</code> 了，使用它能够使 GCC 产生尽可能多的警告信息。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> gcc <span class="nt">-Wall</span> test.c <span class="nt">-o</span> <span class="nb">test</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h3 id="werror">Werror</h3>
+
+<p>GCC 给出的警告信息虽然从严格意义上说不能算作错误，但却很可能成为错误的栖身之所。</p>
+
+<p>一个优秀的 Linux 程序员应该尽量避免产生警告信息，使自己的代码始终保持标准、健壮的特性。</p>
+
+<p>所以将警告信息当成编码错误来对待，是一种值得赞扬的行为!</p>
+
+<p>在编译程序时带上 <code class="language-plaintext highlighter-rouge">-Werror</code> 选项，那么GCC会在所有产生警告的地方停止编译，迫使程序员对自己的代码进行修改。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> gcc <span class="nt">-Werror</span> test.c <span class="nt">-o</span> <span class="nb">test</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+
+                <!-- Copyright Notice -->
+                
+<hr>
+
+<p>
+  本文由
+  <a href="/about/" target="_blank">
+    Oscaner
+  </a> 创作, 采用
+  <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">
+    知识共享署名4.0
+  </a> 国际许可协议进行许可 <br>
+  本站文章除注明转载/出处外, 均为本站原创或翻译, 转载前请务必署名
+</p>
+
+
+                
+
+                <hr>
+<hr style="visibility: hidden;">
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/skill/sql/mysql-syntax.html" data-toggle="tooltip" data-placement="top" title="MySQL - 常用语法及函数">
+                        Previous<br>
+                        <span>MySQL - 常用语法及函数</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/skill/others/vpn-setup.html" data-toggle="tooltip" data-placement="top" title="搭建属于自己的 VPN">
+                        Next<br>
+                        <span>搭建属于自己的 VPN</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr style="visibility: hidden;">
+
+                <!-- Comment start -->
+<div class="comment">
+  
+
+  
+  <!-- gitalk 评论框 start -->
+  <div id="gitalk-container"></div>
+  <!-- gitalk 评论框 end -->
+  
+
+  
+</div>
+<!-- Comment end -->
+
+
+
+
+
+
+<!-- Gitalk CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<!-- gitalk 公共JS代码 start (一个网页只需插入一次) -->
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  function getLangForGitalk() {
+    lang = new URLSearchParams(document.location.search).get("lang");
+    return lang == 'zh' ? 'zh-CN' : lang;
+  }
+
+  var body = location.href;
+
+  var subtitle = "";
+  if (subtitle) {
+    body += "\n" + subtitle;
+  }
+
+  var description = "";
+  if (description) {
+    body += "\n" + description;
+  }
+
+  var gitalk = new Gitalk({
+      clientID: 'f86fb5601466c278f223',
+      clientSecret: '8234184af9a4cbc9dfa58bbea7ff6cdb84d33f1f',
+      repo: 'oscaner.github.io',
+      owner: 'Oscaner',
+      admin: 'Oscaner',
+      labels: 'Gitalk|Skill|Clang|GCC|Compile|Oscaner'.split('|'),
+      body: body,
+      language: getLangForGitalk() ? getLangForGitalk() : 'zh-CN',
+
+      id: MD5('/skill/clang/gcc-compile.html'),
+      // facebook-like distraction free mode
+      distractionFreeMode: true
+  });
+
+  gitalk.render('gitalk-container');
+</script>
+<!-- gitalk 公共JS代码 end -->
+
+
+
+
+
+            </div>
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+
+<section>
+    
+        <hr class="hidden-sm hidden-xs">
+    
+    <h5><a href="/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        
+        
+        
+                <a data-sort="0040" href="/archive/?tag=Skill" title="Skill" rel="95">Skill</a>
+        
+                <a data-sort="0097" href="/archive/?tag=Clang" title="Clang" rel="38">Clang</a>
+        
+                <a data-sort="0097" href="/archive/?tag=Exam" title="Exam" rel="38">Exam</a>
+        
+                <a data-sort="0098" href="/archive/?tag=AWS" title="AWS" rel="37">AWS</a>
+        
+                <a data-sort="0098" href="/archive/?tag=C%2B%2B" title="C++" rel="37">C++</a>
+        
+                <a data-sort="0098" href="/archive/?tag=Data+Structure" title="Data Structure" rel="37">Data Structure</a>
+        
+                <a data-sort="0099" href="/archive/?tag=MLS" title="MLS" rel="36">MLS</a>
+        
+                <a data-sort="0099" href="/archive/?tag=Machine+Learning" title="Machine Learning" rel="36">Machine Learning</a>
+        
+                <a data-sort="0122" href="/archive/?tag=PHP" title="PHP" rel="13">PHP</a>
+        
+                <a data-sort="0124" href="/archive/?tag=Coding" title="Coding" rel="11">Coding</a>
+        
+                <a data-sort="0124" href="/archive/?tag=Others" title="Others" rel="11">Others</a>
+        
+                <a data-sort="0125" href="/archive/?tag=Graduate" title="Graduate" rel="10">Graduate</a>
+        
+                <a data-sort="0125" href="/archive/?tag=Math" title="Math" rel="10">Math</a>
+        
+                <a data-sort="0126" href="/archive/?tag=NoSQL" title="NoSQL" rel="9">NoSQL</a>
+        
+                <a data-sort="0129" href="/archive/?tag=SQL" title="SQL" rel="6">SQL</a>
+        
+                <a data-sort="0130" href="/archive/?tag=Linux" title="Linux" rel="5">Linux</a>
+        
+                <a data-sort="0130" href="/archive/?tag=Redis" title="Redis" rel="5">Redis</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Fibonacci" title="Fibonacci" rel="3">Fibonacci</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Git" title="Git" rel="3">Git</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Memcached" title="Memcached" rel="3">Memcached</a>
+        
+                <a data-sort="0133" href="/archive/?tag=MySQL" title="MySQL" rel="2">MySQL</a>
+    </div>
+</section>
+
+
+                <!-- Friends Blog -->
+                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://asdrt666.com" target="_blank" rel="friend">Asdrt</a></li>
+  
+  <li><a href="https://szdblog.com" target="_blank" rel="friend">Choba·乔巴博客</a></li>
+  
+  <li><a href="https://ibcl.us/" target="_blank" rel="friend">I BCL.</a></li>
+  
+  <li><a href="https://www.wmathor.com/" target="_blank" rel="friend">mathor</a></li>
+  
+  <li><a href="https://tongtaos.com" target="_blank" rel="friend">Mr. 童的博客</a></li>
+  
+  <li><a href="https://blog.kejijie.vip/" target="_blank" rel="friend">wantsget</a></li>
+  
+  <li><a href="https://o0o0o0.cn/" target="_blank" rel="friend">三十三言</a></li>
+  
+  <li><a href="http://www.gazyip.cn/" target="_blank" rel="friend">八个比特</a></li>
+  
+  <li><a href="https://www.lixuejiang.com/" target="_blank" rel="friend">李学江博客</a></li>
+  
+  <li><a href="https://5sir.cn" target="_blank" rel="friend">梁Sir的小站</a></li>
+  
+  <li><a href="http://isenchun.cn/" target="_blank" rel="friend">森纯个人博客</a></li>
+  
+  <li><a href="http://www.nothamor.cn/" target="_blank" rel="friend">欧尼酱</a></li>
+  
+  <li><a href="https://www.lkxin.cn" target="_blank" rel="friend">清酒踏月</a></li>
+  
+  <li><a href="https://www.yyhy.me" target="_blank" rel="friend">烟雨寒云博客</a></li>
+  
+  <li><a href="http://mlldxe.cn" target="_blank" rel="friend">犬の窝</a></li>
+  
+  <li><a href="https://aoppp.com" target="_blank" rel="friend">憧憬播客</a></li>
+  
+</ul>
+
+
+
+                <!-- Ads -->
+                <hr>
+
+<!-- <script async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3286495153411959"
+  crossorigin="anonymous"></script> -->
+
+<!-- Oscaner's Vertical Ad -->
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3286495153411959" data-ad-slot="2277392638" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
+
+
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- add support for mathjax by voleking-->
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async('/packages/anchor/1.1.1/anchor.min.js', function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'right',
+          // icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- SEO -->
+<!-- Schema Markup -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "Clang - GCC 编译",
+  "author": {
+    "@type": "Person",
+    "name": "Oscaner"
+  },
+  "datePublished": "August 18, 2018",
+  "image": "https://www.oscaner.com/assets/img/post-bg-alitrip.jpg",
+  "articleBody": "&lt;p&gt;示例代码&lt;/p&gt;\n\n&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n5\n6\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;cp&quot;&gt;#include&lt;/span&gt; &lt;span class=&quot;cpf&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;\n&lt;/span&gt;\n&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;\n  &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello World!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;\n  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;\n&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h2 id=&quot;编译&quot;&gt;编译&lt;/h2&gt;\n\n&lt;h3 id=&quot;一步到位&quot;&gt;一步到位&lt;/h3&gt;\n\n&lt;p&gt;编译总共分四个阶段：&lt;/p&gt;\n\n&lt;ul&gt;\n  &lt;li&gt;预处理（也称之为预编译，Preprocessing）&lt;/li&gt;\n  &lt;li&gt;编译（Compilation）&lt;/li&gt;\n  &lt;li&gt;汇编（Assembly）&lt;/li&gt;\n  &lt;li&gt;链接（Linking）&lt;/li&gt;\n&lt;/ul&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; gcc &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; ./test.c\n&lt;span class=&quot;c&quot;&gt;# 将 text.c 文件编译生成 test 程序（一步到位）&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-o&lt;/code&gt;&#58; 输出文件&lt;/p&gt;\n\n&lt;h3 id=&quot;分步介绍&quot;&gt;分步介绍&lt;/h3&gt;\n\n&lt;h4 id=&quot;1-预处理&quot;&gt;1. 预处理&lt;/h4&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; gcc &lt;span class=&quot;nt&quot;&gt;-E&lt;/span&gt; ./test.c\n&lt;span class=&quot;c&quot;&gt;# 直接在命令行窗口输出预处理代码&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; gcc &lt;span class=&quot;nt&quot;&gt;-E&lt;/span&gt; ./test.c &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; ./test.i\n&lt;span class=&quot;c&quot;&gt;# 输出 test.i 文件，存放 test.c 预处理代码&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-E&lt;/code&gt;&#58; 让编译器在预处理后停止，并输出预处理结果。本示例的预处理结果就是将 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stdio.h&lt;/code&gt; 文件中的内容插入到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test.c&lt;/code&gt; 中&lt;/p&gt;\n\n&lt;h4 id=&quot;2-编译&quot;&gt;2. 编译&lt;/h4&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; gcc &lt;span class=&quot;nt&quot;&gt;-S&lt;/span&gt; ./test.i &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; ./test.s\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-S&lt;/code&gt;&#58; 让编译器在编译生成汇编代码后停止。&lt;/p&gt;\n\n&lt;h4 id=&quot;3-汇编&quot;&gt;3. 汇编&lt;/h4&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; gcc &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; ./test.s &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; ./test.o\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-c&lt;/code&gt;&#58; 让编译器在汇编生成机器码后停止。&lt;/p&gt;\n\n&lt;h4 id=&quot;4-链接&quot;&gt;4. 链接&lt;/h4&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; gcc ./test.o &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;\n&lt;span class=&quot;c&quot;&gt;# 将 test.o 文件与 C 标准输入输出库进行链接，生成 test 程序&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h2 id=&quot;debug&quot;&gt;Debug&lt;/h2&gt;\n\n&lt;h3 id=&quot;pedantic&quot;&gt;pedantic&lt;/h3&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-pedantic&lt;/code&gt;&#58; 能够发现一些不符合 ANSI/ISO C 标准的代码，但不是全部。只有 ANSI/ISO C 语言标准中要求进行编译器诊断的那些情况，才会被 GCC 发现并提出警告。&lt;/p&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; gcc &lt;span class=&quot;nt&quot;&gt;-pedantic&lt;/span&gt; test.c &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h3 id=&quot;wall&quot;&gt;Wall&lt;/h3&gt;\n\n&lt;p&gt;除了 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-pedantic&lt;/code&gt; 之外，Gcc 还有一些编译选项也能够产生有用的警告信息。&lt;/p&gt;\n\n&lt;p&gt;这些选项大多以 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-W&lt;/code&gt; 开头，其中最有价值的当数 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-Wall&lt;/code&gt; 了，使用它能够使 GCC 产生尽可能多的警告信息。&lt;/p&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; gcc &lt;span class=&quot;nt&quot;&gt;-Wall&lt;/span&gt; test.c &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h3 id=&quot;werror&quot;&gt;Werror&lt;/h3&gt;\n\n&lt;p&gt;GCC 给出的警告信息虽然从严格意义上说不能算作错误，但却很可能成为错误的栖身之所。&lt;/p&gt;\n\n&lt;p&gt;一个优秀的 Linux 程序员应该尽量避免产生警告信息，使自己的代码始终保持标准、健壮的特性。&lt;/p&gt;\n\n&lt;p&gt;所以将警告信息当成编码错误来对待，是一种值得赞扬的行为!&lt;/p&gt;\n\n&lt;p&gt;在编译程序时带上 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-Werror&lt;/code&gt; 选项，那么GCC会在所有产生警告的地方停止编译，迫使程序员对自己的代码进行修改。&lt;/p&gt;\n\n&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; gcc &lt;span class=&quot;nt&quot;&gt;-Werror&lt;/span&gt; test.c &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n",
+  "url": "https://www.oscaner.com/skill/clang/gcc-compile.html"
+}
+</script>
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://space.bilibili.com/17118231">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-stack-1x fa-inverse iconfont icon-bilibili-fill"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+
+                <p class="copyright text-muted">
+                    Copyright © Oscaner 2023
+                    <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备17039697号-2</a>
+                    <br>
+                    Powered by <a href="https://www.oscaner.com">Oscaner Blog</a> |
+                    <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="100px" height="20px" src="https://ghbtns.com/github-btn.html?user=oscaner&repo=oscaner.github.io&type=star&count=true">
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/assets/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/assets/js/hux-blog.min.js"></script>
+
+<!-- Simple Jekyll Search -->
+<script src="/assets/js/simple-jekyll-search.min.js"></script>
+
+<!-- Service Worker -->
+
+<script src="/assets/js/snackbar.js"></script>
+<script src="/assets/js/sw-registration.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async('/packages/fastclick/1.0.6/fastclick.min.js', function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Oscaner
+    var _gaId = '';
+    var _gaDomain = 'www.oscaner.com';
+
+    // Originial
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Oscaner
+    var _baId = 'd9c74d9266af4d68f376f0fb9d5fb71c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        // interop with multilangual
+        if ('false' == 'true') {
+            _containerSelector = 'div.post-container.active';
+        } else {
+            _containerSelector = 'div.post-container';
+        }
+
+        if (!$(_containerSelector).length) {
+            _containerSelector = 'div.post-container';
+        }
+
+        // init
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        // clean
+        $(selector).html('')
+
+        // appending
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/assets/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+<!-- Multi-Lingual -->
+
+
+<!-- Simple Jekyll Search -->
+<script>
+    // https://stackoverflow.com/questions/1912501/unescape-html-entities-in-javascript
+    function htmlDecode(input) {
+        var e = document.createElement('textarea');
+        e.innerHTML = input;
+        // handle case of empty input
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    }
+
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('search-results'),
+        json: '/search.json',
+        searchResultTemplate: '<div class="post-preview item"><a href="{url}"><h2 class="post-title">{title}</h2><h3 class="post-subtitle">{subtitle}</h3><hr></a></div>',
+        noResultsText: 'No results',
+        limit: 50,
+        fuzzy: false,
+        // a hack to get escaped subtitle unescaped. for some reason,
+        // post.subtitle w/o escape filter nuke entire search.
+        templateMiddleware: function (prop, value, template) {
+            if (prop === 'subtitle' || prop === 'title') {
+                if (value.indexOf("code")) {
+                    return htmlDecode(value);
+                } else {
+                    return value;
+                }
+            }
+        }
+    });
+
+    $(document).ready(function () {
+        var $searchPage = $('.search-page');
+        var $searchOpen = $('.search-icon');
+        var $searchClose = $('.search-icon-close');
+        var $searchInput = $('#search-input');
+        var $body = $('body');
+
+        $searchOpen.on('click', function (e) {
+            e.preventDefault();
+            $searchPage.toggleClass('search-active');
+            var prevClasses = $body.attr('class') || '';
+            setTimeout(function () {
+                $body.addClass('no-scroll');
+            }, 400)
+
+            if ($searchPage.hasClass('search-active')) {
+                $searchClose.on('click', function (e) {
+                    e.preventDefault();
+                    $searchPage.removeClass('search-active');
+                    $body.attr('class', prevClasses);  // from closure
+                });
+                $searchInput.focus();
+            }
+        });
+    });
+</script>
+
+
+
+<!-- Image to hack wechat -->
+<img src="/assets/img/icon_wechat.png" width="0" height="0">
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

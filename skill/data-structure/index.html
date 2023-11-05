@@ -1,0 +1,2878 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="baidu-site-verification" content="code-RlNzeiqm6B">
+    
+    
+    <meta name="google-site-verification" content="clzGAgkJY2WD5IGr5G6KZS9xymJYL_IH2QIEettmobY">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="心若浮沉，浅笑安然">
+    <meta name="keywords" content="Kang Oscaner China Blog">
+    <meta name="theme-color" content="#000000">
+    <meta name="site" content="https://www.oscaner.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Data Structure - Oscaner 的博客 | Oscaner Blog">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Skill">
+    
+    <meta property="og:image" content="https://q2.qlogo.cn/headimg_dl?bs=2573226076&dst_uin=2573226076&spec=640&url_enc=0&referer=bu_interface&term_type=PC">
+    <meta property="og:url" content="https://www.oscaner.com/skill/data-structure/">
+    <meta property="og:site_name" content="Oscaner 的博客 | Oscaner Blog">
+
+    <title>Data Structure - Oscaner 的博客 | Oscaner Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.oscaner.com/skill/data-structure/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/hux-blog.min.css">
+    <link rel="stylesheet" href="/assets/css/oscaner-blog.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="/packages/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    <!-- Google AdSense -->
+    <script data-ad-client="ca-pub-3286495153411959" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+
+    <!-- MD5 -->
+    <script src="/assets/js/md5.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R9FFJYC4P1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-R9FFJYC4P1');
+    </script>
+    
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                  
+                    Oscaner
+                  
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="huxblog_navbar">
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/friends/">Friends</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/projects/">Projects</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/archive/">Archive</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="search-icon">
+                            <a href="javascript:void(0)">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <script>
+        // Drop Bootstarp low-performance Navbar
+        // Use customize navbar with high-quality material design animation
+        // in high-perf jank-free CSS3 implementation
+        var $body = document.body;
+        var $toggle = document.querySelector('.navbar-toggle');
+        var $navbar = document.querySelector('#huxblog_navbar');
+        var $collapse = document.querySelector('.navbar-collapse');
+
+        var __HuxNav__ = {
+            close: function () {
+                $navbar.className = " ";
+                // wait until animation end.
+                setTimeout(function () {
+                    // prevent frequently toggle
+                    if ($navbar.className.indexOf('in') < 0) {
+                        $collapse.style.height = "0px"
+                    }
+                }, 400)
+            },
+            open: function () {
+                $collapse.style.height = "auto"
+                $navbar.className += " in";
+            }
+        }
+
+        // Bind Event
+        $toggle.addEventListener('click', function (e) {
+            if ($navbar.className.indexOf('in') > 0) {
+                __HuxNav__.close()
+            } else {
+                __HuxNav__.open()
+            }
+        })
+
+        /**
+         * Since Fastclick is used to delegate 'touchstart' globally
+         * to hack 300ms delay in iOS by performing a fake 'click',
+         * Using 'e.stopPropagation' to stop 'touchstart' event from
+         * $toggle/$collapse will break global delegation.
+         *
+         * Instead, we use a 'e.target' filter to prevent handler
+         * added to document close HuxNav.
+         *
+         * Also, we use 'click' instead of 'touchstart' as compromise
+         */
+        document.addEventListener('click', function (e) {
+            if (e.target == $toggle) return;
+            if (e.target.className == 'icon-bar') return;
+            __HuxNav__.close();
+        })
+    </script>
+
+    <!-- Search -->
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Page Header -->
+
+
+
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/assets/img/home-bg.jpg');
+        background: ;
+    }
+
+    
+</style>
+
+
+
+
+
+
+
+<header class="intro-header" style="background-image: url('/assets/img/home-bg.jpg')">
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="site-heading">
+        
+          <h1>Data Structure</h1>
+          <span class="subheading">Skill</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    
+
+    <!-- USE SIDEBAR -->
+    <!-- PostList Container -->
+    <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12
+      col-xs-12 postlist-container">
+      
+
+<div class="directories">
+
+
+
+<!-- Generate directories listing -->
+
+
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+
+<!-- Generate posts listing -->
+
+
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/intro-calc.html">
+            <h2 class="post-title">
+                C++ 数据结构 (一) 绪论 (1) 计算
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    讲义下载: 《清华大学数据结构讲义》
+
+引例
+
+
+  计算对象: 规律、技巧
+  计算目标: 高效、低耗
+
+
+绳索计算机及其算法
+
+
+  输入: 任给直线 l 及其上一点 A
+  输出: 经过 A 做 l 的一条垂线
+
+
+算法
+
+取 12 段等长的绳索, 首尾联接成环
+
+从 A 点起, 将 4 段绳索沿 l 伸直并固定于 B
+
+沿另一个方向找到第 3 段绳索的终点 C
+
+移动点 C, 将剩余...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 9, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/intro-calc-mode.html">
+            <h2 class="post-title">
+                C++ 数据结构 (一) 绪论 (2) 计算模型
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    算法分析的两个主要方面
+
+
+  正确性: 算法功能与问题要求一致
+    
+      数学证明 ?
+    
+  
+  成本: 运行时间 + 存储空间
+    
+      如何度量 ? 如何比较 ?
+    
+  
+
+
+考察
+
+令 $ T_A (P) = 算法 A 求解问题实例 P 的计算成本 $
+
+意义不大, 可能出现的问题实例太多
+
+如何归纳概括 ?
+
+观察
+
+问题实例的规模, 往往...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 9, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/intro-complexity.html">
+            <h2 class="post-title">
+                C++ 数据结构 (一) 绪论 (3) 复杂度
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    大 O 记号
+
+当 $ n \gg 2 $ 后, 对于规模为 $ n $ 输入, 算法:
+
+
+  
+    需要执行的基本操作次数: $ T(n) = ? $
+  
+  
+    需占用的存储单元数: $ S(n) = ? $ (通常不考虑)
+  
+
+
+$ T(n) = O( f(n) ) $
+
+$ if \  \exists c &gt; 0, 当 \  n \gg 2 \  后, 有 \...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 17, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/intro-algorithm-analysis.html">
+            <h2 class="post-title">
+                C++ 数据结构 (一) 绪论 (4) 算法分析
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    主要任务
+
+
+  
+    算法分析的两个主要任务: 正确性 (不变性 * 单调性), 复杂度
+  
+  
+    C++ 等高级语言的 基本指令, 均等效于常数条 RAM 的 基本指令
+  
+  
+    在渐进意义下, 二者大体相当于:
+
+    
+      
+        分支转向: goto
+
+        算法的灵魂, 出于结构化考虑, 被隐藏了
+      
+      
+...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 18, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/intro-recursion-iteration-1.html">
+            <h2 class="post-title">
+                C++ 数据结构 (一) 绪论 (5) 迭代与递归 (1)
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    
+  To iterate is human, to recurse, divine.
+
+  迭代乃人工, 递归方神通
+
+
+数组求和: 迭代
+
+问题
+
+计算任意 n 个整数之和
+
+实现
+
+逐一取出每个元素, 累加之
+
+
+1
+2
+3
+4
+5
+
+int sum(int A[], int n) {
+  int sum = 0; // O(1)
+  for (int i = 0; i &lt; n;...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 19, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/intro-recursion-iteration-2.html">
+            <h2 class="post-title">
+                C++ 数据结构 (一) 绪论 (5) 迭代与递归 (2)
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    数组倒置
+
+问题描述
+
+任给数组 A[0, n), 将其前后颠倒
+
+统一接口: void reverse(int *A, int lo, int hi);
+
+递归版
+
+
+1
+2
+3
+4
+5
+6
+
+void reverse(int *A, int lo, int hi) {
+  if (lo &lt; hi) { // 问题规模的奇偶性不变, 需要两个递归基
+    swap(A[lo], A...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 20, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/intro-recursion-iteration-3.html">
+            <h2 class="post-title">
+                C++ 数据结构 (一) 绪论 (5) 迭代与递归 (3)
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    Find Two Max
+
+问题描述
+
+从数组区间 A[lo, hi) 中找出最大的两个整数 A[x1] 和 A[x2], 且 A[x1] ≥ A[x2]
+
+元素比较的次数要求尽可能少
+
+迭代法一
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+
+void max2(int A[], int lo, int hi, int &amp;x1, int &amp;x2) // 1 &amp;l...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 20, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/intro-dynamic-programming-1.html">
+            <h2 class="post-title">
+                C++ 数据结构 (一) 绪论 (6) 动态规划 (1)
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    【注】fib() 意为斐波那契额数列算法
+
+fib(): 递归
+
+$ fib(n) = fib(n-1) + fib(n-2): {0, 1, 1, 2, 3, 5, 8 …} $
+
+
+1
+2
+3
+
+int fib(n) {
+  return (2 &gt; n) ? n : fib(n - 1) + fib(n - 2);
+}
+
+
+
+fib(): 递推方程
+
+\[\begin{aligne...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 21, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/intro-dynamic-programming-2.html">
+            <h2 class="post-title">
+                C++ 数据结构 (一) 绪论 (6) 动态规划 (2)
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    最长公共子序列
+
+子序列 (Subsequence): 由序列中若干字符, 按原相对次序构成
+
+
+
+最长公共子序列 (Longest Common Subsequence): 两个序列公共子序列中的最长者
+
+
+
+LCS(): 递归
+
+对于序列 A[0, n] 和 B[0, m], LCS(A, B) 有三种情况
+
+
+  
+    递归基: 若 n = -1 或 m = -1, 则取作空序列 ...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 21, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/vector-interface.html">
+            <h2 class="post-title">
+                C++ 数据结构 (二) 向量 (1) 接口与实现
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    ADT VS DS
+
+
+  
+    抽象数据类型 (Abstract Data Type) ：数据模型 + 定义在该模型上的一组操作
+
+    
+      
+        
+          抽象定义
+          外部的逻辑特性
+          操作 &amp; 语义
+        
+        
+          一种定义
+          不考虑时间复杂度
+...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 23, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/vector-expansion.html">
+            <h2 class="post-title">
+                C++ 数据结构 (二) 向量 (2) 扩容向量
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    静态空间管理
+
+
+  
+    开辟内部数组 _elem[] 并使用一段地址连续的物理空间
+
+    
+      _capacity: 总容量
+      _size: 当前的实际规模 n
+    
+
+    
+  
+  
+    若采用静态空间管理策略, 容量 _capacity 固定, 则有明显的不足
+
+    
+      上溢 (overflow): _elem[] 不足以存放所有...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 23, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/vector-unordered.html">
+            <h2 class="post-title">
+                C++ 数据结构 (二) 向量 (3) 无序向量
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    元素访问 (循秩访问)
+
+通过 V.get(r) 和 V.put(r, e) 接口, 可以读、写向量元素
+
+但就便捷性而言, 远不如数组元素的访问方式: A[r]
+
+是否可沿用借助下标的访问方式？
+
+为此, 需重载下标操作符
+
+
+1
+2
+
+template &lt;typename T&gt;
+T &amp; Vector&lt;T&gt;::operator[](Rank r) const...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 24, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/vector-ordered.html">
+            <h2 class="post-title">
+                C++ 数据结构 (二) 向量 (4) 有序向量
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    有序性及其甄别
+
+无序/有序序列中, 任意/总有一对相邻元素顺序/逆序
+
+因此, 相邻逆序对的数目, 可用以度量向量的逆序程度
+
+
+1
+2
+3
+4
+5
+6
+7
+
+template &lt;typename T&gt; // 返回逆序相邻元素对的总数
+int Vector&lt;T&gt;::disordered() const {
+  int n = 0; // 计数器
+  for (int...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 24, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/vector-binary-search.html">
+            <h2 class="post-title">
+                C++ 数据结构 (二) 向量 (5) 二分查找
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    【注】二分查找的前提是有序向量, 亦或有序线性表
+
+接口
+
+
+1
+2
+3
+4
+5
+6
+
+template &lt;typename T&gt; // 查找算法同一接口, 0 &lt;= lo &lt; hi &lt;= _size
+Rank Vector&lt;T&gt;::search(T const &amp;e, Rank lo, Rank hi) const {
+  return (...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 25, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/vector-fibonacci-search.html">
+            <h2 class="post-title">
+                C++ 数据结构 (二) 向量 (6) 斐波那契查找
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    【注】斐波那契查找是在二分查找的基础上根据斐波那契数列进行分割的
+
+思路及原理
+
+二分查找版本A的效率仍有改进的余地, 因为不难发现
+
+转向左、右分支前的关键码 比较次数 不等, 而 递归深度 却相同
+
+若能通过 递归深度 的不均衡, 对 转向成本 的不均衡进行补偿
+
+平均查找长度应能进一步缩短 …
+
+比如, 若设 n = fib(k) - 1, 则可取 mi = fib(k - 1) - ...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 25, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/vector-bubble-sort.html">
+            <h2 class="post-title">
+                C++ 数据结构 (二) 向量 (7) 起泡排序
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    排序器: 统一入口
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+void Vector&lt;T&gt;::sort(Rank lo, Rank hi) { // 区间 [lo, hi)
+  switch (rand() % 5) { // 视具体问题的特点灵活选取或扩充
+    case 1: bubbleSort(lo, hi); break;    // 起泡排序
+    case 2:...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 27, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/vector-merge-sort.html">
+            <h2 class="post-title">
+                C++ 数据结构 (二) 向量 (8) 归并排序
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    归并排序
+
+原理
+
+分治策略
+
+序列一分为二 $ O(1) $
+
+子序列递归排序 $ 2 * T(\frac{n}{2}) $
+
+合并有序子序列 $ O(n) $
+
+
+
+若真能如此，归并排序的运行时间应该是 $ O(n * \log n) $
+
+实现
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+template &lt;typename T&gt;
+void Vector&lt;T&gt;::me...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 27, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/list-unordered.html">
+            <h2 class="post-title">
+                C++ 数据结构 (三) 列表 (2) 无序列表
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    秩到位置
+
+是否可以模仿向量的循秩访问方式?
+
+可以，比如，通过重载下标操作符
+
+
+1
+2
+3
+4
+5
+6
+
+template &lt;typename T&gt; // assert: 0 &lt;= r &lt; size
+T List&lt;T&gt;::operator[](Rank r) const { // O(r)，效率低下，可偶尔为之，却不宜常用
+  Posi(T) p = ...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 28, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/list-interface.html">
+            <h2 class="post-title">
+                C++ 数据结构 (三) 列表 (1) 接口与实现
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    从静态到动态
+
+
+  
+    根据是否修改数据结构, 所有操作大致分为两类方式：
+
+    
+      
+        静态：仅读取, 数据结构的内容及组成一般不变, 如 get、search
+      
+      
+        动态：需写入, 数据结构的局部或整体将改变, 如 insert、remove
+      
+    
+  
+  
+    与操作方式相对应的, 数据元...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 28, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/list-ordered.html">
+            <h2 class="post-title">
+                C++ 数据结构 (三) 列表 (3) 有序列表
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    唯一化
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+template &lt;typename T&gt;
+int List&lt;T&gt;::uniquify() { // 成批剔除重复元素
+  if (_size &lt; 2) return 0; // 平凡列表自然无重复
+  int oldSize = _size; // 记录原规模
+  ListNodePosi(T) p = ...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on November 30, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/list-selection-sort.html">
+            <h2 class="post-title">
+                C++ 数据结构 (三) 列表 (4) 选择排序
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    实例
+
+
+
+实现: selectionSort()
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+// 对列表中起始于位置 p 的连续 n 个元素做选择排序，valid(p) &amp;amp;&amp;amp; rank(p) + n &lt;= size
+template &lt;typename T&gt;
+void List&lt;T&gt;::selectionSort(Posi...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on December 1, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/list-insertion-sort.html">
+            <h2 class="post-title">
+                C++ 数据结构 (三) 列表 (5) 插入排序
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    构思
+
+
+
+始终将序列看成两部分:
+
+
+  
+    
+      Sorted
+      Unsorted
+    
+    
+      L[0, r)
+      L[r, n)
+    
+  
+
+
+【初始化】 |S| = r = 0, 空序列无所谓有序
+
+【迭代】关注并处理 e = L[r], 在 S 中确定 适当位置 插入 e, 得到有序的 L[0, r]
+
+【不变性】随着 r ...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on December 1, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/stack-interface.html">
+            <h2 class="post-title">
+                C++ 数据结构 (四) 栈与队列 (1) 栈接口与实现
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    操作与接口
+
+
+
+操作实例
+
+LIFO: Last In First Out
+
+
+
+实现
+
+栈既然属于序列的特例，故可直接基于向量或列表派生
+
+
+1
+2
+3
+4
+5
+6
+7
+
+template &lt;typename T&gt;
+class Stack : public Vector&lt;T&gt; { // 由向量派生
+  public: // size()、empty() 以及其他开...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on December 2, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/stack-binary-conversion.html">
+            <h2 class="post-title">
+                C++ 数据结构 (四) 栈与队列 (2) 栈应用 (1) 进制转换
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    典型应用场合
+
+
+  
+    逆序输出 (conversion)
+
+    输出次序与处理过程颠倒, 递归深度和输出长度不易预知
+  
+  
+    递归嵌套 (stack permutation + parenthesis)
+
+    具有自相似性的问题可递归描述, 但分支位置和嵌套深度不固定
+  
+  
+    延迟缓冲 (evaluation)
+
+    线性扫描算法模式中, 在预读...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on December 3, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/stack-permutation.html">
+            <h2 class="post-title">
+                C++ 数据结构 (四) 栈与队列 (2) 栈应用 (2) 栈混洗与括号匹配
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    典型应用场合
+
+
+  
+    逆序输出 (conversion)
+
+    输出次序与处理过程颠倒, 递归深度和输出长度不易预知
+  
+  
+    递归嵌套 (stack permutation + parenthesis)
+
+    具有自相似性的问题可递归描述, 但分支位置和嵌套深度不固定
+  
+  
+    延迟缓冲 (evaluation)
+
+    线性扫描算法模式中, 在预读...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on December 4, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/stack-infix-expression.html">
+            <h2 class="post-title">
+                C++ 数据结构 (四) 栈与队列 (2) 栈应用 (3) 中缀表达式
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    典型应用场合
+
+
+  
+    逆序输出 (conversion)
+
+    输出次序与处理过程颠倒, 递归深度和输出长度不易预知
+  
+  
+    递归嵌套 (stack permutation + parenthesis)
+
+    具有自相似性的问题可递归描述, 但分支位置和嵌套深度不固定
+  
+  
+    延迟缓冲 (evaluation)
+
+    线性扫描算法模式中, 在预读...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on December 4, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/stack-reverse-polish-notation.html">
+            <h2 class="post-title">
+                C++ 数据结构 (四) 栈与队列 (2) 栈应用 (4) 逆波兰表达式
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    典型应用场合
+
+
+  
+    逆序输出 (conversion)
+
+    输出次序与处理过程颠倒, 递归深度和输出长度不易预知
+  
+  
+    递归嵌套 (stack permutation + parenthesis)
+
+    具有自相似性的问题可递归描述, 但分支位置和嵌套深度不固定
+  
+  
+    延迟缓冲 (evaluation)
+
+    线性扫描算法模式中, 在预读...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on December 5, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/queue-interface.html">
+            <h2 class="post-title">
+                C++ 数据结构 (四) 栈与队列 (3) 队列接口与实现
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    操作与接口
+
+
+
+队列 (queue) 也是受限的序列: 先进先出 (FIFO)、后进后出 (LILO)
+
+只能在队尾插入 (查询): enqueue() + rear()
+
+只能在队头删除 (查询): dequeue() + front()
+
+操作实例
+
+
+
+模板类
+
+队列既然属于序列的特列，故亦可直接基于向量或列表派生
+
+
+1
+2
+3
+4
+5
+6
+7
+
+template &lt;type...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on December 5, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/tree.html">
+            <h2 class="post-title">
+                C++ 数据结构 (五) 二叉树 (1) 树
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    应用
+
+
+  
+    层次关系的表示
+
+    
+      表达式: RPN
+      文件系统
+      URL …
+    
+  
+
+
+
+
+有根树
+
+树是特殊的图 $ T = (V, E) $, 节点数 $ \vert V \vert = n $, 边数 $ \vert E \vert = e $
+
+指定任一节点 $ r \in V $ 作为根后, $ T $ 即称作有根树 (r...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on December 7, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/tree-representation.html">
+            <h2 class="post-title">
+                C++ 数据结构 (五) 二叉树 (2) 树的表示
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    接口
+
+
+  
+    
+      节点
+      功能
+    
+  
+  
+    
+      root()
+      根节点
+    
+    
+      parent()
+      父节点
+    
+    
+      firstChild()
+      长子
+    
+    
+      nextSibling()
+      兄弟
+    
+    
+     ...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on December 8, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/btree-intro.html">
+            <h2 class="post-title">
+                C++ 数据结构 (五) 二叉树 (3) 二叉树概述
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    二叉树
+
+节点度数 不超过2 的树称作二叉树 (binary tree)
+
+同一节点的孩子和子树，均以左、右区分
+
+lChild() ~ lSubtree()
+
+rChild() ~ rSubtree()
+
+隐含有序
+
+
+
+基数
+
+深度为 $ k $ 的节点，至多 $ 2^k $ 个
+
+含 $ n $ 个节点、高度为 $ h $ 的二叉树中，$ h &lt; n &lt; 2^(h+1)$
+...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on December 8, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/btree-implementation.html">
+            <h2 class="post-title">
+                C++ 数据结构 (五) 二叉树 (4) 二叉树实现
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    BinNode: 模板类
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+
+#define BinNodePosi(T) BinNode&lt;T&gt;* // 节点位置
+
+template &lt;typename T&gt;
+struct BinNode {
+  BinNodePosi(T) parent, lChild, rChild; // 父亲、左孩子、右孩...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on December 9, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/btree-preorder.html">
+            <h2 class="post-title">
+                C++ 数据结构 (五) 二叉树 (5) 先序遍历
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    遍历规则
+
+按照某种次序访问树中各节点，每个节点被访问恰好一次
+
+$ T = V \cup L \cup R $
+
+遍历结果 ~ 遍历过程 ~ 遍历次序 ~ 遍历策略
+
+
+  
+    
+      先序
+      中序
+      后序
+      层次 (广度)
+    
+  
+  
+    
+      **V** | L | R
+      L | **V** | R
+      ...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on December 10, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/btree-inorder.html">
+            <h2 class="post-title">
+                C++ 数据结构 (五) 二叉树 (6) 中序遍历
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    递归
+
+
+1
+2
+3
+4
+5
+6
+7
+
+template &lt;typename T, typename VST&gt;
+void traverse(BinNodePosi(T) x, VST &amp;visit) {
+  if (!x) return;
+  traverse(x -&gt; lChild, visit);
+  visit(x -&gt; data);
+  travers...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on December 10, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/btree-postorder.html">
+            <h2 class="post-title">
+                C++ 数据结构 (五) 二叉树 (7) 层次遍历
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    实现
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+
+template &lt;typename T, typename VST&gt;
+void BinNode&lt;T&gt;::travLevel(VST &amp;visit) { // 二叉树层次遍历
+  Queue&lt;BinNodePosi(T)&gt; Q; // 引入辅助队列
+  Q.enqueue(this); /...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on December 11, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/map-intro.html">
+            <h2 class="post-title">
+                C++ 数据结构 (六) 图 (1) 概述
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    邻接、关联
+
+G = (V; E)
+
+vertex: n = |V|
+
+edge|arc : e = |E|
+
+邻接关系 (adjacency): 相邻接的两个顶点之间的关系
+
+关联关系 (incideace): 顶点与邻接边之间的关系
+
+
+
+无向、有向
+
+若邻接顶点 U 和 V 的次序无所谓
+
+则 (U, V) 为无向边 (undirected edge)
+
+例: 若 U 是 V 的好友，...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on December 11, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+
+  
+  
+  
+    <div class="post-preview">
+        <a href="/skill/data-structure/map-adjacency-matrix.html">
+            <h2 class="post-title">
+                C++ 数据结构（六）图（2）邻接矩阵
+            </h2>
+            <sub>-「Skill / Data Structure」</sub>
+            
+            <div class="post-content-preview">
+                
+                    Graph 模板类
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+
+template &lt;typename Tv, typename Te&gt; // 顶点类型、边类型
+class Graph {
+  private:
+    void reset() { // 所有顶点、边的辅助信息复位
+      for (int i = 0; i &lt; n; i++)...
+                
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Oscaner on December 13, 2018
+        </p>
+    </div>
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</div>
+
+
+    </div>
+    <!-- Sidebar Container -->
+    <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-12
+      col-xs-12 sidebar-container">
+      <!-- Featured Tags -->
+      
+
+
+<section>
+    
+    <h5><a href="/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        
+        
+        
+                <a data-sort="0040" href="/archive/?tag=Skill" title="Skill" rel="95">Skill</a>
+        
+                <a data-sort="0097" href="/archive/?tag=Clang" title="Clang" rel="38">Clang</a>
+        
+                <a data-sort="0097" href="/archive/?tag=Exam" title="Exam" rel="38">Exam</a>
+        
+                <a data-sort="0098" href="/archive/?tag=AWS" title="AWS" rel="37">AWS</a>
+        
+                <a data-sort="0098" href="/archive/?tag=C%2B%2B" title="C++" rel="37">C++</a>
+        
+                <a data-sort="0098" href="/archive/?tag=Data+Structure" title="Data Structure" rel="37">Data Structure</a>
+        
+                <a data-sort="0099" href="/archive/?tag=MLS" title="MLS" rel="36">MLS</a>
+        
+                <a data-sort="0099" href="/archive/?tag=Machine+Learning" title="Machine Learning" rel="36">Machine Learning</a>
+        
+                <a data-sort="0122" href="/archive/?tag=PHP" title="PHP" rel="13">PHP</a>
+        
+                <a data-sort="0124" href="/archive/?tag=Coding" title="Coding" rel="11">Coding</a>
+        
+                <a data-sort="0124" href="/archive/?tag=Others" title="Others" rel="11">Others</a>
+        
+                <a data-sort="0125" href="/archive/?tag=Graduate" title="Graduate" rel="10">Graduate</a>
+        
+                <a data-sort="0125" href="/archive/?tag=Math" title="Math" rel="10">Math</a>
+        
+                <a data-sort="0126" href="/archive/?tag=NoSQL" title="NoSQL" rel="9">NoSQL</a>
+        
+                <a data-sort="0129" href="/archive/?tag=SQL" title="SQL" rel="6">SQL</a>
+        
+                <a data-sort="0130" href="/archive/?tag=Linux" title="Linux" rel="5">Linux</a>
+        
+                <a data-sort="0130" href="/archive/?tag=Redis" title="Redis" rel="5">Redis</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Fibonacci" title="Fibonacci" rel="3">Fibonacci</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Git" title="Git" rel="3">Git</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Memcached" title="Memcached" rel="3">Memcached</a>
+        
+                <a data-sort="0133" href="/archive/?tag=MySQL" title="MySQL" rel="2">MySQL</a>
+    </div>
+</section>
+
+
+      <!-- Short About -->
+      <section class="visible-md visible-lg">
+  <hr>
+  <h5><a href="/about/">ABOUT ME</a></h5>
+  <div class="short-about">
+    
+    <img src="https://q2.qlogo.cn/headimg_dl?bs=2573226076&dst_uin=2573226076&spec=640&url_enc=0&referer=bu_interface&term_type=PC">
+    
+    
+    <p>未曾青梅，不见竹马.</p>
+    
+    <!-- SNS Link -->
+    
+
+
+<ul class="list-inline">
+
+
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://space.bilibili.com/17118231">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-stack-1x fa-inverse iconfont icon-bilibili-fill"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+  </div>
+</section>
+
+
+      <!-- Friends Blog -->
+      
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://asdrt666.com" target="_blank" rel="friend">Asdrt</a></li>
+  
+  <li><a href="https://szdblog.com" target="_blank" rel="friend">Choba·乔巴博客</a></li>
+  
+  <li><a href="https://ibcl.us/" target="_blank" rel="friend">I BCL.</a></li>
+  
+  <li><a href="https://www.wmathor.com/" target="_blank" rel="friend">mathor</a></li>
+  
+  <li><a href="https://tongtaos.com" target="_blank" rel="friend">Mr. 童的博客</a></li>
+  
+  <li><a href="https://blog.kejijie.vip/" target="_blank" rel="friend">wantsget</a></li>
+  
+  <li><a href="https://o0o0o0.cn/" target="_blank" rel="friend">三十三言</a></li>
+  
+  <li><a href="http://www.gazyip.cn/" target="_blank" rel="friend">八个比特</a></li>
+  
+  <li><a href="https://www.lixuejiang.com/" target="_blank" rel="friend">李学江博客</a></li>
+  
+  <li><a href="https://5sir.cn" target="_blank" rel="friend">梁Sir的小站</a></li>
+  
+  <li><a href="http://isenchun.cn/" target="_blank" rel="friend">森纯个人博客</a></li>
+  
+  <li><a href="http://www.nothamor.cn/" target="_blank" rel="friend">欧尼酱</a></li>
+  
+  <li><a href="https://www.lkxin.cn" target="_blank" rel="friend">清酒踏月</a></li>
+  
+  <li><a href="https://www.yyhy.me" target="_blank" rel="friend">烟雨寒云博客</a></li>
+  
+  <li><a href="http://mlldxe.cn" target="_blank" rel="friend">犬の窝</a></li>
+  
+  <li><a href="https://aoppp.com" target="_blank" rel="friend">憧憬播客</a></li>
+  
+</ul>
+
+
+
+      <!-- Ads -->
+      <hr>
+
+<!-- <script async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3286495153411959"
+  crossorigin="anonymous"></script> -->
+
+<!-- Oscaner's Vertical Ad -->
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3286495153411959" data-ad-slot="9854314539" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
+<!-- Oscaner's Horizontal Ad -->
+
+
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+    </div>
+    
+  </div>
+</div>
+
+<!-- Add support for follow html in page -->
+
+
+
+
+<!-- SEO -->
+<!-- Schema Markup -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "Data Structure",
+  "author": {
+    "@type": "Person",
+    "name": "Oscaner"
+  },
+  "datePublished": "November 5, 2023",
+  "image": "https://www.oscaner.com/assets/img/home-bg.jpg",
+  "articleBody": "\n\n&lt;div class=&quot;directories&quot;&gt;\n\n\n\n&lt;!-- Generate directories listing --&gt;\n\n\n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n\n&lt;!-- Generate posts listing --&gt;\n\n\n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/intro-calc.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (一) 绪论 (1) 计算\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    讲义下载&#58; 《清华大学数据结构讲义》\n\n引例\n\n\n  计算对象&#58; 规律、技巧\n  计算目标&#58; 高效、低耗\n\n\n绳索计算机及其算法\n\n\n  输入&#58; 任给直线 l 及其上一点 A\n  输出&#58; 经过 A 做 l 的一条垂线\n\n\n算法\n\n取 12 段等长的绳索, 首尾联接成环\n\n从 A 点起, 将 4 段绳索沿 l 伸直并固定于 B\n\n沿另一个方向找到第 3 段绳索的终点 C\n\n移动点 C, 将剩余...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 9, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/intro-calc-mode.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (一) 绪论 (2) 计算模型\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    算法分析的两个主要方面\n\n\n  正确性&#58; 算法功能与问题要求一致\n    \n      数学证明 ?\n    \n  \n  成本&#58; 运行时间 + 存储空间\n    \n      如何度量 ? 如何比较 ?\n    \n  \n\n\n考察\n\n令 $ T_A (P) = 算法 A 求解问题实例 P 的计算成本 $\n\n意义不大, 可能出现的问题实例太多\n\n如何归纳概括 ?\n\n观察\n\n问题实例的规模, 往往...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 9, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/intro-complexity.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (一) 绪论 (3) 复杂度\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    大 O 记号\n\n当 $ n \\gg 2 $ 后, 对于规模为 $ n $ 输入, 算法&#58;\n\n\n  \n    需要执行的基本操作次数&#58; $ T(n) = ? $\n  \n  \n    需占用的存储单元数&#58; $ S(n) = ? $ (通常不考虑)\n  \n\n\n$ T(n) = O( f(n) ) $\n\n$ if \\  \\exists c &amp;gt; 0, 当 \\  n \\gg 2 \\  后, 有 \\...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 17, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/intro-algorithm-analysis.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (一) 绪论 (4) 算法分析\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    主要任务\n\n\n  \n    算法分析的两个主要任务&#58; 正确性 (不变性 * 单调性), 复杂度\n  \n  \n    C++ 等高级语言的 基本指令, 均等效于常数条 RAM 的 基本指令\n  \n  \n    在渐进意义下, 二者大体相当于&#58;\n\n    \n      \n        分支转向&#58; goto\n\n        算法的灵魂, 出于结构化考虑, 被隐藏了\n      \n      \n...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 18, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/intro-recursion-iteration-1.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (一) 绪论 (5) 迭代与递归 (1)\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    \n  To iterate is human, to recurse, divine.\n\n  迭代乃人工, 递归方神通\n\n\n数组求和&#58; 迭代\n\n问题\n\n计算任意 n 个整数之和\n\n实现\n\n逐一取出每个元素, 累加之\n\n\n1\n2\n3\n4\n5\n\nint sum(int A[], int n) {\n  int sum = 0; // O(1)\n  for (int i = 0; i &amp;lt; n;...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 19, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/intro-recursion-iteration-2.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (一) 绪论 (5) 迭代与递归 (2)\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    数组倒置\n\n问题描述\n\n任给数组 A[0, n), 将其前后颠倒\n\n统一接口&#58; void reverse(int *A, int lo, int hi);\n\n递归版\n\n\n1\n2\n3\n4\n5\n6\n\nvoid reverse(int *A, int lo, int hi) {\n  if (lo &amp;lt; hi) { // 问题规模的奇偶性不变, 需要两个递归基\n    swap(A[lo], A...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 20, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/intro-recursion-iteration-3.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (一) 绪论 (5) 迭代与递归 (3)\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    Find Two Max\n\n问题描述\n\n从数组区间 A[lo, hi) 中找出最大的两个整数 A[x1] 和 A[x2], 且 A[x1] ≥ A[x2]\n\n元素比较的次数要求尽可能少\n\n迭代法一\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n\nvoid max2(int A[], int lo, int hi, int &amp;amp;x1, int &amp;amp;x2) // 1 &amp;l...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 20, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/intro-dynamic-programming-1.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (一) 绪论 (6) 动态规划 (1)\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    【注】fib() 意为斐波那契额数列算法\n\nfib()&#58; 递归\n\n$ fib(n) = fib(n-1) + fib(n-2)&#58; {0, 1, 1, 2, 3, 5, 8 …} $\n\n\n1\n2\n3\n\nint fib(n) {\n  return (2 &amp;gt; n) ? n &#58; fib(n - 1) + fib(n - 2);\n}\n\n\n\nfib()&#58; 递推方程\n\n\\[\\begin{aligne...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 21, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/intro-dynamic-programming-2.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (一) 绪论 (6) 动态规划 (2)\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    最长公共子序列\n\n子序列 (Subsequence)&#58; 由序列中若干字符, 按原相对次序构成\n\n\n\n最长公共子序列 (Longest Common Subsequence)&#58; 两个序列公共子序列中的最长者\n\n\n\nLCS()&#58; 递归\n\n对于序列 A[0, n] 和 B[0, m], LCS(A, B) 有三种情况\n\n\n  \n    递归基&#58; 若 n = -1 或 m = -1, 则取作空序列 ...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 21, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/vector-interface.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (二) 向量 (1) 接口与实现\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    ADT VS DS\n\n\n  \n    抽象数据类型 (Abstract Data Type) ：数据模型 + 定义在该模型上的一组操作\n\n    \n      \n        \n          抽象定义\n          外部的逻辑特性\n          操作 &amp;amp; 语义\n        \n        \n          一种定义\n          不考虑时间复杂度\n...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 23, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/vector-expansion.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (二) 向量 (2) 扩容向量\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    静态空间管理\n\n\n  \n    开辟内部数组 _elem[] 并使用一段地址连续的物理空间\n\n    \n      _capacity&#58; 总容量\n      _size&#58; 当前的实际规模 n\n    \n\n    \n  \n  \n    若采用静态空间管理策略, 容量 _capacity 固定, 则有明显的不足\n\n    \n      上溢 (overflow)&#58; _elem[] 不足以存放所有...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 23, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/vector-unordered.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (二) 向量 (3) 无序向量\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    元素访问 (循秩访问)\n\n通过 V.get(r) 和 V.put(r, e) 接口, 可以读、写向量元素\n\n但就便捷性而言, 远不如数组元素的访问方式&#58; A[r]\n\n是否可沿用借助下标的访问方式？\n\n为此, 需重载下标操作符\n\n\n1\n2\n\ntemplate &amp;lt;typename T&amp;gt;\nT &amp;amp; Vector&amp;lt;T&amp;gt;&#58;&#58;operator[](Rank r) const...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 24, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/vector-ordered.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (二) 向量 (4) 有序向量\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    有序性及其甄别\n\n无序/有序序列中, 任意/总有一对相邻元素顺序/逆序\n\n因此, 相邻逆序对的数目, 可用以度量向量的逆序程度\n\n\n1\n2\n3\n4\n5\n6\n7\n\ntemplate &amp;lt;typename T&amp;gt; // 返回逆序相邻元素对的总数\nint Vector&amp;lt;T&amp;gt;&#58;&#58;disordered() const {\n  int n = 0; // 计数器\n  for (int...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 24, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/vector-binary-search.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (二) 向量 (5) 二分查找\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    【注】二分查找的前提是有序向量, 亦或有序线性表\n\n接口\n\n\n1\n2\n3\n4\n5\n6\n\ntemplate &amp;lt;typename T&amp;gt; // 查找算法同一接口, 0 &amp;lt;= lo &amp;lt; hi &amp;lt;= _size\nRank Vector&amp;lt;T&amp;gt;&#58;&#58;search(T const &amp;amp;e, Rank lo, Rank hi) const {\n  return (...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 25, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/vector-fibonacci-search.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (二) 向量 (6) 斐波那契查找\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    【注】斐波那契查找是在二分查找的基础上根据斐波那契数列进行分割的\n\n思路及原理\n\n二分查找版本A的效率仍有改进的余地, 因为不难发现\n\n转向左、右分支前的关键码 比较次数 不等, 而 递归深度 却相同\n\n若能通过 递归深度 的不均衡, 对 转向成本 的不均衡进行补偿\n\n平均查找长度应能进一步缩短 …\n\n比如, 若设 n = fib(k) - 1, 则可取 mi = fib(k - 1) - ...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 25, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/vector-bubble-sort.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (二) 向量 (7) 起泡排序\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    排序器&#58; 统一入口\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n\nvoid Vector&amp;lt;T&amp;gt;&#58;&#58;sort(Rank lo, Rank hi) { // 区间 [lo, hi)\n  switch (rand() % 5) { // 视具体问题的特点灵活选取或扩充\n    case 1&#58; bubbleSort(lo, hi); break;    // 起泡排序\n    case 2&#58;...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 27, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/vector-merge-sort.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (二) 向量 (8) 归并排序\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    归并排序\n\n原理\n\n分治策略\n\n序列一分为二 $ O(1) $\n\n子序列递归排序 $ 2 * T(\\frac{n}{2}) $\n\n合并有序子序列 $ O(n) $\n\n\n\n若真能如此，归并排序的运行时间应该是 $ O(n * \\log n) $\n\n实现\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n\ntemplate &amp;lt;typename T&amp;gt;\nvoid Vector&amp;lt;T&amp;gt;&#58;&#58;me...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 27, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/list-unordered.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (三) 列表 (2) 无序列表\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    秩到位置\n\n是否可以模仿向量的循秩访问方式?\n\n可以，比如，通过重载下标操作符\n\n\n1\n2\n3\n4\n5\n6\n\ntemplate &amp;lt;typename T&amp;gt; // assert&#58; 0 &amp;lt;= r &amp;lt; size\nT List&amp;lt;T&amp;gt;&#58;&#58;operator[](Rank r) const { // O(r)，效率低下，可偶尔为之，却不宜常用\n  Posi(T) p = ...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 28, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/list-interface.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (三) 列表 (1) 接口与实现\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    从静态到动态\n\n\n  \n    根据是否修改数据结构, 所有操作大致分为两类方式：\n\n    \n      \n        静态：仅读取, 数据结构的内容及组成一般不变, 如 get、search\n      \n      \n        动态：需写入, 数据结构的局部或整体将改变, 如 insert、remove\n      \n    \n  \n  \n    与操作方式相对应的, 数据元...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 28, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/list-ordered.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (三) 列表 (3) 有序列表\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    唯一化\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n\ntemplate &amp;lt;typename T&amp;gt;\nint List&amp;lt;T&amp;gt;&#58;&#58;uniquify() { // 成批剔除重复元素\n  if (_size &amp;lt; 2) return 0; // 平凡列表自然无重复\n  int oldSize = _size; // 记录原规模\n  ListNodePosi(T) p = ...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on November 30, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/list-selection-sort.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (三) 列表 (4) 选择排序\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    实例\n\n\n\n实现&#58; selectionSort()\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n\n// 对列表中起始于位置 p 的连续 n 个元素做选择排序，valid(p) &amp;amp;amp;&amp;amp;amp; rank(p) + n &amp;lt;= size\ntemplate &amp;lt;typename T&amp;gt;\nvoid List&amp;lt;T&amp;gt;&#58;&#58;selectionSort(Posi...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on December 1, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/list-insertion-sort.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (三) 列表 (5) 插入排序\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    构思\n\n\n\n始终将序列看成两部分&#58;\n\n\n  \n    \n      Sorted\n      Unsorted\n    \n    \n      L[0, r)\n      L[r, n)\n    \n  \n\n\n【初始化】 |S| = r = 0, 空序列无所谓有序\n\n【迭代】关注并处理 e = L[r], 在 S 中确定 适当位置 插入 e, 得到有序的 L[0, r]\n\n【不变性】随着 r ...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on December 1, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/stack-interface.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (四) 栈与队列 (1) 栈接口与实现\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    操作与接口\n\n\n\n操作实例\n\nLIFO&#58; Last In First Out\n\n\n\n实现\n\n栈既然属于序列的特例，故可直接基于向量或列表派生\n\n\n1\n2\n3\n4\n5\n6\n7\n\ntemplate &amp;lt;typename T&amp;gt;\nclass Stack &#58; public Vector&amp;lt;T&amp;gt; { // 由向量派生\n  public&#58; // size()、empty() 以及其他开...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on December 2, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/stack-binary-conversion.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (四) 栈与队列 (2) 栈应用 (1) 进制转换\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    典型应用场合\n\n\n  \n    逆序输出 (conversion)\n\n    输出次序与处理过程颠倒, 递归深度和输出长度不易预知\n  \n  \n    递归嵌套 (stack permutation + parenthesis)\n\n    具有自相似性的问题可递归描述, 但分支位置和嵌套深度不固定\n  \n  \n    延迟缓冲 (evaluation)\n\n    线性扫描算法模式中, 在预读...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on December 3, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/stack-permutation.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (四) 栈与队列 (2) 栈应用 (2) 栈混洗与括号匹配\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    典型应用场合\n\n\n  \n    逆序输出 (conversion)\n\n    输出次序与处理过程颠倒, 递归深度和输出长度不易预知\n  \n  \n    递归嵌套 (stack permutation + parenthesis)\n\n    具有自相似性的问题可递归描述, 但分支位置和嵌套深度不固定\n  \n  \n    延迟缓冲 (evaluation)\n\n    线性扫描算法模式中, 在预读...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on December 4, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/stack-infix-expression.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (四) 栈与队列 (2) 栈应用 (3) 中缀表达式\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    典型应用场合\n\n\n  \n    逆序输出 (conversion)\n\n    输出次序与处理过程颠倒, 递归深度和输出长度不易预知\n  \n  \n    递归嵌套 (stack permutation + parenthesis)\n\n    具有自相似性的问题可递归描述, 但分支位置和嵌套深度不固定\n  \n  \n    延迟缓冲 (evaluation)\n\n    线性扫描算法模式中, 在预读...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on December 4, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/stack-reverse-polish-notation.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (四) 栈与队列 (2) 栈应用 (4) 逆波兰表达式\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    典型应用场合\n\n\n  \n    逆序输出 (conversion)\n\n    输出次序与处理过程颠倒, 递归深度和输出长度不易预知\n  \n  \n    递归嵌套 (stack permutation + parenthesis)\n\n    具有自相似性的问题可递归描述, 但分支位置和嵌套深度不固定\n  \n  \n    延迟缓冲 (evaluation)\n\n    线性扫描算法模式中, 在预读...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on December 5, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/queue-interface.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (四) 栈与队列 (3) 队列接口与实现\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    操作与接口\n\n\n\n队列 (queue) 也是受限的序列&#58; 先进先出 (FIFO)、后进后出 (LILO)\n\n只能在队尾插入 (查询)&#58; enqueue() + rear()\n\n只能在队头删除 (查询)&#58; dequeue() + front()\n\n操作实例\n\n\n\n模板类\n\n队列既然属于序列的特列，故亦可直接基于向量或列表派生\n\n\n1\n2\n3\n4\n5\n6\n7\n\ntemplate &amp;lt;type...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on December 5, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/tree.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (五) 二叉树 (1) 树\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    应用\n\n\n  \n    层次关系的表示\n\n    \n      表达式&#58; RPN\n      文件系统\n      URL …\n    \n  \n\n\n\n\n有根树\n\n树是特殊的图 $ T = (V, E) $, 节点数 $ \\vert V \\vert = n $, 边数 $ \\vert E \\vert = e $\n\n指定任一节点 $ r \\in V $ 作为根后, $ T $ 即称作有根树 (r...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on December 7, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/tree-representation.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (五) 二叉树 (2) 树的表示\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    接口\n\n\n  \n    \n      节点\n      功能\n    \n  \n  \n    \n      root()\n      根节点\n    \n    \n      parent()\n      父节点\n    \n    \n      firstChild()\n      长子\n    \n    \n      nextSibling()\n      兄弟\n    \n    \n     ...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on December 8, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/btree-intro.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (五) 二叉树 (3) 二叉树概述\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    二叉树\n\n节点度数 不超过2 的树称作二叉树 (binary tree)\n\n同一节点的孩子和子树，均以左、右区分\n\nlChild() ~ lSubtree()\n\nrChild() ~ rSubtree()\n\n隐含有序\n\n\n\n基数\n\n深度为 $ k $ 的节点，至多 $ 2^k $ 个\n\n含 $ n $ 个节点、高度为 $ h $ 的二叉树中，$ h &amp;lt; n &amp;lt; 2^(h+1)$\n...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on December 8, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/btree-implementation.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (五) 二叉树 (4) 二叉树实现\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    BinNode&#58; 模板类\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n\n#define BinNodePosi(T) BinNode&amp;lt;T&amp;gt;* // 节点位置\n\ntemplate &amp;lt;typename T&amp;gt;\nstruct BinNode {\n  BinNodePosi(T) parent, lChild, rChild; // 父亲、左孩子、右孩...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on December 9, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/btree-preorder.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (五) 二叉树 (5) 先序遍历\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    遍历规则\n\n按照某种次序访问树中各节点，每个节点被访问恰好一次\n\n$ T = V \\cup L \\cup R $\n\n遍历结果 ~ 遍历过程 ~ 遍历次序 ~ 遍历策略\n\n\n  \n    \n      先序\n      中序\n      后序\n      层次 (广度)\n    \n  \n  \n    \n      **V** | L | R\n      L | **V** | R\n      ...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on December 10, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/btree-inorder.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (五) 二叉树 (6) 中序遍历\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    递归\n\n\n1\n2\n3\n4\n5\n6\n7\n\ntemplate &amp;lt;typename T, typename VST&amp;gt;\nvoid traverse(BinNodePosi(T) x, VST &amp;amp;visit) {\n  if (!x) return;\n  traverse(x -&amp;gt; lChild, visit);\n  visit(x -&amp;gt; data);\n  travers...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on December 10, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/btree-postorder.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (五) 二叉树 (7) 层次遍历\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    实现\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n\ntemplate &amp;lt;typename T, typename VST&amp;gt;\nvoid BinNode&amp;lt;T&amp;gt;&#58;&#58;travLevel(VST &amp;amp;visit) { // 二叉树层次遍历\n  Queue&amp;lt;BinNodePosi(T)&amp;gt; Q; // 引入辅助队列\n  Q.enqueue(this); /...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on December 11, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/map-intro.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构 (六) 图 (1) 概述\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    邻接、关联\n\nG = (V; E)\n\nvertex&#58; n = |V|\n\nedge|arc &#58; e = |E|\n\n邻接关系 (adjacency)&#58; 相邻接的两个顶点之间的关系\n\n关联关系 (incideace)&#58; 顶点与邻接边之间的关系\n\n\n\n无向、有向\n\n若邻接顶点 U 和 V 的次序无所谓\n\n则 (U, V) 为无向边 (undirected edge)\n\n例&#58; 若 U 是 V 的好友，...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on December 11, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n\n  \n  \n  \n    &lt;div class=&quot;post-preview&quot;&gt;\n        &lt;a href=&quot;/skill/data-structure/map-adjacency-matrix.html&quot;&gt;\n            &lt;h2 class=&quot;post-title&quot;&gt;\n                C++ 数据结构（六）图（2）邻接矩阵\n            &lt;/h2&gt;\n            &lt;sub&gt;-「Skill / Data Structure」&lt;/sub&gt;\n            \n            &lt;div class=&quot;post-content-preview&quot;&gt;\n                \n                    Graph 模板类\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n\ntemplate &amp;lt;typename Tv, typename Te&amp;gt; // 顶点类型、边类型\nclass Graph {\n  private&#58;\n    void reset() { // 所有顶点、边的辅助信息复位\n      for (int i = 0; i &amp;lt; n; i++)...\n                \n            &lt;/div&gt;\n        &lt;/a&gt;\n        &lt;p class=&quot;post-meta&quot;&gt;\n            Posted by Oscaner on December 13, 2018\n        &lt;/p&gt;\n    &lt;/div&gt;\n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n  \n  \n  \n\n&lt;/div&gt;\n\n",
+  "url": "https://www.oscaner.com/skill/data-structure/"
+}
+</script>
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://space.bilibili.com/17118231">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-stack-1x fa-inverse iconfont icon-bilibili-fill"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+
+                <p class="copyright text-muted">
+                    Copyright © Oscaner 2023
+                    <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备17039697号-2</a>
+                    <br>
+                    Powered by <a href="https://www.oscaner.com">Oscaner Blog</a> |
+                    <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="100px" height="20px" src="https://ghbtns.com/github-btn.html?user=oscaner&repo=oscaner.github.io&type=star&count=true">
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/assets/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/assets/js/hux-blog.min.js"></script>
+
+<!-- Simple Jekyll Search -->
+<script src="/assets/js/simple-jekyll-search.min.js"></script>
+
+<!-- Service Worker -->
+
+<script src="/assets/js/snackbar.js"></script>
+<script src="/assets/js/sw-registration.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async('/packages/fastclick/1.0.6/fastclick.min.js', function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Oscaner
+    var _gaId = '';
+    var _gaDomain = 'www.oscaner.com';
+
+    // Originial
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Oscaner
+    var _baId = 'd9c74d9266af4d68f376f0fb9d5fb71c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        // interop with multilangual
+        if ('' == 'true') {
+            _containerSelector = 'div.post-container.active';
+        } else {
+            _containerSelector = 'div.post-container';
+        }
+
+        if (!$(_containerSelector).length) {
+            _containerSelector = 'div.post-container';
+        }
+
+        // init
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        // clean
+        $(selector).html('')
+
+        // appending
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/assets/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+<!-- Multi-Lingual -->
+
+
+<!-- Simple Jekyll Search -->
+<script>
+    // https://stackoverflow.com/questions/1912501/unescape-html-entities-in-javascript
+    function htmlDecode(input) {
+        var e = document.createElement('textarea');
+        e.innerHTML = input;
+        // handle case of empty input
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    }
+
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('search-results'),
+        json: '/search.json',
+        searchResultTemplate: '<div class="post-preview item"><a href="{url}"><h2 class="post-title">{title}</h2><h3 class="post-subtitle">{subtitle}</h3><hr></a></div>',
+        noResultsText: 'No results',
+        limit: 50,
+        fuzzy: false,
+        // a hack to get escaped subtitle unescaped. for some reason,
+        // post.subtitle w/o escape filter nuke entire search.
+        templateMiddleware: function (prop, value, template) {
+            if (prop === 'subtitle' || prop === 'title') {
+                if (value.indexOf("code")) {
+                    return htmlDecode(value);
+                } else {
+                    return value;
+                }
+            }
+        }
+    });
+
+    $(document).ready(function () {
+        var $searchPage = $('.search-page');
+        var $searchOpen = $('.search-icon');
+        var $searchClose = $('.search-icon-close');
+        var $searchInput = $('#search-input');
+        var $body = $('body');
+
+        $searchOpen.on('click', function (e) {
+            e.preventDefault();
+            $searchPage.toggleClass('search-active');
+            var prevClasses = $body.attr('class') || '';
+            setTimeout(function () {
+                $body.addClass('no-scroll');
+            }, 400)
+
+            if ($searchPage.hasClass('search-active')) {
+                $searchClose.on('click', function (e) {
+                    e.preventDefault();
+                    $searchPage.removeClass('search-active');
+                    $body.attr('class', prevClasses);  // from closure
+                });
+                $searchInput.focus();
+            }
+        });
+    });
+</script>
+
+
+
+<!-- Image to hack wechat -->
+<img src="/assets/img/icon_wechat.png" width="0" height="0">
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

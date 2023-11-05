@@ -1,0 +1,1355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oscaner</title>
+    <description>心若浮沉，浅笑安然</description>
+    <link>https://www.oscaner.com/</link>
+    <atom:link href="https://www.oscaner.com/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sun, 05 Nov 2023 12:56:44 +0000</pubDate>
+    <lastBuildDate>Sun, 05 Nov 2023 12:56:44 +0000</lastBuildDate>
+    <generator>Jekyll v4.2.2</generator>
+    
+      <item>
+        <title>TOEFL - Vocabulary</title>
+        <description>&lt;h2 id=&quot;词汇三维度&quot;&gt;词汇三维度&lt;/h2&gt;
+
+&lt;h3 id=&quot;记&quot;&gt;记&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;联想法: 谐音，拆分，图形联想&lt;/li&gt;
+  &lt;li&gt;构词法: 拼缀，合成，词根词缀&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;用&quot;&gt;用&lt;/h3&gt;
+
+&lt;h3 id=&quot;考&quot;&gt;考&lt;/h3&gt;
+</description>
+        <pubDate>Tue, 16 May 2023 09:37:00 +0000</pubDate>
+        <link>https://www.oscaner.com/life/toefl/toefl-vocabulary.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/life/toefl/toefl-vocabulary.html</guid>
+        
+        <category>TOEFL</category>
+        
+        <category>Life</category>
+        
+        <category>Learning</category>
+        
+        
+        <category>toefl</category>
+        
+        <category>life</category>
+        
+        <category>learning</category>
+        
+      </item>
+    
+      <item>
+        <title>Architecture Soft Skills Part 1</title>
+        <description>&lt;p&gt;In this chapter, we’re going to be looking at some of the soft skills that an architect needs when becoming an architect from developer, that it’s a very ill-defined role.&lt;/p&gt;
+
+&lt;p&gt;There are literally dozens of roles and titles of architect, and so it becomes very confusing as a developer to say, which one of these do i want ?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Application Architect&lt;/li&gt;
+  &lt;li&gt;Integration Architect&lt;/li&gt;
+  &lt;li&gt;Information Architect&lt;/li&gt;
+  &lt;li&gt;Data Architect&lt;/li&gt;
+  &lt;li&gt;Systems Architect&lt;/li&gt;
+  &lt;li&gt;Business Architect&lt;/li&gt;
+  &lt;li&gt;Enterprise Architect&lt;/li&gt;
+  &lt;li&gt;Technical Architect&lt;/li&gt;
+  &lt;li&gt;Security Architect&lt;/li&gt;
+  &lt;li&gt;Network Architect&lt;/li&gt;
+  &lt;li&gt;Solutions Architect&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;What do all these mean ?&lt;/p&gt;
+
+&lt;p&gt;In fact, in many organizations, architect is just so ill-defined it just means the most senior technologist around and we have to give him some title, so we’ll call him architect. And there’s no actual definitional rigor at all in the company besides just he’s the senior tech guy.&lt;/p&gt;
+
+&lt;p&gt;So to simplify things, we’re going to focus on three aspects of architecture.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Application Architect&lt;/li&gt;
+  &lt;li&gt;Integration Architect&lt;/li&gt;
+  &lt;li&gt;Enterprise Architect&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;architectural-decisions&quot;&gt;Architectural decisions&lt;/h2&gt;
+
+&lt;p&gt;Being an architect, first of all, requires you to make certain decisions.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;What does it mean to be an architect ?&lt;/li&gt;
+  &lt;li&gt;What does it require to be an architect ?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Well, the first aspect of that is architectural decisions.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Q1: Is the decision to use java server faces an architectural decision ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Many times, somebody would think, yes, an architect does need to make that important decision.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Q2: Is the decision to use a web-based client an architectural decision ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And now, what would you say ? Of course. So we can banter back and forth about the fact of is the decision to use JSF – JavaServer Faces – really an architecture decision or not ?&lt;/p&gt;
+
+&lt;p&gt;But when we frame it in terms of this, it’s the type versus the implementation.&lt;/p&gt;
+
+&lt;p&gt;With the JSF, you can see the scoping level of that.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;An architect may be responsible for making technology decisions, but the decision is not an architectural one.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So one of the considerations to take into account between the JSF versus web client is the fact, that an architect may be responsible for making that technology decision.&lt;/p&gt;
+
+&lt;p&gt;But the decision is not an architectural one, &lt;strong&gt;the choice of technology should not drive the architecture&lt;/strong&gt;. In fact, it should be the other way around.&lt;/p&gt;
+
+&lt;p&gt;This is an enormous anti-patterning in a lot of organizations who choose products first and then try to build things around them rather than vice versa. It’s more common.&lt;/p&gt;
+
+&lt;h2 id=&quot;expectations&quot;&gt;Expectations&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;What are the expectations of an architect ?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol start=&quot;1&quot;&gt;
+  &lt;li&gt;The first and foremost of these really is to analyze the technology, industry, and market trends and keep current in those trends.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Keeping tabs with the industry and the market trends is incredibly important in understanding how that architecture should be formed.&lt;/p&gt;
+
+&lt;p&gt;So that’s kind of the first expectation.&lt;/p&gt;
+
+&lt;ol start=&quot;2&quot;&gt;
+  &lt;li&gt;Another common expectation is to analyze the current technology environment and recommend solutions for improvement.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This is core thing of what an architect does.&lt;/p&gt;
+
+&lt;p&gt;But the problem is most architects stop right there. They’ll look at the technical infrastructure, but this needs to stretch out to the full lifecycle of the project.&lt;/p&gt;
+
+&lt;p&gt;Let me give you an example:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Let’s say you’re having release management pain. It really is the responsibility of the architect to make sure it works – to not only analyze the architecture, but also Why can’t we deploy successfully ? Why can’t we ever make our targets ? Why are our sprints always late ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is also what we need to analyze and recommend solutions for improvement.&lt;/p&gt;
+
+&lt;ol start=&quot;3&quot;&gt;
+  &lt;li&gt;Another expectation is to ensure compliance with the architecture.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;As an architect, you’re going to create all sorts of lines and boxes and standards and principles, and you expect people to follow them.&lt;/p&gt;
+
+&lt;p&gt;So you have to call this component before you call that component. Whatever, and you don’t do it.&lt;/p&gt;
+
+&lt;p&gt;There’s no one else who is going to be validating that architecture, making sure it’s complied with, except the architect.&lt;/p&gt;
+
+&lt;p&gt;So this is one of the ongoing things that an architect needs to do is ensure compliance with that.&lt;/p&gt;
+
+&lt;p&gt;As the architect, you need to make sure that everybody is complying with that architecture.&lt;/p&gt;
+
+&lt;ol start=&quot;4&quot;&gt;
+  &lt;li&gt;The other expectation, which is also difficult, is having exposure to multiple platforms, technologies, environments, all this.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The point is, if you’re just a J2EE architect, every single solution is going to be J2EE.&lt;/p&gt;
+
+&lt;p&gt;You’re also limiting the scope of what you can actually produce as an effective architecture.&lt;/p&gt;
+
+&lt;p&gt;So yes, this is very critical, and we’re going to dive into depth on this one actually in part two of the soft skills.&lt;/p&gt;
+
+&lt;p&gt;Sure, you don’t hove to know every single detail of all these other architectures. But knowing how they work, how the fundamental building blocks work is really valuable because it allows you to compare and contrast when you have particular problems you’re trying to solve.&lt;/p&gt;
+
+&lt;ol start=&quot;5&quot;&gt;
+  &lt;li&gt;This particular expectation is the reason why we don’t have a whole lot of architects. it is expected that an architect will possess exceptional interpersonal skills, including teamwork, facilitation, and negotiation&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;In other words, an architect needs to also lead teams.  This is a very critical part of the architecture.&lt;/p&gt;
+
+&lt;ol start=&quot;6&quot;&gt;
+  &lt;li&gt;One of the core pieces that an architect is to define the architecture and design principles to guide technology decisions for the enterprise.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Obviously, that’s what we do as an architect.&lt;/p&gt;
+
+&lt;p&gt;But the key point here, it’s to guide the technology decisions for the enterprise.&lt;/p&gt;
+
+&lt;p&gt;The architect may not be making the technology choices for the enterprise, but the architecture should drive those technology choices and help guid them so that they fit with the architecture.&lt;/p&gt;
+
+&lt;p&gt;It should never, be the other way around. We’re going to use Ruby or Rails, Therefore, the architecture has to drive toward that. That should never, ever be the case.&lt;/p&gt;
+
+&lt;p&gt;So it is important as an architect that we actually define those principles. Sometimes we make those technology decisions, but most importantly, the architect is helping to guide those technology decisions for the enterprise.&lt;/p&gt;
+
+&lt;ol start=&quot;7&quot;&gt;
+  &lt;li&gt;Sometimes the most important aspect of an architect is to understand the political climate of the environmental or project or company, and be able to navigate the politics.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;There will be arguments, there will be disagreements about your architecture, and to be able to negotiate and compromise and get buy-in from everybody is absolutely key to becoming a successful architect.&lt;/p&gt;
+
+&lt;p&gt;In fact, one of the rules of thumb, when you’re got important decisions – you’re trying to make a really important point – is never ask a question you don’t know what the answer is going to be.&lt;/p&gt;
+
+&lt;p&gt;So you know you’re not going to get surprised by someone giving you a no when you’re really expecting a yes.&lt;/p&gt;
+
+&lt;p&gt;Understanding how to pose that question and when to pose that question is sometimes as important as the question itself.&lt;/p&gt;
+
+&lt;h2 id=&quot;architecture-aspects&quot;&gt;Architecture aspects&lt;/h2&gt;
+
+&lt;p&gt;There’s another whole aspect of being an architect.&lt;/p&gt;
+
+&lt;p&gt;In order to be a successful architect, you have to have fulfilled or have at least experience or knowledge in four different aspects of architecture.&lt;/p&gt;
+
+&lt;script src=&quot;/packages/mermaid/9.1.6/mermaid.min.js&quot;&gt;&lt;/script&gt;
+&lt;div class=&quot;mermaid&quot;&gt;
+graph LR
+    A[Architecture aspects] --- B(leadership and communication)
+    A[Architecture aspects] --- C(technical knowledge)
+    A[Architecture aspects] --- D(business domain knowledge)
+    A[Architecture aspects] --- E(methodology and strategy)
+&lt;/div&gt;
+
+&lt;p&gt;Within the aspects, there’s &lt;strong&gt;leadership and communication&lt;/strong&gt;. This is a piece that as you look at the expectations, you saw this meld in with team, leadership, negotiation, politics, the whole bit. That’s a very critical part of being an architect.&lt;/p&gt;
+
+&lt;p&gt;There certainly is the &lt;strong&gt;technical knowledge&lt;/strong&gt;. That’s another aspect, obviously. We as architects have to have a certain level of technical knowledge.&lt;/p&gt;
+
+&lt;p&gt;A lot of architects will end here, sometimes not even having the leadership and communication.&lt;/p&gt;
+
+&lt;p&gt;Can they do architecture ? Sure.&lt;/p&gt;
+
+&lt;p&gt;Is it effective ? Probably not.&lt;/p&gt;
+
+&lt;p&gt;Because there’s a couple of other aspects we need as an architect.&lt;/p&gt;
+
+&lt;p&gt;Another one is &lt;strong&gt;business domain knowledge&lt;/strong&gt;. We have to know the business in order to produce an effective architecture.&lt;/p&gt;
+
+&lt;p&gt;And the final one is &lt;strong&gt;methodology and strategy&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;So in part two of the soft skills, we’re going to be taking a detailed look at each of these aspects and what’s involved in becoming an architect in terms of leadership and communications.&lt;/p&gt;
+
+&lt;p&gt;What’s the difference between technical depth and breadth, for example ?&lt;/p&gt;
+
+&lt;p&gt;How important is business domain knowledge ?&lt;/p&gt;
+
+&lt;p&gt;And finally, once you’ve created an architecture, how do you actually get it to its final end product ?&lt;/p&gt;
+
+&lt;p&gt;We’ll take a look at those in part two.&lt;/p&gt;
+
+&lt;h2 id=&quot;for-more-information&quot;&gt;For more information&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;《97 Thins Every Software Architect Should Know, Monson-Haefel et.al, O’Reilly》&lt;/li&gt;
+  &lt;li&gt;《A Practical Guide to Enterprise Architecture, McGovern et.al PTR》&lt;/li&gt;
+  &lt;li&gt;《Software Architecture in Practice 3rd Edition, Bass et.al, Addison Wesley》&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Mon, 12 Sep 2022 09:37:00 +0000</pubDate>
+        <link>https://www.oscaner.com/life/architecture/01-software-architecture-fundamentals/01-architecture-soft-skills-part-1.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/life/architecture/01-software-architecture-fundamentals/01-architecture-soft-skills-part-1.html</guid>
+        
+        <category>Ciandt</category>
+        
+        <category>Architecture</category>
+        
+        <category>Soft Skill</category>
+        
+        
+        <category>ciandt</category>
+        
+        <category>architecture</category>
+        
+        <category>soft skill</category>
+        
+      </item>
+    
+      <item>
+        <title>Machine Learning</title>
+        <description>&lt;h2 id=&quot;机器学习-machine-learning&quot;&gt;机器学习 (Machine Learning)&lt;/h2&gt;
+
+&lt;h3 id=&quot;监督学习-supervised-learning&quot;&gt;监督学习 (Supervised Learning)&lt;/h3&gt;
+
+&lt;p&gt;监督学习是利用训练数据集学习一个模型，再利用模型对测试样本集进行预测。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;二分类模型&lt;/code&gt;: 预测出生小孩性别，输出结果只有两个维度 (男，女)&lt;/li&gt;
+  &lt;li&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;多分类模型&lt;/code&gt;: 预测出生小孩性别，输出结果有多个维度 (男，女，不男不女)&lt;/li&gt;
+  &lt;li&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;回归模型&lt;/code&gt;: 预测出生小孩性别概率，输出结果男的概率是多少，女的概率是多少&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;监督学习是最常见的机器学习方法。&lt;/p&gt;
+
+&lt;h3 id=&quot;无监督学习-unsupervised-learning&quot;&gt;无监督学习 (Unsupervised Learning)&lt;/h3&gt;
+
+&lt;p&gt;机器需要通过自己发现聚类数据并&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;创建标签&lt;/code&gt;，同时也可以进行人为分析，检查机器学习结果是否合理。&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;无监督学习一个经常见到的使用场景是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;异常检测&lt;/code&gt;，如&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;检测超速监控摄像机故障&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0-%E6%A3%80%E6%B5%8B%E8%B6%85%E9%80%9F%E7%9B%91%E6%8E%A7%E6%91%84%E5%83%8F%E6%9C%BA%E6%95%85%E9%9A%9C.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;如图，这些异常值是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;离群值&lt;/code&gt;，但是否属于&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;硬件故障指标&lt;/code&gt;？&lt;/p&gt;
+
+&lt;p&gt;若我们基于规则，设置某一阈值作为硬件故障判断指标，如车辆时速超过 250 公里，&lt;/p&gt;
+
+&lt;p&gt;那么我们会发现总会有个别车辆会超速，达到 250 公里/小时，这种情况也会被判断为摄像机硬件故障。&lt;/p&gt;
+
+&lt;p&gt;我们称这种现象为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;假阳性&lt;/code&gt;，因为基于规则判断此时摄像机故障，但实际上并没有。而&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;真阳性&lt;/code&gt;则指的是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;离群值&lt;/code&gt;中大量集中出现的现象。&lt;/p&gt;
+
+&lt;p&gt;在原始数据中，并不会包含&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;摄像机是否故障&lt;/code&gt;这样的数据集，这就需要&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;无监督学习&lt;/code&gt;来帮助我们&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;创建标签&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;强化学习-reinforcement-learning&quot;&gt;强化学习 (Reinforcement Learning)&lt;/h3&gt;
+
+&lt;p&gt;强化学习是通过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;试错&lt;/code&gt;的方式学习，即最好的期望结果已知，但实现结果的确切路径未知。&lt;/p&gt;
+
+&lt;p&gt;下图为 AWS DeepRacer 自动驾驶&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/aws-deepracer.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;目标是赛车能够以最快的速度通过整个赛道而不冲出赛道&lt;/p&gt;
+
+&lt;p&gt;因为不可能人为的去实际赛道训练试错采集数据，此时就需要用到 Virtual Environment&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/aws-deepracer-virtual-environment.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;在这个 Virtual Environment 内，有一个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;代理&lt;/code&gt; (即赛车)，允许代理在环境内部不断&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;行动&lt;/code&gt;试错，&lt;/p&gt;
+
+&lt;p&gt;然后&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;环境&lt;/code&gt;基于代理的行动给予一定的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;奖励或惩罚&lt;/code&gt;，如只要赛车不冲出赛道，就给它奖励，若需要跑得够快，就基于速度给予一定奖励，&lt;/p&gt;
+
+&lt;p&gt;代理在该环境中经过长时间的学习，它就会明白在哪种条件下可以获得更高的奖励，然后通过奖励不断的反馈优化模型，以达到最高积分。&lt;/p&gt;
+
+&lt;h3 id=&quot;深度学习-deep-learning&quot;&gt;深度学习 (Deep Learning)&lt;/h3&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/deep-learning-1.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;机器学习&lt;/code&gt;主要基于统计学，通过历史数据统计规律。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;强化学习&lt;/code&gt;也是基于统计学，不同点在于，强化学习是机器自我学习，自我采集数据，无需人为控制。&lt;/p&gt;
+
+&lt;p&gt;同样的，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;深度学习&lt;/code&gt;作为机器学习的一个子类别，也是基于统计学，不过相对于强化学习，它在算法方面发生了变化，引入了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;人工神经网络&lt;/code&gt;的概念。&lt;/p&gt;
+
+&lt;p&gt;如图，我们以下棋为例划分机器学习的类别，&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/deep-learning-2.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;人工智能&lt;/code&gt;: 能够根据规则下棋的机器&lt;/li&gt;
+  &lt;li&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;机器学习&lt;/code&gt;: 能够通过分析之前棋手的棋局学习下棋的机器&lt;/li&gt;
+  &lt;li&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;深度学习&lt;/code&gt;: 能够通过与自己对弈学习下棋的机器&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;下图为深度学习的不同之处&lt;/p&gt;
+
+&lt;p&gt;```mermaid {align=”center”}
+graph TB
+    id1[经典编程] -.- Classical_Data(数据)
+    Classical_Data —&amp;gt; Classical_Program(手动创建的程序);
+    Classical_Program —|+| Classical_New_Data(新数据);
+    Classical_New_Data –&amp;gt; Classical_Forecast(预测);&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;
+&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;id2[机器学习] -.- ML_Data(数据)
+ML_Data --&amp;gt; ML_Feature(手动设计的特征);
+ML_Feature --&amp;gt; ML_Model(模型);
+ML_Model ---|+| ML_New_Data(新数据);
+ML_New_Data --&amp;gt; ML_Forecast(预测);
+
+id3[深度学习] -.- DeepML_Data(数据);
+DeepML_Data --&amp;gt; DeepML_Feature(机器推导出的特征);
+DeepML_Feature --&amp;gt; DeepML_Model(模型);
+DeepML_Model --&amp;gt;|性能数据| DeepML_Feature
+DeepML_Model ---|+| DeepML_New_Data(新数据);
+DeepML_New_Data --&amp;gt; DeepML_Forecast(预测);
+
+subgraph 不同点
+
+Classical_Program;
+
+ML_Feature;
+ML_Model;
+
+DeepML_Feature;
+DeepML_Model;
+
+end ```
+&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;经典编程&lt;/code&gt;模式中，所有的规则通过手动创建程序，这其实是非常繁琐与复杂的。&lt;/p&gt;
+
+&lt;p&gt;到了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;机器学习&lt;/code&gt;之后，相较于&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;经典编程&lt;/code&gt;，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;机器学习&lt;/code&gt;所能解决的问题会更多一点，预测也将更加精准，但是我们需要进行大量的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;特征工程/数据过滤&lt;/code&gt;，也就是我们常说的数据清洗 (Data Clean)。&lt;/p&gt;
+
+&lt;p&gt;如图片分类，我们需要提前设定，哪个特征是汽车，哪个特征是轮船，然后机器学习通过大量数据进行模型训练，最后对新图片进行预测。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;特征工程&lt;/code&gt;这部分工作是异常繁琐的。&lt;/p&gt;
+
+&lt;p&gt;而到了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;深度学习&lt;/code&gt;之后，我们可以把&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;特征工程&lt;/code&gt;这部分工作交给也交给机器自己去做，也就是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;人工神经网络&lt;/code&gt; 。&lt;/p&gt;
+
+&lt;p&gt;继续以图片分类为例，在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;深度学习&lt;/code&gt;中，我们只需要给予机器一张原图，并告诉机器这张图是一辆汽车，机器会自己从图片上去搜集相关特征，并将这些特征归类为汽车相关，然后利用这些特征去预测新图片。&lt;/p&gt;
+
+&lt;p&gt;相较于&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;机器学习&lt;/code&gt;，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;深度学习&lt;/code&gt;极大的解放了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;数据科学家/数据工程师&lt;/code&gt;的工作量。&lt;/p&gt;
+
+&lt;p&gt;同时由于&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;机器学习&lt;/code&gt;中的特征更多的是从人的视角去划分，对于机器来说并不一定能够理解，而&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;深度学习&lt;/code&gt;中的特征来自于机器自我学习、自我分类，更易于机器理解，整个预测过程中的性能有了极大的提升。&lt;/p&gt;
+
+&lt;h4 id=&quot;dl-如何学习&quot;&gt;DL 如何学习?&lt;/h4&gt;
+
+&lt;p&gt;目前计算机科学中经常听到的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;全连接网络&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;卷积神经网络&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;循环神经网络&lt;/code&gt;等等，最早都是基于如下图的比较简单的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;神经网络&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;神经网络&lt;/code&gt;的工作原理是模拟动物的神经系统的工作原理，将每一个点当成&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;神经元细胞&lt;/code&gt;，最左边第一层为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;输入层&lt;/code&gt;，最右边为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;输出曾&lt;/code&gt;，中间的则为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;隐藏层&lt;/code&gt;，整个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;神经网络&lt;/code&gt;的计算能力取决于&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;隐藏层&lt;/code&gt;具体有多复杂。&lt;/p&gt;
+
+&lt;p&gt;因此，哪怕输入层输入的数据相同，只要隐藏层不同，输出结果也不尽相同。&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/artificial-neural-network.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;下图为使用 ANN 进行图像分类的一个例子&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/example-of-artificial-neural-network.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;输入层&lt;/code&gt;: 小狗的照片&lt;/li&gt;
+  &lt;li&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;隐藏层&lt;/code&gt;: 基于色彩、灰度、渐变进行像素边缘分析，然后进行下一步的边角线条分析，绘制出对象部分特性，进行学习&lt;/li&gt;
+  &lt;li&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;输出层&lt;/code&gt;: 基于分析学习结果，确认对象身份为小狗&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;影响力&quot;&gt;影响力&lt;/h4&gt;
+
+&lt;p&gt;下图是由 ImageNet 举办的图片分类比赛，在 100 万张图像中识别出 1000 中事物。&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/imagenet-challenge.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;在 2010 年和 2011 年时候使用的是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;机器学习&lt;/code&gt;，即使是最佳程序，在准确率方面也要远低于人类。&lt;/p&gt;
+
+&lt;p&gt;但是到了 2012 年，机器学习开始引入 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ANN&lt;/code&gt;，机器学习的准确率开始大幅提升，并且在 2015 年超过人类。&lt;/p&gt;
+
+&lt;p&gt;这就是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;深度学习&lt;/code&gt;的影响力，以及它的强大之处。&lt;/p&gt;
+
+&lt;h4 id=&quot;回顾&quot;&gt;回顾&lt;/h4&gt;
+
+&lt;p&gt;深度学习模型包括几大特性:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;使用人工神经网络 (ANN) 学习&lt;/li&gt;
+  &lt;li&gt;可以通过原始特征训练&lt;/li&gt;
+  &lt;li&gt;Machine Learning 方法的子集&lt;/li&gt;
+  &lt;li&gt;针对计算效率安排的神经元&lt;/li&gt;
+  &lt;li&gt;训练网络，包含数百个用于学习和改进特征的层&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;总结&quot;&gt;总结&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;经典编程与机器学习方法&lt;/li&gt;
+  &lt;li&gt;三种机器学习算法&lt;/li&gt;
+  &lt;li&gt;三种类型的监督 ML 问题&lt;/li&gt;
+  &lt;li&gt;什么是 ML 的子类别，它与 ML 有何不同&lt;/li&gt;
+  &lt;li&gt;ML 解决方案可以解决哪些类型的问题&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;知识测验&quot;&gt;知识测验&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;您需要根据公司员工的历史数据及其保留率确定可能离职的员工。您会使用哪种类型的机器学习来解决此问题 ?&lt;/p&gt;
+
+    &lt;p&gt;监督学习&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;一家电影流媒体公司想要为每部电影贴上标签，将它们划分为不同的类型。他们拥有关于电影描述的历史资料和其他评论文章。他们可以使用哪种类型的 ML 解决此问题 ?&lt;/p&gt;
+
+    &lt;p&gt;A. 二元分类
+ &lt;strong&gt;B. 多类别分类&lt;/strong&gt;
+ C. 回归
+ D. 强化学习&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;ml-管道-ml-pipeline&quot;&gt;ML 管道 (ML Pipeline)&lt;/h2&gt;
+
+&lt;script src=&quot;/packages/mermaid/9.1.6/mermaid.min.js&quot;&gt;&lt;/script&gt;
+&lt;div class=&quot;mermaid&quot;&gt;
+graph TB
+    A(业务问题) --&amp;gt; B(问题定义) --&amp;gt; C(数据收集和整合)
+
+    subgraph 数据准备和预处理
+        C --&amp;gt; D(数据预处理和可视化)
+    end
+
+    D --&amp;gt; E(模型训练和优化) --&amp;gt; F(模型评估) --&amp;gt; G{是否符合业务目标?}
+
+    G -.-&amp;gt; False[否]:::bg-red
+
+    False -.- H(特征工程) -.-&amp;gt; E
+
+    False -.- I(数据扩增) -.-&amp;gt; C
+
+    classDef bg-red fill:#a44141;
+
+    G -.-&amp;gt; True[是]:::bg-green
+
+    True -.- J(模型部署) -.- K(新数据/重新训练) -.-&amp;gt; A
+
+    classDef bg-green fill:#42b983
+&lt;/div&gt;
+
+&lt;p&gt;ML 不是适用于所有类型问题的解决方案&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/ML%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;机器学习可以满足各种业务需求&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;分类&lt;/li&gt;
+  &lt;li&gt;预测性转接&lt;/li&gt;
+  &lt;li&gt;欺诈检测&lt;/li&gt;
+  &lt;li&gt;个性化广告&lt;/li&gt;
+  &lt;li&gt;语音助理&lt;/li&gt;
+  &lt;li&gt;动态定价&lt;/li&gt;
+  &lt;li&gt;电子邮件筛选&lt;/li&gt;
+  &lt;li&gt;自动驾驶汽车&lt;/li&gt;
+  &lt;li&gt;客户流失预测&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;问题定义&quot;&gt;问题定义&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;示例: 某些产品库存积压，某些产品库存不足，分别导致开销增加和错过销售机会。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;业务问题: 需求预测不准确，让企业蒙受损失&lt;/li&gt;
+  &lt;li&gt;目标: 减少未售出的库存，不错过销售机会&lt;/li&gt;
+  &lt;li&gt;成功指标: 每月月底未售出的库存不超过 15%，同时不存在库存不足&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;什么是成功 ?&lt;/p&gt;
+
+    &lt;p&gt;将定性陈述转化为可衡量的定量陈述。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;希望模型产生什么实际输出 ?&lt;/p&gt;
+
+    &lt;p&gt;将问题转化为 ML 问题，如: 每个产品的预期库存需求都符合预测的销售数据。&lt;/p&gt;
+
+    &lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/ml-pipeline-1-1.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;我们应该选择哪种模型 ?&lt;/p&gt;
+
+    &lt;p&gt;利用这一信息来确定要使用的机器学习问题类型。&lt;/p&gt;
+
+    &lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/ml-pipeline-1-2.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;其他问题: 产品销量预测&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;您想要确定自己是否应该将某种产品入库。&lt;/p&gt;
+
+        &lt;p&gt;您决定从库存中清除&lt;strong&gt;销量会低于100件&lt;/strong&gt;的所有产品。&lt;/p&gt;
+
+        &lt;p&gt;这是一个&lt;strong&gt;二元分类&lt;/strong&gt;问题。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;您想要确定每种商品最好在哪个月促销。&lt;/p&gt;
+
+        &lt;p&gt;这是一种&lt;strong&gt;多元分类&lt;/strong&gt;问题。&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;选择数据&quot;&gt;选择数据&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;您有多少数据，位于哪里 ?&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;您能否访问这些数据 ?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;您是否拥有解决问题所需的数据 ?&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;您的数据是否具有代表性 ?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;评估数据质量&lt;/p&gt;
+
+    &lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/ml-pipeline-2-1.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;识别已有的特征和标签&lt;/p&gt;
+
+    &lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/ml-pipeline-2-2.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;是否需要大量带标记的数据 ?&lt;/p&gt;
+
+    &lt;p&gt;示例: 用于自动驾驶的训练数据需要大量标签。&lt;/p&gt;
+
+    &lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/ml-pipeline-2-3.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+    &lt;p&gt;Amazon SageMaker Ground Truth 可以生成带标记的数据&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;成功标准&quot;&gt;成功标准&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;模型效果指标
+    &lt;ul&gt;
+      &lt;li&gt;在 ML 管道的&lt;strong&gt;测试和评估&lt;/strong&gt;环节使用&lt;/li&gt;
+      &lt;li&gt;一般通过&lt;strong&gt;准确度&lt;/strong&gt;来体现&lt;/li&gt;
+      &lt;li&gt;示例: 模型需要在测试数据集中准确识别出&lt;strong&gt;至少 75% 的欺诈性交易&lt;/strong&gt;
+&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;业务目标指标
+    &lt;ul&gt;
+      &lt;li&gt;在&lt;strong&gt;部署&lt;/strong&gt;模型后使用&lt;/li&gt;
+      &lt;li&gt;衡量模型&lt;strong&gt;在真实环境中&lt;/strong&gt;的效果&lt;/li&gt;
+      &lt;li&gt;可以识别出&lt;strong&gt;不当的模型效果指标&lt;/strong&gt;
+&lt;/li&gt;
+      &lt;li&gt;示例: 在模型部署六个月后，因欺诈交易而&lt;strong&gt;注销信用卡的客户至少应该减少 50%&lt;/strong&gt;
+&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;案例研究-amazon-呼叫中心问题&quot;&gt;案例研究: Amazon 呼叫中心问题&lt;/h3&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/amazon%E5%91%BC%E5%8F%AB%E4%B8%AD%E5%BF%83%E9%97%AE%E9%A2%98.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;业务问题&lt;/p&gt;
+
+    &lt;p&gt;如何将客户转接给正确的支持人员?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;问题定义&lt;/p&gt;
+
+    &lt;p&gt;识别客户数据中可用于预测准确客户转接的模式。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;数据收集和整合&lt;/p&gt;
+
+    &lt;p&gt;因为我们想要根据过去的客服电话数据进行预测，所以我们使用监督学习。&lt;/p&gt;
+
+    &lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/ml-pipeline-3.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;特征
+        &lt;ul&gt;
+          &lt;li&gt;客户最近订购了哪些产品&lt;/li&gt;
+          &lt;li&gt;客户是否拥有 Kindle ?&lt;/li&gt;
+          &lt;li&gt;客户是否是 Prime 会员 ？&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;数据预处理和可视化&lt;/p&gt;
+
+    &lt;p&gt;此阶段包括数据清理和探索性数据分析。&lt;/p&gt;
+
+    &lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/ml-pipeline-4-1.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+    &lt;p&gt;通过可视化分析更好地了解数据&lt;/p&gt;
+
+    &lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/ml-pipeline-4-2.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;模型训练&lt;/p&gt;
+
+    &lt;p&gt;使用了 80% 的数据开发 (训练) 模型&lt;/p&gt;
+
+    &lt;p&gt;使用了 10% 的数据进行每次训练迭代，不断改进模型&lt;/p&gt;
+
+    &lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/ml-pipeline-5.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;模型评估&lt;/p&gt;
+
+    &lt;p&gt;使用了 10% 的数据验证模型是否达到或超过必要的准确率&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;第一次尝试时，它的电话转接准确率如何 ?&lt;/li&gt;
+      &lt;li&gt;平均有多少个电话需要重新转接 ?&lt;/li&gt;
+      &lt;li&gt;这些结果是否满足我们的业务需求 ?&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/ml-pipeline-6.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;模型优化&lt;/p&gt;
+
+    &lt;p&gt;运行训练作业后，我们对模型进行了评估，然后开始对模型和数据进行迭代调整&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;模型优化和特征工程&lt;/p&gt;
+
+    &lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/ml-pipeline-8.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;模型部署&lt;/p&gt;
+
+    &lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/51cto/ml-pipeline-9.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;总结-1&quot;&gt;总结&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;说明问题定义阶段的第一步&lt;/li&gt;
+  &lt;li&gt;列出必须考虑的一些与数据相关的因素&lt;/li&gt;
+  &lt;li&gt;比较模型效果指标与业务目标指标&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;知识测验-1&quot;&gt;知识测验&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Oscaner/Study/blob/master/Exam/aws/mls-c01/51cto/docs/Problem%2BFormulation%2BExercise_CN.docx&quot; class=&quot;web-link&quot;&gt;Problem+Formulation+Exercise_CN&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;模型评估&quot;&gt;模型评估&lt;/h2&gt;
+
+&lt;h3 id=&quot;均方差-mse&quot;&gt;均方差 (MSE)&lt;/h3&gt;
+
+&lt;p&gt;WIP…&lt;/p&gt;
+</description>
+        <pubDate>Sat, 27 Aug 2022 09:30:00 +0000</pubDate>
+        <link>https://www.oscaner.com/exam/aws/mls-c01/51cto/01-machine-learning.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/exam/aws/mls-c01/51cto/01-machine-learning.html</guid>
+        
+        <category>Exam</category>
+        
+        <category>AWS</category>
+        
+        <category>MLS</category>
+        
+        <category>Machine Learning</category>
+        
+        
+        <category>exam</category>
+        
+        <category>aws</category>
+        
+        <category>mls</category>
+        
+        <category>machine learning</category>
+        
+      </item>
+    
+      <item>
+        <title>[MLS-C01] [Conclusion] Exam Day Tips</title>
+        <description>&lt;h2 id=&quot;arrive-prepared-and-relaxed&quot;&gt;Arrive prepared and relaxed&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Use an outline of all of the material covered in this course
+    &lt;ul&gt;
+      &lt;li&gt;Study the material continuously the week leading up to your exam date&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Toke practice exams&lt;/li&gt;
+  &lt;li&gt;Arrive at the exam location at least 15 minutes before your start time&lt;/li&gt;
+  &lt;li&gt;Leave your phone, watch and any other electronics in your car&lt;/li&gt;
+  &lt;li&gt;Make sure you are relaxed&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 08 Aug 2022 22:22:00 +0000</pubDate>
+        <link>https://www.oscaner.com/exam/aws/mls-c01/whizlabs/07-conclusion/02-exam-day-tips.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/exam/aws/mls-c01/whizlabs/07-conclusion/02-exam-day-tips.html</guid>
+        
+        <category>Exam</category>
+        
+        <category>AWS</category>
+        
+        <category>MLS</category>
+        
+        <category>Machine Learning</category>
+        
+        
+        <category>exam</category>
+        
+        <category>aws</category>
+        
+        <category>mls</category>
+        
+        <category>machine learning</category>
+        
+      </item>
+    
+      <item>
+        <title>[MLS-C01] [Conclusion] Course Summary</title>
+        <description>&lt;h2 id=&quot;lifecycle&quot;&gt;Lifecycle&lt;/h2&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/lifecycle.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;data-engineering&quot;&gt;Data Engineering&lt;/h2&gt;
+
+&lt;p&gt;Seven steps to prepare you data for use in a machine learning model&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Gather your data&lt;/li&gt;
+  &lt;li&gt;Handle missing data&lt;/li&gt;
+  &lt;li&gt;Feature extraction&lt;/li&gt;
+  &lt;li&gt;Decide which features are important&lt;/li&gt;
+  &lt;li&gt;Encode categorical values&lt;/li&gt;
+  &lt;li&gt;Numeric feature engineering&lt;/li&gt;
+  &lt;li&gt;Split your data into training and testing datasets&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;exploratory-data-analysis&quot;&gt;Exploratory Data Analysis&lt;/h2&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/exploratory-data-analysis.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Basic data analysis concepts and terminology&lt;/li&gt;
+  &lt;li&gt;Kinesis Data Streams&lt;/li&gt;
+  &lt;li&gt;Kinesis Data Firehose&lt;/li&gt;
+  &lt;li&gt;Kinesis Video Streams&lt;/li&gt;
+  &lt;li&gt;Kinesis Data Analytics&lt;/li&gt;
+  &lt;li&gt;Visualize data for machine learning&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;modeling&quot;&gt;Modeling&lt;/h2&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/modeling-tree.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Three types of models&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Supervised machine learning&lt;/li&gt;
+  &lt;li&gt;Unsupervised machine learning&lt;/li&gt;
+  &lt;li&gt;Reinforcement machine learning&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;algorithms&quot;&gt;Algorithms&lt;/h2&gt;
+
+&lt;h3 id=&quot;structured-data&quot;&gt;Structured data&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Linear Learner&lt;/li&gt;
+  &lt;li&gt;Factorization Machines&lt;/li&gt;
+  &lt;li&gt;XGBoost&lt;/li&gt;
+  &lt;li&gt;K-Means&lt;/li&gt;
+  &lt;li&gt;Principal Component Analysis&lt;/li&gt;
+  &lt;li&gt;Random Cut Forest&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;image-data&quot;&gt;Image data&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Image Classification&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;natural-language-data&quot;&gt;Natural Language data&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sequence2Sequence&lt;/li&gt;
+  &lt;li&gt;Neural Topic Modeling&lt;/li&gt;
+  &lt;li&gt;Latent Dirichlet Allocation&lt;/li&gt;
+  &lt;li&gt;Blazing Text&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;time-series-data&quot;&gt;Time Series data&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DeepAR&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;implementation-and-operation&quot;&gt;Implementation and Operation&lt;/h2&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/activity-of-machine-learning.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;To optimize the performance of your models you can use Automatic Model Tuning to find the hyperparameters that will give you the optimal performance&lt;/li&gt;
+  &lt;li&gt;You can use SageMaker hosting to automatically scale your model to the performance needed for your model&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 08 Aug 2022 22:02:00 +0000</pubDate>
+        <link>https://www.oscaner.com/exam/aws/mls-c01/whizlabs/07-conclusion/01-summary-of-the-course.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/exam/aws/mls-c01/whizlabs/07-conclusion/01-summary-of-the-course.html</guid>
+        
+        <category>Exam</category>
+        
+        <category>AWS</category>
+        
+        <category>MLS</category>
+        
+        <category>Machine Learning</category>
+        
+        
+        <category>exam</category>
+        
+        <category>aws</category>
+        
+        <category>mls</category>
+        
+        <category>machine learning</category>
+        
+      </item>
+    
+      <item>
+        <title>[MLS-C01] [IMPL and OPs] Deploy and Operationalize</title>
+        <description>&lt;h2 id=&quot;lifecycle&quot;&gt;Lifecycle&lt;/h2&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/lifecycle.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Create your data
+    &lt;ul&gt;
+      &lt;li&gt;Gather, engineer, transform&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Produce your model
+    &lt;ul&gt;
+      &lt;li&gt;Build model and evaluate it&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Execute (operationalize) your model
+    &lt;ul&gt;
+      &lt;li&gt;Deploy, monitor, retrain&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;deployment-and-operationalization&quot;&gt;Deployment and Operationalization&lt;/h2&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/deployment-and-operationalization.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Deploy&lt;/li&gt;
+  &lt;li&gt;Inference&lt;/li&gt;
+  &lt;li&gt;Metrics&lt;/li&gt;
+  &lt;li&gt;Monitor performance&lt;/li&gt;
+  &lt;li&gt;Analysis&lt;/li&gt;
+  &lt;li&gt;Retrain&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;real-time&quot;&gt;Real-Time&lt;/h3&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/activity-of-machine-learning.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;batch&quot;&gt;Batch&lt;/h3&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/lifecycle-batch.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;model-monitor&quot;&gt;Model Monitor&lt;/h3&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/lifecycle-model-monitor.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Monitor your production model to detect deviations in data quality compared to a baseline dataset&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Monitor your endpoint using Model Monitor (csv or flat-json)
+    &lt;ol&gt;
+      &lt;li&gt;Baseline&lt;/li&gt;
+      &lt;li&gt;SageMaker suggests baseline constraints&lt;/li&gt;
+      &lt;li&gt;Create baselining job&lt;/li&gt;
+      &lt;li&gt;Create a continuous monitoring schedule&lt;/li&gt;
+      &lt;li&gt;Start continuous monitoring&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Analyze / Retrain&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;performance&quot;&gt;Performance&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;To optimize the performance of your models you can use Automatic Model Tuning to find the hyperparameters that will give you the optimal performance&lt;/li&gt;
+  &lt;li&gt;You can use SageMaker hosting to automatically scale your model to the performance needed for your model&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Mon, 08 Aug 2022 09:49:00 +0000</pubDate>
+        <link>https://www.oscaner.com/exam/aws/mls-c01/whizlabs/06-implementation-and-operations/05-deploy-and-operationalize.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/exam/aws/mls-c01/whizlabs/06-implementation-and-operations/05-deploy-and-operationalize.html</guid>
+        
+        <category>Exam</category>
+        
+        <category>AWS</category>
+        
+        <category>MLS</category>
+        
+        <category>Machine Learning</category>
+        
+        
+        <category>exam</category>
+        
+        <category>aws</category>
+        
+        <category>mls</category>
+        
+        <category>machine learning</category>
+        
+      </item>
+    
+      <item>
+        <title>[MLS-C01] [IMPL and OPs] Security</title>
+        <description>&lt;h2 id=&quot;sagemaker-instances&quot;&gt;SageMaker Instances&lt;/h2&gt;
+
+&lt;h3 id=&quot;jupyter-notebook&quot;&gt;Jupyter Notebook&lt;/h3&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/secure-jupyter-notebook.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Your SageMaker infrastructure uses EC2 instances dedicated for your use&lt;/li&gt;
+  &lt;li&gt;Can map your SageMaker resources to VPC so you can use your network controls&lt;/li&gt;
+  &lt;li&gt;Control access to your jupyter notebooks and your hasted models through IAM&lt;/li&gt;
+  &lt;li&gt;Can only access your SageMaker resources from within your VPC using your VPC Endpoints (Private Connectivity)&lt;/li&gt;
+  &lt;li&gt;Encrypt your data at rest and in flight from your datasets on S3 to your notebooks and through to your hosted endpoints&lt;/li&gt;
+  &lt;li&gt;You can use lifecycle configurations to harden the OS of your SageMaker EC2 instances or install agents&lt;/li&gt;
+  &lt;li&gt;SageMaker is integrated with CloudWatch and CloudTrail for logging training job and hosted model activity as well as API calls&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;jobs-and-endpoints&quot;&gt;Jobs and Endpoints&lt;/h3&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/secure-job-and-endpoint.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Can map your training, tuning, and hosted model endpoint instances to VPC so you can use your network controls&lt;/li&gt;
+  &lt;li&gt;Can restrict your training, tuning, and endpoint instances to resources within your VPC using your VPC Endpoints (Private Connectivity)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 08 Aug 2022 09:25:00 +0000</pubDate>
+        <link>https://www.oscaner.com/exam/aws/mls-c01/whizlabs/06-implementation-and-operations/04-security.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/exam/aws/mls-c01/whizlabs/06-implementation-and-operations/04-security.html</guid>
+        
+        <category>Exam</category>
+        
+        <category>AWS</category>
+        
+        <category>MLS</category>
+        
+        <category>Machine Learning</category>
+        
+        
+        <category>exam</category>
+        
+        <category>aws</category>
+        
+        <category>mls</category>
+        
+        <category>machine learning</category>
+        
+      </item>
+    
+      <item>
+        <title>[MLS-C01] [IMPL and OPs] Recommend and implement</title>
+        <description>&lt;h2 id=&quot;appropriate-services&quot;&gt;Appropriate services&lt;/h2&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/intro-recommend-services.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Select from several AWS Services to implement the appropriate Machine Learning solution for your business problem&lt;/p&gt;
+
+&lt;h3 id=&quot;lex&quot;&gt;Lex&lt;/h3&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/service-lex.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Build conversational interfaces into your applications using voice and text&lt;/li&gt;
+  &lt;li&gt;ML using deep learning algorithms of automatic speech recognition (ASR) for converting speech to text, and natural language understanding (NLU) to recognize the intent of the text&lt;/li&gt;
+  &lt;li&gt;Use the same deep learning algorithms used in Alexa to build natural language conversational chatbots&lt;/li&gt;
+  &lt;li&gt;Fully managed service that scales automatically&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;rekognition&quot;&gt;Rekognition&lt;/h3&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/service-rekognition.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Add video and image analysis to your applications&lt;/li&gt;
+  &lt;li&gt;ML using deep learning algorithms to identify objects, people, text, scenes, activities, and inappropriate content&lt;/li&gt;
+  &lt;li&gt;Facial recognition and facial search for verification, people counting, celebrity identification, public safety&lt;/li&gt;
+  &lt;li&gt;Rekognition Custom Labels feature automatically identifies and labels in your video or images&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;transcribe&quot;&gt;Transcribe&lt;/h3&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/service-transcribe.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Add speech-to-text to your applications&lt;/li&gt;
+  &lt;li&gt;ML using deep learning algorithms such as automatic speech recognition (ASR) to convert speech to text&lt;/li&gt;
+  &lt;li&gt;Can process speech in batch or near real time in a streaming application&lt;/li&gt;
+  &lt;li&gt;Can automatically redact content such as personally identifiable information (PII)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;translate&quot;&gt;Translate&lt;/h3&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/service-translate.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Add language translation to your applications&lt;/li&gt;
+  &lt;li&gt;Neural machine translation service for language translation that uses deep learning models to produce accurate, natural sounding translation&lt;/li&gt;
+  &lt;li&gt;Localize content&lt;/li&gt;
+  &lt;li&gt;On-demand translation&lt;/li&gt;
+  &lt;li&gt;Continually learning from expanding datasets&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;polly&quot;&gt;Polly&lt;/h3&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/service-polly.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Add text-to-speech (TTS) to your applications&lt;/li&gt;
+  &lt;li&gt;Uses deep learning algorithms to synthesize human speech that sounds natural&lt;/li&gt;
+  &lt;li&gt;Has many voices/languages from which to choose&lt;/li&gt;
+  &lt;li&gt;Also has Neural Text-to-Speech (NTTS) voices which support newscaster and conversational styles&lt;/li&gt;
+  &lt;li&gt;Can create a brand voice for your organization, a customized NTTS voice&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;comprehend&quot;&gt;Comprehend&lt;/h3&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/service-comprehend.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Natural language processing (NLP) service that finds insights and relationships in text&lt;/li&gt;
+  &lt;li&gt;Identifies language, extracts key phrases, places, people, events&lt;/li&gt;
+  &lt;li&gt;Understands positive or negative sentiment of the text&lt;/li&gt;
+  &lt;li&gt;Tokenizes text and parts of speech and organizes text files by topic&lt;/li&gt;
+  &lt;li&gt;Can extend to recognize your own organization’s vocabulary&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Sun, 07 Aug 2022 22:01:00 +0000</pubDate>
+        <link>https://www.oscaner.com/exam/aws/mls-c01/whizlabs/06-implementation-and-operations/03-recommend-and-implement.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/exam/aws/mls-c01/whizlabs/06-implementation-and-operations/03-recommend-and-implement.html</guid>
+        
+        <category>Exam</category>
+        
+        <category>AWS</category>
+        
+        <category>MLS</category>
+        
+        <category>Machine Learning</category>
+        
+        
+        <category>exam</category>
+        
+        <category>aws</category>
+        
+        <category>mls</category>
+        
+        <category>machine learning</category>
+        
+      </item>
+    
+      <item>
+        <title>[MLS-C01] [IMPL and OPs] Build solutions</title>
+        <description>&lt;h2 id=&quot;toolset&quot;&gt;Toolset&lt;/h2&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/ml-toolset.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SageMaker makes it simple to develop high quality models by enabling quick deployment at scale&lt;/li&gt;
+  &lt;li&gt;SageMaker provides the tools needed for machine learning in a single toolset that allows you to get models to production faster with much less effort and at lower cost than with the traditional tool suite
+    &lt;ul&gt;
+      &lt;li&gt;SageMaker Studio&lt;/li&gt;
+      &lt;li&gt;SageMaker Autopilot&lt;/li&gt;
+      &lt;li&gt;SageMaker Experiments&lt;/li&gt;
+      &lt;li&gt;SageMaker Debugger&lt;/li&gt;
+      &lt;li&gt;SageMaker Model Monitor&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;build-with-sagemaker-studio&quot;&gt;Build with SageMaker Studio&lt;/h2&gt;
+
+&lt;p&gt;Single, web-based visual interface where you can perform all your machine learning development steps&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Build, train, and deploy models&lt;/li&gt;
+  &lt;li&gt;Upload data, create new notebooks, train and tune models, move back and forth between steps to adjust experiments, compare results, and deploy models to production&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;performance-with-sagemaker-autopilot&quot;&gt;Performance with SageMaker Autopilot&lt;/h2&gt;
+
+&lt;p&gt;Build, train, and tune models with complete visibility and control&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Inspects input data, applies feature engineering, picks optimum set of algorithms, trains and tunes multiple models, tracks model’s performance, and ranks your models based on their performance&lt;/li&gt;
+  &lt;li&gt;Gives you the best model for your problem at hand while saving time&lt;/li&gt;
+  &lt;li&gt;Can be used by developers without extensive machine learning experience&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;evaluate-with-sagemaker-experiments&quot;&gt;Evaluate with SageMaker Experiments&lt;/h2&gt;
+
+&lt;p&gt;Organize your artifacts, track metrics, and evaluate training runs using SageMaker Experiments&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Manage your model iterations by capturing the input parameters, configurations, and results, and saving them as experiments&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;fault-tolerance-with-sagemaker&quot;&gt;Fault Tolerance with SageMaker&lt;/h2&gt;
+
+&lt;p&gt;Analyze, identify, and alert problems for machine learning&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Track real-time metrics when training such as validation, confusion matrices, and learning gradients to increase mode accuracy&lt;/li&gt;
+  &lt;li&gt;Generate warnings and corrective action advice when you experience training issues&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;resiliency-with-sagemaker-monitor&quot;&gt;Resiliency with SageMaker Monitor&lt;/h2&gt;
+
+&lt;p&gt;Detect and remediate concept drift where the patterns used to train the model have changed over time&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Identifies concept drift in deployed models and gives detailed notifications that help identify the source of the drift&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Sun, 07 Aug 2022 19:26:00 +0000</pubDate>
+        <link>https://www.oscaner.com/exam/aws/mls-c01/whizlabs/06-implementation-and-operations/02-build-solutions.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/exam/aws/mls-c01/whizlabs/06-implementation-and-operations/02-build-solutions.html</guid>
+        
+        <category>Exam</category>
+        
+        <category>AWS</category>
+        
+        <category>MLS</category>
+        
+        <category>Machine Learning</category>
+        
+        
+        <category>exam</category>
+        
+        <category>aws</category>
+        
+        <category>mls</category>
+        
+        <category>machine learning</category>
+        
+      </item>
+    
+      <item>
+        <title>[MLS-C01] [IMPL and OPs] Introduction</title>
+        <description>&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/activity-of-machine-learning.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;build-solutions&quot;&gt;Build solutions&lt;/h2&gt;
+
+&lt;h3 id=&quot;performance&quot;&gt;Performance&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;To optimize the performance of your models, you can use Automatic Model Tuning to find the hyperparameters that will give you the optimal performance&lt;/li&gt;
+  &lt;li&gt;You can use SageMaker hosting to automatically scale your model to the performance needed for your model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;availability&quot;&gt;Availability&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SageMaker hosting allows you to configure your endpoints to elastically scale your endpoint instances&lt;/li&gt;
+  &lt;li&gt;Use two or more endpoint instances in different availability zones to make your endpoints highly available&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;scalability&quot;&gt;Scalability&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SageMaker hosting automatically scales your endpoint instances to the performance needed for your application through Application Auto Scaling&lt;/li&gt;
+  &lt;li&gt;You can manually adjust the number of instances and the instance type without suffering downtime by modifying your endpoint configuration&lt;/li&gt;
+  &lt;li&gt;SageMaker scales to large numbers of transactions per second. The actual scale depends on your deployed model and the number and type of instances your model endpoints run on&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;resiliency-and-fault-tolerance&quot;&gt;Resiliency and Fault Tolerance&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SageMaker automatic scaling endpoint instances scale out and automatically spread instances across multiple availability zones&lt;/li&gt;
+  &lt;li&gt;This gives you availability zone level fault tolerance and protects from an individual instance failure&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;recommend-appropriate-ml-services&quot;&gt;Recommend Appropriate ML Services&lt;/h2&gt;
+
+&lt;p&gt;&lt;span class=&quot;embed-image-wrapper&quot;&gt;&lt;img class=&quot;embed-image&quot; src=&quot;/assets/img/in-post/exam/aws/mls-c01/whizlabs/intro-recommend-services.png&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Select from several AWS Services to implement the appropriate Machine Learning solution for your business problem&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;security&quot;&gt;Security&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SageMaker model artifacts and other system artifacts are encrypted in transit and at rest&lt;/li&gt;
+  &lt;li&gt;Requests to your endpoint API and can be mode over a secure (SSL) connection&lt;/li&gt;
+  &lt;li&gt;Assign IAM roles to your model instance to provide permission to access resources on your behalf for deployment&lt;/li&gt;
+  &lt;li&gt;Use encrypted S3 buckets for model artifacts and data&lt;/li&gt;
+  &lt;li&gt;Pass a KMS key to your endpoints to encrypt their attached ML storage volume&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;deployoperationalize-the-model&quot;&gt;Deploy/Operationalize the Model&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Clients send HTTPS requests to your endpoint to obtain inferences&lt;/li&gt;
+  &lt;li&gt;Can deploy multiple variants of a model to the same HTTPS endpoint (test variations of your model in production)&lt;/li&gt;
+  &lt;li&gt;Can also configure a production variant to achieve auto scaling&lt;/li&gt;
+  &lt;li&gt;You can modify your endpoints without suffering downtime by modifying your endpoint configuration&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Sun, 07 Aug 2022 19:26:00 +0000</pubDate>
+        <link>https://www.oscaner.com/exam/aws/mls-c01/whizlabs/06-implementation-and-operations/01-introduction.html</link>
+        <guid isPermaLink="true">https://www.oscaner.com/exam/aws/mls-c01/whizlabs/06-implementation-and-operations/01-introduction.html</guid>
+        
+        <category>Exam</category>
+        
+        <category>AWS</category>
+        
+        <category>MLS</category>
+        
+        <category>Machine Learning</category>
+        
+        
+        <category>exam</category>
+        
+        <category>aws</category>
+        
+        <category>mls</category>
+        
+        <category>machine learning</category>
+        
+      </item>
+    
+  </channel>
+</rss>

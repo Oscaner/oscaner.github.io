@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="baidu-site-verification" content="code-RlNzeiqm6B">
+    
+    
+    <meta name="google-site-verification" content="clzGAgkJY2WD5IGr5G6KZS9xymJYL_IH2QIEettmobY">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="心若浮沉，浅笑安然">
+    <meta name="keywords" content="Kang Oscaner China Blog">
+    <meta name="theme-color" content="#000000">
+    <meta name="site" content="https://www.oscaner.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="互联网时代下的 MySQL 架构演变之旅 - Oscaner 的博客 | Oscaner Blog">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="单机 MySQL 的美好年代
+">
+    
+    <meta property="article:published_time" content=" 2018-11-16T14:19:00Z">
+    
+    
+    <meta property="article:author" content="Oscaner">
+    
+    
+    <meta property="article:tag" content="Skill">
+    
+    <meta property="article:tag" content="SQL">
+    
+    <meta property="article:tag" content="NoSQL">
+    
+    <meta property="article:tag" content="MySQL">
+    
+    <meta property="article:tag" content="Memcached">
+    
+    
+    <meta property="og:image" content="https://q2.qlogo.cn/headimg_dl?bs=2573226076&dst_uin=2573226076&spec=640&url_enc=0&referer=bu_interface&term_type=PC">
+    <meta property="og:url" content="https://www.oscaner.com/skill/sql/evolution-of-mysql-arch.html">
+    <meta property="og:site_name" content="Oscaner 的博客 | Oscaner Blog">
+
+    <title>互联网时代下的 MySQL 架构演变之旅 - Oscaner 的博客 | Oscaner Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.oscaner.com/skill/sql/evolution-of-mysql-arch.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/hux-blog.min.css">
+    <link rel="stylesheet" href="/assets/css/oscaner-blog.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="/packages/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    <!-- Google AdSense -->
+    <script data-ad-client="ca-pub-3286495153411959" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+
+    <!-- MD5 -->
+    <script src="/assets/js/md5.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R9FFJYC4P1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-R9FFJYC4P1');
+    </script>
+    
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                  
+                    Oscaner
+                  
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="huxblog_navbar">
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/friends/">Friends</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/projects/">Projects</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/archive/">Archive</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="search-icon">
+                            <a href="javascript:void(0)">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <script>
+        // Drop Bootstarp low-performance Navbar
+        // Use customize navbar with high-quality material design animation
+        // in high-perf jank-free CSS3 implementation
+        var $body = document.body;
+        var $toggle = document.querySelector('.navbar-toggle');
+        var $navbar = document.querySelector('#huxblog_navbar');
+        var $collapse = document.querySelector('.navbar-collapse');
+
+        var __HuxNav__ = {
+            close: function () {
+                $navbar.className = " ";
+                // wait until animation end.
+                setTimeout(function () {
+                    // prevent frequently toggle
+                    if ($navbar.className.indexOf('in') < 0) {
+                        $collapse.style.height = "0px"
+                    }
+                }, 400)
+            },
+            open: function () {
+                $collapse.style.height = "auto"
+                $navbar.className += " in";
+            }
+        }
+
+        // Bind Event
+        $toggle.addEventListener('click', function (e) {
+            if ($navbar.className.indexOf('in') > 0) {
+                __HuxNav__.close()
+            } else {
+                __HuxNav__.open()
+            }
+        })
+
+        /**
+         * Since Fastclick is used to delegate 'touchstart' globally
+         * to hack 300ms delay in iOS by performing a fake 'click',
+         * Using 'e.stopPropagation' to stop 'touchstart' event from
+         * $toggle/$collapse will break global delegation.
+         *
+         * Instead, we use a 'e.target' filter to prevent handler
+         * added to document close HuxNav.
+         *
+         * Also, we use 'click' instead of 'touchstart' as compromise
+         */
+        document.addEventListener('click', function (e) {
+            if (e.target == $toggle) return;
+            if (e.target.className == 'icon-bar') return;
+            __HuxNav__.close();
+        })
+    </script>
+
+    <!-- Search -->
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/assets/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/assets/img/post-bg-alitrip.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+
+
+
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/assets/img/post-bg-alitrip.jpg');
+        background: ;
+    }
+
+    
+</style>
+
+
+
+
+<header class="intro-header">
+
+    <div class="header-mask"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/archive/?tag=Skill" title="Skill">Skill</a>
+                        
+                        <a class="tag" href="/archive/?tag=SQL" title="SQL">SQL</a>
+                        
+                        <a class="tag" href="/archive/?tag=NoSQL" title="NoSQL">NoSQL</a>
+                        
+                        <a class="tag" href="/archive/?tag=MySQL" title="MySQL">MySQL</a>
+                        
+                        <a class="tag" href="/archive/?tag=Memcached" title="Memcached">Memcached</a>
+                        
+                    </div>
+                    <h1>互联网时代下的 MySQL 架构演变之旅</h1>
+                    
+                    <h2 class="subheading"></h2>
+                    <span class="meta">Posted by Oscaner on November 16, 2018</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+                <h2 id="单机-mysql-的美好年代">单机 MySQL 的美好年代</h2>
+
+<p>在 90 年代, 一个网站的访问量不是很大, 用单个数据库完全可以轻松应付</p>
+
+<p>在那个时候, 更多的都是静态网页, 动态交互类型的网站不多</p>
+
+<p><img src="/assets/img/in-post/skill/sql/post-evolution-of-mysql-arch/1.png" alt="1.png"></p>
+
+<p>从上述架构中, 我们很容易看到数据存储的瓶颈：</p>
+
+<ol>
+  <li>
+    <p>当数据量的总大小一台机器放不下时</p>
+  </li>
+  <li>
+    <p>当数据的索引（B+ Tree）一台机器的内存放不下时</p>
+  </li>
+  <li>
+    <p>当访问量（读写混合）一个实例不能承受时</p>
+  </li>
+</ol>
+
+<p>当遇到了上述的 1 or 3 个瓶颈的时候, 架构开始进化 …</p>
+
+<h2 id="memcached-缓存--mysql--垂直拆分">Memcached 缓存 + MySQL + 垂直拆分</h2>
+
+<p>后来, 随着访问量的上升, 几乎大部分使用 MySQL 架构的网站在数据库上都开始出现了性能问题</p>
+
+<p>WEB 程序不再仅仅专注在功能上, 同时也在追求性能</p>
+
+<p>程序猿们开始大量的使用缓存技术来缓解数据库的压力, 优化数据库的结构和索引</p>
+
+<p>开始比较流行的是通过文件缓存来缓解数据库压力</p>
+
+<p>但是当访问量继续增大的时候, 多台 WEB 机器通过文件缓存不能共享, 大量的小文件也带来了比较高的 IO 压力</p>
+
+<p>在这个时候, Memcached 就自然的成为了一个非常时尚的技术产品</p>
+
+<p><img src="/assets/img/in-post/skill/sql/post-evolution-of-mysql-arch/2.png" alt="2.png"></p>
+
+<h2 id="mysql-主从复制--读写分离">MySQL 主从复制 + 读写分离</h2>
+
+<p>由于数据库的写入压力增加, Memcached 只能缓解数据库的读取压力</p>
+
+<p>读写集中在一个数据库上让数据库不堪重负, 大部分网站开始使用主从复制技术来达到读写分离, 以提高读写性能和读库的可扩展性</p>
+
+<p>MySQL 的 master-slave 模式成为这个时候的网站标配</p>
+
+<p><img src="/assets/img/in-post/skill/sql/post-evolution-of-mysql-arch/3.png" alt="3.png"></p>
+
+<h2 id="分表分库--水平拆分--mysql-集群">分表分库 + 水平拆分 + MySQL 集群</h2>
+
+<p>在 Memcached 的高速缓存, MySQL 的主从复制、读写分离的基础之上, 这时 MySQL 主库的写压力开始出现瓶颈</p>
+
+<p>而数据量的持续猛增, 由于 MyISAM 使用表锁, 在高并发下会出现严重的锁问题, 大量的高并发使得 MySQL 开始使用 InnoDB 存储引擎来替代 MyISAM</p>
+
+<p>（什么是 MyISAM、InnoDB 存储引擎 ？ <a href="https://blog.csdn.net/perfectsorrow/article/details/80150672" class="web-link">《MySQL存储引擎中的MyISAM和InnoDB区别详解》</a>）</p>
+
+<p>同时, 开始流行使用分表分库来缓解写压力和数据增长的扩展问题。</p>
+
+<p>这个时候, 分表分库成为了一门热门技术, 是面试的热门问题, 也是业界讨论的热门技术问题。</p>
+
+<p>也就在这个时候, MySQL 推出了还不太稳定的表分区, 这也给技术实力一般的公司带来了希望。</p>
+
+<p>（什么是表分区 ？ <a href="https://www.cnblogs.com/mliudong/p/3625522.html" class="web-link">《MySQL表的四种分区类型》</a>）</p>
+
+<p>虽然 MySQL 推出了 MySQL Cluster 集群, 但性能也不能很好满足互联网的要求, 只是在高可靠性上提供了非常大的保证</p>
+
+<p><img src="/assets/img/in-post/skill/sql/post-evolution-of-mysql-arch/4.png" alt="4.png"></p>
+
+<h2 id="mysql-的扩展性瓶颈">MySQL 的扩展性瓶颈</h2>
+
+<p>MySQL 数据库也经常存储一些大文本字段, 导致数据库表非常大, 在做数据库恢复的时候也会相当慢, 不容易快速恢复数据库</p>
+
+<p>比如：1000万 4KB 大小的文本就接近 40GB 的大小, 如果能把这些数据从 MySQL 省去, MySQL 将变得非常小</p>
+
+<p>关系数据库虽然很强大, 但是它并不能很好的应付所有的应用场景</p>
+
+<p>MySQL 的扩展性差（需要复杂的技术来实现）, 大数据下 IO 压力大, 表结构更改困难, 正是当前使用 MySQL 的开发人员面临的问题</p>
+
+<h2 id="今天是什么样子">今天是什么样子</h2>
+
+<p><img src="/assets/img/in-post/skill/sql/post-evolution-of-mysql-arch/5.png" alt="5.png"></p>
+
+<h2 id="nosql-的发展">NoSQL 的发展</h2>
+
+<p>今天我们可以通过第三方平台（如：Google, Facebook等）可以很容易的访问和抓取数据。</p>
+
+<p>用户的个人信息, 社交网络, 地理位置, 用户生成的数据和用户操作日志已经成倍的增加。</p>
+
+<p>我们如果要对这些用户数据进行挖掘, 那 SQL 数据库已经不适合这些应用了</p>
+
+<p>NoSQL 数据库的发展却能很好的处理这些大的数据</p>
+
+<p>NoSQL = Not Only SQL, 非关系型数据库</p>
+
+<p>【完】</p>
+
+
+                <!-- Copyright Notice -->
+                
+<hr>
+
+<p>
+  本文由
+  <a href="/about/" target="_blank">
+    Oscaner
+  </a> 创作, 采用
+  <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">
+    知识共享署名4.0
+  </a> 国际许可协议进行许可 <br>
+  本站文章除注明转载/出处外, 均为本站原创或翻译, 转载前请务必署名
+</p>
+
+
+                
+
+                <hr>
+<hr style="visibility: hidden;">
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/skill/sql/nosql-db.html" data-toggle="tooltip" data-placement="top" title="NoSQL 数据库介绍">
+                        Previous<br>
+                        <span>NoSQL 数据库介绍</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/skill/linux/linux-info.html" data-toggle="tooltip" data-placement="top" title="Linux 查看系统信息">
+                        Next<br>
+                        <span>Linux 查看系统信息</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr style="visibility: hidden;">
+
+                <!-- Comment start -->
+<div class="comment">
+  
+
+  
+  <!-- gitalk 评论框 start -->
+  <div id="gitalk-container"></div>
+  <!-- gitalk 评论框 end -->
+  
+
+  
+</div>
+<!-- Comment end -->
+
+
+
+
+
+
+<!-- Gitalk CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<!-- gitalk 公共JS代码 start (一个网页只需插入一次) -->
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  function getLangForGitalk() {
+    lang = new URLSearchParams(document.location.search).get("lang");
+    return lang == 'zh' ? 'zh-CN' : lang;
+  }
+
+  var body = location.href;
+
+  var subtitle = "";
+  if (subtitle) {
+    body += "\n" + subtitle;
+  }
+
+  var description = "";
+  if (description) {
+    body += "\n" + description;
+  }
+
+  var gitalk = new Gitalk({
+      clientID: 'f86fb5601466c278f223',
+      clientSecret: '8234184af9a4cbc9dfa58bbea7ff6cdb84d33f1f',
+      repo: 'oscaner.github.io',
+      owner: 'Oscaner',
+      admin: 'Oscaner',
+      labels: 'Gitalk|Skill|SQL|NoSQL|MySQL|Memcached|Oscaner'.split('|'),
+      body: body,
+      language: getLangForGitalk() ? getLangForGitalk() : 'zh-CN',
+
+      id: MD5('/skill/sql/evolution-of-mysql-arch.html'),
+      // facebook-like distraction free mode
+      distractionFreeMode: true
+  });
+
+  gitalk.render('gitalk-container');
+</script>
+<!-- gitalk 公共JS代码 end -->
+
+
+
+
+
+            </div>
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+
+<section>
+    
+        <hr class="hidden-sm hidden-xs">
+    
+    <h5><a href="/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        
+        
+        
+                <a data-sort="0040" href="/archive/?tag=Skill" title="Skill" rel="95">Skill</a>
+        
+                <a data-sort="0097" href="/archive/?tag=Clang" title="Clang" rel="38">Clang</a>
+        
+                <a data-sort="0097" href="/archive/?tag=Exam" title="Exam" rel="38">Exam</a>
+        
+                <a data-sort="0098" href="/archive/?tag=AWS" title="AWS" rel="37">AWS</a>
+        
+                <a data-sort="0098" href="/archive/?tag=C%2B%2B" title="C++" rel="37">C++</a>
+        
+                <a data-sort="0098" href="/archive/?tag=Data+Structure" title="Data Structure" rel="37">Data Structure</a>
+        
+                <a data-sort="0099" href="/archive/?tag=MLS" title="MLS" rel="36">MLS</a>
+        
+                <a data-sort="0099" href="/archive/?tag=Machine+Learning" title="Machine Learning" rel="36">Machine Learning</a>
+        
+                <a data-sort="0122" href="/archive/?tag=PHP" title="PHP" rel="13">PHP</a>
+        
+                <a data-sort="0124" href="/archive/?tag=Coding" title="Coding" rel="11">Coding</a>
+        
+                <a data-sort="0124" href="/archive/?tag=Others" title="Others" rel="11">Others</a>
+        
+                <a data-sort="0125" href="/archive/?tag=Graduate" title="Graduate" rel="10">Graduate</a>
+        
+                <a data-sort="0125" href="/archive/?tag=Math" title="Math" rel="10">Math</a>
+        
+                <a data-sort="0126" href="/archive/?tag=NoSQL" title="NoSQL" rel="9">NoSQL</a>
+        
+                <a data-sort="0129" href="/archive/?tag=SQL" title="SQL" rel="6">SQL</a>
+        
+                <a data-sort="0130" href="/archive/?tag=Linux" title="Linux" rel="5">Linux</a>
+        
+                <a data-sort="0130" href="/archive/?tag=Redis" title="Redis" rel="5">Redis</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Fibonacci" title="Fibonacci" rel="3">Fibonacci</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Git" title="Git" rel="3">Git</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Memcached" title="Memcached" rel="3">Memcached</a>
+        
+                <a data-sort="0133" href="/archive/?tag=MySQL" title="MySQL" rel="2">MySQL</a>
+    </div>
+</section>
+
+
+                <!-- Friends Blog -->
+                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://asdrt666.com" target="_blank" rel="friend">Asdrt</a></li>
+  
+  <li><a href="https://szdblog.com" target="_blank" rel="friend">Choba·乔巴博客</a></li>
+  
+  <li><a href="https://ibcl.us/" target="_blank" rel="friend">I BCL.</a></li>
+  
+  <li><a href="https://www.wmathor.com/" target="_blank" rel="friend">mathor</a></li>
+  
+  <li><a href="https://tongtaos.com" target="_blank" rel="friend">Mr. 童的博客</a></li>
+  
+  <li><a href="https://blog.kejijie.vip/" target="_blank" rel="friend">wantsget</a></li>
+  
+  <li><a href="https://o0o0o0.cn/" target="_blank" rel="friend">三十三言</a></li>
+  
+  <li><a href="http://www.gazyip.cn/" target="_blank" rel="friend">八个比特</a></li>
+  
+  <li><a href="https://www.lixuejiang.com/" target="_blank" rel="friend">李学江博客</a></li>
+  
+  <li><a href="https://5sir.cn" target="_blank" rel="friend">梁Sir的小站</a></li>
+  
+  <li><a href="http://isenchun.cn/" target="_blank" rel="friend">森纯个人博客</a></li>
+  
+  <li><a href="http://www.nothamor.cn/" target="_blank" rel="friend">欧尼酱</a></li>
+  
+  <li><a href="https://www.lkxin.cn" target="_blank" rel="friend">清酒踏月</a></li>
+  
+  <li><a href="https://www.yyhy.me" target="_blank" rel="friend">烟雨寒云博客</a></li>
+  
+  <li><a href="http://mlldxe.cn" target="_blank" rel="friend">犬の窝</a></li>
+  
+  <li><a href="https://aoppp.com" target="_blank" rel="friend">憧憬播客</a></li>
+  
+</ul>
+
+
+
+                <!-- Ads -->
+                <hr>
+
+<!-- <script async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3286495153411959"
+  crossorigin="anonymous"></script> -->
+
+<!-- Oscaner's Vertical Ad -->
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3286495153411959" data-ad-slot="2277392638" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
+
+
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- add support for mathjax by voleking-->
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async('/packages/anchor/1.1.1/anchor.min.js', function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'right',
+          // icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- SEO -->
+<!-- Schema Markup -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "互联网时代下的 MySQL 架构演变之旅",
+  "author": {
+    "@type": "Person",
+    "name": "Oscaner"
+  },
+  "datePublished": "November 16, 2018",
+  "image": "https://www.oscaner.com/assets/img/post-bg-alitrip.jpg",
+  "articleBody": "&lt;h2 id=&quot;单机-mysql-的美好年代&quot;&gt;单机 MySQL 的美好年代&lt;/h2&gt;\n\n&lt;p&gt;在 90 年代, 一个网站的访问量不是很大, 用单个数据库完全可以轻松应付&lt;/p&gt;\n\n&lt;p&gt;在那个时候, 更多的都是静态网页, 动态交互类型的网站不多&lt;/p&gt;\n\n&lt;p&gt;&lt;img src=&quot;/assets/img/in-post/skill/sql/post-evolution-of-mysql-arch/1.png&quot; alt=&quot;1.png&quot;&gt;&lt;/p&gt;\n\n&lt;p&gt;从上述架构中, 我们很容易看到数据存储的瓶颈：&lt;/p&gt;\n\n&lt;ol&gt;\n  &lt;li&gt;\n    &lt;p&gt;当数据量的总大小一台机器放不下时&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;当数据的索引（B+ Tree）一台机器的内存放不下时&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;当访问量（读写混合）一个实例不能承受时&lt;/p&gt;\n  &lt;/li&gt;\n&lt;/ol&gt;\n\n&lt;p&gt;当遇到了上述的 1 or 3 个瓶颈的时候, 架构开始进化 …&lt;/p&gt;\n\n&lt;h2 id=&quot;memcached-缓存--mysql--垂直拆分&quot;&gt;Memcached 缓存 + MySQL + 垂直拆分&lt;/h2&gt;\n\n&lt;p&gt;后来, 随着访问量的上升, 几乎大部分使用 MySQL 架构的网站在数据库上都开始出现了性能问题&lt;/p&gt;\n\n&lt;p&gt;WEB 程序不再仅仅专注在功能上, 同时也在追求性能&lt;/p&gt;\n\n&lt;p&gt;程序猿们开始大量的使用缓存技术来缓解数据库的压力, 优化数据库的结构和索引&lt;/p&gt;\n\n&lt;p&gt;开始比较流行的是通过文件缓存来缓解数据库压力&lt;/p&gt;\n\n&lt;p&gt;但是当访问量继续增大的时候, 多台 WEB 机器通过文件缓存不能共享, 大量的小文件也带来了比较高的 IO 压力&lt;/p&gt;\n\n&lt;p&gt;在这个时候, Memcached 就自然的成为了一个非常时尚的技术产品&lt;/p&gt;\n\n&lt;p&gt;&lt;img src=&quot;/assets/img/in-post/skill/sql/post-evolution-of-mysql-arch/2.png&quot; alt=&quot;2.png&quot;&gt;&lt;/p&gt;\n\n&lt;h2 id=&quot;mysql-主从复制--读写分离&quot;&gt;MySQL 主从复制 + 读写分离&lt;/h2&gt;\n\n&lt;p&gt;由于数据库的写入压力增加, Memcached 只能缓解数据库的读取压力&lt;/p&gt;\n\n&lt;p&gt;读写集中在一个数据库上让数据库不堪重负, 大部分网站开始使用主从复制技术来达到读写分离, 以提高读写性能和读库的可扩展性&lt;/p&gt;\n\n&lt;p&gt;MySQL 的 master-slave 模式成为这个时候的网站标配&lt;/p&gt;\n\n&lt;p&gt;&lt;img src=&quot;/assets/img/in-post/skill/sql/post-evolution-of-mysql-arch/3.png&quot; alt=&quot;3.png&quot;&gt;&lt;/p&gt;\n\n&lt;h2 id=&quot;分表分库--水平拆分--mysql-集群&quot;&gt;分表分库 + 水平拆分 + MySQL 集群&lt;/h2&gt;\n\n&lt;p&gt;在 Memcached 的高速缓存, MySQL 的主从复制、读写分离的基础之上, 这时 MySQL 主库的写压力开始出现瓶颈&lt;/p&gt;\n\n&lt;p&gt;而数据量的持续猛增, 由于 MyISAM 使用表锁, 在高并发下会出现严重的锁问题, 大量的高并发使得 MySQL 开始使用 InnoDB 存储引擎来替代 MyISAM&lt;/p&gt;\n\n&lt;p&gt;（什么是 MyISAM、InnoDB 存储引擎 ？ &lt;a href=&quot;https&#58;//blog.csdn.net/perfectsorrow/article/details/80150672&quot; class=&quot;web-link&quot;&gt;《MySQL存储引擎中的MyISAM和InnoDB区别详解》&lt;/a&gt;）&lt;/p&gt;\n\n&lt;p&gt;同时, 开始流行使用分表分库来缓解写压力和数据增长的扩展问题。&lt;/p&gt;\n\n&lt;p&gt;这个时候, 分表分库成为了一门热门技术, 是面试的热门问题, 也是业界讨论的热门技术问题。&lt;/p&gt;\n\n&lt;p&gt;也就在这个时候, MySQL 推出了还不太稳定的表分区, 这也给技术实力一般的公司带来了希望。&lt;/p&gt;\n\n&lt;p&gt;（什么是表分区 ？ &lt;a href=&quot;https&#58;//www.cnblogs.com/mliudong/p/3625522.html&quot; class=&quot;web-link&quot;&gt;《MySQL表的四种分区类型》&lt;/a&gt;）&lt;/p&gt;\n\n&lt;p&gt;虽然 MySQL 推出了 MySQL Cluster 集群, 但性能也不能很好满足互联网的要求, 只是在高可靠性上提供了非常大的保证&lt;/p&gt;\n\n&lt;p&gt;&lt;img src=&quot;/assets/img/in-post/skill/sql/post-evolution-of-mysql-arch/4.png&quot; alt=&quot;4.png&quot;&gt;&lt;/p&gt;\n\n&lt;h2 id=&quot;mysql-的扩展性瓶颈&quot;&gt;MySQL 的扩展性瓶颈&lt;/h2&gt;\n\n&lt;p&gt;MySQL 数据库也经常存储一些大文本字段, 导致数据库表非常大, 在做数据库恢复的时候也会相当慢, 不容易快速恢复数据库&lt;/p&gt;\n\n&lt;p&gt;比如：1000万 4KB 大小的文本就接近 40GB 的大小, 如果能把这些数据从 MySQL 省去, MySQL 将变得非常小&lt;/p&gt;\n\n&lt;p&gt;关系数据库虽然很强大, 但是它并不能很好的应付所有的应用场景&lt;/p&gt;\n\n&lt;p&gt;MySQL 的扩展性差（需要复杂的技术来实现）, 大数据下 IO 压力大, 表结构更改困难, 正是当前使用 MySQL 的开发人员面临的问题&lt;/p&gt;\n\n&lt;h2 id=&quot;今天是什么样子&quot;&gt;今天是什么样子&lt;/h2&gt;\n\n&lt;p&gt;&lt;img src=&quot;/assets/img/in-post/skill/sql/post-evolution-of-mysql-arch/5.png&quot; alt=&quot;5.png&quot;&gt;&lt;/p&gt;\n\n&lt;h2 id=&quot;nosql-的发展&quot;&gt;NoSQL 的发展&lt;/h2&gt;\n\n&lt;p&gt;今天我们可以通过第三方平台（如：Google, Facebook等）可以很容易的访问和抓取数据。&lt;/p&gt;\n\n&lt;p&gt;用户的个人信息, 社交网络, 地理位置, 用户生成的数据和用户操作日志已经成倍的增加。&lt;/p&gt;\n\n&lt;p&gt;我们如果要对这些用户数据进行挖掘, 那 SQL 数据库已经不适合这些应用了&lt;/p&gt;\n\n&lt;p&gt;NoSQL 数据库的发展却能很好的处理这些大的数据&lt;/p&gt;\n\n&lt;p&gt;NoSQL = Not Only SQL, 非关系型数据库&lt;/p&gt;\n\n&lt;p&gt;【完】&lt;/p&gt;\n",
+  "url": "https://www.oscaner.com/skill/sql/evolution-of-mysql-arch.html"
+}
+</script>
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://space.bilibili.com/17118231">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-stack-1x fa-inverse iconfont icon-bilibili-fill"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+
+                <p class="copyright text-muted">
+                    Copyright © Oscaner 2023
+                    <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备17039697号-2</a>
+                    <br>
+                    Powered by <a href="https://www.oscaner.com">Oscaner Blog</a> |
+                    <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="100px" height="20px" src="https://ghbtns.com/github-btn.html?user=oscaner&repo=oscaner.github.io&type=star&count=true">
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/assets/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/assets/js/hux-blog.min.js"></script>
+
+<!-- Simple Jekyll Search -->
+<script src="/assets/js/simple-jekyll-search.min.js"></script>
+
+<!-- Service Worker -->
+
+<script src="/assets/js/snackbar.js"></script>
+<script src="/assets/js/sw-registration.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async('/packages/fastclick/1.0.6/fastclick.min.js', function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Oscaner
+    var _gaId = '';
+    var _gaDomain = 'www.oscaner.com';
+
+    // Originial
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Oscaner
+    var _baId = 'd9c74d9266af4d68f376f0fb9d5fb71c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        // interop with multilangual
+        if ('false' == 'true') {
+            _containerSelector = 'div.post-container.active';
+        } else {
+            _containerSelector = 'div.post-container';
+        }
+
+        if (!$(_containerSelector).length) {
+            _containerSelector = 'div.post-container';
+        }
+
+        // init
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        // clean
+        $(selector).html('')
+
+        // appending
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/assets/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+<!-- Multi-Lingual -->
+
+
+<!-- Simple Jekyll Search -->
+<script>
+    // https://stackoverflow.com/questions/1912501/unescape-html-entities-in-javascript
+    function htmlDecode(input) {
+        var e = document.createElement('textarea');
+        e.innerHTML = input;
+        // handle case of empty input
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    }
+
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('search-results'),
+        json: '/search.json',
+        searchResultTemplate: '<div class="post-preview item"><a href="{url}"><h2 class="post-title">{title}</h2><h3 class="post-subtitle">{subtitle}</h3><hr></a></div>',
+        noResultsText: 'No results',
+        limit: 50,
+        fuzzy: false,
+        // a hack to get escaped subtitle unescaped. for some reason,
+        // post.subtitle w/o escape filter nuke entire search.
+        templateMiddleware: function (prop, value, template) {
+            if (prop === 'subtitle' || prop === 'title') {
+                if (value.indexOf("code")) {
+                    return htmlDecode(value);
+                } else {
+                    return value;
+                }
+            }
+        }
+    });
+
+    $(document).ready(function () {
+        var $searchPage = $('.search-page');
+        var $searchOpen = $('.search-icon');
+        var $searchClose = $('.search-icon-close');
+        var $searchInput = $('#search-input');
+        var $body = $('body');
+
+        $searchOpen.on('click', function (e) {
+            e.preventDefault();
+            $searchPage.toggleClass('search-active');
+            var prevClasses = $body.attr('class') || '';
+            setTimeout(function () {
+                $body.addClass('no-scroll');
+            }, 400)
+
+            if ($searchPage.hasClass('search-active')) {
+                $searchClose.on('click', function (e) {
+                    e.preventDefault();
+                    $searchPage.removeClass('search-active');
+                    $body.attr('class', prevClasses);  // from closure
+                });
+                $searchInput.focus();
+            }
+        });
+    });
+</script>
+
+
+
+<!-- Image to hack wechat -->
+<img src="/assets/img/icon_wechat.png" width="0" height="0">
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

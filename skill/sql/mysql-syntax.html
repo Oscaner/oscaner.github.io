@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="baidu-site-verification" content="code-RlNzeiqm6B">
+    
+    
+    <meta name="google-site-verification" content="clzGAgkJY2WD5IGr5G6KZS9xymJYL_IH2QIEettmobY">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="心若浮沉，浅笑安然">
+    <meta name="keywords" content="Kang Oscaner China Blog">
+    <meta name="theme-color" content="#000000">
+    <meta name="site" content="https://www.oscaner.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="MySQL - 常用语法及函数 - Oscaner 的博客 | Oscaner Blog">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="常用语法
+">
+    
+    <meta property="article:published_time" content=" 2018-08-05T22:18:00Z">
+    
+    
+    <meta property="article:author" content="Oscaner">
+    
+    
+    <meta property="article:tag" content="Skill">
+    
+    <meta property="article:tag" content="SQL">
+    
+    <meta property="article:tag" content="MySQL">
+    
+    <meta property="article:tag" content="Syntax">
+    
+    
+    <meta property="og:image" content="https://q2.qlogo.cn/headimg_dl?bs=2573226076&dst_uin=2573226076&spec=640&url_enc=0&referer=bu_interface&term_type=PC">
+    <meta property="og:url" content="https://www.oscaner.com/skill/sql/mysql-syntax.html">
+    <meta property="og:site_name" content="Oscaner 的博客 | Oscaner Blog">
+
+    <title>MySQL - 常用语法及函数 - Oscaner 的博客 | Oscaner Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.oscaner.com/skill/sql/mysql-syntax.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/hux-blog.min.css">
+    <link rel="stylesheet" href="/assets/css/oscaner-blog.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="/packages/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    <!-- Google AdSense -->
+    <script data-ad-client="ca-pub-3286495153411959" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+
+    <!-- MD5 -->
+    <script src="/assets/js/md5.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R9FFJYC4P1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-R9FFJYC4P1');
+    </script>
+    
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                  
+                    Oscaner
+                  
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="huxblog_navbar">
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/friends/">Friends</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/projects/">Projects</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/archive/">Archive</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="search-icon">
+                            <a href="javascript:void(0)">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <script>
+        // Drop Bootstarp low-performance Navbar
+        // Use customize navbar with high-quality material design animation
+        // in high-perf jank-free CSS3 implementation
+        var $body = document.body;
+        var $toggle = document.querySelector('.navbar-toggle');
+        var $navbar = document.querySelector('#huxblog_navbar');
+        var $collapse = document.querySelector('.navbar-collapse');
+
+        var __HuxNav__ = {
+            close: function () {
+                $navbar.className = " ";
+                // wait until animation end.
+                setTimeout(function () {
+                    // prevent frequently toggle
+                    if ($navbar.className.indexOf('in') < 0) {
+                        $collapse.style.height = "0px"
+                    }
+                }, 400)
+            },
+            open: function () {
+                $collapse.style.height = "auto"
+                $navbar.className += " in";
+            }
+        }
+
+        // Bind Event
+        $toggle.addEventListener('click', function (e) {
+            if ($navbar.className.indexOf('in') > 0) {
+                __HuxNav__.close()
+            } else {
+                __HuxNav__.open()
+            }
+        })
+
+        /**
+         * Since Fastclick is used to delegate 'touchstart' globally
+         * to hack 300ms delay in iOS by performing a fake 'click',
+         * Using 'e.stopPropagation' to stop 'touchstart' event from
+         * $toggle/$collapse will break global delegation.
+         *
+         * Instead, we use a 'e.target' filter to prevent handler
+         * added to document close HuxNav.
+         *
+         * Also, we use 'click' instead of 'touchstart' as compromise
+         */
+        document.addEventListener('click', function (e) {
+            if (e.target == $toggle) return;
+            if (e.target.className == 'icon-bar') return;
+            __HuxNav__.close();
+        })
+    </script>
+
+    <!-- Search -->
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/assets/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/assets/img/post-bg-alitrip.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+
+
+
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/assets/img/post-bg-alitrip.jpg');
+        background: ;
+    }
+
+    
+</style>
+
+
+
+
+<header class="intro-header">
+
+    <div class="header-mask"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/archive/?tag=Skill" title="Skill">Skill</a>
+                        
+                        <a class="tag" href="/archive/?tag=SQL" title="SQL">SQL</a>
+                        
+                        <a class="tag" href="/archive/?tag=MySQL" title="MySQL">MySQL</a>
+                        
+                        <a class="tag" href="/archive/?tag=Syntax" title="Syntax">Syntax</a>
+                        
+                    </div>
+                    <h1>MySQL - 常用语法及函数</h1>
+                    
+                    <h2 class="subheading">MySQL 开发中常用的一些语法及函数归总</h2>
+                    <span class="meta">Posted by Oscaner on August 5, 2018</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+                <h2 id="常用语法">常用语法</h2>
+
+<h3 id="插入数据">插入数据</h3>
+
+<h4 id="1-插入数据">1. 插入数据</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">&lt;</span><span class="k">TABLE_NAME</span><span class="o">&gt;</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">FIELD1</span><span class="p">,</span> <span class="n">FIELD2</span><span class="p">,</span> <span class="p">...)</span> <span class="k">VALUES</span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span> <span class="n">VALUE1</span><span class="p">,</span> <span class="n">VALUE2</span><span class="p">,</span> <span class="p">...),</span> <span class="p">(</span><span class="k">NULL</span><span class="p">,</span> <span class="n">VALUE1</span><span class="p">,</span> <span class="n">VALUE2</span><span class="p">,</span> <span class="p">...),</span> <span class="p">...;</span>
+<span class="c1">-- 插入多条数据</span>
+<span class="c1">-- 主键ID为自增字段，直接NULL即可</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h4 id="2-插入检索出来的数据">2. 插入检索出来的数据</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">&lt;</span><span class="n">TABLE_NAME_1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">FIELD3</span><span class="p">,</span> <span class="n">FIELD4</span><span class="p">,</span> <span class="p">...)</span> <span class="k">SELECT</span> <span class="n">FIELD1</span><span class="p">,</span> <span class="n">FIELD2</span><span class="p">,</span> <span class="p">...</span> <span class="k">FROM</span> <span class="o">&lt;</span><span class="n">TABLE_NAME_2</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="c1">-- 从 &lt;数据表2&gt; 查询 &lt;字段名1&gt; &lt;字段名2&gt; &lt;...&gt; 的值插入 &lt;数据表1&gt; 的 &lt;字段名3&gt; &lt;字段名4&gt; &lt;...&gt;</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h3 id="更新数据">更新数据</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">UPDATE</span> <span class="o">&lt;</span><span class="k">TABLE_NAME</span><span class="o">&gt;</span> <span class="k">SET</span> <span class="n">FIELD</span><span class="o">=</span><span class="n">VALUE</span> <span class="p">[</span><span class="k">WHERE</span> <span class="n">CONDITIONS</span><span class="p">];</span>
+<span class="c1">-- 不加条件则更新整个数据表数据</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h3 id="删除数据">删除数据</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">DELETE</span> <span class="k">FROM</span> <span class="o">&lt;</span><span class="k">TABLE_NAME</span><span class="o">&gt;</span> <span class="p">[</span><span class="k">WHERE</span> <span class="n">CONDITIONS</span><span class="p">];</span>
+<span class="c1">-- 不加条件则删除整张表的数据，但自增字段不会重新开始</span>
+<span class="o">&gt;</span> <span class="k">TRUNCATE</span> <span class="k">TABLE</span> <span class="o">&lt;</span><span class="k">TABLE_NAME</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="c1">-- 清空数据表，自增字段重新从1开始</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h3 id="查询数据">查询数据</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="o">&lt;</span><span class="n">FIELD</span><span class="o">&gt;</span> <span class="k">FROM</span> <span class="o">&lt;</span><span class="k">TABLE_NAME</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="o">&gt;</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">&lt;</span><span class="k">TABLE_NAME</span><span class="o">&gt;</span><span class="p">;</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h3 id="条件控制">条件控制</h3>
+
+<h4 id="1-where-语句">1. WHERE 语句</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">&lt;</span><span class="k">TABLE_NAME</span><span class="o">&gt;</span> <span class="k">WHERE</span> <span class="n">id</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span>
+<span class="c1">-- 从数据表查询id=3的所有字段数据</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h4 id="2-having-语句">2. HAVING 语句</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">&lt;</span><span class="k">TABLE_NAME</span><span class="o">&gt;</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="o">&lt;</span><span class="n">FIELD</span><span class="o">&gt;</span> <span class="k">HAVING</span> <span class="o">&lt;</span><span class="n">CONDITIONS</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="c1">-- 根据 &lt;字段名&gt; 分组并筛选出达到 &lt;条件&gt; 的组</span>
+
+<span class="c1">-- 举个例子：有数据表user</span>
+<span class="o">+</span><span class="c1">----------------------+</span>
+<span class="o">|</span><span class="n">user_name</span><span class="o">|</span> <span class="n">dept</span><span class="o">|</span> <span class="n">score</span><span class="o">|</span>
+<span class="o">+</span><span class="c1">----------------------+</span>
+<span class="o">|</span><span class="n">zhangsan</span> <span class="o">|</span><span class="n">sales</span><span class="o">|</span>    <span class="mi">90</span><span class="o">|</span>
+<span class="o">|</span><span class="n">lisi</span>     <span class="o">|</span><span class="n">sales</span><span class="o">|</span>    <span class="mi">90</span><span class="o">|</span>
+<span class="o">|</span><span class="n">wangfei</span>  <span class="o">|</span><span class="n">IT</span>   <span class="o">|</span>    <span class="mi">89</span><span class="o">|</span>
+<span class="o">|</span><span class="n">leifeng</span>  <span class="o">|</span><span class="n">IT</span>   <span class="o">|</span>    <span class="mi">95</span><span class="o">|</span>
+<span class="o">|</span><span class="n">gouzi</span>    <span class="o">|</span><span class="n">hr</span>   <span class="o">|</span>    <span class="mi">92</span><span class="o">|</span>
+<span class="o">+</span><span class="c1">----------------------+</span>
+<span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">dept</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">user_name</span><span class="p">)</span> <span class="n">count_tmp</span> <span class="k">FROM</span> <span class="k">user</span> <span class="k">WHERE</span> <span class="n">score</span><span class="o">&gt;</span><span class="mi">89</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">dept</span> <span class="k">HAVING</span> <span class="n">count_tmp</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">;</span>
+<span class="c1">-- 先查出 score&gt;89 的员工纪录</span>
+<span class="c1">-- 根据 dept 分组（GROUP BY dept)</span>
+<span class="c1">-- 再用 count 聚合函数统计部门人数</span>
+<span class="c1">-- 最后筛选出部门总人数大于1人的部门</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h2 id="常用函数">常用函数</h2>
+
+<h3 id="数学函数">数学函数</h3>
+
+<p>数学函数主要用于处理数字，包括整形. 浮点数等。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">函数</th>
+      <th style="text-align: left">说明</th>
+      <th style="text-align: left" colspan="2">
+</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ABS(x)</td>
+      <td style="text-align: left">返回x的绝对值</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">ABS(-1) = 1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CEIL(x), <br> CEILING(x)</td>
+      <td style="text-align: left">返回大于或等于x的最小整数</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">CEIL(1.5) = 2</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FLOOR(x)</td>
+      <td style="text-align: left">返回小于或等于x的最大整数</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">FLOOR(1.5) = 1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RAND()</td>
+      <td style="text-align: left">返回0-&gt;1的随机数</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RAND(x)</td>
+      <td style="text-align: left">返回0-&gt;x的随机数，x值相同时返回的随机数相同</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SIGN(x)</td>
+      <td style="text-align: left">返回x的符号，x是负数. 0. 正数分别返回-1. 0. 1</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">SIGN(-10) = -1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PI()</td>
+      <td style="text-align: left">返回圆周率(3.141593)</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">PI() = 3.141593</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TRUNCATE(x,y)</td>
+      <td style="text-align: left">返回数值x保留到小数点后y位的值(与ROUND最大的区别是不会进行四舍五入)</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">TRUNCATE(1.23456, 3) = 1.234</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ROUND(x)</td>
+      <td style="text-align: left">返回离x最近的整数</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">ROUND(1.23456) = 1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ROUND(x,y)</td>
+      <td style="text-align: left">保留小数点后y位的值，但截断时要进行四舍五入</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">ROUND(1.23456, 3) = 1.235</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">POW(x,y), <br> POWER(x,y)</td>
+      <td style="text-align: left">返回x的y次方</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">POW(2, 3) = 8</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SQRT(x)</td>
+      <td style="text-align: left">返回x的平方根</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">SQRT(25) = 5</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">EXP(x)</td>
+      <td style="text-align: left">返回e的x次方</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">EXP(3) = 20.085536923188</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MOD(x,y)</td>
+      <td style="text-align: left">返回x除以y以后的余数</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">MOD(5, 2) = 1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LOG(x)</td>
+      <td style="text-align: left">返回自然对数(以e为底的对数)</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">LOG(20.085536923188 ) = 3</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LOG10(x)</td>
+      <td style="text-align: left">返回以10为底的对数</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">LOG10(100) = 2</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RADIANS(x)</td>
+      <td style="text-align: left">将角度转换为弧度</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">RADIANS(180) = 3.1415926535898</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DEGREES(x)</td>
+      <td style="text-align: left">将弧度转换为角度</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">DEGREES(3.1415926535898 ) = 180</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SIN(x)</td>
+      <td style="text-align: left">求正弦值(参数是弧度)</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">SIN(RADIANS(30)) = 0.5</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ASIN(x)</td>
+      <td style="text-align: left">求反正弦值(参数是弧度)</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">COS(x)</td>
+      <td style="text-align: left">求余弦值(参数是弧度)</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ACOS(x)</td>
+      <td style="text-align: left">求反余弦值(参数是弧度)</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TAN(x)</td>
+      <td style="text-align: left">求正切值(参数是弧度)</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ATAN(x), <br> ATAN2(x)</td>
+      <td style="text-align: left">求反正切值(参数是弧度)</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">COT(x)</td>
+      <td style="text-align: left">求余切值(参数是弧度)</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="字符串函数">字符串函数</h3>
+
+<p>字符串函数是MySQL中最常用的一类函数，字符串函数主要用于处理表中的字符串。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">函数</th>
+      <th style="text-align: left">说明</th>
+      <th style="text-align: left" colspan="2">
+</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">CHAR_LENGTH(s)</td>
+      <td style="text-align: left">返回字符串s的字符数</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">CHAR_LENGTH('你好123') = 5</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LENGTH(s)</td>
+      <td style="text-align: left">返回字符串s的长度</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">LENGTH('你好123') = 9</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CONCAT(s1, s2,…)</td>
+      <td style="text-align: left">将字符串s1,s2等多个字符串合并为一个字符串</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">CONCAT('12', '34') = 1234</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CONCAT_WS(x, s1, s2,…)</td>
+      <td style="text-align: left">同CONCAT(s1,s2,…)函数，但是每个字符串直接要加上x</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">CONCAT_WS('@', '12', '34') = 12@34</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">INSERT(s1, x, len, s2)</td>
+      <td style="text-align: left">将字符串s2替换s1的x位置开始长度为len的字符串</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">INSERT('12345', 1, 3, 'abc') = abc45</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UPPER(s), <br> UCAASE(s)</td>
+      <td style="text-align: left">将字符串s的所有字母变成大写字母</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">UPPER('abc') = ABC</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LOWER(s), <br> LCASE(s)</td>
+      <td style="text-align: left">将字符串s的所有字母变成小写字母</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">LOWER('ABC') = abc</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LEFT(s, n)</td>
+      <td style="text-align: left">返回字符串s的前n个字符</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">LEFT('abcde', 2) = ab</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RIGHT(s, n)</td>
+      <td style="text-align: left">返回字符串s的后n个字符</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">SRIGHT('abcde', 2) = de</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LPAD(s1, len, s2)</td>
+      <td style="text-align: left">字符串s2来填充s1的开始处，使字符串长度达到len</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">LPAD('abc', 5, 'xx') = xxabc</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RPAD(s1,len,s2)</td>
+      <td style="text-align: left">字符串s2来填充s1的结尾处，使字符串的长度达到len</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">RPAD('abc', 5, 'xx') = abcxx</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LTRIM(s)</td>
+      <td style="text-align: left">去掉字符串s开始处的空格</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RTRIM(s)</td>
+      <td style="text-align: left">去掉字符串s结尾处的空格</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TRIM(s)</td>
+      <td style="text-align: left">去掉字符串s开始和结尾处的空格</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TRIM(s1 FROM s)</td>
+      <td style="text-align: left">去掉字符串s中开始处和结尾处的字符串s1</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">TRIM('@' FROM '@@abc@@') = abc</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">REPEAT(s, n)</td>
+      <td style="text-align: left">将字符串s重复n次</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">REPEAT('ab', 3) = ababab</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SPACE(n)</td>
+      <td style="text-align: left">返回n个空格</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">REPLACE(s, s1, s2)</td>
+      <td style="text-align: left">将字符串s2替代字符串s中的字符串s1</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">REPLACE('abc', 'a', 'x') = xbc</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">STRCMP(s1,s2)</td>
+      <td style="text-align: left">比较字符串s1和s2</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SUBSTRING(s, n, len)</td>
+      <td style="text-align: left">获取从字符串s中的第n个位置开始长度为len的字符串</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MID(s, n, len)</td>
+      <td style="text-align: left">同SUBSTRING(s,n,len)</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LOCATE(s1,s), <br> POSITION(s1 IN s)</td>
+      <td style="text-align: left">从字符串s中获取s1的开始位置</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">LOCATE('b', 'abc') = 2</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">INSTR(s, s1)</td>
+      <td style="text-align: left">从字符串s中获取s1的开始位置</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">INSTR('abc', 'b') = 2</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">REVERSE(s)</td>
+      <td style="text-align: left">将字符串s的顺序反过来</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">REVERSE('abc') = cba</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ELT(n, s1, s2,…)</td>
+      <td style="text-align: left">返回第n个字符串</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">ELT(2, 'a', 'b', 'c') = b</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">EXPORT_SET(x,s1,s2)</td>
+      <td style="text-align: left">返回一个字符串，在这里对于在“bits”中设定每一位，你得到一个“on”字符串，并且对于每个复位(reset)的位，你得到一个 “off”字符串。每个字符串用“separator”分隔(缺省“,”)，并且只有“bits”的“number_of_bits” (缺省64)位被使用</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">EXPORT_SET(5, 'Y', 'N', ',', 4) = Y,N,Y,N</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FIELD(s, s1, s2…)</td>
+      <td style="text-align: left">返回第一个与字符串s匹配的字符串位置</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">FIELD('c', 'a', 'b', 'c') = 3</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FIND_IN_SET(s1, s2)</td>
+      <td style="text-align: left">返回在字符串s2中与s1匹配的字符串的位置</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SUBSTRING_INDEX(str, delim, count)</td>
+      <td style="text-align: left">返回从字符串str的第count个出现的分隔符delim之后的子串。如果count是正数，返回第count个字符左边的字符串。如果count是负数，返回第(count的绝对值(从右边数))个字符右边的字符串。</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">SUBSTRING_INDEX('a*b', '*', 1) = a</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LOAD_FILE(file_name)</td>
+      <td style="text-align: left">读入文件并且作为一个字符串返回文件内容。文件必须在服务器上，你必须指定到文件的完整路径名，而且你必须有file权 限。文件必须所有内容都是可读的并且小于max_allowed_packet。 如果文件不存在或由于上面原因之一不能被读出，函数返回NULL。</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="日期时间函数">日期时间函数</h3>
+
+<p>MySQL的日期和时间函数主要用于处理日期时间。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">函数</th>
+      <th style="text-align: left">说明</th>
+      <th style="text-align: left" colspan="2">
+</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">CURDATE(), <br> CURRENT_DATE()</td>
+      <td style="text-align: left">返回当前日期</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CURTIME(), <br> CURRENT_TIME()</td>
+      <td style="text-align: left">返回当前时间</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NOW(), <br> CURRENT_TIMESTAMP(), <br> LOCALTIME(), <br> SYSDATE(), <br> LOCALTIMESTAMP()</td>
+      <td style="text-align: left">返回当前日期和时间</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UNIX_TIMESTAMP()</td>
+      <td style="text-align: left">以 UNIX 时间戳的形式返回当前时间</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UNIX_TIMESTAMP(d)</td>
+      <td style="text-align: left">将日期 d 以 UNIX 时间戳的形式返回</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">UNIX_TIMESTAMP ('2011-11-11 11:11:11') = 1320981071</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FROM_UNIXTIME(d)</td>
+      <td style="text-align: left">将 UNIX 时间戳的时间转换为普通格式的时间</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">FROM_UNIXTIME (1320981071) = 2011-11-11 11:11:11</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UTC_DATE()</td>
+      <td style="text-align: left">返回 UTC 日期</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UTC_TIME()</td>
+      <td style="text-align: left">返回 UTC 时间</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MONTH(d)</td>
+      <td style="text-align: left">返回日期 d 中的月份值</td>
+      <td style="text-align: left" colspan="2">范围是 <code class="language-plaintext highlighter-rouge">1-&gt;12</code>
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MONTHNAME(d)</td>
+      <td style="text-align: left">返回日期 d 当中的月份名称</td>
+      <td style="text-align: left" colspan="2">如 <code class="language-plaintext highlighter-rouge">Janyary</code>
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DAYNAME(d)</td>
+      <td style="text-align: left">返回日期 d 是星期几</td>
+      <td style="text-align: left" colspan="2">如 <code class="language-plaintext highlighter-rouge">Monday</code>, <code class="language-plaintext highlighter-rouge">Tuesday</code>
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DAYOFWEEK(d)</td>
+      <td style="text-align: left">日期 d 是星期几</td>
+      <td style="text-align: left" colspan="2">1 表示星期日，2 表示星期一</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">WEEKDAY(d)</td>
+      <td style="text-align: left">日期 d 是星期几</td>
+      <td style="text-align: left" colspan="2">0 表示星期一，1 表示星期二</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">WEEK(d)， <br> WEEKOFYEAR(d)</td>
+      <td style="text-align: left">计算日期 d 是本年的第几个星期，</td>
+      <td style="text-align: left" colspan="2">范围是 <code class="language-plaintext highlighter-rouge">0-&gt;53</code>
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DAYOFYEAR(d)</td>
+      <td style="text-align: left">计算日期 d 是本年的第几天</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DAYOFMONTH(d)</td>
+      <td style="text-align: left">计算日期 d 是本月的第几天</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">QUARTER(d)</td>
+      <td style="text-align: left">返回日期 d 是第几季节</td>
+      <td style="text-align: left" colspan="2">返回 <code class="language-plaintext highlighter-rouge">1-&gt;4</code>
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HOUR(t)</td>
+      <td style="text-align: left">返回 t 中的小时值</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MINUTE(t)</td>
+      <td style="text-align: left">返回 t 中的分钟值</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SECOND(t)</td>
+      <td style="text-align: left">返回 t 中的秒钟值</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">EXTRACT(type FROM d)</td>
+      <td style="text-align: left">从日期 d 中获取指定的值，type 指定返回的值。<br>type 可取值为：<br>1. MICROSECOND<br>2. SECOND. MINUTE<br>3. HOUR<br>4. DAY<br>5. WEEK<br>6. MONTH<br>7. QUARTER<br>8. YEAR<br>9. SECOND_MICROSECOND<br>10. MINUTE_MICROSECOND<br>11. MINUTE_SECOND<br>12. HOUR_MICROSECOND<br>13. HOUR_SECOND<br>14. HOUR_MINUTE<br>15. DAY_MICROSECOND<br>16. DAY_SECOND<br>17. DAY_MINUTE<br>18. DAY_HOUR<br>19. YEAR_MONTH</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TIME_TO_SEC(t)</td>
+      <td style="text-align: left">将时间 t 转换为秒</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SEC_TO_TIME(s)</td>
+      <td style="text-align: left">将以秒为单位的时间 s 转换为时分秒的格式</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TO_DAYS(d)</td>
+      <td style="text-align: left">计算日期 d 距离 0000 年 1 月 1 日的天数</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FROM_DAYS(n)</td>
+      <td style="text-align: left">计算从 0000 年 1 月 1 日开始 n 天后的日期</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DATEDIFF(d1, d2)</td>
+      <td style="text-align: left">计算日期 d1-&gt;d2 之间相隔的天数</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ADDDATE(d, n)</td>
+      <td style="text-align: left">计算起始日期 d 加上 n 天的日期</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">ADDDATE('2011-11-11 11:11:11', 1) = 2011-11-12 11:11:11</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ADDDATE(d，INTERVAL expr type)</td>
+      <td style="text-align: left">计算起始日期 d 加上一个时间段后的日期</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">ADDDATE ('2011-11-11 11:11:11', INTERVAL 5 MINUTE) = 2011-11-11 11:16:11</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DATE_ADD(d, INTERVAL expr type)</td>
+      <td style="text-align: left">同上</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SUBDATE(d, n)</td>
+      <td style="text-align: left">日期 d 减去 n 天后的日期</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SUBDATE(d, INTERVAL expr type)</td>
+      <td style="text-align: left">日期 d 减去一个时间段后的日期</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ADDTIME(t, n)</td>
+      <td style="text-align: left">时间 t 加上 n 秒的时间</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SUBTIME(t, n)</td>
+      <td style="text-align: left">时间 t 减去 n 秒的时间</td>
+      <td style="text-align: left" colspan="2">
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DATE_FORMAT(d, f)</td>
+      <td style="text-align: left">按表达式 f 的要求显示日期 d</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">DATE_FORMAT ('2011-11-11 11:11:11', '%Y-%m-%d %r') = 2011-11-11 11:11:11 AM</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TIME_FORMAT(t, f)</td>
+      <td style="text-align: left">按表达式 f 的要求显示时间 t</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">TIME_FORMAT ('11:11:11', '%r') = 11:11:11 AM</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GET_FORMAT(type, s)</td>
+      <td style="text-align: left">获得国家地区时间格式函数</td>
+      <td style="text-align: left" colspan="2"><code class="language-plaintext highlighter-rouge">GET_FORMAT (date, 'usa') = %m.%d.%Y</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="条件判断函数">条件判断函数</h3>
+
+<h4 id="1-ifexpr-v1-v2函数">1. IF(expr, v1, v2)函数</h4>
+
+<p>如果表达式 expr 成立，返回结果 v1；否则，返回结果 v2</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">IF</span><span class="p">(</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">'YES'</span><span class="p">,</span> <span class="s1">'NO'</span><span class="p">)</span>
+<span class="c1">-- return: YES</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h4 id="2-ifnullv1-v2函数">2. IFNULL(v1, v2)函数</h4>
+
+<p>如果 v1 的值不为 NULL，则返回 v1，否则返回 v2</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">IFNULL</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="s1">'Hello Word'</span><span class="p">)</span>
+<span class="c1">-- return: Hello Word</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h4 id="3-case">3. CASE</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="k">CASE</span>
+    <span class="k">WHEN</span> <span class="n">e1</span>
+    <span class="k">THEN</span> <span class="n">v1</span>
+    <span class="k">WHEN</span> <span class="n">e2</span>
+    <span class="k">THEN</span> <span class="n">v2</span>
+    <span class="p">...</span>
+    <span class="k">ELSE</span> <span class="n">vn</span>
+  <span class="k">END</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<p>CASE 表示函数开始，END表 示函数结束。如果 e1 成立，则返回 v1；如果 e2 成立，则返回 v2。当有一个成立，后面的都不执行；当都不成立，则返回 vn。</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="k">CASE</span> <span class="n">expr</span>
+    <span class="k">WHEN</span> <span class="n">e1</span> <span class="k">THEN</span> <span class="n">v1</span>
+    <span class="k">WHEN</span> <span class="n">e2</span> <span class="k">THEN</span> <span class="n">v2</span>
+    <span class="p">...</span>
+    <span class="k">ELSE</span> <span class="n">vn</span>
+  <span class="k">END</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<p>如果表达式 expr 的值等于 e1，返回 v1；如果等于 e2，则返回 e2.否则返回 vn。</p>
+
+<h3 id="系统信息函数">系统信息函数</h3>
+
+<p>系统信息函数用来查询 MySQL 数据库的系统信息</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">函数</th>
+      <th style="text-align: left">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">VERSION()</td>
+      <td style="text-align: left">返回数据库的版本号</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CONNECTION_ID()</td>
+      <td style="text-align: left">返回服务器的连接数</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DATABASE()<br>SCHEMA()</td>
+      <td style="text-align: left">返回当前数据库名</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">USER()<br>SYSTEM_USER()<br>SESSION_USER()<br>CURRENT_USER()<br>CURRENT_USER()</td>
+      <td style="text-align: left">返回当前用户</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CHARSET(str)</td>
+      <td style="text-align: left">返回字符串 str 的字符集</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">COLLATION(str)</td>
+      <td style="text-align: left">返回字符串 str 的字符排列方式</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LAST_INSERT_ID()</td>
+      <td style="text-align: left">返回最近生成的 AUTO_INCREMENT 值</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="加密函数">加密函数</h3>
+
+<p>加密函数是 MySQL 用来对数据进行加密的函数</p>
+
+<h4 id="1-password">1. PASSWORD</h4>
+
+<p>该函数可以对字符串 str 进行加密，一般情况下，<code class="language-plaintext highlighter-rouge">PASSWORD(str)</code> 用于给用户的密码加密</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">PASSWORD</span><span class="p">(</span><span class="s1">'123'</span><span class="p">)</span>
+<span class="c1">-- return: *23AE809DDACAF96AF0FD78ED04B6A265E05AA257</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h4 id="2-md5">2. MD5</h4>
+
+<p><code class="language-plaintext highlighter-rouge">MD5(str)</code> 函数可以对字符串str进行散列，可以用于一些普通的不需要解密的数据加密</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">MD5</span><span class="p">(</span><span class="s1">'123'</span><span class="p">)</span>
+<span class="c1">-- return: 202cb962ac59075b964b07152d234b70</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h4 id="3-encode-与-decode">3. ENCODE 与 DECODE</h4>
+
+<p><code class="language-plaintext highlighter-rouge">ENCODE(str, pswd_str)</code> 函数可以使用加密密码 pswd_str 来加密字符串 str，加密结果是二进制数，需要使用 BLOB 类型的字段保存。
+该函数与 <code class="language-plaintext highlighter-rouge">DECODE(crypt_str, pswd_str)</code> 是一对，需要同样的密码才能够解密</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">ENCODE</span><span class="p">(</span><span class="s1">'123'</span><span class="p">,</span> <span class="s1">'xxoo'</span><span class="p">)</span>
+<span class="c1">-- return: ;vx</span>
+<span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">DECODE</span><span class="p">(</span><span class="s1">';vx'</span><span class="p">,</span><span class="s1">'xxoo'</span><span class="p">)</span>
+<span class="c1">-- return: 123</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h3 id="其他函数">其他函数</h3>
+
+<h4 id="1-格式化函数-format">1. 格式化函数 FORMAT</h4>
+
+<p><code class="language-plaintext highlighter-rouge">FORMAT(x, n)</code> 函数可以将数字 x 进行格式化，将 x 保留到小数点后 n 位</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">FORMAT</span><span class="p">(</span><span class="mi">3</span><span class="p">.</span><span class="mi">1215926</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="c1">-- return: 3.142</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h4 id="2-不同进制的数字进行转换">2. 不同进制的数字进行转换</h4>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">ASCII(s)</code> 返回字符串s的第一个字符的 ASCII 码；</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">BIN(x)</code> 返回 x 的二进制编码；</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">HEX(x)</code> 返回 x 的十六进制编码；</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">OCT(x)</code> 返回 x 的八进制编码；</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">CONV(x, f1, f2)</code> 返回 f1 进制数变成 f2 进制数；</li>
+</ul>
+
+<h4 id="3-ip-地址与数字相互转换的函数">3. IP 地址与数字相互转换的函数</h4>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">INET_ATON(IP)</code> 函数可以将 IP 地址转换为数字表示；</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">INET_NTOA(n)</code> 函数可以将数字 n 转换成 IP 形式</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">INET_ATON</span><span class="p">(</span><span class="s1">'192.168.0.1'</span><span class="p">)</span>
+<span class="c1">-- return: 3232235521</span>
+<span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">INET_NTOA</span><span class="p">(</span><span class="mi">3232235521</span><span class="p">)</span>
+<span class="c1">-- return: 192.168.0.1</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h4 id="4-加锁函数和解锁函数">4. 加锁函数和解锁函数</h4>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">GET_LOCK(name, time)</code> 函数定义一个名称为 name. 持续时间长度为 time（单位秒）的锁。如果锁定成功，则返回 1；如果尝试超时，则返回 0；如果遇到错误，返回 NULL；</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">RELEASE_LOCK(name)</code> 函数解除名称为 name 的锁。如果解锁成功，则返回1；</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">IS_FREE_LOCK(name)</code> 函数判断是否已使用名为 name 的锁定。如果使用，返回 0；否则，返回 1；</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">GET_LOCK</span><span class="p">(</span><span class="s1">'MySQL'</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c1">-- return: 1 (持续 10 秒)</span>
+<span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">IS_FREE_LOCK</span><span class="p">(</span><span class="s1">'MySQL'</span><span class="p">)</span>
+<span class="c1">-- return: 1</span>
+<span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">RELEASE_LOCK</span><span class="p">(</span><span class="s1">'MySQL'</span><span class="p">)</span>
+<span class="c1">-- return: 1</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h4 id="5-重复执行指定操作的函数">5. 重复执行指定操作的函数</h4>
+
+<p><code class="language-plaintext highlighter-rouge">BENCHMARK(count, expr)</code> 函数将表达式 expr 重复执行 count 次，然后返回执行时间。该函数可以用来判断 MySQL 处理表达式的速度。</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">BENCHMARK</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="n">NOW</span><span class="p">())</span>
+<span class="c1">-- return: 0 (返回系统时间 1 万次)</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h4 id="6-改变字符集的函数">6. 改变字符集的函数</h4>
+
+<p><code class="language-plaintext highlighter-rouge">CONVERT(s USING cs)</code> 函数将字符串s的字符集编程 cs</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">CHARSET</span><span class="p">(</span><span class="s1">'ABC'</span><span class="p">)</span>
+<span class="c1">-- return: utf-8</span>
+<span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">CHARSET</span><span class="p">(</span><span class="k">CONVERT</span><span class="p">(</span><span class="s1">'ABC'</span> <span class="k">USING</span> <span class="n">gbk</span><span class="p">))</span>
+<span class="c1">-- return: gbk</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h4 id="7-转换数据类型">7. 转换数据类型</h4>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">CAST(x AS type)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">CONVERT(x, type)</code></li>
+</ul>
+
+<p>这两个函数只对 <code class="language-plaintext highlighter-rouge">BINARY</code>, <code class="language-plaintext highlighter-rouge">CHAR</code>, <code class="language-plaintext highlighter-rouge">DATE</code>, <code class="language-plaintext highlighter-rouge">DATETIME</code>, <code class="language-plaintext highlighter-rouge">TIME</code>, <code class="language-plaintext highlighter-rouge">DECIMAL</code>, <code class="language-plaintext highlighter-rouge">SIGNED</code>, <code class="language-plaintext highlighter-rouge">UNSIGNED</code> 有效。</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="k">CAST</span><span class="p">(</span><span class="s1">'123'</span> <span class="k">AS</span> <span class="nb">UNSIGNED</span> <span class="nb">INTEGER</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="c1">-- return: 124</span>
+<span class="o">&gt;</span> <span class="k">SELECT</span> <span class="s1">'123'</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="c1">-- return: 124 (其实 MySQL 能默认转换)</span>
+<span class="o">&gt;</span> <span class="k">SELECT</span> <span class="k">CAST</span><span class="p">(</span><span class="n">NOW</span><span class="p">()</span> <span class="k">AS</span> <span class="nb">DATE</span><span class="p">)</span>
+<span class="c1">-- return: 2014-12-18</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+
+                <!-- Copyright Notice -->
+                
+<hr>
+
+<p>
+  本文由
+  <a href="/about/" target="_blank">
+    Oscaner
+  </a> 创作, 采用
+  <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">
+    知识共享署名4.0
+  </a> 国际许可协议进行许可 <br>
+  本站文章除注明转载/出处外, 均为本站原创或翻译, 转载前请务必署名
+</p>
+
+
+                
+
+                <hr>
+<hr style="visibility: hidden;">
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/skill/clang/gcc-compile.html" data-toggle="tooltip" data-placement="top" title="Clang - GCC 编译">
+                        Next<br>
+                        <span>Clang - GCC 编译</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr style="visibility: hidden;">
+
+                <!-- Comment start -->
+<div class="comment">
+  
+
+  
+  <!-- gitalk 评论框 start -->
+  <div id="gitalk-container"></div>
+  <!-- gitalk 评论框 end -->
+  
+
+  
+</div>
+<!-- Comment end -->
+
+
+
+
+
+
+<!-- Gitalk CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<!-- gitalk 公共JS代码 start (一个网页只需插入一次) -->
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  function getLangForGitalk() {
+    lang = new URLSearchParams(document.location.search).get("lang");
+    return lang == 'zh' ? 'zh-CN' : lang;
+  }
+
+  var body = location.href;
+
+  var subtitle = "MySQL 开发中常用的一些语法及函数归总";
+  if (subtitle) {
+    body += "\n" + subtitle;
+  }
+
+  var description = "";
+  if (description) {
+    body += "\n" + description;
+  }
+
+  var gitalk = new Gitalk({
+      clientID: 'f86fb5601466c278f223',
+      clientSecret: '8234184af9a4cbc9dfa58bbea7ff6cdb84d33f1f',
+      repo: 'oscaner.github.io',
+      owner: 'Oscaner',
+      admin: 'Oscaner',
+      labels: 'Gitalk|Skill|SQL|MySQL|Syntax|Oscaner'.split('|'),
+      body: body,
+      language: getLangForGitalk() ? getLangForGitalk() : 'zh-CN',
+
+      id: MD5('/skill/sql/mysql-syntax.html'),
+      // facebook-like distraction free mode
+      distractionFreeMode: true
+  });
+
+  gitalk.render('gitalk-container');
+</script>
+<!-- gitalk 公共JS代码 end -->
+
+
+
+
+
+            </div>
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+
+<section>
+    
+        <hr class="hidden-sm hidden-xs">
+    
+    <h5><a href="/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        
+        
+        
+                <a data-sort="0040" href="/archive/?tag=Skill" title="Skill" rel="95">Skill</a>
+        
+                <a data-sort="0097" href="/archive/?tag=Clang" title="Clang" rel="38">Clang</a>
+        
+                <a data-sort="0097" href="/archive/?tag=Exam" title="Exam" rel="38">Exam</a>
+        
+                <a data-sort="0098" href="/archive/?tag=AWS" title="AWS" rel="37">AWS</a>
+        
+                <a data-sort="0098" href="/archive/?tag=C%2B%2B" title="C++" rel="37">C++</a>
+        
+                <a data-sort="0098" href="/archive/?tag=Data+Structure" title="Data Structure" rel="37">Data Structure</a>
+        
+                <a data-sort="0099" href="/archive/?tag=MLS" title="MLS" rel="36">MLS</a>
+        
+                <a data-sort="0099" href="/archive/?tag=Machine+Learning" title="Machine Learning" rel="36">Machine Learning</a>
+        
+                <a data-sort="0122" href="/archive/?tag=PHP" title="PHP" rel="13">PHP</a>
+        
+                <a data-sort="0124" href="/archive/?tag=Coding" title="Coding" rel="11">Coding</a>
+        
+                <a data-sort="0124" href="/archive/?tag=Others" title="Others" rel="11">Others</a>
+        
+                <a data-sort="0125" href="/archive/?tag=Graduate" title="Graduate" rel="10">Graduate</a>
+        
+                <a data-sort="0125" href="/archive/?tag=Math" title="Math" rel="10">Math</a>
+        
+                <a data-sort="0126" href="/archive/?tag=NoSQL" title="NoSQL" rel="9">NoSQL</a>
+        
+                <a data-sort="0129" href="/archive/?tag=SQL" title="SQL" rel="6">SQL</a>
+        
+                <a data-sort="0130" href="/archive/?tag=Linux" title="Linux" rel="5">Linux</a>
+        
+                <a data-sort="0130" href="/archive/?tag=Redis" title="Redis" rel="5">Redis</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Fibonacci" title="Fibonacci" rel="3">Fibonacci</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Git" title="Git" rel="3">Git</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Memcached" title="Memcached" rel="3">Memcached</a>
+        
+                <a data-sort="0133" href="/archive/?tag=MySQL" title="MySQL" rel="2">MySQL</a>
+    </div>
+</section>
+
+
+                <!-- Friends Blog -->
+                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://asdrt666.com" target="_blank" rel="friend">Asdrt</a></li>
+  
+  <li><a href="https://szdblog.com" target="_blank" rel="friend">Choba·乔巴博客</a></li>
+  
+  <li><a href="https://ibcl.us/" target="_blank" rel="friend">I BCL.</a></li>
+  
+  <li><a href="https://www.wmathor.com/" target="_blank" rel="friend">mathor</a></li>
+  
+  <li><a href="https://tongtaos.com" target="_blank" rel="friend">Mr. 童的博客</a></li>
+  
+  <li><a href="https://blog.kejijie.vip/" target="_blank" rel="friend">wantsget</a></li>
+  
+  <li><a href="https://o0o0o0.cn/" target="_blank" rel="friend">三十三言</a></li>
+  
+  <li><a href="http://www.gazyip.cn/" target="_blank" rel="friend">八个比特</a></li>
+  
+  <li><a href="https://www.lixuejiang.com/" target="_blank" rel="friend">李学江博客</a></li>
+  
+  <li><a href="https://5sir.cn" target="_blank" rel="friend">梁Sir的小站</a></li>
+  
+  <li><a href="http://isenchun.cn/" target="_blank" rel="friend">森纯个人博客</a></li>
+  
+  <li><a href="http://www.nothamor.cn/" target="_blank" rel="friend">欧尼酱</a></li>
+  
+  <li><a href="https://www.lkxin.cn" target="_blank" rel="friend">清酒踏月</a></li>
+  
+  <li><a href="https://www.yyhy.me" target="_blank" rel="friend">烟雨寒云博客</a></li>
+  
+  <li><a href="http://mlldxe.cn" target="_blank" rel="friend">犬の窝</a></li>
+  
+  <li><a href="https://aoppp.com" target="_blank" rel="friend">憧憬播客</a></li>
+  
+</ul>
+
+
+
+                <!-- Ads -->
+                <hr>
+
+<!-- <script async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3286495153411959"
+  crossorigin="anonymous"></script> -->
+
+<!-- Oscaner's Vertical Ad -->
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3286495153411959" data-ad-slot="2277392638" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
+
+
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- add support for mathjax by voleking-->
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async('/packages/anchor/1.1.1/anchor.min.js', function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'right',
+          // icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- SEO -->
+<!-- Schema Markup -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "MySQL - 常用语法及函数",
+  "author": {
+    "@type": "Person",
+    "name": "Oscaner"
+  },
+  "datePublished": "August 5, 2018",
+  "image": "https://www.oscaner.com/assets/img/post-bg-alitrip.jpg",
+  "articleBody": "&lt;h2 id=&quot;常用语法&quot;&gt;常用语法&lt;/h2&gt;\n\n&lt;h3 id=&quot;插入数据&quot;&gt;插入数据&lt;/h3&gt;\n\n&lt;h4 id=&quot;1-插入数据&quot;&gt;1. 插入数据&lt;/h4&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;TABLE_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FIELD1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FIELD2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VALUE1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VALUE2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VALUE1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VALUE2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...;&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- 插入多条数据&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- 主键ID为自增字段，直接NULL即可&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h4 id=&quot;2-插入检索出来的数据&quot;&gt;2. 插入检索出来的数据&lt;/h4&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TABLE_NAME_1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FIELD3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FIELD4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FIELD1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FIELD2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TABLE_NAME_2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- 从 &amp;lt;数据表2&amp;gt; 查询 &amp;lt;字段名1&amp;gt; &amp;lt;字段名2&amp;gt; &amp;lt;...&amp;gt; 的值插入 &amp;lt;数据表1&amp;gt; 的 &amp;lt;字段名3&amp;gt; &amp;lt;字段名4&amp;gt; &amp;lt;...&amp;gt;&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h3 id=&quot;更新数据&quot;&gt;更新数据&lt;/h3&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;UPDATE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;TABLE_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FIELD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;VALUE&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CONDITIONS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- 不加条件则更新整个数据表数据&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h3 id=&quot;删除数据&quot;&gt;删除数据&lt;/h3&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DELETE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;TABLE_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CONDITIONS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- 不加条件则删除整张表的数据，但自增字段不会重新开始&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TRUNCATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;TABLE_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- 清空数据表，自增字段重新从1开始&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h3 id=&quot;查询数据&quot;&gt;查询数据&lt;/h3&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FIELD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;TABLE_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;TABLE_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h3 id=&quot;条件控制&quot;&gt;条件控制&lt;/h3&gt;\n\n&lt;h4 id=&quot;1-where-语句&quot;&gt;1. WHERE 语句&lt;/h4&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;TABLE_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- 从数据表查询id=3的所有字段数据&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h4 id=&quot;2-having-语句&quot;&gt;2. HAVING 语句&lt;/h4&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;TABLE_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;GROUP&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FIELD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;HAVING&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CONDITIONS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- 根据 &amp;lt;字段名&amp;gt; 分组并筛选出达到 &amp;lt;条件&amp;gt; 的组&lt;/span&gt;\n\n&lt;span class=&quot;c1&quot;&gt;-- 举个例子：有数据表user&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;----------------------+&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;score&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;----------------------+&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zhangsan&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sales&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;90&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lisi&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sales&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;90&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wangfei&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IT&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;89&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;leifeng&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IT&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;95&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gouzi&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hr&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;92&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;----------------------+&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COUNT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count_tmp&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;score&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;89&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;GROUP&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dept&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;HAVING&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count_tmp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- 先查出 score&amp;gt;89 的员工纪录&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- 根据 dept 分组（GROUP BY dept)&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- 再用 count 聚合函数统计部门人数&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- 最后筛选出部门总人数大于1人的部门&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h2 id=&quot;常用函数&quot;&gt;常用函数&lt;/h2&gt;\n\n&lt;h3 id=&quot;数学函数&quot;&gt;数学函数&lt;/h3&gt;\n\n&lt;p&gt;数学函数主要用于处理数字，包括整形. 浮点数等。&lt;/p&gt;\n\n&lt;table&gt;\n  &lt;thead&gt;\n    &lt;tr&gt;\n      &lt;th style=&quot;text-align&#58; left&quot;&gt;函数&lt;/th&gt;\n      &lt;th style=&quot;text-align&#58; left&quot;&gt;说明&lt;/th&gt;\n      &lt;th style=&quot;text-align&#58; left&quot;&gt;|&lt;/th&gt;\n    &lt;/tr&gt;\n  &lt;/thead&gt;\n  &lt;tbody&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;ABS(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回x的绝对值&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ABS(-1) = 1&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;CEIL(x), &lt;br&gt; CEILING(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回大于或等于x的最小整数&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CEIL(1.5) = 2&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;FLOOR(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回小于或等于x的最大整数&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FLOOR(1.5) = 1&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;RAND()&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回0-&amp;gt;1的随机数&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;RAND(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回0-&amp;gt;x的随机数，x值相同时返回的随机数相同&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;SIGN(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回x的符号，x是负数. 0. 正数分别返回-1. 0. 1&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SIGN(-10) = -1&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;PI()&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回圆周率(3.141593)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PI() = 3.141593&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;TRUNCATE(x,y)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回数值x保留到小数点后y位的值(与ROUND最大的区别是不会进行四舍五入)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TRUNCATE(1.23456, 3) = 1.234&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;ROUND(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回离x最近的整数&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ROUND(1.23456) = 1&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;ROUND(x,y)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;保留小数点后y位的值，但截断时要进行四舍五入&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ROUND(1.23456, 3) = 1.235&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;POW(x,y), &lt;br&gt; POWER(x,y)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回x的y次方&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POW(2, 3) = 8&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;SQRT(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回x的平方根&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SQRT(25) = 5&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;EXP(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回e的x次方&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EXP(3) = 20.085536923188&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;MOD(x,y)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回x除以y以后的余数&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MOD(5, 2) = 1&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;LOG(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回自然对数(以e为底的对数)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LOG(20.085536923188 ) = 3&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;LOG10(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回以10为底的对数&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LOG10(100) = 2&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;RADIANS(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;将角度转换为弧度&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RADIANS(180) = 3.1415926535898&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;DEGREES(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;将弧度转换为角度&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DEGREES(3.1415926535898 ) = 180&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;SIN(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;求正弦值(参数是弧度)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SIN(RADIANS(30)) = 0.5&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;ASIN(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;求反正弦值(参数是弧度)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;COS(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;求余弦值(参数是弧度)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;ACOS(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;求反余弦值(参数是弧度)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;TAN(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;求正切值(参数是弧度)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;ATAN(x), &lt;br&gt; ATAN2(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;求反正切值(参数是弧度)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;COT(x)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;求余切值(参数是弧度)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n  &lt;/tbody&gt;\n&lt;/table&gt;\n\n&lt;h3 id=&quot;字符串函数&quot;&gt;字符串函数&lt;/h3&gt;\n\n&lt;p&gt;字符串函数是MySQL中最常用的一类函数，字符串函数主要用于处理表中的字符串。&lt;/p&gt;\n\n&lt;table&gt;\n  &lt;thead&gt;\n    &lt;tr&gt;\n      &lt;th style=&quot;text-align&#58; left&quot;&gt;函数&lt;/th&gt;\n      &lt;th style=&quot;text-align&#58; left&quot;&gt;说明&lt;/th&gt;\n      &lt;th style=&quot;text-align&#58; left&quot;&gt;|&lt;/th&gt;\n    &lt;/tr&gt;\n  &lt;/thead&gt;\n  &lt;tbody&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;CHAR_LENGTH(s)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回字符串s的字符数&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CHAR_LENGTH(&#39;你好123&#39;) = 5&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;LENGTH(s)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回字符串s的长度&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LENGTH(&#39;你好123&#39;) = 9&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;CONCAT(s1, s2,…)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;将字符串s1,s2等多个字符串合并为一个字符串&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CONCAT(&#39;12&#39;, &#39;34&#39;) = 1234&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;CONCAT_WS(x, s1, s2,…)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;同CONCAT(s1,s2,…)函数，但是每个字符串直接要加上x&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CONCAT_WS(&#39;@&#39;, &#39;12&#39;, &#39;34&#39;) = 12@34&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;INSERT(s1, x, len, s2)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;将字符串s2替换s1的x位置开始长度为len的字符串&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INSERT(&#39;12345&#39;, 1, 3, &#39;abc&#39;) = abc45&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;UPPER(s), &lt;br&gt; UCAASE(s)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;将字符串s的所有字母变成大写字母&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UPPER(&#39;abc&#39;) = ABC&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;LOWER(s), &lt;br&gt; LCASE(s)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;将字符串s的所有字母变成小写字母&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LOWER(&#39;ABC&#39;) = abc&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;LEFT(s, n)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回字符串s的前n个字符&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LEFT(&#39;abcde&#39;, 2) = ab&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;RIGHT(s, n)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回字符串s的后n个字符&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SRIGHT(&#39;abcde&#39;, 2) = de&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;LPAD(s1, len, s2)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;字符串s2来填充s1的开始处，使字符串长度达到len&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LPAD(&#39;abc&#39;, 5, &#39;xx&#39;) = xxabc&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;RPAD(s1,len,s2)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;字符串s2来填充s1的结尾处，使字符串的长度达到len&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RPAD(&#39;abc&#39;, 5, &#39;xx&#39;) = abcxx&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;LTRIM(s)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;去掉字符串s开始处的空格&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;RTRIM(s)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;去掉字符串s结尾处的空格&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;TRIM(s)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;去掉字符串s开始和结尾处的空格&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;TRIM(s1 FROM s)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;去掉字符串s中开始处和结尾处的字符串s1&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TRIM(&#39;@&#39; FROM &#39;@@abc@@&#39;) = abc&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;REPEAT(s, n)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;将字符串s重复n次&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;REPEAT(&#39;ab&#39;, 3) = ababab&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;SPACE(n)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回n个空格&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;REPLACE(s, s1, s2)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;将字符串s2替代字符串s中的字符串s1&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;REPLACE(&#39;abc&#39;, &#39;a&#39;, &#39;x&#39;) = xbc&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;STRCMP(s1,s2)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;比较字符串s1和s2&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;SUBSTRING(s, n, len)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;获取从字符串s中的第n个位置开始长度为len的字符串&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;MID(s, n, len)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;同SUBSTRING(s,n,len)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;LOCATE(s1,s), &lt;br&gt; POSITION(s1 IN s)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;从字符串s中获取s1的开始位置&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LOCATE(&#39;b&#39;, &#39;abc&#39;) = 2&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;INSTR(s, s1)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;从字符串s中获取s1的开始位置&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INSTR(&#39;abc&#39;, &#39;b&#39;) = 2&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;REVERSE(s)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;将字符串s的顺序反过来&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;REVERSE(&#39;abc&#39;) = cba&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;ELT(n, s1, s2,…)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回第n个字符串&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ELT(2, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;) = b&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;EXPORT_SET(x,s1,s2)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回一个字符串，在这里对于在“bits”中设定每一位，你得到一个“on”字符串，并且对于每个复位(reset)的位，你得到一个 “off”字符串。每个字符串用“separator”分隔(缺省“,”)，并且只有“bits”的“number_of_bits” (缺省64)位被使用&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EXPORT_SET(5, &#39;Y&#39;, &#39;N&#39;, &#39;,&#39;, 4) = Y,N,Y,N&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;FIELD(s, s1, s2…)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回第一个与字符串s匹配的字符串位置&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FIELD(&#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;) = 3&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;FIND_IN_SET(s1, s2)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回在字符串s2中与s1匹配的字符串的位置&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;SUBSTRING_INDEX(str, delim, count)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回从字符串str的第count个出现的分隔符delim之后的子串。如果count是正数，返回第count个字符左边的字符串。如果count是负数，返回第(count的绝对值(从右边数))个字符右边的字符串。&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SUBSTRING_INDEX(&#39;a*b&#39;, &#39;*&#39;, 1) = a&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;LOAD_FILE(file_name)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;读入文件并且作为一个字符串返回文件内容。文件必须在服务器上，你必须指定到文件的完整路径名，而且你必须有file权 限。文件必须所有内容都是可读的并且小于max_allowed_packet。 如果文件不存在或由于上面原因之一不能被读出，函数返回NULL。&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n  &lt;/tbody&gt;\n&lt;/table&gt;\n\n&lt;h3 id=&quot;日期时间函数&quot;&gt;日期时间函数&lt;/h3&gt;\n\n&lt;p&gt;MySQL的日期和时间函数主要用于处理日期时间。&lt;/p&gt;\n\n&lt;table&gt;\n  &lt;thead&gt;\n    &lt;tr&gt;\n      &lt;th style=&quot;text-align&#58; left&quot;&gt;函数&lt;/th&gt;\n      &lt;th style=&quot;text-align&#58; left&quot;&gt;说明&lt;/th&gt;\n      &lt;th style=&quot;text-align&#58; left&quot;&gt;|&lt;/th&gt;\n    &lt;/tr&gt;\n  &lt;/thead&gt;\n  &lt;tbody&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;CURDATE(), &lt;br&gt; CURRENT_DATE()&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回当前日期&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;CURTIME(), &lt;br&gt; CURRENT_TIME()&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回当前时间&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;NOW(), &lt;br&gt; CURRENT_TIMESTAMP(), &lt;br&gt; LOCALTIME(), &lt;br&gt; SYSDATE(), &lt;br&gt; LOCALTIMESTAMP()&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回当前日期和时间&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;UNIX_TIMESTAMP()&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;以 UNIX 时间戳的形式返回当前时间&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;UNIX_TIMESTAMP(d)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;将日期 d 以 UNIX 时间戳的形式返回&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UNIX_TIMESTAMP (&#39;2011-11-11 11&#58;11&#58;11&#39;) = 1320981071&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;FROM_UNIXTIME(d)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;将 UNIX 时间戳的时间转换为普通格式的时间&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FROM_UNIXTIME (1320981071) = 2011-11-11 11&#58;11&#58;11&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;UTC_DATE()&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回 UTC 日期&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;UTC_TIME()&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回 UTC 时间&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;MONTH(d)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回日期 d 中的月份值&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;范围是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1-&amp;gt;12&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;MONTHNAME(d)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回日期 d 当中的月份名称&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;如 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Janyary&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;DAYNAME(d)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回日期 d 是星期几&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;如 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Monday&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tuesday&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;DAYOFWEEK(d)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;日期 d 是星期几&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;1 表示星期日，2 表示星期一 |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;WEEKDAY(d)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;日期 d 是星期几&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;0 表示星期一，1 表示星期二 |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;WEEK(d)， &lt;br&gt; WEEKOFYEAR(d)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;计算日期 d 是本年的第几个星期，&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;范围是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0-&amp;gt;53&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;DAYOFYEAR(d)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;计算日期 d 是本年的第几天&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;DAYOFMONTH(d)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;计算日期 d 是本月的第几天&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;QUARTER(d)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回日期 d 是第几季节&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1-&amp;gt;4&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;HOUR(t)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回 t 中的小时值&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;MINUTE(t)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回 t 中的分钟值&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;SECOND(t)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回 t 中的秒钟值&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;EXTRACT(type FROM d)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;从日期 d 中获取指定的值，type 指定返回的值。&lt;br&gt;type 可取值为：&lt;br&gt;1. MICROSECOND&lt;br&gt;2. SECOND. MINUTE&lt;br&gt;3. HOUR&lt;br&gt;4. DAY&lt;br&gt;5. WEEK&lt;br&gt;6. MONTH&lt;br&gt;7. QUARTER&lt;br&gt;8. YEAR&lt;br&gt;9. SECOND_MICROSECOND&lt;br&gt;10. MINUTE_MICROSECOND&lt;br&gt;11. MINUTE_SECOND&lt;br&gt;12. HOUR_MICROSECOND&lt;br&gt;13. HOUR_SECOND&lt;br&gt;14. HOUR_MINUTE&lt;br&gt;15. DAY_MICROSECOND&lt;br&gt;16. DAY_SECOND&lt;br&gt;17. DAY_MINUTE&lt;br&gt;18. DAY_HOUR&lt;br&gt;19. YEAR_MONTH&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;TIME_TO_SEC(t)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;将时间 t 转换为秒&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;SEC_TO_TIME(s)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;将以秒为单位的时间 s 转换为时分秒的格式&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;TO_DAYS(d)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;计算日期 d 距离 0000 年 1 月 1 日的天数&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;FROM_DAYS(n)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;计算从 0000 年 1 月 1 日开始 n 天后的日期&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;DATEDIFF(d1, d2)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;计算日期 d1-&amp;gt;d2 之间相隔的天数&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;ADDDATE(d, n)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;计算起始日期 d 加上 n 天的日期&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ADDDATE(&#39;2011-11-11 11&#58;11&#58;11&#39;, 1) = 2011-11-12 11&#58;11&#58;11&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;ADDDATE(d，INTERVAL expr type)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;计算起始日期 d 加上一个时间段后的日期&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ADDDATE (&#39;2011-11-11 11&#58;11&#58;11&#39;, INTERVAL 5 MINUTE) = 2011-11-11 11&#58;16&#58;11&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;DATE_ADD(d, INTERVAL expr type)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;同上&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;SUBDATE(d, n)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;日期 d 减去 n 天后的日期&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;SUBDATE(d, INTERVAL expr type)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;日期 d 减去一个时间段后的日期&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;ADDTIME(t, n)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;时间 t 加上 n 秒的时间&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;SUBTIME(t, n)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;时间 t 减去 n 秒的时间&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;|&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;DATE_FORMAT(d, f)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;按表达式 f 的要求显示日期 d&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DATE_FORMAT (&#39;2011-11-11 11&#58;11&#58;11&#39;, &#39;%Y-%m-%d %r&#39;) = 2011-11-11 11&#58;11&#58;11 AM&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;TIME_FORMAT(t, f)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;按表达式 f 的要求显示时间 t&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TIME_FORMAT (&#39;11&#58;11&#58;11&#39;, &#39;%r&#39;) = 11&#58;11&#58;11 AM&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;GET_FORMAT(type, s)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;获得国家地区时间格式函数&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET_FORMAT (date, &#39;usa&#39;) = %m.%d.%Y&lt;/code&gt; |&lt;/td&gt;\n    &lt;/tr&gt;\n  &lt;/tbody&gt;\n&lt;/table&gt;\n\n&lt;h3 id=&quot;条件判断函数&quot;&gt;条件判断函数&lt;/h3&gt;\n\n&lt;h4 id=&quot;1-ifexpr-v1-v2函数&quot;&gt;1. IF(expr, v1, v2)函数&lt;/h4&gt;\n\n&lt;p&gt;如果表达式 expr 成立，返回结果 v1；否则，返回结果 v2&lt;/p&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;YES&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;NO&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- return&#58; YES&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h4 id=&quot;2-ifnullv1-v2函数&quot;&gt;2. IFNULL(v1, v2)函数&lt;/h4&gt;\n\n&lt;p&gt;如果 v1 的值不为 NULL，则返回 v1，否则返回 v2&lt;/p&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IFNULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Hello Word&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- return&#58; Hello Word&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h4 id=&quot;3-case&quot;&gt;3. CASE&lt;/h4&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n5\n6\n7\n8\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;CASE&lt;/span&gt;\n    &lt;span class=&quot;k&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e1&lt;/span&gt;\n    &lt;span class=&quot;k&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;\n    &lt;span class=&quot;k&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e2&lt;/span&gt;\n    &lt;span class=&quot;k&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;\n    &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;\n    &lt;span class=&quot;k&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vn&lt;/span&gt;\n  &lt;span class=&quot;k&quot;&gt;END&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;p&gt;CASE 表示函数开始，END表 示函数结束。如果 e1 成立，则返回 v1；如果 e2 成立，则返回 v2。当有一个成立，后面的都不执行；当都不成立，则返回 vn。&lt;/p&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n5\n6\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expr&lt;/span&gt;\n    &lt;span class=&quot;k&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;\n    &lt;span class=&quot;k&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e2&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;\n    &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;\n    &lt;span class=&quot;k&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vn&lt;/span&gt;\n  &lt;span class=&quot;k&quot;&gt;END&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;p&gt;如果表达式 expr 的值等于 e1，返回 v1；如果等于 e2，则返回 e2.否则返回 vn。&lt;/p&gt;\n\n&lt;h3 id=&quot;系统信息函数&quot;&gt;系统信息函数&lt;/h3&gt;\n\n&lt;p&gt;系统信息函数用来查询 MySQL 数据库的系统信息&lt;/p&gt;\n\n&lt;table&gt;\n  &lt;thead&gt;\n    &lt;tr&gt;\n      &lt;th style=&quot;text-align&#58; left&quot;&gt;函数&lt;/th&gt;\n      &lt;th style=&quot;text-align&#58; left&quot;&gt;说明&lt;/th&gt;\n    &lt;/tr&gt;\n  &lt;/thead&gt;\n  &lt;tbody&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;VERSION()&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回数据库的版本号&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;CONNECTION_ID()&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回服务器的连接数&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;DATABASE()&lt;br&gt;SCHEMA()&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回当前数据库名&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;USER()&lt;br&gt;SYSTEM_USER()&lt;br&gt;SESSION_USER()&lt;br&gt;CURRENT_USER()&lt;br&gt;CURRENT_USER()&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回当前用户&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;CHARSET(str)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回字符串 str 的字符集&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;COLLATION(str)&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回字符串 str 的字符排列方式&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;LAST_INSERT_ID()&lt;/td&gt;\n      &lt;td style=&quot;text-align&#58; left&quot;&gt;返回最近生成的 AUTO_INCREMENT 值&lt;/td&gt;\n    &lt;/tr&gt;\n  &lt;/tbody&gt;\n&lt;/table&gt;\n\n&lt;h3 id=&quot;加密函数&quot;&gt;加密函数&lt;/h3&gt;\n\n&lt;p&gt;加密函数是 MySQL 用来对数据进行加密的函数&lt;/p&gt;\n\n&lt;h4 id=&quot;1-password&quot;&gt;1. PASSWORD&lt;/h4&gt;\n\n&lt;p&gt;该函数可以对字符串 str 进行加密，一般情况下，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PASSWORD(str)&lt;/code&gt; 用于给用户的密码加密&lt;/p&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PASSWORD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;123&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- return&#58; *23AE809DDACAF96AF0FD78ED04B6A265E05AA257&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h4 id=&quot;2-md5&quot;&gt;2. MD5&lt;/h4&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MD5(str)&lt;/code&gt; 函数可以对字符串str进行散列，可以用于一些普通的不需要解密的数据加密&lt;/p&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MD5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;123&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- return&#58; 202cb962ac59075b964b07152d234b70&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h4 id=&quot;3-encode-与-decode&quot;&gt;3. ENCODE 与 DECODE&lt;/h4&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ENCODE(str, pswd_str)&lt;/code&gt; 函数可以使用加密密码 pswd_str 来加密字符串 str，加密结果是二进制数，需要使用 BLOB 类型的字段保存。\n该函数与 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DECODE(crypt_str, pswd_str)&lt;/code&gt; 是一对，需要同样的密码才能够解密&lt;/p&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ENCODE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;123&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;xxoo&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- return&#58; ;vx&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DECODE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;;vx&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;xxoo&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- return&#58; 123&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h3 id=&quot;其他函数&quot;&gt;其他函数&lt;/h3&gt;\n\n&lt;h4 id=&quot;1-格式化函数-format&quot;&gt;1. 格式化函数 FORMAT&lt;/h4&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FORMAT(x, n)&lt;/code&gt; 函数可以将数字 x 进行格式化，将 x 保留到小数点后 n 位&lt;/p&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FORMAT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1215926&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- return&#58; 3.142&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h4 id=&quot;2-不同进制的数字进行转换&quot;&gt;2. 不同进制的数字进行转换&lt;/h4&gt;\n\n&lt;ul&gt;\n  &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ASCII(s)&lt;/code&gt; 返回字符串s的第一个字符的 ASCII 码；&lt;/li&gt;\n  &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN(x)&lt;/code&gt; 返回 x 的二进制编码；&lt;/li&gt;\n  &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HEX(x)&lt;/code&gt; 返回 x 的十六进制编码；&lt;/li&gt;\n  &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OCT(x)&lt;/code&gt; 返回 x 的八进制编码；&lt;/li&gt;\n  &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CONV(x, f1, f2)&lt;/code&gt; 返回 f1 进制数变成 f2 进制数；&lt;/li&gt;\n&lt;/ul&gt;\n\n&lt;h4 id=&quot;3-ip-地址与数字相互转换的函数&quot;&gt;3. IP 地址与数字相互转换的函数&lt;/h4&gt;\n\n&lt;ul&gt;\n  &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INET_ATON(IP)&lt;/code&gt; 函数可以将 IP 地址转换为数字表示；&lt;/li&gt;\n  &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INET_NTOA(n)&lt;/code&gt; 函数可以将数字 n 转换成 IP 形式&lt;/li&gt;\n&lt;/ul&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;INET_ATON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;192.168.0.1&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- return&#58; 3232235521&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;INET_NTOA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3232235521&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- return&#58; 192.168.0.1&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h4 id=&quot;4-加锁函数和解锁函数&quot;&gt;4. 加锁函数和解锁函数&lt;/h4&gt;\n\n&lt;ul&gt;\n  &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET_LOCK(name, time)&lt;/code&gt; 函数定义一个名称为 name. 持续时间长度为 time（单位秒）的锁。如果锁定成功，则返回 1；如果尝试超时，则返回 0；如果遇到错误，返回 NULL；&lt;/li&gt;\n  &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RELEASE_LOCK(name)&lt;/code&gt; 函数解除名称为 name 的锁。如果解锁成功，则返回1；&lt;/li&gt;\n  &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IS_FREE_LOCK(name)&lt;/code&gt; 函数判断是否已使用名为 name 的锁定。如果使用，返回 0；否则，返回 1；&lt;/li&gt;\n&lt;/ul&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n5\n6\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GET_LOCK&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;MySQL&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- return&#58; 1 (持续 10 秒)&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IS_FREE_LOCK&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;MySQL&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- return&#58; 1&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RELEASE_LOCK&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;MySQL&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- return&#58; 1&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h4 id=&quot;5-重复执行指定操作的函数&quot;&gt;5. 重复执行指定操作的函数&lt;/h4&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BENCHMARK(count, expr)&lt;/code&gt; 函数将表达式 expr 重复执行 count 次，然后返回执行时间。该函数可以用来判断 MySQL 处理表达式的速度。&lt;/p&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BENCHMARK&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- return&#58; 0 (返回系统时间 1 万次)&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h4 id=&quot;6-改变字符集的函数&quot;&gt;6. 改变字符集的函数&lt;/h4&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CONVERT(s USING cs)&lt;/code&gt; 函数将字符串s的字符集编程 cs&lt;/p&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CHARSET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;ABC&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- return&#58; utf-8&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CHARSET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;CONVERT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;ABC&#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;USING&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gbk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- return&#58; gbk&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;h4 id=&quot;7-转换数据类型&quot;&gt;7. 转换数据类型&lt;/h4&gt;\n\n&lt;ul&gt;\n  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAST(x AS type)&lt;/code&gt;&lt;/li&gt;\n  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CONVERT(x, type)&lt;/code&gt;&lt;/li&gt;\n&lt;/ul&gt;\n\n&lt;p&gt;这两个函数只对 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BINARY&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CHAR&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DATE&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DATETIME&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TIME&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DECIMAL&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SIGNED&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UNSIGNED&lt;/code&gt; 有效。&lt;/p&gt;\n\n&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n5\n6\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;CAST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;123&#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;UNSIGNED&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;INTEGER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- return&#58; 124&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;123&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- return&#58; 124 (其实 MySQL 能默认转换)&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;CAST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;DATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;\n&lt;span class=&quot;c1&quot;&gt;-- return&#58; 2014-12-18&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n",
+  "url": "https://www.oscaner.com/skill/sql/mysql-syntax.html"
+}
+</script>
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://space.bilibili.com/17118231">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-stack-1x fa-inverse iconfont icon-bilibili-fill"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+
+                <p class="copyright text-muted">
+                    Copyright © Oscaner 2023
+                    <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备17039697号-2</a>
+                    <br>
+                    Powered by <a href="https://www.oscaner.com">Oscaner Blog</a> |
+                    <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="100px" height="20px" src="https://ghbtns.com/github-btn.html?user=oscaner&repo=oscaner.github.io&type=star&count=true">
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/assets/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/assets/js/hux-blog.min.js"></script>
+
+<!-- Simple Jekyll Search -->
+<script src="/assets/js/simple-jekyll-search.min.js"></script>
+
+<!-- Service Worker -->
+
+<script src="/assets/js/snackbar.js"></script>
+<script src="/assets/js/sw-registration.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async('/packages/fastclick/1.0.6/fastclick.min.js', function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Oscaner
+    var _gaId = '';
+    var _gaDomain = 'www.oscaner.com';
+
+    // Originial
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Oscaner
+    var _baId = 'd9c74d9266af4d68f376f0fb9d5fb71c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        // interop with multilangual
+        if ('false' == 'true') {
+            _containerSelector = 'div.post-container.active';
+        } else {
+            _containerSelector = 'div.post-container';
+        }
+
+        if (!$(_containerSelector).length) {
+            _containerSelector = 'div.post-container';
+        }
+
+        // init
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        // clean
+        $(selector).html('')
+
+        // appending
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/assets/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+<!-- Multi-Lingual -->
+
+
+<!-- Simple Jekyll Search -->
+<script>
+    // https://stackoverflow.com/questions/1912501/unescape-html-entities-in-javascript
+    function htmlDecode(input) {
+        var e = document.createElement('textarea');
+        e.innerHTML = input;
+        // handle case of empty input
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    }
+
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('search-results'),
+        json: '/search.json',
+        searchResultTemplate: '<div class="post-preview item"><a href="{url}"><h2 class="post-title">{title}</h2><h3 class="post-subtitle">{subtitle}</h3><hr></a></div>',
+        noResultsText: 'No results',
+        limit: 50,
+        fuzzy: false,
+        // a hack to get escaped subtitle unescaped. for some reason,
+        // post.subtitle w/o escape filter nuke entire search.
+        templateMiddleware: function (prop, value, template) {
+            if (prop === 'subtitle' || prop === 'title') {
+                if (value.indexOf("code")) {
+                    return htmlDecode(value);
+                } else {
+                    return value;
+                }
+            }
+        }
+    });
+
+    $(document).ready(function () {
+        var $searchPage = $('.search-page');
+        var $searchOpen = $('.search-icon');
+        var $searchClose = $('.search-icon-close');
+        var $searchInput = $('#search-input');
+        var $body = $('body');
+
+        $searchOpen.on('click', function (e) {
+            e.preventDefault();
+            $searchPage.toggleClass('search-active');
+            var prevClasses = $body.attr('class') || '';
+            setTimeout(function () {
+                $body.addClass('no-scroll');
+            }, 400)
+
+            if ($searchPage.hasClass('search-active')) {
+                $searchClose.on('click', function (e) {
+                    e.preventDefault();
+                    $searchPage.removeClass('search-active');
+                    $body.attr('class', prevClasses);  // from closure
+                });
+                $searchInput.focus();
+            }
+        });
+    });
+</script>
+
+
+
+<!-- Image to hack wechat -->
+<img src="/assets/img/icon_wechat.png" width="0" height="0">
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

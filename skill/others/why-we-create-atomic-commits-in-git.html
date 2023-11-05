@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="baidu-site-verification" content="code-RlNzeiqm6B">
+    
+    
+    <meta name="google-site-verification" content="clzGAgkJY2WD5IGr5G6KZS9xymJYL_IH2QIEettmobY">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="心若浮沉，浅笑安然">
+    <meta name="keywords" content="Kang Oscaner China Blog">
+    <meta name="theme-color" content="#000000">
+    <meta name="site" content="https://www.oscaner.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Why we create Atomic Commits in Git - Oscaner 的博客 | Oscaner Blog">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="我们都曾遇到过这样一种情况:
+">
+    
+    <meta property="article:published_time" content=" 2021-05-15T18:34:00Z">
+    
+    
+    <meta property="article:author" content="Oscaner">
+    
+    
+    <meta property="article:tag" content="Skill">
+    
+    <meta property="article:tag" content="Others">
+    
+    <meta property="article:tag" content="Git">
+    
+    
+    <meta property="og:image" content="https://q2.qlogo.cn/headimg_dl?bs=2573226076&dst_uin=2573226076&spec=640&url_enc=0&referer=bu_interface&term_type=PC">
+    <meta property="og:url" content="https://www.oscaner.com/skill/others/why-we-create-atomic-commits-in-git.html">
+    <meta property="og:site_name" content="Oscaner 的博客 | Oscaner Blog">
+
+    <title>Why we create Atomic Commits in Git - Oscaner 的博客 | Oscaner Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.oscaner.com/skill/others/why-we-create-atomic-commits-in-git.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/hux-blog.min.css">
+    <link rel="stylesheet" href="/assets/css/oscaner-blog.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="/packages/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    <!-- Google AdSense -->
+    <script data-ad-client="ca-pub-3286495153411959" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+
+    <!-- MD5 -->
+    <script src="/assets/js/md5.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R9FFJYC4P1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-R9FFJYC4P1');
+    </script>
+    
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                  
+                    Oscaner
+                  
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="huxblog_navbar">
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/friends/">Friends</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/projects/">Projects</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/archive/">Archive</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="search-icon">
+                            <a href="javascript:void(0)">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <script>
+        // Drop Bootstarp low-performance Navbar
+        // Use customize navbar with high-quality material design animation
+        // in high-perf jank-free CSS3 implementation
+        var $body = document.body;
+        var $toggle = document.querySelector('.navbar-toggle');
+        var $navbar = document.querySelector('#huxblog_navbar');
+        var $collapse = document.querySelector('.navbar-collapse');
+
+        var __HuxNav__ = {
+            close: function () {
+                $navbar.className = " ";
+                // wait until animation end.
+                setTimeout(function () {
+                    // prevent frequently toggle
+                    if ($navbar.className.indexOf('in') < 0) {
+                        $collapse.style.height = "0px"
+                    }
+                }, 400)
+            },
+            open: function () {
+                $collapse.style.height = "auto"
+                $navbar.className += " in";
+            }
+        }
+
+        // Bind Event
+        $toggle.addEventListener('click', function (e) {
+            if ($navbar.className.indexOf('in') > 0) {
+                __HuxNav__.close()
+            } else {
+                __HuxNav__.open()
+            }
+        })
+
+        /**
+         * Since Fastclick is used to delegate 'touchstart' globally
+         * to hack 300ms delay in iOS by performing a fake 'click',
+         * Using 'e.stopPropagation' to stop 'touchstart' event from
+         * $toggle/$collapse will break global delegation.
+         *
+         * Instead, we use a 'e.target' filter to prevent handler
+         * added to document close HuxNav.
+         *
+         * Also, we use 'click' instead of 'touchstart' as compromise
+         */
+        document.addEventListener('click', function (e) {
+            if (e.target == $toggle) return;
+            if (e.target.className == 'icon-bar') return;
+            __HuxNav__.close();
+        })
+    </script>
+
+    <!-- Search -->
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/assets/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/assets/img/post-bg-alitrip.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+
+
+
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/assets/img/post-bg-alitrip.jpg');
+        background: ;
+    }
+
+    
+</style>
+
+
+
+
+<header class="intro-header">
+
+    <div class="header-mask"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/archive/?tag=Skill" title="Skill">Skill</a>
+                        
+                        <a class="tag" href="/archive/?tag=Others" title="Others">Others</a>
+                        
+                        <a class="tag" href="/archive/?tag=Git" title="Git">Git</a>
+                        
+                    </div>
+                    <h1>Why we create Atomic Commits in Git</h1>
+                    
+                    <h2 class="subheading">为什么我们要创建 Git 原子提交</h2>
+                    <span class="meta">Posted by Oscaner on May 15, 2021</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+                <p>我们都曾遇到过这样一种情况:</p>
+
+<p>在一次代码提交中进行了大量修改, 但是其中一部分与其他代码<strong>没有任何共同之处</strong>。</p>
+
+<p>但是为了方便起见 (这次顺带), 您决定将所有修改集中到一个 commit 中并准备收工。</p>
+
+<p>是的, 这看起来很诱人, 但事实上它会导致很多问题。</p>
+
+<ol>
+  <li>混淆 bugs 或者代码回归的源头。</li>
+  <li>很难在不 revert<sup id="fnref:git_revert" role="doc-noteref"><a href="#fn:git_revert" class="footnote web-link" rel="footnote">1</a></sup> 所需修改的情况下, revert 错误修改。</li>
+  <li>一个巨大的 Ticket 将变得更加巨大, 并且无法管理。</li>
+</ol>
+
+<p>Atomic Commits (原子提交) 能够帮您解决此类问题, 使您的工作更易于管理。</p>
+
+<p>我建议您尝试一下, 看它是否适合您。</p>
+
+<h2 id="单一责任原则-single-responsibility-principle">单一责任原则 (Single Responsibility Principle)</h2>
+
+<p>每当开发者在讨论如何编写干净的代码的时候, 他们经常会提到单一责任原则 (Single Responsibility Principle),</p>
+
+<p>即一个代码单元 (如函数或组件) 应该只关注完成一项任务, 这使得该代码单元更易于测试和重用。</p>
+
+<h2 id="原子提交-atomic-commits">原子提交 (Atomic Commits)</h2>
+
+<p>我们可以将此原则扩展到 Git, 以支持<strong>负责记录单个、完整工作单元</strong>的原子提交。</p>
+
+<p>这并不意味着每个 commit 都需要限制在一个文件或者几行代码 (但是如果真的出现这种情况, 还是需要的)。</p>
+
+<p>相反, 它意味着您应该能够用一个简单、有意义的 message 来描述您的修改, 而无需添加额外的信息来解释您所做的无关工作。</p>
+
+<p>一个很简单的例子:</p>
+
+<p>假设我进行了代码重构, 同时我也更新了两个功能的 workflow, 以及添加了一个新功能。</p>
+
+<p>在原子提交中, 我们需要将重构、更新、添加分别 commit。</p>
+
+<ol>
+  <li>Refactor xxx</li>
+  <li>Update feature 1 xxx</li>
+  <li>Update feature 2 xxx</li>
+  <li>Add feature 3 xxx</li>
+</ol>
+
+<p>我不知道原子提交的官方定义是什么, 但对于我来说, 原子提交指的是一个关注它的<strong>上下文</strong> (context), 或者仅关注它的<strong>上下文</strong>的 commit, 并且每一个 commit 应该都是独立可用的。</p>
+
+<p>而何为上下文? 就如同上面所说, <code class="language-plaintext highlighter-rouge">这并不意味着每个 commit 都需要限制在一个文件或者几行代码</code>,</p>
+
+<p>上下文更多的代指一个主题:</p>
+
+<ol>
+  <li>功能 (feature)</li>
+  <li>错误修复 (bug fix)</li>
+  <li>重构 (refactor)</li>
+  <li>升级 (upgrade)</li>
+  <li>任务 (task)</li>
+  <li>etc…</li>
+</ol>
+
+<p>是的, 这非常棘手, 对于个人的 Git 能力有着极高的要求。我也只能尽可能做到这一点, 但我不确定我总是正确的。</p>
+
+<p>同样您也无需强制要求您团队所有人执行此操作, 也不应该期望它对于所有人都有成效。</p>
+
+<p>但无论如何, 您会发现编写原子提交是一个很好的实践。</p>
+
+<h2 id="整体提交-monolithic-commits">整体提交 (Monolithic Commits)</h2>
+
+<p>与原子提交相反的就是整体提交, 同样拿上面的例子说明。</p>
+
+<p>假设我进行了代码重构, 同时我也更新了两个功能的 workflow, 以及添加了一个新功能。</p>
+
+<p>整个 changeset 在一个 commit 中整体提交。</p>
+
+<p>是的, 也许这不是一个很大的 commit, 它只是将所有修改紧密耦合到了单个 commit 之中。</p>
+
+<p>但是, 它会随着 changeset 的体积而变得庞大, 变得愈发脆弱和容易出错 (即使它有很好的文档说明 - 我在我的工作中遇到过此类情况), 变得难以阅读 (read)、审核 (review) 和撤销 (revert)。</p>
+
+<h2 id="太多的-commits">太多的 commits</h2>
+
+<p><strong>开发人员/架构</strong>有时<strong>不愿意/不同意</strong>进行大量的小提交, 因为他们担心这会在他们的 commit log 中产生不必要的混乱, 或者产生大量的 commit 冗余。</p>
+
+<p>但事实上, 真的没有所谓的 commit 太多这回事, 许多企业级代码库里的 commit count 可能达到了数万次, 甚至更多。</p>
+
+<p>我们可以简单浏览一下 Github 上比较受欢迎的存储库的 commit count (也许在本文编写之后会更高):</p>
+
+<ul>
+  <li>Visual Studio Code: 82k</li>
+  <li>Node.js: 33k</li>
+  <li>TypeScript: 32k</li>
+  <li>etc …</li>
+</ul>
+
+<p>很明显, 推送大量 commits 并不会使 git log 或者 time travel 变得更加困难。</p>
+
+<p>并且, 原子提交通过将修改彼此隔离, 让任务追踪变得异常简单, 您可以清楚的区分 <code class="language-plaintext highlighter-rouge">commit X-1, X, X+1</code>。</p>
+
+<h2 id="原子提交的好处">原子提交的好处</h2>
+
+<h3 id="追踪-track">追踪 (Track)</h3>
+
+<p>原子提交使代码追踪回归变得异常容易, 虽然您确实需要预先付出更多的努力才能将 commit 拆分为独立的工作单元。</p>
+
+<p>但是这项投资非常值得, 我可以很轻松的知道任何一个工作单元在 history 中的位置。</p>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">git log --online</code>: 显示所有 commits</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">git log --grep [pattern]</code>: 基于 message 规则查找相应的 commit</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">git log [commit]</code>: 跳转到对应 commit 并显示之前的所有 commit</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">git bisect start [start] [end]</code>: 查找哪一次 commit 引入了 bug</li>
+</ul>
+
+<p>通过原子提交和 <code class="language-plaintext highlighter-rouge">git bisect</code> 相结合, 可以帮助您更有效的识别有问题的 commit, 同时也可以很确信的保证 commit 中的修改不会影响其他代码。</p>
+
+<p>在必要时刻, 您甚至可以直接 revert 该 commit 而不必担心它会产生更大的负面影响。</p>
+
+<h3 id="read-review-revert">Read, Review, Revert</h3>
+
+<h4 id="阅读-read">阅读 (Read)</h4>
+
+<p>修改只是集中在单一上下文, 这使得 Chunk 变得更小、更简单、更容易阅读和理解。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">git show [commit]</code></li>
+  <li><code class="language-plaintext highlighter-rouge">git log [commit] -p</code></li>
+  <li>
+<code class="language-plaintext highlighter-rouge">tig</code><sup id="fnref:tig" role="doc-noteref"><a href="#fn:tig" class="footnote web-link" rel="footnote">2</a></sup>
+</li>
+</ul>
+
+<h4 id="审查-review">审查 (Review)</h4>
+
+<p>作为一个小的、集中的、有记录的修改, 代码审查员应该能够在跟踪代码变更的同时仍然保持他们的理智?</p>
+
+<h4 id="撤销-revert">撤销 (Revert)</h4>
+
+<p>撤销一个原子提交不会影响不相关修改, 而撤销整体提交会同时撤销大量不相关修改。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">git revert [commit]</code></li>
+</ul>
+
+<p>举个例子, 假设您在开发一项重要的功能, 可能需要重构一部分旧代码以适应您的新功能。</p>
+
+<p>当您最终提交 PR 时, 一些 Reviewer 不同意您的某些无关修改, 并要求您撤销他们。也许听起来很简单?</p>
+
+<p>不幸的是, 您没有进行原子提交。</p>
+
+<p>为了方便起见, 您将所有修改集中在了一个 commit 里, 工作范围重叠。</p>
+
+<p>您的一些 message 也是随意编写, 这使得您难以确定是哪部分功能中引入了无关修改。</p>
+
+<p>您唯一的选择是一点点排查, 并手动撤销这些修改。</p>
+
+<p>您没有预先投入时间将您的 commit 拆分为独立工作单元, 导致后期必须花费更多的代价来重新整理和撤销修改。</p>
+
+<p>如果您使用的是原子提交, 那么您能在短短几分钟内, 撤销与 Change Request 相关的 commit, 并请求 Reviewer 重新进行审查。</p>
+
+<h3 id="大任务-larger-tasks">大任务 (Larger Tasks)</h3>
+
+<p>假设这样一个场景, 您正在编写一个大的功能, 或者正在重构大量文件。</p>
+
+<p>最初, 这可能过于庞大而缺少方向, 您开始在其中一块代码区域开始工作, 以确认您能走多远。</p>
+
+<p>不知不觉中, 您发现您为了尽快获得解决方案而修改了大量文件, 并且面临另一个挑战: 我该怎么编写我的 commit message? 我如何仅通过一个 commit 来总结我的所有工作?</p>
+
+<p>是的, 当您尝试一次性处理大量修改时, 您无法有效地将它们拆分成独立的工作单元。因此, 您会很想通过一次 commit 来简单带过它们以完成您的工作。</p>
+
+<p>在这种情况下, 缺乏原子提交就是这个大问题的症状, 您没有将原始工作拆分为小单元、可管理的 Chunk, 相反, 您试图一次性完成所有事情。</p>
+
+<p>如果您将工作拆分为较小的 Task, 那么您就能够对每项工作单独 commit, 以提供清晰准确的进度记录。</p>
+
+<p>基于此, 我们能够看到原子提交的两个优点:</p>
+
+<ol>
+  <li>它最大程度的减少了较大 Ticket 的认知负担。</li>
+  <li>它使您可以更轻松地追踪和记录您的工作进度。</li>
+</ol>
+
+<p>编写原子提交迫使您在处理较大 Ticket 时进行小单元、可管理的修改。当您离开工作一天回来后, 它也可以提醒您上回做了什么, 帮助您回忆下一步应该做什么。</p>
+
+<h2 id="该怎么做">该怎么做</h2>
+
+<ul>
+  <li>
+    <p>只工作一件事</p>
+
+    <p>这基本不太可能, 因此这也是使用 Git 交互模式的优势所在。</p>
+
+    <div class="language-shell highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre>  <span class="o">&gt;</span> git add <span class="nt">-i</span>
+</pre></td>
+</tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>保持修改尽可能的小</p>
+
+    <p>这可以方便提交修改, 尤其是在进入交互模式时。</p>
+  </li>
+  <li>
+    <p>经常 commit</p>
+
+    <p>需要 amend 的时候就尽快 amend</p>
+
+    <div class="language-shell highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre>  <span class="o">&gt;</span> git commit <span class="nt">-m</span> <span class="s2">"&lt;message&gt;"</span> <span class="nt">--amend</span>
+</pre></td>
+</tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>有用的 commit message</p>
+
+    <ol>
+      <li>选择一个时态并坚持下去。比如, 我很喜欢用现在时的动词作为 message 的开头 (e.g. <code class="language-plaintext highlighter-rouge">Fix xxx</code>, <code class="language-plaintext highlighter-rouge">Add support for xxx</code>)</li>
+      <li>提及修改的模块、功能或者代码区块</li>
+      <li>提及您所修复的 bug</li>
+      <li>
+        <p>如果可能, 在您的 commit message 中 reference 相应的 issue, 这在 Github 中非常常见 (e.g. <code class="language-plaintext highlighter-rouge">Fix #123: xxx</code>, <code class="language-plaintext highlighter-rouge">Fix xxx (#123)</code>)</p>
+
+        <p><img src="/assets/img/in-post/skill/others/post-why-we-create-atomic-commits-in-git/1.png" alt="1.png"></p>
+      </li>
+    </ol>
+
+    <p>当然, 这取决于您与您的开发人员之间的约定, 并非强制。</p>
+  </li>
+  <li>
+    <p>整理 commit</p>
+
+    <p>当为了本地调试方便而随意添加 commit 之后, 在提交 PR 之前需要通过交互模式对 commit 做一次整理</p>
+
+    <div class="language-shell highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre>  <span class="o">&gt;</span> git rebase <span class="nt">-i</span> <span class="o">[</span>commit]
+</pre></td>
+</tr></tbody></table></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="总结">总结</h2>
+
+<p>编写原子提交真的很烦人。它会影响您的开发速度和进度, 迫使您必须将工作拆分成更小单元, 它还要求您编写有意义的、描述性的 commit message。</p>
+
+<p>但是, 这看似不怎么方便, 却实实在在的提高了您的工作质量, 并使您和您的开发人员的生活变得更加轻松。</p>
+
+<p>并且, 编写原子提交的目标也并不是创建”100 个 commit”, 而是务实地制作相关修改以获得更好的历史记录、认知负载以及更简单的回滚修改。</p>
+
+<p>如果有需要, 我还会讲一期如何编写原子提交。</p>
+
+<p>致辞, 共勉。</p>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:git_revert" role="doc-endnote">
+      <p><a href="https://www.atlassian.com/git/tutorials/undoing-changes/git-revert" target="_blank" rel="nofollow" class="web-link">《Git Revert | Atlassian Git Tutorial》</a> <a href="#fnref:git_revert" class="reversefootnote web-link" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:tig" role="doc-endnote">
+      <p><a href="https://jonas.github.io/tig/" target="_blank" rel="nofollow" class="web-link">《Tig: text-mode interface for Git》</a> <a href="#fnref:tig" class="reversefootnote web-link" role="doc-backlink">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+
+                <!-- Copyright Notice -->
+                
+<hr>
+
+<p>
+  本文由
+  <a href="/about/" target="_blank">
+    Oscaner
+  </a> 创作, 采用
+  <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">
+    知识共享署名4.0
+  </a> 国际许可协议进行许可 <br>
+  本站文章除注明转载/出处外, 均为本站原创或翻译, 转载前请务必署名
+</p>
+
+
+                
+
+                <hr>
+<hr style="visibility: hidden;">
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/skill/others/mathjax-symbol.html" data-toggle="tooltip" data-placement="top" title="MathJax 常用数学符号表">
+                        Previous<br>
+                        <span>MathJax 常用数学符号表</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/skill/others/fibonacci-agile-estimation.html" data-toggle="tooltip" data-placement="top" title="Fibonacci Agile Estimation">
+                        Next<br>
+                        <span>Fibonacci Agile Estimation</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr style="visibility: hidden;">
+
+                <!-- Comment start -->
+<div class="comment">
+  
+
+  
+  <!-- gitalk 评论框 start -->
+  <div id="gitalk-container"></div>
+  <!-- gitalk 评论框 end -->
+  
+
+  
+</div>
+<!-- Comment end -->
+
+
+
+
+
+
+<!-- Gitalk CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<!-- gitalk 公共JS代码 start (一个网页只需插入一次) -->
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  function getLangForGitalk() {
+    lang = new URLSearchParams(document.location.search).get("lang");
+    return lang == 'zh' ? 'zh-CN' : lang;
+  }
+
+  var body = location.href;
+
+  var subtitle = "为什么我们要创建 Git 原子提交";
+  if (subtitle) {
+    body += "\n" + subtitle;
+  }
+
+  var description = "";
+  if (description) {
+    body += "\n" + description;
+  }
+
+  var gitalk = new Gitalk({
+      clientID: 'f86fb5601466c278f223',
+      clientSecret: '8234184af9a4cbc9dfa58bbea7ff6cdb84d33f1f',
+      repo: 'oscaner.github.io',
+      owner: 'Oscaner',
+      admin: 'Oscaner',
+      labels: 'Gitalk|Skill|Others|Git|Oscaner'.split('|'),
+      body: body,
+      language: getLangForGitalk() ? getLangForGitalk() : 'zh-CN',
+
+      id: MD5('/skill/others/why-we-create-atomic-commits-in-git.html'),
+      // facebook-like distraction free mode
+      distractionFreeMode: true
+  });
+
+  gitalk.render('gitalk-container');
+</script>
+<!-- gitalk 公共JS代码 end -->
+
+
+
+
+
+            </div>
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+
+<section>
+    
+        <hr class="hidden-sm hidden-xs">
+    
+    <h5><a href="/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        
+        
+        
+                <a data-sort="0040" href="/archive/?tag=Skill" title="Skill" rel="95">Skill</a>
+        
+                <a data-sort="0097" href="/archive/?tag=Clang" title="Clang" rel="38">Clang</a>
+        
+                <a data-sort="0097" href="/archive/?tag=Exam" title="Exam" rel="38">Exam</a>
+        
+                <a data-sort="0098" href="/archive/?tag=AWS" title="AWS" rel="37">AWS</a>
+        
+                <a data-sort="0098" href="/archive/?tag=C%2B%2B" title="C++" rel="37">C++</a>
+        
+                <a data-sort="0098" href="/archive/?tag=Data+Structure" title="Data Structure" rel="37">Data Structure</a>
+        
+                <a data-sort="0099" href="/archive/?tag=MLS" title="MLS" rel="36">MLS</a>
+        
+                <a data-sort="0099" href="/archive/?tag=Machine+Learning" title="Machine Learning" rel="36">Machine Learning</a>
+        
+                <a data-sort="0122" href="/archive/?tag=PHP" title="PHP" rel="13">PHP</a>
+        
+                <a data-sort="0124" href="/archive/?tag=Coding" title="Coding" rel="11">Coding</a>
+        
+                <a data-sort="0124" href="/archive/?tag=Others" title="Others" rel="11">Others</a>
+        
+                <a data-sort="0125" href="/archive/?tag=Graduate" title="Graduate" rel="10">Graduate</a>
+        
+                <a data-sort="0125" href="/archive/?tag=Math" title="Math" rel="10">Math</a>
+        
+                <a data-sort="0126" href="/archive/?tag=NoSQL" title="NoSQL" rel="9">NoSQL</a>
+        
+                <a data-sort="0129" href="/archive/?tag=SQL" title="SQL" rel="6">SQL</a>
+        
+                <a data-sort="0130" href="/archive/?tag=Linux" title="Linux" rel="5">Linux</a>
+        
+                <a data-sort="0130" href="/archive/?tag=Redis" title="Redis" rel="5">Redis</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Fibonacci" title="Fibonacci" rel="3">Fibonacci</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Git" title="Git" rel="3">Git</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Memcached" title="Memcached" rel="3">Memcached</a>
+        
+                <a data-sort="0133" href="/archive/?tag=MySQL" title="MySQL" rel="2">MySQL</a>
+    </div>
+</section>
+
+
+                <!-- Friends Blog -->
+                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://asdrt666.com" target="_blank" rel="friend">Asdrt</a></li>
+  
+  <li><a href="https://szdblog.com" target="_blank" rel="friend">Choba·乔巴博客</a></li>
+  
+  <li><a href="https://ibcl.us/" target="_blank" rel="friend">I BCL.</a></li>
+  
+  <li><a href="https://www.wmathor.com/" target="_blank" rel="friend">mathor</a></li>
+  
+  <li><a href="https://tongtaos.com" target="_blank" rel="friend">Mr. 童的博客</a></li>
+  
+  <li><a href="https://blog.kejijie.vip/" target="_blank" rel="friend">wantsget</a></li>
+  
+  <li><a href="https://o0o0o0.cn/" target="_blank" rel="friend">三十三言</a></li>
+  
+  <li><a href="http://www.gazyip.cn/" target="_blank" rel="friend">八个比特</a></li>
+  
+  <li><a href="https://www.lixuejiang.com/" target="_blank" rel="friend">李学江博客</a></li>
+  
+  <li><a href="https://5sir.cn" target="_blank" rel="friend">梁Sir的小站</a></li>
+  
+  <li><a href="http://isenchun.cn/" target="_blank" rel="friend">森纯个人博客</a></li>
+  
+  <li><a href="http://www.nothamor.cn/" target="_blank" rel="friend">欧尼酱</a></li>
+  
+  <li><a href="https://www.lkxin.cn" target="_blank" rel="friend">清酒踏月</a></li>
+  
+  <li><a href="https://www.yyhy.me" target="_blank" rel="friend">烟雨寒云博客</a></li>
+  
+  <li><a href="http://mlldxe.cn" target="_blank" rel="friend">犬の窝</a></li>
+  
+  <li><a href="https://aoppp.com" target="_blank" rel="friend">憧憬播客</a></li>
+  
+</ul>
+
+
+
+                <!-- Ads -->
+                <hr>
+
+<!-- <script async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3286495153411959"
+  crossorigin="anonymous"></script> -->
+
+<!-- Oscaner's Vertical Ad -->
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3286495153411959" data-ad-slot="2277392638" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
+
+
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- add support for mathjax by voleking-->
+
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+    },
+    svg: {
+      fontCache: 'global',
+    }
+  };
+</script>
+<script id="MathJax-script" async src="/packages/mathjax/3.2.0/tex-svg.js"></script>
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async('/packages/anchor/1.1.1/anchor.min.js', function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'right',
+          // icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- SEO -->
+<!-- Schema Markup -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "Why we create Atomic Commits in Git",
+  "author": {
+    "@type": "Person",
+    "name": "Oscaner"
+  },
+  "datePublished": "May 15, 2021",
+  "image": "https://www.oscaner.com/assets/img/post-bg-alitrip.jpg",
+  "articleBody": "&lt;p&gt;我们都曾遇到过这样一种情况&#58;&lt;/p&gt;\n\n&lt;p&gt;在一次代码提交中进行了大量修改, 但是其中一部分与其他代码&lt;strong&gt;没有任何共同之处&lt;/strong&gt;。&lt;/p&gt;\n\n&lt;p&gt;但是为了方便起见 (这次顺带), 您决定将所有修改集中到一个 commit 中并准备收工。&lt;/p&gt;\n\n&lt;p&gt;是的, 这看起来很诱人, 但事实上它会导致很多问题。&lt;/p&gt;\n\n&lt;ol&gt;\n  &lt;li&gt;混淆 bugs 或者代码回归的源头。&lt;/li&gt;\n  &lt;li&gt;很难在不 revert&lt;sup id=&quot;fnref&#58;git_revert&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn&#58;git_revert&quot; class=&quot;footnote web-link&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; 所需修改的情况下, revert 错误修改。&lt;/li&gt;\n  &lt;li&gt;一个巨大的 Ticket 将变得更加巨大, 并且无法管理。&lt;/li&gt;\n&lt;/ol&gt;\n\n&lt;p&gt;Atomic Commits (原子提交) 能够帮您解决此类问题, 使您的工作更易于管理。&lt;/p&gt;\n\n&lt;p&gt;我建议您尝试一下, 看它是否适合您。&lt;/p&gt;\n\n&lt;h2 id=&quot;单一责任原则-single-responsibility-principle&quot;&gt;单一责任原则 (Single Responsibility Principle)&lt;/h2&gt;\n\n&lt;p&gt;每当开发者在讨论如何编写干净的代码的时候, 他们经常会提到单一责任原则 (Single Responsibility Principle),&lt;/p&gt;\n\n&lt;p&gt;即一个代码单元 (如函数或组件) 应该只关注完成一项任务, 这使得该代码单元更易于测试和重用。&lt;/p&gt;\n\n&lt;h2 id=&quot;原子提交-atomic-commits&quot;&gt;原子提交 (Atomic Commits)&lt;/h2&gt;\n\n&lt;p&gt;我们可以将此原则扩展到 Git, 以支持&lt;strong&gt;负责记录单个、完整工作单元&lt;/strong&gt;的原子提交。&lt;/p&gt;\n\n&lt;p&gt;这并不意味着每个 commit 都需要限制在一个文件或者几行代码 (但是如果真的出现这种情况, 还是需要的)。&lt;/p&gt;\n\n&lt;p&gt;相反, 它意味着您应该能够用一个简单、有意义的 message 来描述您的修改, 而无需添加额外的信息来解释您所做的无关工作。&lt;/p&gt;\n\n&lt;p&gt;一个很简单的例子&#58;&lt;/p&gt;\n\n&lt;p&gt;假设我进行了代码重构, 同时我也更新了两个功能的 workflow, 以及添加了一个新功能。&lt;/p&gt;\n\n&lt;p&gt;在原子提交中, 我们需要将重构、更新、添加分别 commit。&lt;/p&gt;\n\n&lt;ol&gt;\n  &lt;li&gt;Refactor xxx&lt;/li&gt;\n  &lt;li&gt;Update feature 1 xxx&lt;/li&gt;\n  &lt;li&gt;Update feature 2 xxx&lt;/li&gt;\n  &lt;li&gt;Add feature 3 xxx&lt;/li&gt;\n&lt;/ol&gt;\n\n&lt;p&gt;我不知道原子提交的官方定义是什么, 但对于我来说, 原子提交指的是一个关注它的&lt;strong&gt;上下文&lt;/strong&gt; (context), 或者仅关注它的&lt;strong&gt;上下文&lt;/strong&gt;的 commit, 并且每一个 commit 应该都是独立可用的。&lt;/p&gt;\n\n&lt;p&gt;而何为上下文? 就如同上面所说, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;这并不意味着每个 commit 都需要限制在一个文件或者几行代码&lt;/code&gt;,&lt;/p&gt;\n\n&lt;p&gt;上下文更多的代指一个主题&#58;&lt;/p&gt;\n\n&lt;ol&gt;\n  &lt;li&gt;功能 (feature)&lt;/li&gt;\n  &lt;li&gt;错误修复 (bug fix)&lt;/li&gt;\n  &lt;li&gt;重构 (refactor)&lt;/li&gt;\n  &lt;li&gt;升级 (upgrade)&lt;/li&gt;\n  &lt;li&gt;任务 (task)&lt;/li&gt;\n  &lt;li&gt;etc…&lt;/li&gt;\n&lt;/ol&gt;\n\n&lt;p&gt;是的, 这非常棘手, 对于个人的 Git 能力有着极高的要求。我也只能尽可能做到这一点, 但我不确定我总是正确的。&lt;/p&gt;\n\n&lt;p&gt;同样您也无需强制要求您团队所有人执行此操作, 也不应该期望它对于所有人都有成效。&lt;/p&gt;\n\n&lt;p&gt;但无论如何, 您会发现编写原子提交是一个很好的实践。&lt;/p&gt;\n\n&lt;h2 id=&quot;整体提交-monolithic-commits&quot;&gt;整体提交 (Monolithic Commits)&lt;/h2&gt;\n\n&lt;p&gt;与原子提交相反的就是整体提交, 同样拿上面的例子说明。&lt;/p&gt;\n\n&lt;p&gt;假设我进行了代码重构, 同时我也更新了两个功能的 workflow, 以及添加了一个新功能。&lt;/p&gt;\n\n&lt;p&gt;整个 changeset 在一个 commit 中整体提交。&lt;/p&gt;\n\n&lt;p&gt;是的, 也许这不是一个很大的 commit, 它只是将所有修改紧密耦合到了单个 commit 之中。&lt;/p&gt;\n\n&lt;p&gt;但是, 它会随着 changeset 的体积而变得庞大, 变得愈发脆弱和容易出错 (即使它有很好的文档说明 - 我在我的工作中遇到过此类情况), 变得难以阅读 (read)、审核 (review) 和撤销 (revert)。&lt;/p&gt;\n\n&lt;h2 id=&quot;太多的-commits&quot;&gt;太多的 commits&lt;/h2&gt;\n\n&lt;p&gt;&lt;strong&gt;开发人员/架构&lt;/strong&gt;有时&lt;strong&gt;不愿意/不同意&lt;/strong&gt;进行大量的小提交, 因为他们担心这会在他们的 commit log 中产生不必要的混乱, 或者产生大量的 commit 冗余。&lt;/p&gt;\n\n&lt;p&gt;但事实上, 真的没有所谓的 commit 太多这回事, 许多企业级代码库里的 commit count 可能达到了数万次, 甚至更多。&lt;/p&gt;\n\n&lt;p&gt;我们可以简单浏览一下 Github 上比较受欢迎的存储库的 commit count (也许在本文编写之后会更高)&#58;&lt;/p&gt;\n\n&lt;ul&gt;\n  &lt;li&gt;Visual Studio Code&#58; 82k&lt;/li&gt;\n  &lt;li&gt;Node.js&#58; 33k&lt;/li&gt;\n  &lt;li&gt;TypeScript&#58; 32k&lt;/li&gt;\n  &lt;li&gt;etc …&lt;/li&gt;\n&lt;/ul&gt;\n\n&lt;p&gt;很明显, 推送大量 commits 并不会使 git log 或者 time travel 变得更加困难。&lt;/p&gt;\n\n&lt;p&gt;并且, 原子提交通过将修改彼此隔离, 让任务追踪变得异常简单, 您可以清楚的区分 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;commit X-1, X, X+1&lt;/code&gt;。&lt;/p&gt;\n\n&lt;h2 id=&quot;原子提交的好处&quot;&gt;原子提交的好处&lt;/h2&gt;\n\n&lt;h3 id=&quot;追踪-track&quot;&gt;追踪 (Track)&lt;/h3&gt;\n\n&lt;p&gt;原子提交使代码追踪回归变得异常容易, 虽然您确实需要预先付出更多的努力才能将 commit 拆分为独立的工作单元。&lt;/p&gt;\n\n&lt;p&gt;但是这项投资非常值得, 我可以很轻松的知道任何一个工作单元在 history 中的位置。&lt;/p&gt;\n\n&lt;ul&gt;\n  &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git log --online&lt;/code&gt;&#58; 显示所有 commits&lt;/li&gt;\n  &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git log --grep [pattern]&lt;/code&gt;&#58; 基于 message 规则查找相应的 commit&lt;/li&gt;\n  &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git log [commit]&lt;/code&gt;&#58; 跳转到对应 commit 并显示之前的所有 commit&lt;/li&gt;\n  &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git bisect start [start] [end]&lt;/code&gt;&#58; 查找哪一次 commit 引入了 bug&lt;/li&gt;\n&lt;/ul&gt;\n\n&lt;p&gt;通过原子提交和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git bisect&lt;/code&gt; 相结合, 可以帮助您更有效的识别有问题的 commit, 同时也可以很确信的保证 commit 中的修改不会影响其他代码。&lt;/p&gt;\n\n&lt;p&gt;在必要时刻, 您甚至可以直接 revert 该 commit 而不必担心它会产生更大的负面影响。&lt;/p&gt;\n\n&lt;h3 id=&quot;read-review-revert&quot;&gt;Read, Review, Revert&lt;/h3&gt;\n\n&lt;h4 id=&quot;阅读-read&quot;&gt;阅读 (Read)&lt;/h4&gt;\n\n&lt;p&gt;修改只是集中在单一上下文, 这使得 Chunk 变得更小、更简单、更容易阅读和理解。&lt;/p&gt;\n\n&lt;ul&gt;\n  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git show [commit]&lt;/code&gt;&lt;/li&gt;\n  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git log [commit] -p&lt;/code&gt;&lt;/li&gt;\n  &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tig&lt;/code&gt;&lt;sup id=&quot;fnref&#58;tig&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn&#58;tig&quot; class=&quot;footnote web-link&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n\n&lt;h4 id=&quot;审查-review&quot;&gt;审查 (Review)&lt;/h4&gt;\n\n&lt;p&gt;作为一个小的、集中的、有记录的修改, 代码审查员应该能够在跟踪代码变更的同时仍然保持他们的理智?&lt;/p&gt;\n\n&lt;h4 id=&quot;撤销-revert&quot;&gt;撤销 (Revert)&lt;/h4&gt;\n\n&lt;p&gt;撤销一个原子提交不会影响不相关修改, 而撤销整体提交会同时撤销大量不相关修改。&lt;/p&gt;\n\n&lt;ul&gt;\n  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git revert [commit]&lt;/code&gt;&lt;/li&gt;\n&lt;/ul&gt;\n\n&lt;p&gt;举个例子, 假设您在开发一项重要的功能, 可能需要重构一部分旧代码以适应您的新功能。&lt;/p&gt;\n\n&lt;p&gt;当您最终提交 PR 时, 一些 Reviewer 不同意您的某些无关修改, 并要求您撤销他们。也许听起来很简单?&lt;/p&gt;\n\n&lt;p&gt;不幸的是, 您没有进行原子提交。&lt;/p&gt;\n\n&lt;p&gt;为了方便起见, 您将所有修改集中在了一个 commit 里, 工作范围重叠。&lt;/p&gt;\n\n&lt;p&gt;您的一些 message 也是随意编写, 这使得您难以确定是哪部分功能中引入了无关修改。&lt;/p&gt;\n\n&lt;p&gt;您唯一的选择是一点点排查, 并手动撤销这些修改。&lt;/p&gt;\n\n&lt;p&gt;您没有预先投入时间将您的 commit 拆分为独立工作单元, 导致后期必须花费更多的代价来重新整理和撤销修改。&lt;/p&gt;\n\n&lt;p&gt;如果您使用的是原子提交, 那么您能在短短几分钟内, 撤销与 Change Request 相关的 commit, 并请求 Reviewer 重新进行审查。&lt;/p&gt;\n\n&lt;h3 id=&quot;大任务-larger-tasks&quot;&gt;大任务 (Larger Tasks)&lt;/h3&gt;\n\n&lt;p&gt;假设这样一个场景, 您正在编写一个大的功能, 或者正在重构大量文件。&lt;/p&gt;\n\n&lt;p&gt;最初, 这可能过于庞大而缺少方向, 您开始在其中一块代码区域开始工作, 以确认您能走多远。&lt;/p&gt;\n\n&lt;p&gt;不知不觉中, 您发现您为了尽快获得解决方案而修改了大量文件, 并且面临另一个挑战&#58; 我该怎么编写我的 commit message? 我如何仅通过一个 commit 来总结我的所有工作?&lt;/p&gt;\n\n&lt;p&gt;是的, 当您尝试一次性处理大量修改时, 您无法有效地将它们拆分成独立的工作单元。因此, 您会很想通过一次 commit 来简单带过它们以完成您的工作。&lt;/p&gt;\n\n&lt;p&gt;在这种情况下, 缺乏原子提交就是这个大问题的症状, 您没有将原始工作拆分为小单元、可管理的 Chunk, 相反, 您试图一次性完成所有事情。&lt;/p&gt;\n\n&lt;p&gt;如果您将工作拆分为较小的 Task, 那么您就能够对每项工作单独 commit, 以提供清晰准确的进度记录。&lt;/p&gt;\n\n&lt;p&gt;基于此, 我们能够看到原子提交的两个优点&#58;&lt;/p&gt;\n\n&lt;ol&gt;\n  &lt;li&gt;它最大程度的减少了较大 Ticket 的认知负担。&lt;/li&gt;\n  &lt;li&gt;它使您可以更轻松地追踪和记录您的工作进度。&lt;/li&gt;\n&lt;/ol&gt;\n\n&lt;p&gt;编写原子提交迫使您在处理较大 Ticket 时进行小单元、可管理的修改。当您离开工作一天回来后, 它也可以提醒您上回做了什么, 帮助您回忆下一步应该做什么。&lt;/p&gt;\n\n&lt;h2 id=&quot;该怎么做&quot;&gt;该怎么做&lt;/h2&gt;\n\n&lt;ul&gt;\n  &lt;li&gt;\n    &lt;p&gt;只工作一件事&lt;/p&gt;\n\n    &lt;p&gt;这基本不太可能, 因此这也是使用 Git 交互模式的优势所在。&lt;/p&gt;\n\n    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;\n&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;  &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; git add &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;保持修改尽可能的小&lt;/p&gt;\n\n    &lt;p&gt;这可以方便提交修改, 尤其是在进入交互模式时。&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;经常 commit&lt;/p&gt;\n\n    &lt;p&gt;需要 amend 的时候就尽快 amend&lt;/p&gt;\n\n    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;\n&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;  &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;message&amp;gt;&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--amend&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;有用的 commit message&lt;/p&gt;\n\n    &lt;ol&gt;\n      &lt;li&gt;选择一个时态并坚持下去。比如, 我很喜欢用现在时的动词作为 message 的开头 (e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Fix xxx&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Add support for xxx&lt;/code&gt;)&lt;/li&gt;\n      &lt;li&gt;提及修改的模块、功能或者代码区块&lt;/li&gt;\n      &lt;li&gt;提及您所修复的 bug&lt;/li&gt;\n      &lt;li&gt;\n        &lt;p&gt;如果可能, 在您的 commit message 中 reference 相应的 issue, 这在 Github 中非常常见 (e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Fix #123&#58; xxx&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Fix xxx (#123)&lt;/code&gt;)&lt;/p&gt;\n\n        &lt;p&gt;&lt;img src=&quot;/assets/img/in-post/skill/others/post-why-we-create-atomic-commits-in-git/1.png&quot; alt=&quot;1.png&quot;&gt;&lt;/p&gt;\n      &lt;/li&gt;\n    &lt;/ol&gt;\n\n    &lt;p&gt;当然, 这取决于您与您的开发人员之间的约定, 并非强制。&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;整理 commit&lt;/p&gt;\n\n    &lt;p&gt;当为了本地调试方便而随意添加 commit 之后, 在提交 PR 之前需要通过交互模式对 commit 做一次整理&lt;/p&gt;\n\n    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;\n&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;  &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; git rebase &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;commit]\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;\n  &lt;/li&gt;\n&lt;/ul&gt;\n\n&lt;h2 id=&quot;总结&quot;&gt;总结&lt;/h2&gt;\n\n&lt;p&gt;编写原子提交真的很烦人。它会影响您的开发速度和进度, 迫使您必须将工作拆分成更小单元, 它还要求您编写有意义的、描述性的 commit message。&lt;/p&gt;\n\n&lt;p&gt;但是, 这看似不怎么方便, 却实实在在的提高了您的工作质量, 并使您和您的开发人员的生活变得更加轻松。&lt;/p&gt;\n\n&lt;p&gt;并且, 编写原子提交的目标也并不是创建”100 个 commit”, 而是务实地制作相关修改以获得更好的历史记录、认知负载以及更简单的回滚修改。&lt;/p&gt;\n\n&lt;p&gt;如果有需要, 我还会讲一期如何编写原子提交。&lt;/p&gt;\n\n&lt;p&gt;致辞, 共勉。&lt;/p&gt;\n&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;\n  &lt;ol&gt;\n    &lt;li id=&quot;fn&#58;git_revert&quot; role=&quot;doc-endnote&quot;&gt;\n      &lt;p&gt;&lt;a href=&quot;https&#58;//www.atlassian.com/git/tutorials/undoing-changes/git-revert&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot; class=&quot;web-link&quot;&gt;《Git Revert | Atlassian Git Tutorial》&lt;/a&gt; &lt;a href=&quot;#fnref&#58;git_revert&quot; class=&quot;reversefootnote web-link&quot; role=&quot;doc-backlink&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;\n    &lt;/li&gt;\n    &lt;li id=&quot;fn&#58;tig&quot; role=&quot;doc-endnote&quot;&gt;\n      &lt;p&gt;&lt;a href=&quot;https&#58;//jonas.github.io/tig/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot; class=&quot;web-link&quot;&gt;《Tig&#58; text-mode interface for Git》&lt;/a&gt; &lt;a href=&quot;#fnref&#58;tig&quot; class=&quot;reversefootnote web-link&quot; role=&quot;doc-backlink&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;\n    &lt;/li&gt;\n  &lt;/ol&gt;\n&lt;/div&gt;\n",
+  "url": "https://www.oscaner.com/skill/others/why-we-create-atomic-commits-in-git.html"
+}
+</script>
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://space.bilibili.com/17118231">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-stack-1x fa-inverse iconfont icon-bilibili-fill"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+
+                <p class="copyright text-muted">
+                    Copyright © Oscaner 2023
+                    <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备17039697号-2</a>
+                    <br>
+                    Powered by <a href="https://www.oscaner.com">Oscaner Blog</a> |
+                    <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="100px" height="20px" src="https://ghbtns.com/github-btn.html?user=oscaner&repo=oscaner.github.io&type=star&count=true">
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/assets/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/assets/js/hux-blog.min.js"></script>
+
+<!-- Simple Jekyll Search -->
+<script src="/assets/js/simple-jekyll-search.min.js"></script>
+
+<!-- Service Worker -->
+
+<script src="/assets/js/snackbar.js"></script>
+<script src="/assets/js/sw-registration.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async('/packages/fastclick/1.0.6/fastclick.min.js', function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Oscaner
+    var _gaId = '';
+    var _gaDomain = 'www.oscaner.com';
+
+    // Originial
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Oscaner
+    var _baId = 'd9c74d9266af4d68f376f0fb9d5fb71c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        // interop with multilangual
+        if ('false' == 'true') {
+            _containerSelector = 'div.post-container.active';
+        } else {
+            _containerSelector = 'div.post-container';
+        }
+
+        if (!$(_containerSelector).length) {
+            _containerSelector = 'div.post-container';
+        }
+
+        // init
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        // clean
+        $(selector).html('')
+
+        // appending
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/assets/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+<!-- Multi-Lingual -->
+
+
+<!-- Simple Jekyll Search -->
+<script>
+    // https://stackoverflow.com/questions/1912501/unescape-html-entities-in-javascript
+    function htmlDecode(input) {
+        var e = document.createElement('textarea');
+        e.innerHTML = input;
+        // handle case of empty input
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    }
+
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('search-results'),
+        json: '/search.json',
+        searchResultTemplate: '<div class="post-preview item"><a href="{url}"><h2 class="post-title">{title}</h2><h3 class="post-subtitle">{subtitle}</h3><hr></a></div>',
+        noResultsText: 'No results',
+        limit: 50,
+        fuzzy: false,
+        // a hack to get escaped subtitle unescaped. for some reason,
+        // post.subtitle w/o escape filter nuke entire search.
+        templateMiddleware: function (prop, value, template) {
+            if (prop === 'subtitle' || prop === 'title') {
+                if (value.indexOf("code")) {
+                    return htmlDecode(value);
+                } else {
+                    return value;
+                }
+            }
+        }
+    });
+
+    $(document).ready(function () {
+        var $searchPage = $('.search-page');
+        var $searchOpen = $('.search-icon');
+        var $searchClose = $('.search-icon-close');
+        var $searchInput = $('#search-input');
+        var $body = $('body');
+
+        $searchOpen.on('click', function (e) {
+            e.preventDefault();
+            $searchPage.toggleClass('search-active');
+            var prevClasses = $body.attr('class') || '';
+            setTimeout(function () {
+                $body.addClass('no-scroll');
+            }, 400)
+
+            if ($searchPage.hasClass('search-active')) {
+                $searchClose.on('click', function (e) {
+                    e.preventDefault();
+                    $searchPage.removeClass('search-active');
+                    $body.attr('class', prevClasses);  // from closure
+                });
+                $searchInput.focus();
+            }
+        });
+    });
+</script>
+
+
+
+<!-- Image to hack wechat -->
+<img src="/assets/img/icon_wechat.png" width="0" height="0">
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="baidu-site-verification" content="code-RlNzeiqm6B">
+    
+    
+    <meta name="google-site-verification" content="clzGAgkJY2WD5IGr5G6KZS9xymJYL_IH2QIEettmobY">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="心若浮沉，浅笑安然">
+    <meta name="keywords" content="Kang Oscaner China Blog">
+    <meta name="theme-color" content="#000000">
+    <meta name="site" content="https://www.oscaner.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Fibonacci Agile Estimation - Oscaner 的博客 | Oscaner Blog">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="斐波那契数列是一系列数字, 它们随指数增长, 并且每个数字都是前面两个数字之和。
+">
+    
+    <meta property="article:published_time" content=" 2021-07-24T20:17:00Z">
+    
+    
+    <meta property="article:author" content="Oscaner">
+    
+    
+    <meta property="article:tag" content="Skill">
+    
+    <meta property="article:tag" content="Others">
+    
+    <meta property="article:tag" content="Fibonacci">
+    
+    <meta property="article:tag" content="Agile Estimation">
+    
+    
+    <meta property="og:image" content="https://q2.qlogo.cn/headimg_dl?bs=2573226076&dst_uin=2573226076&spec=640&url_enc=0&referer=bu_interface&term_type=PC">
+    <meta property="og:url" content="https://www.oscaner.com/skill/others/fibonacci-agile-estimation.html">
+    <meta property="og:site_name" content="Oscaner 的博客 | Oscaner Blog">
+
+    <title>Fibonacci Agile Estimation - Oscaner 的博客 | Oscaner Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.oscaner.com/skill/others/fibonacci-agile-estimation.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/hux-blog.min.css">
+    <link rel="stylesheet" href="/assets/css/oscaner-blog.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="/packages/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    <!-- Google AdSense -->
+    <script data-ad-client="ca-pub-3286495153411959" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+
+    <!-- MD5 -->
+    <script src="/assets/js/md5.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R9FFJYC4P1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-R9FFJYC4P1');
+    </script>
+    
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                  
+                    Oscaner
+                  
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="huxblog_navbar">
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/friends/">Friends</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/projects/">Projects</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/archive/">Archive</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="search-icon">
+                            <a href="javascript:void(0)">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <script>
+        // Drop Bootstarp low-performance Navbar
+        // Use customize navbar with high-quality material design animation
+        // in high-perf jank-free CSS3 implementation
+        var $body = document.body;
+        var $toggle = document.querySelector('.navbar-toggle');
+        var $navbar = document.querySelector('#huxblog_navbar');
+        var $collapse = document.querySelector('.navbar-collapse');
+
+        var __HuxNav__ = {
+            close: function () {
+                $navbar.className = " ";
+                // wait until animation end.
+                setTimeout(function () {
+                    // prevent frequently toggle
+                    if ($navbar.className.indexOf('in') < 0) {
+                        $collapse.style.height = "0px"
+                    }
+                }, 400)
+            },
+            open: function () {
+                $collapse.style.height = "auto"
+                $navbar.className += " in";
+            }
+        }
+
+        // Bind Event
+        $toggle.addEventListener('click', function (e) {
+            if ($navbar.className.indexOf('in') > 0) {
+                __HuxNav__.close()
+            } else {
+                __HuxNav__.open()
+            }
+        })
+
+        /**
+         * Since Fastclick is used to delegate 'touchstart' globally
+         * to hack 300ms delay in iOS by performing a fake 'click',
+         * Using 'e.stopPropagation' to stop 'touchstart' event from
+         * $toggle/$collapse will break global delegation.
+         *
+         * Instead, we use a 'e.target' filter to prevent handler
+         * added to document close HuxNav.
+         *
+         * Also, we use 'click' instead of 'touchstart' as compromise
+         */
+        document.addEventListener('click', function (e) {
+            if (e.target == $toggle) return;
+            if (e.target.className == 'icon-bar') return;
+            __HuxNav__.close();
+        })
+    </script>
+
+    <!-- Search -->
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/assets/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/assets/img/post-bg-alitrip.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+
+
+
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/assets/img/post-bg-alitrip.jpg');
+        background: ;
+    }
+
+    
+</style>
+
+
+
+
+<header class="intro-header">
+
+    <div class="header-mask"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/archive/?tag=Skill" title="Skill">Skill</a>
+                        
+                        <a class="tag" href="/archive/?tag=Others" title="Others">Others</a>
+                        
+                        <a class="tag" href="/archive/?tag=Fibonacci" title="Fibonacci">Fibonacci</a>
+                        
+                        <a class="tag" href="/archive/?tag=Agile+Estimation" title="Agile Estimation">Agile Estimation</a>
+                        
+                    </div>
+                    <h1>Fibonacci Agile Estimation</h1>
+                    
+                    <h2 class="subheading">敏捷估算之斐波那契数列</h2>
+                    <span class="meta">Posted by Oscaner on July 24, 2021</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+                <p>斐波那契数列是一系列数字, 它们随指数增长, 并且每个数字都是前面两个数字之和。</p>
+
+<p>$ 0, 1, 1, 2, 3, 5, 8, 13, 21, \dots $</p>
+
+<p>如果您有兴趣看斐波那契数列相关算法, 您可以前往我的另外两篇文章。</p>
+
+<ol>
+  <li><a href="/skill/coding/php-fibonacci-sequence.html" class="web-link">《PHP - Fibonacci Sequence》</a></li>
+  <li><a href="/skill/coding/php-fibonacci-search.html" class="web-link">《PHP - Fibonacci Search》</a></li>
+</ol>
+
+<p>这里我们将探讨斐波那契数列在敏捷估算中的作用。</p>
+
+<h2 id="什么是斐波那契数列-fibonacci-sequence">什么是斐波那契数列 (Fibonacci Sequence)</h2>
+
+<p>斐波那契数列是由意大利数学家 Leonardo Bonacci 在中世纪发明的, 更广而人知的名字是 Leonardo Fibonacci。</p>
+
+<p>他将斐波那契数列包含在了<a href="https://en.wikipedia.org/wiki/Liber_Abaci" target="_blank" rel="nofollow" class="web-link">《Liber Abaci》</a>, 该书又被称为《计算之书》。</p>
+
+<p>在《Liber Abaci》中, Fibonacci 还提出了这样一个问题:</p>
+
+<blockquote>
+  <p>一个人把一对兔子放在四面围墙的地方。假设每对兔子都会生一对新兔子, 从第二个月开始就可以生产, 那么一年可以生产多少对兔子?</p>
+</blockquote>
+
+<p>为了估计答案, Fibonacci 引入了一个指数序列, 就是现在的斐波那契数列。在数列中, 每个数字都是前面两个数字之和:</p>
+
+<p>$ 0, 1, 1, 2, 3, 5, 8, 13, 21, \dots $</p>
+
+<p>在下面, 我们将更多的称其为斐波那契量表, 而非斐波那契数列。</p>
+
+<h2 id="什么是敏捷估算-agile-estimation">什么是敏捷估算 (Agile Estimation)</h2>
+
+<p>管理者在管理团队的时候, 一个最基本的能力就是能够估算一项任务从开始到完成需要多长时间。</p>
+
+<p>同样, 您可能也有过这样的经历: 您的估算结果是错误的, 项目实际花费的时间要比预期长, 或者您的产品无法及时交付。</p>
+
+<p>如果估算经常错误, 为什么还要花费精力去做它们? 想象一下, 花费时间进行成本估算, 但到项目开始以后, 大量出现超出预算的情况?</p>
+
+<p>看似很无力? 实际情况是, 估算的主要目的是设定预期, 并确定您的团队在特定时间范围内可以完成多少工作。</p>
+
+<p>作为一名项目经理 (Project Manager), 提高您的项目估算能力, 并带领您的团队与您一同前行是非常重要的。</p>
+
+<p>在敏捷环境中, 管理者需要使用斐波那契量表来改进估算过程, 同时评估在 Sprint 中需要完成的任务。</p>
+
+<h2 id="为什么要在敏捷中使用斐波那契量表">为什么要在敏捷中使用斐波那契量表</h2>
+
+<p>斐波那契数列在许多不同的学科或者自然界中都有广泛应用。例如, 它已经被用于描述植物的生长, 估计特定时间范围内的人口增长, 病毒爆发模型, 以及预测金融市场行为。</p>
+
+<p>但是, 斐波那契数列与敏捷估算又有什么关系?</p>
+
+<p>从本质上讲, 敏捷斐波那契数列, 或者说量表, 提供了一种更现实的方法 – 使用故事点 (Story Points) 进行估算。</p>
+
+<p>Story Points 用于表示完成或实施 User Story 所需要的规模、复杂性和工作量。</p>
+
+<p>每个 Story Points 都从斐波那契量表中分配一个数字, 数字越高, Story Points 越复杂, 完成 Story 所需的工作量也就越多。</p>
+
+<p>同样, 我们可以打个更直观的比喻:</p>
+
+<p>我们想象一下, 一只手拿着一公斤重物, 另一只手拿着两公斤重物。不允许偷看, 我们能确定哪只手更重吗? 应该很容易, 因为它们之间的重量相差了一倍。</p>
+
+<p>但是, 如果这两个重量分别是 20 公斤和 21 公斤呢? 我们将很难通过感知去区分它们。</p>
+
+<p>只有差异足够大的时候, 我们的大脑才能更好的去感知它们。</p>
+
+<p>这其实就是利用斐波那契量表来估算 Story Points 的原因。</p>
+
+<p>随着序列的不断进行, 您的团队能够选择的数字会不断出现大的跳跃, 但它们始终以一致的速度增长 – 每个数字都表现出了约为 60% 的跳跃。这样的数字跳跃, 我们的大脑仍然有能力去感知它们。</p>
+
+<p>同时, 斐波那契量表一个更显著的作用是在估算更大、更复杂的任务时强迫你去做出选择, 而不是浪费时间在细枝末节。</p>
+
+<p>比如, 假设您的 Product Backlog 中有一个大型任务需要评估工作量, 您打算以 1 - 50 的稳定比例来估算您的 Story。</p>
+
+<p>一个人选择了 31, 一个人选择了 36, 第三个人选择了 38。这些估算之间的差距令您很难有信心去决定, 需要将估算变得非常精细。</p>
+
+<p>而使用斐波那契量表, 这种情况将不会/很难发生, 因为序列迫使您必须在距离较远的数字之间进行选择。在这个例子中, 每个人都可能会选择序列中的 34, 因为备选方案是 21 或 55。</p>
+
+<p>同样, 基于斐波那契量表, 您不必担心大型任务的估算不准, 因为很多时候您也无法将大型任务放入一个 Sprint 之中, 更多时候会将大型任务进行一定的分解; 也不必担心小型任务的估算不够精细, 因为斐波那契量表也提供了细微差别和定义。</p>
+
+<h2 id="该如何使用斐波那契量表">该如何使用斐波那契量表</h2>
+
+<p>许多敏捷团队使用 Planning Poker 方法来估算 Story Points。</p>
+
+<p>此方法引入了一系列卡片组, 或基于以 0 开头的斐波那契数列 ($ 0, 1, 2, 3, 5, 8, 13, 21, \dots $), 或使用修改版本的序列 ($ 0, 0.5, 1, 2, 3, 5, 8, 13, 20, 40, 100 $)。</p>
+
+<p>只要您的团队理解并认可比率的含义, 那么您的团队可以使用任何具有特定比率的数列。</p>
+
+<p>除了主持人, 估算团队的每个成员都会拥有一副自己的纸牌, Planning Poker 的步骤基本如下:</p>
+
+<ol>
+  <li>
+    <p>产品负责人向团队提供 User Story Overview。</p>
+  </li>
+  <li>
+    <p>给予团队时间去讨论和提问, 以确保能够更好的了解风险和假设。</p>
+
+    <p>讨论过程中不应该设计估算数字, 以免产生估算偏差。</p>
+
+    <p>主持人需要及时记录讨论摘要, 并在限制讨论时间</p>
+  </li>
+  <li>
+    <p>每个团队成员选择一张卡片来代表他们对 Story 的估算, 并将其正面朝下放在桌子上。</p>
+  </li>
+  <li>
+    <p>团队成员同时翻牌。</p>
+
+    <ul>
+      <li>如果每个人都选择了相同的数字, 那么该数字就用于估算。您可以继续下一个 Story</li>
+      <li>
+        <p>否则, 选择明显高于或低于其他数字的人, 让他们说明他们的估算原因, 由大家共同判断是否合理。</p>
+
+        <p>例如, 开发人员完成任务很简单, 向表单中添加字段。但对于测试人员, 这种简单的添加会造成大量的回归测试, 可能会在以后变得更加复杂。</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>从步骤 3 开始反复, 直到大家达成统一估算。</p>
+  </li>
+  <li>
+    <p>进入下一个 Story, 整个过程开始重复。</p>
+  </li>
+</ol>
+
+<p>如果您的团队没有实体卡片, 您也可以使用<a href="https://lucid.app/pricing/lucidchart#/pricing" target="_blank" rel="nofollow" class="web-link">在线斐波那契量表</a></p>
+
+<h2 id="常见的斐波那契量表">常见的斐波那契量表</h2>
+
+<ol>
+  <li>
+    <p>Classic Fibonacci: $ 1, 1, 2, 3, 5, 8, 13, 21, 34, \dots $</p>
+  </li>
+  <li>
+    <p>Modified Fibonacci: $ 0, 0.5, 1, 2, 3, 5, 8, 13, 20, 40, 100 $</p>
+
+    <p>很多时候, 原始序列上的较大数字在实际的 Story 精确度上并不存在。</p>
+
+    <p>此版本是对较大数字进行了四舍五入, 以免出现关于为什么是 21 而不是 20, 为什么是 34 而不是 40 的问题。</p>
+  </li>
+  <li>
+    <p>Powers of two: $ 1, 2, 4, 8, 16, 32, 64 $</p>
+
+    <p>这个版本的数字增长是非常迅速的。由于缺少精细化数字, 即使对于较小的任务, 它也迫使团队成员做出艰难的选择。</p>
+  </li>
+  <li>
+    <p>Five fingers: $ 1, 2, 3, 4, 5 $</p>
+
+    <p>刚接触敏捷的团队可能会将卡片上的数字与时间进行混淆, 因此基于简单符号做估算可能更加有利。</p>
+  </li>
+</ol>
+
+<p><img src="/assets/img/in-post/skill/others/post-fibonacci-agile-estimation/1.png" alt="1.png"></p>
+
+<h2 id="总结">总结</h2>
+
+<p>斐波那契数列不仅因出名而出名。数百年以来, 它一直在提供着真正的价值, 算法、电影、科研, 到处都有它的影子。</p>
+
+<p>所以, 是时候将斐波那契量表纳入您的敏捷计划了。</p>
+
+<p>致辞, 共勉。</p>
+
+
+                <!-- Copyright Notice -->
+                
+<hr>
+
+<p>
+  本文由
+  <a href="/about/" target="_blank">
+    Oscaner
+  </a> 创作, 采用
+  <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">
+    知识共享署名4.0
+  </a> 国际许可协议进行许可 <br>
+  本站文章除注明转载/出处外, 均为本站原创或翻译, 转载前请务必署名
+</p>
+
+
+                
+
+                <hr>
+<hr style="visibility: hidden;">
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/skill/others/why-we-create-atomic-commits-in-git.html" data-toggle="tooltip" data-placement="top" title="Why we create Atomic Commits in Git">
+                        Previous<br>
+                        <span>Why we create Atomic Commits in Git</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/skill/seo/schema-markup.html" data-toggle="tooltip" data-placement="top" title="SEO - Schema Markup">
+                        Next<br>
+                        <span>SEO - Schema Markup</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr style="visibility: hidden;">
+
+                <!-- Comment start -->
+<div class="comment">
+  
+
+  
+  <!-- gitalk 评论框 start -->
+  <div id="gitalk-container"></div>
+  <!-- gitalk 评论框 end -->
+  
+
+  
+</div>
+<!-- Comment end -->
+
+
+
+
+
+
+<!-- Gitalk CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<!-- gitalk 公共JS代码 start (一个网页只需插入一次) -->
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  function getLangForGitalk() {
+    lang = new URLSearchParams(document.location.search).get("lang");
+    return lang == 'zh' ? 'zh-CN' : lang;
+  }
+
+  var body = location.href;
+
+  var subtitle = "敏捷估算之斐波那契数列";
+  if (subtitle) {
+    body += "\n" + subtitle;
+  }
+
+  var description = "";
+  if (description) {
+    body += "\n" + description;
+  }
+
+  var gitalk = new Gitalk({
+      clientID: 'f86fb5601466c278f223',
+      clientSecret: '8234184af9a4cbc9dfa58bbea7ff6cdb84d33f1f',
+      repo: 'oscaner.github.io',
+      owner: 'Oscaner',
+      admin: 'Oscaner',
+      labels: 'Gitalk|Skill|Others|Fibonacci|Agile Estimation|Oscaner'.split('|'),
+      body: body,
+      language: getLangForGitalk() ? getLangForGitalk() : 'zh-CN',
+
+      id: MD5('/skill/others/fibonacci-agile-estimation.html'),
+      // facebook-like distraction free mode
+      distractionFreeMode: true
+  });
+
+  gitalk.render('gitalk-container');
+</script>
+<!-- gitalk 公共JS代码 end -->
+
+
+
+
+
+            </div>
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+
+<section>
+    
+        <hr class="hidden-sm hidden-xs">
+    
+    <h5><a href="/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        
+        
+        
+                <a data-sort="0040" href="/archive/?tag=Skill" title="Skill" rel="95">Skill</a>
+        
+                <a data-sort="0097" href="/archive/?tag=Clang" title="Clang" rel="38">Clang</a>
+        
+                <a data-sort="0097" href="/archive/?tag=Exam" title="Exam" rel="38">Exam</a>
+        
+                <a data-sort="0098" href="/archive/?tag=AWS" title="AWS" rel="37">AWS</a>
+        
+                <a data-sort="0098" href="/archive/?tag=C%2B%2B" title="C++" rel="37">C++</a>
+        
+                <a data-sort="0098" href="/archive/?tag=Data+Structure" title="Data Structure" rel="37">Data Structure</a>
+        
+                <a data-sort="0099" href="/archive/?tag=MLS" title="MLS" rel="36">MLS</a>
+        
+                <a data-sort="0099" href="/archive/?tag=Machine+Learning" title="Machine Learning" rel="36">Machine Learning</a>
+        
+                <a data-sort="0122" href="/archive/?tag=PHP" title="PHP" rel="13">PHP</a>
+        
+                <a data-sort="0124" href="/archive/?tag=Coding" title="Coding" rel="11">Coding</a>
+        
+                <a data-sort="0124" href="/archive/?tag=Others" title="Others" rel="11">Others</a>
+        
+                <a data-sort="0125" href="/archive/?tag=Graduate" title="Graduate" rel="10">Graduate</a>
+        
+                <a data-sort="0125" href="/archive/?tag=Math" title="Math" rel="10">Math</a>
+        
+                <a data-sort="0126" href="/archive/?tag=NoSQL" title="NoSQL" rel="9">NoSQL</a>
+        
+                <a data-sort="0129" href="/archive/?tag=SQL" title="SQL" rel="6">SQL</a>
+        
+                <a data-sort="0130" href="/archive/?tag=Linux" title="Linux" rel="5">Linux</a>
+        
+                <a data-sort="0130" href="/archive/?tag=Redis" title="Redis" rel="5">Redis</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Fibonacci" title="Fibonacci" rel="3">Fibonacci</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Git" title="Git" rel="3">Git</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Memcached" title="Memcached" rel="3">Memcached</a>
+        
+                <a data-sort="0133" href="/archive/?tag=MySQL" title="MySQL" rel="2">MySQL</a>
+    </div>
+</section>
+
+
+                <!-- Friends Blog -->
+                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://asdrt666.com" target="_blank" rel="friend">Asdrt</a></li>
+  
+  <li><a href="https://szdblog.com" target="_blank" rel="friend">Choba·乔巴博客</a></li>
+  
+  <li><a href="https://ibcl.us/" target="_blank" rel="friend">I BCL.</a></li>
+  
+  <li><a href="https://www.wmathor.com/" target="_blank" rel="friend">mathor</a></li>
+  
+  <li><a href="https://tongtaos.com" target="_blank" rel="friend">Mr. 童的博客</a></li>
+  
+  <li><a href="https://blog.kejijie.vip/" target="_blank" rel="friend">wantsget</a></li>
+  
+  <li><a href="https://o0o0o0.cn/" target="_blank" rel="friend">三十三言</a></li>
+  
+  <li><a href="http://www.gazyip.cn/" target="_blank" rel="friend">八个比特</a></li>
+  
+  <li><a href="https://www.lixuejiang.com/" target="_blank" rel="friend">李学江博客</a></li>
+  
+  <li><a href="https://5sir.cn" target="_blank" rel="friend">梁Sir的小站</a></li>
+  
+  <li><a href="http://isenchun.cn/" target="_blank" rel="friend">森纯个人博客</a></li>
+  
+  <li><a href="http://www.nothamor.cn/" target="_blank" rel="friend">欧尼酱</a></li>
+  
+  <li><a href="https://www.lkxin.cn" target="_blank" rel="friend">清酒踏月</a></li>
+  
+  <li><a href="https://www.yyhy.me" target="_blank" rel="friend">烟雨寒云博客</a></li>
+  
+  <li><a href="http://mlldxe.cn" target="_blank" rel="friend">犬の窝</a></li>
+  
+  <li><a href="https://aoppp.com" target="_blank" rel="friend">憧憬播客</a></li>
+  
+</ul>
+
+
+
+                <!-- Ads -->
+                <hr>
+
+<!-- <script async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3286495153411959"
+  crossorigin="anonymous"></script> -->
+
+<!-- Oscaner's Vertical Ad -->
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3286495153411959" data-ad-slot="2277392638" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
+
+
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- add support for mathjax by voleking-->
+
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+    },
+    svg: {
+      fontCache: 'global',
+    }
+  };
+</script>
+<script id="MathJax-script" async src="/packages/mathjax/3.2.0/tex-svg.js"></script>
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async('/packages/anchor/1.1.1/anchor.min.js', function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'right',
+          // icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- SEO -->
+<!-- Schema Markup -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "Fibonacci Agile Estimation",
+  "author": {
+    "@type": "Person",
+    "name": "Oscaner"
+  },
+  "datePublished": "July 24, 2021",
+  "image": "https://www.oscaner.com/assets/img/post-bg-alitrip.jpg",
+  "articleBody": "&lt;p&gt;斐波那契数列是一系列数字, 它们随指数增长, 并且每个数字都是前面两个数字之和。&lt;/p&gt;\n\n&lt;p&gt;$ 0, 1, 1, 2, 3, 5, 8, 13, 21, \\dots $&lt;/p&gt;\n\n&lt;p&gt;如果您有兴趣看斐波那契数列相关算法, 您可以前往我的另外两篇文章。&lt;/p&gt;\n\n&lt;ol&gt;\n  &lt;li&gt;&lt;a href=&quot;/skill/coding/php-fibonacci-sequence.html&quot; class=&quot;web-link&quot;&gt;《PHP - Fibonacci Sequence》&lt;/a&gt;&lt;/li&gt;\n  &lt;li&gt;&lt;a href=&quot;/skill/coding/php-fibonacci-search.html&quot; class=&quot;web-link&quot;&gt;《PHP - Fibonacci Search》&lt;/a&gt;&lt;/li&gt;\n&lt;/ol&gt;\n\n&lt;p&gt;这里我们将探讨斐波那契数列在敏捷估算中的作用。&lt;/p&gt;\n\n&lt;h2 id=&quot;什么是斐波那契数列-fibonacci-sequence&quot;&gt;什么是斐波那契数列 (Fibonacci Sequence)&lt;/h2&gt;\n\n&lt;p&gt;斐波那契数列是由意大利数学家 Leonardo Bonacci 在中世纪发明的, 更广而人知的名字是 Leonardo Fibonacci。&lt;/p&gt;\n\n&lt;p&gt;他将斐波那契数列包含在了&lt;a href=&quot;https&#58;//en.wikipedia.org/wiki/Liber_Abaci&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot; class=&quot;web-link&quot;&gt;《Liber Abaci》&lt;/a&gt;, 该书又被称为《计算之书》。&lt;/p&gt;\n\n&lt;p&gt;在《Liber Abaci》中, Fibonacci 还提出了这样一个问题&#58;&lt;/p&gt;\n\n&lt;blockquote&gt;\n  &lt;p&gt;一个人把一对兔子放在四面围墙的地方。假设每对兔子都会生一对新兔子, 从第二个月开始就可以生产, 那么一年可以生产多少对兔子?&lt;/p&gt;\n&lt;/blockquote&gt;\n\n&lt;p&gt;为了估计答案, Fibonacci 引入了一个指数序列, 就是现在的斐波那契数列。在数列中, 每个数字都是前面两个数字之和&#58;&lt;/p&gt;\n\n&lt;p&gt;$ 0, 1, 1, 2, 3, 5, 8, 13, 21, \\dots $&lt;/p&gt;\n\n&lt;p&gt;在下面, 我们将更多的称其为斐波那契量表, 而非斐波那契数列。&lt;/p&gt;\n\n&lt;h2 id=&quot;什么是敏捷估算-agile-estimation&quot;&gt;什么是敏捷估算 (Agile Estimation)&lt;/h2&gt;\n\n&lt;p&gt;管理者在管理团队的时候, 一个最基本的能力就是能够估算一项任务从开始到完成需要多长时间。&lt;/p&gt;\n\n&lt;p&gt;同样, 您可能也有过这样的经历&#58; 您的估算结果是错误的, 项目实际花费的时间要比预期长, 或者您的产品无法及时交付。&lt;/p&gt;\n\n&lt;p&gt;如果估算经常错误, 为什么还要花费精力去做它们? 想象一下, 花费时间进行成本估算, 但到项目开始以后, 大量出现超出预算的情况?&lt;/p&gt;\n\n&lt;p&gt;看似很无力? 实际情况是, 估算的主要目的是设定预期, 并确定您的团队在特定时间范围内可以完成多少工作。&lt;/p&gt;\n\n&lt;p&gt;作为一名项目经理 (Project Manager), 提高您的项目估算能力, 并带领您的团队与您一同前行是非常重要的。&lt;/p&gt;\n\n&lt;p&gt;在敏捷环境中, 管理者需要使用斐波那契量表来改进估算过程, 同时评估在 Sprint 中需要完成的任务。&lt;/p&gt;\n\n&lt;h2 id=&quot;为什么要在敏捷中使用斐波那契量表&quot;&gt;为什么要在敏捷中使用斐波那契量表&lt;/h2&gt;\n\n&lt;p&gt;斐波那契数列在许多不同的学科或者自然界中都有广泛应用。例如, 它已经被用于描述植物的生长, 估计特定时间范围内的人口增长, 病毒爆发模型, 以及预测金融市场行为。&lt;/p&gt;\n\n&lt;p&gt;但是, 斐波那契数列与敏捷估算又有什么关系?&lt;/p&gt;\n\n&lt;p&gt;从本质上讲, 敏捷斐波那契数列, 或者说量表, 提供了一种更现实的方法 – 使用故事点 (Story Points) 进行估算。&lt;/p&gt;\n\n&lt;p&gt;Story Points 用于表示完成或实施 User Story 所需要的规模、复杂性和工作量。&lt;/p&gt;\n\n&lt;p&gt;每个 Story Points 都从斐波那契量表中分配一个数字, 数字越高, Story Points 越复杂, 完成 Story 所需的工作量也就越多。&lt;/p&gt;\n\n&lt;p&gt;同样, 我们可以打个更直观的比喻&#58;&lt;/p&gt;\n\n&lt;p&gt;我们想象一下, 一只手拿着一公斤重物, 另一只手拿着两公斤重物。不允许偷看, 我们能确定哪只手更重吗? 应该很容易, 因为它们之间的重量相差了一倍。&lt;/p&gt;\n\n&lt;p&gt;但是, 如果这两个重量分别是 20 公斤和 21 公斤呢? 我们将很难通过感知去区分它们。&lt;/p&gt;\n\n&lt;p&gt;只有差异足够大的时候, 我们的大脑才能更好的去感知它们。&lt;/p&gt;\n\n&lt;p&gt;这其实就是利用斐波那契量表来估算 Story Points 的原因。&lt;/p&gt;\n\n&lt;p&gt;随着序列的不断进行, 您的团队能够选择的数字会不断出现大的跳跃, 但它们始终以一致的速度增长 – 每个数字都表现出了约为 60% 的跳跃。这样的数字跳跃, 我们的大脑仍然有能力去感知它们。&lt;/p&gt;\n\n&lt;p&gt;同时, 斐波那契量表一个更显著的作用是在估算更大、更复杂的任务时强迫你去做出选择, 而不是浪费时间在细枝末节。&lt;/p&gt;\n\n&lt;p&gt;比如, 假设您的 Product Backlog 中有一个大型任务需要评估工作量, 您打算以 1 - 50 的稳定比例来估算您的 Story。&lt;/p&gt;\n\n&lt;p&gt;一个人选择了 31, 一个人选择了 36, 第三个人选择了 38。这些估算之间的差距令您很难有信心去决定, 需要将估算变得非常精细。&lt;/p&gt;\n\n&lt;p&gt;而使用斐波那契量表, 这种情况将不会/很难发生, 因为序列迫使您必须在距离较远的数字之间进行选择。在这个例子中, 每个人都可能会选择序列中的 34, 因为备选方案是 21 或 55。&lt;/p&gt;\n\n&lt;p&gt;同样, 基于斐波那契量表, 您不必担心大型任务的估算不准, 因为很多时候您也无法将大型任务放入一个 Sprint 之中, 更多时候会将大型任务进行一定的分解; 也不必担心小型任务的估算不够精细, 因为斐波那契量表也提供了细微差别和定义。&lt;/p&gt;\n\n&lt;h2 id=&quot;该如何使用斐波那契量表&quot;&gt;该如何使用斐波那契量表&lt;/h2&gt;\n\n&lt;p&gt;许多敏捷团队使用 Planning Poker 方法来估算 Story Points。&lt;/p&gt;\n\n&lt;p&gt;此方法引入了一系列卡片组, 或基于以 0 开头的斐波那契数列 ($ 0, 1, 2, 3, 5, 8, 13, 21, \\dots $), 或使用修改版本的序列 ($ 0, 0.5, 1, 2, 3, 5, 8, 13, 20, 40, 100 $)。&lt;/p&gt;\n\n&lt;p&gt;只要您的团队理解并认可比率的含义, 那么您的团队可以使用任何具有特定比率的数列。&lt;/p&gt;\n\n&lt;p&gt;除了主持人, 估算团队的每个成员都会拥有一副自己的纸牌, Planning Poker 的步骤基本如下&#58;&lt;/p&gt;\n\n&lt;ol&gt;\n  &lt;li&gt;\n    &lt;p&gt;产品负责人向团队提供 User Story Overview。&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;给予团队时间去讨论和提问, 以确保能够更好的了解风险和假设。&lt;/p&gt;\n\n    &lt;p&gt;讨论过程中不应该设计估算数字, 以免产生估算偏差。&lt;/p&gt;\n\n    &lt;p&gt;主持人需要及时记录讨论摘要, 并在限制讨论时间&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;每个团队成员选择一张卡片来代表他们对 Story 的估算, 并将其正面朝下放在桌子上。&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;团队成员同时翻牌。&lt;/p&gt;\n\n    &lt;ul&gt;\n      &lt;li&gt;如果每个人都选择了相同的数字, 那么该数字就用于估算。您可以继续下一个 Story&lt;/li&gt;\n      &lt;li&gt;\n        &lt;p&gt;否则, 选择明显高于或低于其他数字的人, 让他们说明他们的估算原因, 由大家共同判断是否合理。&lt;/p&gt;\n\n        &lt;p&gt;例如, 开发人员完成任务很简单, 向表单中添加字段。但对于测试人员, 这种简单的添加会造成大量的回归测试, 可能会在以后变得更加复杂。&lt;/p&gt;\n      &lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;从步骤 3 开始反复, 直到大家达成统一估算。&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;进入下一个 Story, 整个过程开始重复。&lt;/p&gt;\n  &lt;/li&gt;\n&lt;/ol&gt;\n\n&lt;p&gt;如果您的团队没有实体卡片, 您也可以使用&lt;a href=&quot;https&#58;//lucid.app/pricing/lucidchart#/pricing&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot; class=&quot;web-link&quot;&gt;在线斐波那契量表&lt;/a&gt;&lt;/p&gt;\n\n&lt;h2 id=&quot;常见的斐波那契量表&quot;&gt;常见的斐波那契量表&lt;/h2&gt;\n\n&lt;ol&gt;\n  &lt;li&gt;\n    &lt;p&gt;Classic Fibonacci&#58; $ 1, 1, 2, 3, 5, 8, 13, 21, 34, \\dots $&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;Modified Fibonacci&#58; $ 0, 0.5, 1, 2, 3, 5, 8, 13, 20, 40, 100 $&lt;/p&gt;\n\n    &lt;p&gt;很多时候, 原始序列上的较大数字在实际的 Story 精确度上并不存在。&lt;/p&gt;\n\n    &lt;p&gt;此版本是对较大数字进行了四舍五入, 以免出现关于为什么是 21 而不是 20, 为什么是 34 而不是 40 的问题。&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;Powers of two&#58; $ 1, 2, 4, 8, 16, 32, 64 $&lt;/p&gt;\n\n    &lt;p&gt;这个版本的数字增长是非常迅速的。由于缺少精细化数字, 即使对于较小的任务, 它也迫使团队成员做出艰难的选择。&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;Five fingers&#58; $ 1, 2, 3, 4, 5 $&lt;/p&gt;\n\n    &lt;p&gt;刚接触敏捷的团队可能会将卡片上的数字与时间进行混淆, 因此基于简单符号做估算可能更加有利。&lt;/p&gt;\n  &lt;/li&gt;\n&lt;/ol&gt;\n\n&lt;p&gt;&lt;img src=&quot;/assets/img/in-post/skill/others/post-fibonacci-agile-estimation/1.png&quot; alt=&quot;1.png&quot;&gt;&lt;/p&gt;\n\n&lt;h2 id=&quot;总结&quot;&gt;总结&lt;/h2&gt;\n\n&lt;p&gt;斐波那契数列不仅因出名而出名。数百年以来, 它一直在提供着真正的价值, 算法、电影、科研, 到处都有它的影子。&lt;/p&gt;\n\n&lt;p&gt;所以, 是时候将斐波那契量表纳入您的敏捷计划了。&lt;/p&gt;\n\n&lt;p&gt;致辞, 共勉。&lt;/p&gt;\n",
+  "url": "https://www.oscaner.com/skill/others/fibonacci-agile-estimation.html"
+}
+</script>
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://space.bilibili.com/17118231">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-stack-1x fa-inverse iconfont icon-bilibili-fill"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+
+                <p class="copyright text-muted">
+                    Copyright © Oscaner 2023
+                    <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备17039697号-2</a>
+                    <br>
+                    Powered by <a href="https://www.oscaner.com">Oscaner Blog</a> |
+                    <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="100px" height="20px" src="https://ghbtns.com/github-btn.html?user=oscaner&repo=oscaner.github.io&type=star&count=true">
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/assets/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/assets/js/hux-blog.min.js"></script>
+
+<!-- Simple Jekyll Search -->
+<script src="/assets/js/simple-jekyll-search.min.js"></script>
+
+<!-- Service Worker -->
+
+<script src="/assets/js/snackbar.js"></script>
+<script src="/assets/js/sw-registration.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async('/packages/fastclick/1.0.6/fastclick.min.js', function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Oscaner
+    var _gaId = '';
+    var _gaDomain = 'www.oscaner.com';
+
+    // Originial
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Oscaner
+    var _baId = 'd9c74d9266af4d68f376f0fb9d5fb71c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        // interop with multilangual
+        if ('false' == 'true') {
+            _containerSelector = 'div.post-container.active';
+        } else {
+            _containerSelector = 'div.post-container';
+        }
+
+        if (!$(_containerSelector).length) {
+            _containerSelector = 'div.post-container';
+        }
+
+        // init
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        // clean
+        $(selector).html('')
+
+        // appending
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/assets/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+<!-- Multi-Lingual -->
+
+
+<!-- Simple Jekyll Search -->
+<script>
+    // https://stackoverflow.com/questions/1912501/unescape-html-entities-in-javascript
+    function htmlDecode(input) {
+        var e = document.createElement('textarea');
+        e.innerHTML = input;
+        // handle case of empty input
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    }
+
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('search-results'),
+        json: '/search.json',
+        searchResultTemplate: '<div class="post-preview item"><a href="{url}"><h2 class="post-title">{title}</h2><h3 class="post-subtitle">{subtitle}</h3><hr></a></div>',
+        noResultsText: 'No results',
+        limit: 50,
+        fuzzy: false,
+        // a hack to get escaped subtitle unescaped. for some reason,
+        // post.subtitle w/o escape filter nuke entire search.
+        templateMiddleware: function (prop, value, template) {
+            if (prop === 'subtitle' || prop === 'title') {
+                if (value.indexOf("code")) {
+                    return htmlDecode(value);
+                } else {
+                    return value;
+                }
+            }
+        }
+    });
+
+    $(document).ready(function () {
+        var $searchPage = $('.search-page');
+        var $searchOpen = $('.search-icon');
+        var $searchClose = $('.search-icon-close');
+        var $searchInput = $('#search-input');
+        var $body = $('body');
+
+        $searchOpen.on('click', function (e) {
+            e.preventDefault();
+            $searchPage.toggleClass('search-active');
+            var prevClasses = $body.attr('class') || '';
+            setTimeout(function () {
+                $body.addClass('no-scroll');
+            }, 400)
+
+            if ($searchPage.hasClass('search-active')) {
+                $searchClose.on('click', function (e) {
+                    e.preventDefault();
+                    $searchPage.removeClass('search-active');
+                    $body.attr('class', prevClasses);  // from closure
+                });
+                $searchInput.focus();
+            }
+        });
+    });
+</script>
+
+
+
+<!-- Image to hack wechat -->
+<img src="/assets/img/icon_wechat.png" width="0" height="0">
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

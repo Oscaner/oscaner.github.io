@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="baidu-site-verification" content="code-RlNzeiqm6B">
+    
+    
+    <meta name="google-site-verification" content="clzGAgkJY2WD5IGr5G6KZS9xymJYL_IH2QIEettmobY">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="心若浮沉，浅笑安然">
+    <meta name="keywords" content="Kang Oscaner China Blog">
+    <meta name="theme-color" content="#000000">
+    <meta name="site" content="https://www.oscaner.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Linux 查看系统信息 - Oscaner 的博客 | Oscaner Blog">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+
+&gt; cat /proc/meminfo |grep MemTotal # 查看内存大小
+&gt; uname -a      ...">
+    
+    <meta property="article:published_time" content=" 2018-11-16T14:56:00Z">
+    
+    
+    <meta property="article:author" content="Oscaner">
+    
+    
+    <meta property="article:tag" content="Skill">
+    
+    <meta property="article:tag" content="Linux">
+    
+    
+    <meta property="og:image" content="https://q2.qlogo.cn/headimg_dl?bs=2573226076&dst_uin=2573226076&spec=640&url_enc=0&referer=bu_interface&term_type=PC">
+    <meta property="og:url" content="https://www.oscaner.com/skill/linux/linux-info.html">
+    <meta property="og:site_name" content="Oscaner 的博客 | Oscaner Blog">
+
+    <title>Linux 查看系统信息 - Oscaner 的博客 | Oscaner Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.oscaner.com/skill/linux/linux-info.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/hux-blog.min.css">
+    <link rel="stylesheet" href="/assets/css/oscaner-blog.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="/packages/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    <!-- Google AdSense -->
+    <script data-ad-client="ca-pub-3286495153411959" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+
+    <!-- MD5 -->
+    <script src="/assets/js/md5.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R9FFJYC4P1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-R9FFJYC4P1');
+    </script>
+    
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                  
+                    Oscaner
+                  
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="huxblog_navbar">
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/friends/">Friends</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/projects/">Projects</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/archive/">Archive</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="search-icon">
+                            <a href="javascript:void(0)">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <script>
+        // Drop Bootstarp low-performance Navbar
+        // Use customize navbar with high-quality material design animation
+        // in high-perf jank-free CSS3 implementation
+        var $body = document.body;
+        var $toggle = document.querySelector('.navbar-toggle');
+        var $navbar = document.querySelector('#huxblog_navbar');
+        var $collapse = document.querySelector('.navbar-collapse');
+
+        var __HuxNav__ = {
+            close: function () {
+                $navbar.className = " ";
+                // wait until animation end.
+                setTimeout(function () {
+                    // prevent frequently toggle
+                    if ($navbar.className.indexOf('in') < 0) {
+                        $collapse.style.height = "0px"
+                    }
+                }, 400)
+            },
+            open: function () {
+                $collapse.style.height = "auto"
+                $navbar.className += " in";
+            }
+        }
+
+        // Bind Event
+        $toggle.addEventListener('click', function (e) {
+            if ($navbar.className.indexOf('in') > 0) {
+                __HuxNav__.close()
+            } else {
+                __HuxNav__.open()
+            }
+        })
+
+        /**
+         * Since Fastclick is used to delegate 'touchstart' globally
+         * to hack 300ms delay in iOS by performing a fake 'click',
+         * Using 'e.stopPropagation' to stop 'touchstart' event from
+         * $toggle/$collapse will break global delegation.
+         *
+         * Instead, we use a 'e.target' filter to prevent handler
+         * added to document close HuxNav.
+         *
+         * Also, we use 'click' instead of 'touchstart' as compromise
+         */
+        document.addEventListener('click', function (e) {
+            if (e.target == $toggle) return;
+            if (e.target.className == 'icon-bar') return;
+            __HuxNav__.close();
+        })
+    </script>
+
+    <!-- Search -->
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/assets/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/assets/img/post-bg-alitrip.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+
+
+
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/assets/img/post-bg-alitrip.jpg');
+        background: ;
+    }
+
+    
+</style>
+
+
+
+
+<header class="intro-header">
+
+    <div class="header-mask"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/archive/?tag=Skill" title="Skill">Skill</a>
+                        
+                        <a class="tag" href="/archive/?tag=Linux" title="Linux">Linux</a>
+                        
+                    </div>
+                    <h1>Linux 查看系统信息</h1>
+                    
+                    <h2 class="subheading"></h2>
+                    <span class="meta">Posted by Oscaner on November 16, 2018</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+                <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+</pre></td>
+<td class="rouge-code"><pre><span class="o">&gt;</span> <span class="nb">cat</span> /proc/meminfo |grep MemTotal <span class="c"># 查看内存大小</span>
+<span class="o">&gt;</span> <span class="nb">uname</span> <span class="nt">-a</span>                         <span class="c"># 查看内核/操作系统/CPU信息</span>
+<span class="o">&gt;</span> <span class="nb">head</span> <span class="nt">-n</span> 1 /etc/issue             <span class="c"># 查看操作系统版本，是数字1不是字母L</span>
+<span class="o">&gt;</span> <span class="nb">cat</span> /proc/cpuinfo                <span class="c"># 查看CPU信息</span>
+<span class="o">&gt;</span> <span class="nb">hostname</span>                         <span class="c"># 查看计算机名</span>
+<span class="o">&gt;</span> lspci <span class="nt">-tv</span>                        <span class="c"># 列出所有PCI设备</span>
+<span class="o">&gt;</span> lsusb <span class="nt">-tv</span>                        <span class="c"># 列出所有USB设备</span>
+<span class="o">&gt;</span> lsmod                            <span class="c"># 列出加载的内核模块</span>
+<span class="o">&gt;</span> <span class="nb">env</span>                              <span class="c"># 查看环境变量资源</span>
+<span class="o">&gt;</span> free <span class="nt">-m</span>                          <span class="c"># 查看内存使用量和交换区使用量</span>
+<span class="o">&gt;</span> <span class="nb">df</span> <span class="nt">-h</span>                            <span class="c"># 查看各分区使用情况</span>
+<span class="o">&gt;</span> <span class="nb">du</span> <span class="nt">-sh</span>                           <span class="c"># 查看指定目录的大小</span>
+<span class="o">&gt;</span> <span class="nb">grep </span>MemTotal /proc/meminfo      <span class="c"># 查看内存总量</span>
+<span class="o">&gt;</span> <span class="nb">grep </span>MemFree /proc/meminfo       <span class="c"># 查看空闲内存量</span>
+<span class="o">&gt;</span> <span class="nb">uptime</span>                           <span class="c"># 查看系统运行时间、用户数、负载</span>
+<span class="o">&gt;</span> <span class="nb">cat</span> /proc/loadavg                <span class="c"># 查看系统负载磁盘和分区</span>
+<span class="o">&gt;</span> mount | column <span class="nt">-t</span>                <span class="c"># 查看挂接的分区状态</span>
+<span class="o">&gt;</span> fdisk <span class="nt">-l</span>                         <span class="c"># 查看所有分区</span>
+<span class="o">&gt;</span> swapon <span class="nt">-s</span>                        <span class="c"># 查看所有交换分区</span>
+<span class="o">&gt;</span> hdparm <span class="nt">-i</span> /dev/hda               <span class="c"># 查看磁盘参数(仅适用于IDE设备)</span>
+<span class="o">&gt;</span> dmesg | <span class="nb">grep </span>IDE                 <span class="c"># 查看启动时IDE设备检测状况网络</span>
+<span class="o">&gt;</span> ifconfig                         <span class="c"># 查看所有网络接口的属性</span>
+<span class="o">&gt;</span> iptables <span class="nt">-L</span>                      <span class="c"># 查看防火墙设置</span>
+<span class="o">&gt;</span> route <span class="nt">-n</span>                         <span class="c"># 查看路由表</span>
+<span class="o">&gt;</span> netstat <span class="nt">-lntp</span>                    <span class="c"># 查看所有监听端口</span>
+<span class="o">&gt;</span> netstat <span class="nt">-antp</span>                    <span class="c"># 查看所有已经建立的连接</span>
+<span class="o">&gt;</span> netstat <span class="nt">-s</span>                       <span class="c"># 查看网络统计信息进程</span>
+<span class="o">&gt;</span> ps <span class="nt">-ef</span>                           <span class="c"># 查看所有进程</span>
+<span class="o">&gt;</span> top                              <span class="c"># 实时显示进程状态用户</span>
+<span class="o">&gt;</span> w                                <span class="c"># 查看活动用户</span>
+<span class="o">&gt;</span> <span class="nb">id</span>                               <span class="c"># 查看指定用户信息</span>
+<span class="o">&gt;</span> last                             <span class="c"># 查看用户登录日志</span>
+<span class="o">&gt;</span> <span class="nb">cut</span> <span class="nt">-d</span>: <span class="nt">-f1</span> /etc/passwd          <span class="c"># 查看系统所有用户</span>
+<span class="o">&gt;</span> <span class="nb">cut</span> <span class="nt">-d</span>: <span class="nt">-f1</span> /etc/group           <span class="c"># 查看系统所有组</span>
+<span class="o">&gt;</span> crontab <span class="nt">-l</span>                       <span class="c"># 查看当前用户的计划任务服务</span>
+<span class="o">&gt;</span> chkconfig –list                  <span class="c"># 列出所有系统服务</span>
+<span class="o">&gt;</span> chkconfig –list | <span class="nb">grep </span>on        <span class="c"># 列出所有启动的系统服务程序</span>
+<span class="o">&gt;</span> rpm <span class="nt">-qa</span>                          <span class="c"># 查看所有安装的软件包</span>
+<span class="o">&gt;</span> <span class="nb">cat</span> /proc/cpuinfo                <span class="c"># 查看CPU相关参数的linux系统命令</span>
+<span class="o">&gt;</span> <span class="nb">cat</span> /proc/partitions             <span class="c"># 查看linux硬盘和分区信息的系统信息命令</span>
+<span class="o">&gt;</span> <span class="nb">cat</span> /proc/meminfo                <span class="c"># 查看linux系统内存信息的linux系统命令</span>
+<span class="o">&gt;</span> <span class="nb">cat</span> /proc/version                <span class="c"># 查看版本，类似uname -r</span>
+<span class="o">&gt;</span> <span class="nb">cat</span> /proc/ioports                <span class="c"># 查看设备io端口</span>
+<span class="o">&gt;</span> <span class="nb">cat</span> /proc/interrupts             <span class="c"># 查看中断</span>
+<span class="o">&gt;</span> <span class="nb">cat</span> /proc/pci                    <span class="c"># 查看pci设备的信息</span>
+<span class="o">&gt;</span> <span class="nb">cat</span> /proc/swaps                  <span class="c"># 查看所有swap分区的信息</span>
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+
+                <!-- Copyright Notice -->
+                
+<hr>
+
+<p>
+  本文由
+  <a href="/about/" target="_blank">
+    Oscaner
+  </a> 创作, 采用
+  <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">
+    知识共享署名4.0
+  </a> 国际许可协议进行许可 <br>
+  本站文章除注明转载/出处外, 均为本站原创或翻译, 转载前请务必署名
+</p>
+
+
+                
+
+                <hr>
+<hr style="visibility: hidden;">
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/skill/sql/evolution-of-mysql-arch.html" data-toggle="tooltip" data-placement="top" title="互联网时代下的 MySQL 架构演变之旅">
+                        Previous<br>
+                        <span>互联网时代下的 MySQL 架构演变之旅</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/skill/sql/redis-intro.html" data-toggle="tooltip" data-placement="top" title="Redis 介绍">
+                        Next<br>
+                        <span>Redis 介绍</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr style="visibility: hidden;">
+
+                <!-- Comment start -->
+<div class="comment">
+  
+
+  
+  <!-- gitalk 评论框 start -->
+  <div id="gitalk-container"></div>
+  <!-- gitalk 评论框 end -->
+  
+
+  
+</div>
+<!-- Comment end -->
+
+
+
+
+
+
+<!-- Gitalk CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<!-- gitalk 公共JS代码 start (一个网页只需插入一次) -->
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  function getLangForGitalk() {
+    lang = new URLSearchParams(document.location.search).get("lang");
+    return lang == 'zh' ? 'zh-CN' : lang;
+  }
+
+  var body = location.href;
+
+  var subtitle = "";
+  if (subtitle) {
+    body += "\n" + subtitle;
+  }
+
+  var description = "";
+  if (description) {
+    body += "\n" + description;
+  }
+
+  var gitalk = new Gitalk({
+      clientID: 'f86fb5601466c278f223',
+      clientSecret: '8234184af9a4cbc9dfa58bbea7ff6cdb84d33f1f',
+      repo: 'oscaner.github.io',
+      owner: 'Oscaner',
+      admin: 'Oscaner',
+      labels: 'Gitalk|Skill|Linux|Oscaner'.split('|'),
+      body: body,
+      language: getLangForGitalk() ? getLangForGitalk() : 'zh-CN',
+
+      id: MD5('/skill/linux/linux-info.html'),
+      // facebook-like distraction free mode
+      distractionFreeMode: true
+  });
+
+  gitalk.render('gitalk-container');
+</script>
+<!-- gitalk 公共JS代码 end -->
+
+
+
+
+
+            </div>
+
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+
+<section>
+    
+        <hr class="hidden-sm hidden-xs">
+    
+    <h5><a href="/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        
+        
+        
+                <a data-sort="0040" href="/archive/?tag=Skill" title="Skill" rel="95">Skill</a>
+        
+                <a data-sort="0097" href="/archive/?tag=Clang" title="Clang" rel="38">Clang</a>
+        
+                <a data-sort="0097" href="/archive/?tag=Exam" title="Exam" rel="38">Exam</a>
+        
+                <a data-sort="0098" href="/archive/?tag=AWS" title="AWS" rel="37">AWS</a>
+        
+                <a data-sort="0098" href="/archive/?tag=C%2B%2B" title="C++" rel="37">C++</a>
+        
+                <a data-sort="0098" href="/archive/?tag=Data+Structure" title="Data Structure" rel="37">Data Structure</a>
+        
+                <a data-sort="0099" href="/archive/?tag=MLS" title="MLS" rel="36">MLS</a>
+        
+                <a data-sort="0099" href="/archive/?tag=Machine+Learning" title="Machine Learning" rel="36">Machine Learning</a>
+        
+                <a data-sort="0122" href="/archive/?tag=PHP" title="PHP" rel="13">PHP</a>
+        
+                <a data-sort="0124" href="/archive/?tag=Coding" title="Coding" rel="11">Coding</a>
+        
+                <a data-sort="0124" href="/archive/?tag=Others" title="Others" rel="11">Others</a>
+        
+                <a data-sort="0125" href="/archive/?tag=Graduate" title="Graduate" rel="10">Graduate</a>
+        
+                <a data-sort="0125" href="/archive/?tag=Math" title="Math" rel="10">Math</a>
+        
+                <a data-sort="0126" href="/archive/?tag=NoSQL" title="NoSQL" rel="9">NoSQL</a>
+        
+                <a data-sort="0129" href="/archive/?tag=SQL" title="SQL" rel="6">SQL</a>
+        
+                <a data-sort="0130" href="/archive/?tag=Linux" title="Linux" rel="5">Linux</a>
+        
+                <a data-sort="0130" href="/archive/?tag=Redis" title="Redis" rel="5">Redis</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Fibonacci" title="Fibonacci" rel="3">Fibonacci</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Git" title="Git" rel="3">Git</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Memcached" title="Memcached" rel="3">Memcached</a>
+        
+                <a data-sort="0133" href="/archive/?tag=MySQL" title="MySQL" rel="2">MySQL</a>
+    </div>
+</section>
+
+
+                <!-- Friends Blog -->
+                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://asdrt666.com" target="_blank" rel="friend">Asdrt</a></li>
+  
+  <li><a href="https://szdblog.com" target="_blank" rel="friend">Choba·乔巴博客</a></li>
+  
+  <li><a href="https://ibcl.us/" target="_blank" rel="friend">I BCL.</a></li>
+  
+  <li><a href="https://www.wmathor.com/" target="_blank" rel="friend">mathor</a></li>
+  
+  <li><a href="https://tongtaos.com" target="_blank" rel="friend">Mr. 童的博客</a></li>
+  
+  <li><a href="https://blog.kejijie.vip/" target="_blank" rel="friend">wantsget</a></li>
+  
+  <li><a href="https://o0o0o0.cn/" target="_blank" rel="friend">三十三言</a></li>
+  
+  <li><a href="http://www.gazyip.cn/" target="_blank" rel="friend">八个比特</a></li>
+  
+  <li><a href="https://www.lixuejiang.com/" target="_blank" rel="friend">李学江博客</a></li>
+  
+  <li><a href="https://5sir.cn" target="_blank" rel="friend">梁Sir的小站</a></li>
+  
+  <li><a href="http://isenchun.cn/" target="_blank" rel="friend">森纯个人博客</a></li>
+  
+  <li><a href="http://www.nothamor.cn/" target="_blank" rel="friend">欧尼酱</a></li>
+  
+  <li><a href="https://www.lkxin.cn" target="_blank" rel="friend">清酒踏月</a></li>
+  
+  <li><a href="https://www.yyhy.me" target="_blank" rel="friend">烟雨寒云博客</a></li>
+  
+  <li><a href="http://mlldxe.cn" target="_blank" rel="friend">犬の窝</a></li>
+  
+  <li><a href="https://aoppp.com" target="_blank" rel="friend">憧憬播客</a></li>
+  
+</ul>
+
+
+
+                <!-- Ads -->
+                <hr>
+
+<!-- <script async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3286495153411959"
+  crossorigin="anonymous"></script> -->
+
+<!-- Oscaner's Vertical Ad -->
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3286495153411959" data-ad-slot="2277392638" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
+
+
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- add support for mathjax by voleking-->
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async('/packages/anchor/1.1.1/anchor.min.js', function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'right',
+          // icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- SEO -->
+<!-- Schema Markup -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "Linux 查看系统信息",
+  "author": {
+    "@type": "Person",
+    "name": "Oscaner"
+  },
+  "datePublished": "November 16, 2018",
+  "image": "https://www.oscaner.com/assets/img/post-bg-alitrip.jpg",
+  "articleBody": "&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;\n&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n&lt;/pre&gt;&lt;/td&gt;\n&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /proc/meminfo |grep MemTotal &lt;span class=&quot;c&quot;&gt;# 查看内存大小&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;uname&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;                         &lt;span class=&quot;c&quot;&gt;# 查看内核/操作系统/CPU信息&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; 1 /etc/issue             &lt;span class=&quot;c&quot;&gt;# 查看操作系统版本，是数字1不是字母L&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /proc/cpuinfo                &lt;span class=&quot;c&quot;&gt;# 查看CPU信息&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hostname&lt;/span&gt;                         &lt;span class=&quot;c&quot;&gt;# 查看计算机名&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; lspci &lt;span class=&quot;nt&quot;&gt;-tv&lt;/span&gt;                        &lt;span class=&quot;c&quot;&gt;# 列出所有PCI设备&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; lsusb &lt;span class=&quot;nt&quot;&gt;-tv&lt;/span&gt;                        &lt;span class=&quot;c&quot;&gt;# 列出所有USB设备&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; lsmod                            &lt;span class=&quot;c&quot;&gt;# 列出加载的内核模块&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;env&lt;/span&gt;                              &lt;span class=&quot;c&quot;&gt;# 查看环境变量资源&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; free &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt;                          &lt;span class=&quot;c&quot;&gt;# 查看内存使用量和交换区使用量&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt;                            &lt;span class=&quot;c&quot;&gt;# 查看各分区使用情况&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;du&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-sh&lt;/span&gt;                           &lt;span class=&quot;c&quot;&gt;# 查看指定目录的大小&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;MemTotal /proc/meminfo      &lt;span class=&quot;c&quot;&gt;# 查看内存总量&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;MemFree /proc/meminfo       &lt;span class=&quot;c&quot;&gt;# 查看空闲内存量&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;uptime&lt;/span&gt;                           &lt;span class=&quot;c&quot;&gt;# 查看系统运行时间、用户数、负载&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /proc/loadavg                &lt;span class=&quot;c&quot;&gt;# 查看系统负载磁盘和分区&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; mount | column &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt;                &lt;span class=&quot;c&quot;&gt;# 查看挂接的分区状态&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; fdisk &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt;                         &lt;span class=&quot;c&quot;&gt;# 查看所有分区&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; swapon &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt;                        &lt;span class=&quot;c&quot;&gt;# 查看所有交换分区&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; hdparm &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; /dev/hda               &lt;span class=&quot;c&quot;&gt;# 查看磁盘参数(仅适用于IDE设备)&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; dmesg | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;IDE                 &lt;span class=&quot;c&quot;&gt;# 查看启动时IDE设备检测状况网络&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ifconfig                         &lt;span class=&quot;c&quot;&gt;# 查看所有网络接口的属性&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; iptables &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt;                      &lt;span class=&quot;c&quot;&gt;# 查看防火墙设置&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; route &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt;                         &lt;span class=&quot;c&quot;&gt;# 查看路由表&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; netstat &lt;span class=&quot;nt&quot;&gt;-lntp&lt;/span&gt;                    &lt;span class=&quot;c&quot;&gt;# 查看所有监听端口&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; netstat &lt;span class=&quot;nt&quot;&gt;-antp&lt;/span&gt;                    &lt;span class=&quot;c&quot;&gt;# 查看所有已经建立的连接&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; netstat &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt;                       &lt;span class=&quot;c&quot;&gt;# 查看网络统计信息进程&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ps &lt;span class=&quot;nt&quot;&gt;-ef&lt;/span&gt;                           &lt;span class=&quot;c&quot;&gt;# 查看所有进程&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; top                              &lt;span class=&quot;c&quot;&gt;# 实时显示进程状态用户&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; w                                &lt;span class=&quot;c&quot;&gt;# 查看活动用户&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;                               &lt;span class=&quot;c&quot;&gt;# 查看指定用户信息&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; last                             &lt;span class=&quot;c&quot;&gt;# 查看用户登录日志&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cut&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;&#58; &lt;span class=&quot;nt&quot;&gt;-f1&lt;/span&gt; /etc/passwd          &lt;span class=&quot;c&quot;&gt;# 查看系统所有用户&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cut&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;&#58; &lt;span class=&quot;nt&quot;&gt;-f1&lt;/span&gt; /etc/group           &lt;span class=&quot;c&quot;&gt;# 查看系统所有组&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; crontab &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt;                       &lt;span class=&quot;c&quot;&gt;# 查看当前用户的计划任务服务&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; chkconfig –list                  &lt;span class=&quot;c&quot;&gt;# 列出所有系统服务&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; chkconfig –list | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;on        &lt;span class=&quot;c&quot;&gt;# 列出所有启动的系统服务程序&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; rpm &lt;span class=&quot;nt&quot;&gt;-qa&lt;/span&gt;                          &lt;span class=&quot;c&quot;&gt;# 查看所有安装的软件包&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /proc/cpuinfo                &lt;span class=&quot;c&quot;&gt;# 查看CPU相关参数的linux系统命令&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /proc/partitions             &lt;span class=&quot;c&quot;&gt;# 查看linux硬盘和分区信息的系统信息命令&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /proc/meminfo                &lt;span class=&quot;c&quot;&gt;# 查看linux系统内存信息的linux系统命令&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /proc/version                &lt;span class=&quot;c&quot;&gt;# 查看版本，类似uname -r&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /proc/ioports                &lt;span class=&quot;c&quot;&gt;# 查看设备io端口&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /proc/interrupts             &lt;span class=&quot;c&quot;&gt;# 查看中断&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /proc/pci                    &lt;span class=&quot;c&quot;&gt;# 查看pci设备的信息&lt;/span&gt;\n&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /proc/swaps                  &lt;span class=&quot;c&quot;&gt;# 查看所有swap分区的信息&lt;/span&gt;\n&lt;/pre&gt;&lt;/td&gt;\n&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;\n",
+  "url": "https://www.oscaner.com/skill/linux/linux-info.html"
+}
+</script>
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://space.bilibili.com/17118231">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-stack-1x fa-inverse iconfont icon-bilibili-fill"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+
+                <p class="copyright text-muted">
+                    Copyright © Oscaner 2023
+                    <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备17039697号-2</a>
+                    <br>
+                    Powered by <a href="https://www.oscaner.com">Oscaner Blog</a> |
+                    <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="100px" height="20px" src="https://ghbtns.com/github-btn.html?user=oscaner&repo=oscaner.github.io&type=star&count=true">
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/assets/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/assets/js/hux-blog.min.js"></script>
+
+<!-- Simple Jekyll Search -->
+<script src="/assets/js/simple-jekyll-search.min.js"></script>
+
+<!-- Service Worker -->
+
+<script src="/assets/js/snackbar.js"></script>
+<script src="/assets/js/sw-registration.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async('/packages/fastclick/1.0.6/fastclick.min.js', function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Oscaner
+    var _gaId = '';
+    var _gaDomain = 'www.oscaner.com';
+
+    // Originial
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Oscaner
+    var _baId = 'd9c74d9266af4d68f376f0fb9d5fb71c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<!-- Side Catalog -->
+
+
+
+<!-- Multi-Lingual -->
+
+
+<!-- Simple Jekyll Search -->
+<script>
+    // https://stackoverflow.com/questions/1912501/unescape-html-entities-in-javascript
+    function htmlDecode(input) {
+        var e = document.createElement('textarea');
+        e.innerHTML = input;
+        // handle case of empty input
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    }
+
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('search-results'),
+        json: '/search.json',
+        searchResultTemplate: '<div class="post-preview item"><a href="{url}"><h2 class="post-title">{title}</h2><h3 class="post-subtitle">{subtitle}</h3><hr></a></div>',
+        noResultsText: 'No results',
+        limit: 50,
+        fuzzy: false,
+        // a hack to get escaped subtitle unescaped. for some reason,
+        // post.subtitle w/o escape filter nuke entire search.
+        templateMiddleware: function (prop, value, template) {
+            if (prop === 'subtitle' || prop === 'title') {
+                if (value.indexOf("code")) {
+                    return htmlDecode(value);
+                } else {
+                    return value;
+                }
+            }
+        }
+    });
+
+    $(document).ready(function () {
+        var $searchPage = $('.search-page');
+        var $searchOpen = $('.search-icon');
+        var $searchClose = $('.search-icon-close');
+        var $searchInput = $('#search-input');
+        var $body = $('body');
+
+        $searchOpen.on('click', function (e) {
+            e.preventDefault();
+            $searchPage.toggleClass('search-active');
+            var prevClasses = $body.attr('class') || '';
+            setTimeout(function () {
+                $body.addClass('no-scroll');
+            }, 400)
+
+            if ($searchPage.hasClass('search-active')) {
+                $searchClose.on('click', function (e) {
+                    e.preventDefault();
+                    $searchPage.removeClass('search-active');
+                    $body.attr('class', prevClasses);  // from closure
+                });
+                $searchInput.focus();
+            }
+        });
+    });
+</script>
+
+
+
+<!-- Image to hack wechat -->
+<img src="/assets/img/icon_wechat.png" width="0" height="0">
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

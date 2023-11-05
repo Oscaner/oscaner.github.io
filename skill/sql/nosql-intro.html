@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="baidu-site-verification" content="code-RlNzeiqm6B">
+    
+    
+    <meta name="google-site-verification" content="clzGAgkJY2WD5IGr5G6KZS9xymJYL_IH2QIEettmobY">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="心若浮沉，浅笑安然">
+    <meta name="keywords" content="Kang Oscaner China Blog">
+    <meta name="theme-color" content="#000000">
+    <meta name="site" content="https://www.oscaner.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="NoSQL 入门及概述 - Oscaner 的博客 | Oscaner Blog">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="入门概述
+">
+    
+    <meta property="article:published_time" content=" 2018-11-08T23:44:00Z">
+    
+    
+    <meta property="article:author" content="Oscaner">
+    
+    
+    <meta property="article:tag" content="Skill">
+    
+    <meta property="article:tag" content="SQL">
+    
+    <meta property="article:tag" content="NoSQL">
+    
+    
+    <meta property="og:image" content="https://q2.qlogo.cn/headimg_dl?bs=2573226076&dst_uin=2573226076&spec=640&url_enc=0&referer=bu_interface&term_type=PC">
+    <meta property="og:url" content="https://www.oscaner.com/skill/sql/nosql-intro.html">
+    <meta property="og:site_name" content="Oscaner 的博客 | Oscaner Blog">
+
+    <title>NoSQL 入门及概述 - Oscaner 的博客 | Oscaner Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.oscaner.com/skill/sql/nosql-intro.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/hux-blog.min.css">
+    <link rel="stylesheet" href="/assets/css/oscaner-blog.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="/packages/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    <!-- Google AdSense -->
+    <script data-ad-client="ca-pub-3286495153411959" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+
+    <!-- MD5 -->
+    <script src="/assets/js/md5.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R9FFJYC4P1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-R9FFJYC4P1');
+    </script>
+    
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                  
+                    Oscaner
+                  
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="huxblog_navbar">
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/friends/">Friends</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/projects/">Projects</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/archive/">Archive</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="search-icon">
+                            <a href="javascript:void(0)">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <script>
+        // Drop Bootstarp low-performance Navbar
+        // Use customize navbar with high-quality material design animation
+        // in high-perf jank-free CSS3 implementation
+        var $body = document.body;
+        var $toggle = document.querySelector('.navbar-toggle');
+        var $navbar = document.querySelector('#huxblog_navbar');
+        var $collapse = document.querySelector('.navbar-collapse');
+
+        var __HuxNav__ = {
+            close: function () {
+                $navbar.className = " ";
+                // wait until animation end.
+                setTimeout(function () {
+                    // prevent frequently toggle
+                    if ($navbar.className.indexOf('in') < 0) {
+                        $collapse.style.height = "0px"
+                    }
+                }, 400)
+            },
+            open: function () {
+                $collapse.style.height = "auto"
+                $navbar.className += " in";
+            }
+        }
+
+        // Bind Event
+        $toggle.addEventListener('click', function (e) {
+            if ($navbar.className.indexOf('in') > 0) {
+                __HuxNav__.close()
+            } else {
+                __HuxNav__.open()
+            }
+        })
+
+        /**
+         * Since Fastclick is used to delegate 'touchstart' globally
+         * to hack 300ms delay in iOS by performing a fake 'click',
+         * Using 'e.stopPropagation' to stop 'touchstart' event from
+         * $toggle/$collapse will break global delegation.
+         *
+         * Instead, we use a 'e.target' filter to prevent handler
+         * added to document close HuxNav.
+         *
+         * Also, we use 'click' instead of 'touchstart' as compromise
+         */
+        document.addEventListener('click', function (e) {
+            if (e.target == $toggle) return;
+            if (e.target.className == 'icon-bar') return;
+            __HuxNav__.close();
+        })
+    </script>
+
+    <!-- Search -->
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/assets/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/assets/img/post-bg-alitrip.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+
+
+
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/assets/img/post-bg-alitrip.jpg');
+        background: ;
+    }
+
+    
+</style>
+
+
+
+
+<header class="intro-header">
+
+    <div class="header-mask"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/archive/?tag=Skill" title="Skill">Skill</a>
+                        
+                        <a class="tag" href="/archive/?tag=SQL" title="SQL">SQL</a>
+                        
+                        <a class="tag" href="/archive/?tag=NoSQL" title="NoSQL">NoSQL</a>
+                        
+                    </div>
+                    <h1>NoSQL 入门及概述</h1>
+                    
+                    <h2 class="subheading"></h2>
+                    <span class="meta">Posted by Oscaner on November 8, 2018</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+                <h2 id="入门概述">入门概述</h2>
+
+<h3 id="是什么">是什么</h3>
+
+<p><code class="language-plaintext highlighter-rouge">NoSQL = Not Only SQL</code>, 意为“不仅仅是SQL”, 泛指 <strong>非关系型数据库</strong>。</p>
+
+<p>随着互联网 <code class="language-plaintext highlighter-rouge">WEB2.0</code> 网站的兴起, 传统的关系型数据库在应付 <code class="language-plaintext highlighter-rouge">WEB2.0</code> 网站, 特别是超大规模和高并发的 SNS 类型的 <code class="language-plaintext highlighter-rouge">WEB2.0</code> 纯动态网站已经显得力不从心, 暴露了很多难以克服的问题, 而非关系型的数据库则由于其本身的特点得到了非常迅速的发展。</p>
+
+<p><code class="language-plaintext highlighter-rouge">NoSQL</code> 数据库的产生就是为了解决大规模数据集合、多重数据种类带来的挑战, 尤其是大数据应用难题, 包括超大规模数据的存储。</p>
+
+<p>这些类型的数据存储不需要固定的模式, 无需多余操作就可以横向扩展。</p>
+
+<h3 id="能干嘛">能干嘛</h3>
+
+<ol>
+  <li>
+    <p>易扩展</p>
+
+    <p><code class="language-plaintext highlighter-rouge">NoSQL</code> 数据库种类繁多, 但是一个共同的特点就是去掉了关系型数据库的关系型特性。</p>
+
+    <p>数据之间无关系, 这样就非常容易扩展。也无形之中, 在架构的层面上带来了可扩展的能力。</p>
+  </li>
+  <li>
+    <p>大数据量高性能</p>
+
+    <p><code class="language-plaintext highlighter-rouge">NoSQL</code> 数据库都具有非常高的读写性能, 尤其在大数据量下, 同样表现优秀。</p>
+
+    <p>这得益于它的无关系性, 数据库的结构简单。</p>
+
+    <p>一般 <code class="language-plaintext highlighter-rouge">MySQL</code> 使用 <code class="language-plaintext highlighter-rouge">Query Cache</code>, 每次表的更新 <code class="language-plaintext highlighter-rouge">Cache</code> 就失效, 是一种大粒度的 <code class="language-plaintext highlighter-rouge">Cache</code>。</p>
+
+    <p>在针对 <code class="language-plaintext highlighter-rouge">WEB2.0</code> 的交互频繁的应用, <code class="language-plaintext highlighter-rouge">Cache</code> 性能不高, 甚至可能造成数据库负担。</p>
+
+    <p>而 <code class="language-plaintext highlighter-rouge">NoSQL</code> 的 <code class="language-plaintext highlighter-rouge">Cache</code> 是记录级的, 是一种细粒度的 <code class="language-plaintext highlighter-rouge">Cache</code>, 所以 <code class="language-plaintext highlighter-rouge">NoSQL</code> 在这个层面上来说就要性能高很多了。</p>
+  </li>
+  <li>
+    <p>多样灵活的数据模型</p>
+
+    <p><code class="language-plaintext highlighter-rouge">NoSQL</code> 无需事先为要存储的数据建立字段, 随时可以存储自定义的数据格式。</p>
+
+    <p>而在关系型数据库里, 增删字段是一件非常麻烦的事情。如果是非常大数据量的表, 增加字段简直就是噩梦。</p>
+  </li>
+  <li>
+    <p>传统 <code class="language-plaintext highlighter-rouge">RDBMS</code> VS <code class="language-plaintext highlighter-rouge">NoSQL</code></p>
+
+    <ul>
+      <li>
+<code class="language-plaintext highlighter-rouge">RDBMS</code>: 关系数据库管理系统
+        <ul>
+          <li>高度组织化、结构化数据</li>
+          <li>结构化查询语言(SQL)</li>
+          <li>数据和关系都存储在单独的表中</li>
+          <li>数据操纵语言, 数据定义语言</li>
+          <li>严格的一致性</li>
+          <li>基础事务</li>
+        </ul>
+      </li>
+      <li>
+<code class="language-plaintext highlighter-rouge">NoSQL</code>: 非关系数据库
+        <ul>
+          <li>代表着不仅仅是 SQL</li>
+          <li>没有声明性查询语言</li>
+          <li>没有预定义的模式</li>
+          <li>键值对存储, 列存储, 文档存储, 图形数据库</li>
+          <li>最终一致性, 而非 <code class="language-plaintext highlighter-rouge">ACID(数据库事务执行的四个基本要素)</code> 属性</li>
+          <li>非结构化和不可预知的数据</li>
+          <li>CAP 定理
+  NoSQL 数据库的基石, <code class="language-plaintext highlighter-rouge">Consistency(一致性)</code>、 <code class="language-plaintext highlighter-rouge">Availability(可用性)</code>、<code class="language-plaintext highlighter-rouge">Partition tolerance(分区容错性)</code>
+</li>
+          <li>高性能、高可用性和可伸缩性</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="去哪下">去哪下</h3>
+
+<ol>
+  <li>
+    <p>Redis</p>
+
+    <p><a href="http://www.runoob.com/redis/redis-install.html" target="_blank" rel="nofollow" class="web-link">《Redis 安装》</a></p>
+  </li>
+  <li>
+    <p>Memcache</p>
+
+    <p><a href="http://www.runoob.com/memcached/memcached-install.html" target="_blank" rel="nofollow" class="web-link">《Linux Memcached 安装》</a></p>
+
+    <p><a href="http://www.runoob.com/memcached/window-install-memcached.html" target="_blank" rel="nofollow" class="web-link">《Windows 下安装 Memcached》</a></p>
+  </li>
+  <li>
+    <p>MongoDB</p>
+
+    <p><a href="http://www.runoob.com/mongodb/mongodb-window-install.html" target="_blank" rel="nofollow" class="web-link">《Windows 平台安装 MongoDB》</a></p>
+
+    <p><a href="http://www.runoob.com/mongodb/mongodb-linux-install.html" target="_blank" rel="nofollow" class="web-link">《Linux 平台安装 MongoDB》</a></p>
+
+    <p><a href="http://www.runoob.com/mongodb/mongodb-osx-install.html" target="_blank" rel="nofollow" class="web-link">《Mac OSX 平台安装 MongoDB》</a></p>
+  </li>
+</ol>
+
+<h3 id="怎么玩">怎么玩</h3>
+
+<ol>
+  <li>key + value(键值对)</li>
+  <li>cache(缓存)</li>
+  <li>persistence(持久化)</li>
+</ol>
+
+<h3 id="3v--3高">3V + 3高</h3>
+
+<ul>
+  <li>大数据时代的 3V
+    <ul>
+      <li>海量 <code class="language-plaintext highlighter-rouge">Volume(体积)</code>
+</li>
+      <li>多样 <code class="language-plaintext highlighter-rouge">Variety(品种)</code>
+</li>
+      <li>实时 <code class="language-plaintext highlighter-rouge">Velocity(速度)</code>
+</li>
+    </ul>
+  </li>
+  <li>互联网需求的 3高
+    <ul>
+      <li>高并发</li>
+      <li>高可扩</li>
+      <li>高性能</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="nosql-经典应用">NoSQL 经典应用</h2>
+
+<p>当下的应用基本是 <code class="language-plaintext highlighter-rouge">SQL</code> 和 <code class="language-plaintext highlighter-rouge">NoSQL</code> 一起使用。</p>
+
+<h3 id="阿里巴巴中文站">阿里巴巴中文站</h3>
+
+<h4 id="架构发展历程">架构发展历程</h4>
+
+<ol>
+  <li>
+    <p>演变过程</p>
+
+    <p><img src="/assets/img/in-post/skill/sql/post-nosql-intro/1.png" alt="1.png"></p>
+  </li>
+  <li>
+    <p>第四代网站架构</p>
+
+    <ul>
+      <li>性能和海量数据问题
+        <ul>
+          <li>大规模的 Memcached 集群、高性能应用服务器升级、KV、CDN 等一定程度解决了网站的性能问题。</li>
+          <li>数据切分和分布式存储解决了网站海量数据的问题。</li>
+        </ul>
+      </li>
+      <li>安全问题
+        <ul>
+          <li>镜像站解决了网站的灾备问题。</li>
+          <li>网站框架的安全特性升级透明的过滤了常见的网站安全漏洞。</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p>但到了 2010 年底, 阿里巴巴却不得不开始实施第五代网站架构改造。</p>
+  </li>
+  <li>
+    <p>第五代网站架构使命</p>
+
+    <ul>
+      <li>敏捷
+        <ul>
+          <li>业务快速增长, 每天都要上线大量的小需求。</li>
+          <li>应用系统日益膨胀, 耦合恶化, 架构越来越复杂, 会带来更高的开发成本。如何保持业务开发敏捷性？</li>
+        </ul>
+      </li>
+      <li>开放
+        <ul>
+          <li>Facebook 和 AppStore 带来的启示, 如何提升网站的开放性, 吸引第三方开发者加入到网站的共建中来？</li>
+        </ul>
+      </li>
+      <li>体验
+        <ul>
+          <li>网站的并发压力快速增长, 用户却对体验提出了更高的要求。</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="多数据源多数据类型的存储问题">多数据源多数据类型的存储问题</h4>
+
+<p><img src="/assets/img/in-post/skill/sql/post-nosql-intro/2.png" alt="2.png"></p>
+
+<h4 id="商品基本信息">商品基本信息</h4>
+
+<p>名称、价格、出厂日期、生产厂商等。</p>
+
+<p>利用关系型数据库, <code class="language-plaintext highlighter-rouge">MySQL/Oracle</code>(淘宝内部用的 MySQL 是经过内核修改的)。</p>
+
+<p>淘宝在去 <code class="language-plaintext highlighter-rouge">IOE</code> 化(即拿掉 <code class="language-plaintext highlighter-rouge">Oracle</code>), 为什么去 <code class="language-plaintext highlighter-rouge">IOE</code> ？</p>
+
+<blockquote>
+  <p>2008年, 王坚加盟阿里巴巴成为集团首席架构师, 即现在的首席技术官。这位前微软亚洲研究院常务副院长被马云定位为: 将帮助阿里巴巴集团建立世界级的技术团队, 并负责集团技术架构以及基础技术平台搭建。</p>
+
+  <p>在加入阿里后, 带着技术基因和学者风范的王坚就在阿里巴巴集团提出了被称为 “去IOE”(在 IT 建设过程中, 去除 IBM小型机、Oracle 数据库及 EMC 存储设备)的想法, 并开始把云计算的本质, 植入阿里 IT 基因。</p>
+
+  <p>王坚这样概括 “去IOE” 运动和阿里云之间的关系:  “去IOE” 彻底改变了阿里集团 IT 架构的基础, 是阿里拥抱云计算, 产出计算服务的基础。 “去IOE” 的本质是分布化, 让随处可以买到的 Commodity PC 架构成为可能, 使云计算能够落地的首要条件。</p>
+</blockquote>
+
+<h4 id="商品描述详情评价信息多文字类">商品描述、详情、评价信息(多文字类)</h4>
+
+<p>多文字信息描述类, 会造成 <code class="language-plaintext highlighter-rouge">IO</code> 读写性能变差, 采用文档数据库 <code class="language-plaintext highlighter-rouge">MongoDB</code>。</p>
+
+<h4 id="商品的图片">商品的图片</h4>
+
+<p>商品图片展示类, 采用分布式的文件系统。</p>
+
+<ol>
+  <li>淘宝自己的 <code class="language-plaintext highlighter-rouge">TFS</code>
+</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">Google</code> 的 <code class="language-plaintext highlighter-rouge">GFS</code>
+</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">Hadoop</code> 的 <code class="language-plaintext highlighter-rouge">HDFS</code>
+</li>
+</ol>
+
+<h4 id="商品的关键字">商品的关键字</h4>
+
+<p>搜索引擎 <code class="language-plaintext highlighter-rouge">ISearch</code>, 淘宝内用。</p>
+
+<h4 id="商品的波段性的热点高频信息">商品的波段性的热点高频信息</h4>
+
+<p>采用内存数据库, <code class="language-plaintext highlighter-rouge">Tair</code>、<code class="language-plaintext highlighter-rouge">Redis</code>、<code class="language-plaintext highlighter-rouge">Memcached</code>。</p>
+
+<h4 id="商品交易价格计算积分累计">商品交易、价格计算、积分累计</h4>
+
+<p>采用外部系统、第三方支付接口, 支付宝。</p>
+
+<h2 id="总结">总结</h2>
+
+<h3 id="难点">难点</h3>
+
+<ul>
+  <li>数据类型的多样性</li>
+  <li>数据源的多样性和变化重构</li>
+  <li>数据源改造而数据服务平台不需要大面积重构</li>
+</ul>
+
+<h3 id="解决办法">解决办法</h3>
+
+<p><code class="language-plaintext highlighter-rouge">EAI</code> 和统一数据平台服务层 <code class="language-plaintext highlighter-rouge">UDSL</code></p>
+
+<p>在网站应用集群和底层数据源之间, 构建一层代理, 统一数据层。</p>
+
+<p>统一数据层的特性:</p>
+
+<ul>
+  <li>模型数据映射
+    <ul>
+      <li>实现业务模型各属性与底层不同类型数据源的模型数据映射</li>
+      <li>目前支持关系型数据库, <code class="language-plaintext highlighter-rouge">ISearch</code>, <code class="language-plaintext highlighter-rouge">Redis</code>, <code class="language-plaintext highlighter-rouge">MongoDB</code>
+</li>
+    </ul>
+  </li>
+  <li>统一的查询和更新 API
+    <ul>
+      <li>提供了基于业务模型的统一的查询和更新的 API, 简化网站应用跨不同数据源的开发模式</li>
+    </ul>
+  </li>
+  <li>性能优化策略
+    <ul>
+      <li>字段延迟加载, 按需返回设置</li>
+      <li>基于热点缓存平台的二级缓存</li>
+      <li>异步并行的查询数据: 异步并行加载模型中来自不同数据源的字段</li>
+      <li>并发保护: 拒绝访问频率过高的主机 IP 或 IP 段</li>
+      <li>过滤高危的查询: 例如会导致数据库崩溃的全表扫描</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/in-post/skill/sql/post-nosql-intro/3.png" alt="3.png"></p>
+
+<h4 id="映射">映射</h4>
+
+<p><img src="/assets/img/in-post/skill/sql/post-nosql-intro/4.png" alt="4.png"></p>
+
+<h4 id="api">API</h4>
+
+<p><img src="/assets/img/in-post/skill/sql/post-nosql-intro/5.png" alt="5.png"></p>
+
+<h4 id="热点缓存">热点缓存</h4>
+
+<p><img src="/assets/img/in-post/skill/sql/post-nosql-intro/6.png" alt="6.png"></p>
+
+
+                <!-- Copyright Notice -->
+                
+<hr>
+
+<p>
+  本文由
+  <a href="/about/" target="_blank">
+    Oscaner
+  </a> 创作, 采用
+  <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">
+    知识共享署名4.0
+  </a> 国际许可协议进行许可 <br>
+  本站文章除注明转载/出处外, 均为本站原创或翻译, 转载前请务必署名
+</p>
+
+
+                
+
+                <hr>
+<hr style="visibility: hidden;">
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/skill/others/git.html" data-toggle="tooltip" data-placement="top" title="Git 笔记">
+                        Previous<br>
+                        <span>Git 笔记</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/skill/data-structure/intro-calc.html" data-toggle="tooltip" data-placement="top" title="C++ 数据结构 (一) 绪论 (1) 计算">
+                        Next<br>
+                        <span>C++ 数据结构 (一) 绪论 (1) 计算</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr style="visibility: hidden;">
+
+                <!-- Comment start -->
+<div class="comment">
+  
+
+  
+  <!-- gitalk 评论框 start -->
+  <div id="gitalk-container"></div>
+  <!-- gitalk 评论框 end -->
+  
+
+  
+</div>
+<!-- Comment end -->
+
+
+
+
+
+
+<!-- Gitalk CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<!-- gitalk 公共JS代码 start (一个网页只需插入一次) -->
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  function getLangForGitalk() {
+    lang = new URLSearchParams(document.location.search).get("lang");
+    return lang == 'zh' ? 'zh-CN' : lang;
+  }
+
+  var body = location.href;
+
+  var subtitle = "";
+  if (subtitle) {
+    body += "\n" + subtitle;
+  }
+
+  var description = "";
+  if (description) {
+    body += "\n" + description;
+  }
+
+  var gitalk = new Gitalk({
+      clientID: 'f86fb5601466c278f223',
+      clientSecret: '8234184af9a4cbc9dfa58bbea7ff6cdb84d33f1f',
+      repo: 'oscaner.github.io',
+      owner: 'Oscaner',
+      admin: 'Oscaner',
+      labels: 'Gitalk|Skill|SQL|NoSQL|Oscaner'.split('|'),
+      body: body,
+      language: getLangForGitalk() ? getLangForGitalk() : 'zh-CN',
+
+      id: MD5('/skill/sql/nosql-intro.html'),
+      // facebook-like distraction free mode
+      distractionFreeMode: true
+  });
+
+  gitalk.render('gitalk-container');
+</script>
+<!-- gitalk 公共JS代码 end -->
+
+
+
+
+
+            </div>
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+
+<section>
+    
+        <hr class="hidden-sm hidden-xs">
+    
+    <h5><a href="/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        
+        
+        
+                <a data-sort="0040" href="/archive/?tag=Skill" title="Skill" rel="95">Skill</a>
+        
+                <a data-sort="0097" href="/archive/?tag=Clang" title="Clang" rel="38">Clang</a>
+        
+                <a data-sort="0097" href="/archive/?tag=Exam" title="Exam" rel="38">Exam</a>
+        
+                <a data-sort="0098" href="/archive/?tag=AWS" title="AWS" rel="37">AWS</a>
+        
+                <a data-sort="0098" href="/archive/?tag=C%2B%2B" title="C++" rel="37">C++</a>
+        
+                <a data-sort="0098" href="/archive/?tag=Data+Structure" title="Data Structure" rel="37">Data Structure</a>
+        
+                <a data-sort="0099" href="/archive/?tag=MLS" title="MLS" rel="36">MLS</a>
+        
+                <a data-sort="0099" href="/archive/?tag=Machine+Learning" title="Machine Learning" rel="36">Machine Learning</a>
+        
+                <a data-sort="0122" href="/archive/?tag=PHP" title="PHP" rel="13">PHP</a>
+        
+                <a data-sort="0124" href="/archive/?tag=Coding" title="Coding" rel="11">Coding</a>
+        
+                <a data-sort="0124" href="/archive/?tag=Others" title="Others" rel="11">Others</a>
+        
+                <a data-sort="0125" href="/archive/?tag=Graduate" title="Graduate" rel="10">Graduate</a>
+        
+                <a data-sort="0125" href="/archive/?tag=Math" title="Math" rel="10">Math</a>
+        
+                <a data-sort="0126" href="/archive/?tag=NoSQL" title="NoSQL" rel="9">NoSQL</a>
+        
+                <a data-sort="0129" href="/archive/?tag=SQL" title="SQL" rel="6">SQL</a>
+        
+                <a data-sort="0130" href="/archive/?tag=Linux" title="Linux" rel="5">Linux</a>
+        
+                <a data-sort="0130" href="/archive/?tag=Redis" title="Redis" rel="5">Redis</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Fibonacci" title="Fibonacci" rel="3">Fibonacci</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Git" title="Git" rel="3">Git</a>
+        
+                <a data-sort="0132" href="/archive/?tag=Memcached" title="Memcached" rel="3">Memcached</a>
+        
+                <a data-sort="0133" href="/archive/?tag=MySQL" title="MySQL" rel="2">MySQL</a>
+    </div>
+</section>
+
+
+                <!-- Friends Blog -->
+                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://asdrt666.com" target="_blank" rel="friend">Asdrt</a></li>
+  
+  <li><a href="https://szdblog.com" target="_blank" rel="friend">Choba·乔巴博客</a></li>
+  
+  <li><a href="https://ibcl.us/" target="_blank" rel="friend">I BCL.</a></li>
+  
+  <li><a href="https://www.wmathor.com/" target="_blank" rel="friend">mathor</a></li>
+  
+  <li><a href="https://tongtaos.com" target="_blank" rel="friend">Mr. 童的博客</a></li>
+  
+  <li><a href="https://blog.kejijie.vip/" target="_blank" rel="friend">wantsget</a></li>
+  
+  <li><a href="https://o0o0o0.cn/" target="_blank" rel="friend">三十三言</a></li>
+  
+  <li><a href="http://www.gazyip.cn/" target="_blank" rel="friend">八个比特</a></li>
+  
+  <li><a href="https://www.lixuejiang.com/" target="_blank" rel="friend">李学江博客</a></li>
+  
+  <li><a href="https://5sir.cn" target="_blank" rel="friend">梁Sir的小站</a></li>
+  
+  <li><a href="http://isenchun.cn/" target="_blank" rel="friend">森纯个人博客</a></li>
+  
+  <li><a href="http://www.nothamor.cn/" target="_blank" rel="friend">欧尼酱</a></li>
+  
+  <li><a href="https://www.lkxin.cn" target="_blank" rel="friend">清酒踏月</a></li>
+  
+  <li><a href="https://www.yyhy.me" target="_blank" rel="friend">烟雨寒云博客</a></li>
+  
+  <li><a href="http://mlldxe.cn" target="_blank" rel="friend">犬の窝</a></li>
+  
+  <li><a href="https://aoppp.com" target="_blank" rel="friend">憧憬播客</a></li>
+  
+</ul>
+
+
+
+                <!-- Ads -->
+                <hr>
+
+<!-- <script async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3286495153411959"
+  crossorigin="anonymous"></script> -->
+
+<!-- Oscaner's Vertical Ad -->
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3286495153411959" data-ad-slot="2277392638" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
+
+
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- add support for mathjax by voleking-->
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async('/packages/anchor/1.1.1/anchor.min.js', function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'right',
+          // icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- SEO -->
+<!-- Schema Markup -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "NoSQL 入门及概述",
+  "author": {
+    "@type": "Person",
+    "name": "Oscaner"
+  },
+  "datePublished": "November 8, 2018",
+  "image": "https://www.oscaner.com/assets/img/post-bg-alitrip.jpg",
+  "articleBody": "&lt;h2 id=&quot;入门概述&quot;&gt;入门概述&lt;/h2&gt;\n\n&lt;h3 id=&quot;是什么&quot;&gt;是什么&lt;/h3&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NoSQL = Not Only SQL&lt;/code&gt;, 意为“不仅仅是SQL”, 泛指 &lt;strong&gt;非关系型数据库&lt;/strong&gt;。&lt;/p&gt;\n\n&lt;p&gt;随着互联网 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WEB2.0&lt;/code&gt; 网站的兴起, 传统的关系型数据库在应付 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WEB2.0&lt;/code&gt; 网站, 特别是超大规模和高并发的 SNS 类型的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WEB2.0&lt;/code&gt; 纯动态网站已经显得力不从心, 暴露了很多难以克服的问题, 而非关系型的数据库则由于其本身的特点得到了非常迅速的发展。&lt;/p&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NoSQL&lt;/code&gt; 数据库的产生就是为了解决大规模数据集合、多重数据种类带来的挑战, 尤其是大数据应用难题, 包括超大规模数据的存储。&lt;/p&gt;\n\n&lt;p&gt;这些类型的数据存储不需要固定的模式, 无需多余操作就可以横向扩展。&lt;/p&gt;\n\n&lt;h3 id=&quot;能干嘛&quot;&gt;能干嘛&lt;/h3&gt;\n\n&lt;ol&gt;\n  &lt;li&gt;\n    &lt;p&gt;易扩展&lt;/p&gt;\n\n    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NoSQL&lt;/code&gt; 数据库种类繁多, 但是一个共同的特点就是去掉了关系型数据库的关系型特性。&lt;/p&gt;\n\n    &lt;p&gt;数据之间无关系, 这样就非常容易扩展。也无形之中, 在架构的层面上带来了可扩展的能力。&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;大数据量高性能&lt;/p&gt;\n\n    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NoSQL&lt;/code&gt; 数据库都具有非常高的读写性能, 尤其在大数据量下, 同样表现优秀。&lt;/p&gt;\n\n    &lt;p&gt;这得益于它的无关系性, 数据库的结构简单。&lt;/p&gt;\n\n    &lt;p&gt;一般 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MySQL&lt;/code&gt; 使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Query Cache&lt;/code&gt;, 每次表的更新 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cache&lt;/code&gt; 就失效, 是一种大粒度的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cache&lt;/code&gt;。&lt;/p&gt;\n\n    &lt;p&gt;在针对 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WEB2.0&lt;/code&gt; 的交互频繁的应用, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cache&lt;/code&gt; 性能不高, 甚至可能造成数据库负担。&lt;/p&gt;\n\n    &lt;p&gt;而 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NoSQL&lt;/code&gt; 的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cache&lt;/code&gt; 是记录级的, 是一种细粒度的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cache&lt;/code&gt;, 所以 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NoSQL&lt;/code&gt; 在这个层面上来说就要性能高很多了。&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;多样灵活的数据模型&lt;/p&gt;\n\n    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NoSQL&lt;/code&gt; 无需事先为要存储的数据建立字段, 随时可以存储自定义的数据格式。&lt;/p&gt;\n\n    &lt;p&gt;而在关系型数据库里, 增删字段是一件非常麻烦的事情。如果是非常大数据量的表, 增加字段简直就是噩梦。&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;传统 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RDBMS&lt;/code&gt; VS &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NoSQL&lt;/code&gt;&lt;/p&gt;\n\n    &lt;ul&gt;\n      &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RDBMS&lt;/code&gt;&#58; 关系数据库管理系统\n        &lt;ul&gt;\n          &lt;li&gt;高度组织化、结构化数据&lt;/li&gt;\n          &lt;li&gt;结构化查询语言(SQL)&lt;/li&gt;\n          &lt;li&gt;数据和关系都存储在单独的表中&lt;/li&gt;\n          &lt;li&gt;数据操纵语言, 数据定义语言&lt;/li&gt;\n          &lt;li&gt;严格的一致性&lt;/li&gt;\n          &lt;li&gt;基础事务&lt;/li&gt;\n        &lt;/ul&gt;\n      &lt;/li&gt;\n      &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NoSQL&lt;/code&gt;&#58; 非关系数据库\n        &lt;ul&gt;\n          &lt;li&gt;代表着不仅仅是 SQL&lt;/li&gt;\n          &lt;li&gt;没有声明性查询语言&lt;/li&gt;\n          &lt;li&gt;没有预定义的模式&lt;/li&gt;\n          &lt;li&gt;键值对存储, 列存储, 文档存储, 图形数据库&lt;/li&gt;\n          &lt;li&gt;最终一致性, 而非 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ACID(数据库事务执行的四个基本要素)&lt;/code&gt; 属性&lt;/li&gt;\n          &lt;li&gt;非结构化和不可预知的数据&lt;/li&gt;\n          &lt;li&gt;CAP 定理\n  NoSQL 数据库的基石, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Consistency(一致性)&lt;/code&gt;、 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Availability(可用性)&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Partition tolerance(分区容错性)&lt;/code&gt;\n&lt;/li&gt;\n          &lt;li&gt;高性能、高可用性和可伸缩性&lt;/li&gt;\n        &lt;/ul&gt;\n      &lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/li&gt;\n&lt;/ol&gt;\n\n&lt;h3 id=&quot;去哪下&quot;&gt;去哪下&lt;/h3&gt;\n\n&lt;ol&gt;\n  &lt;li&gt;\n    &lt;p&gt;Redis&lt;/p&gt;\n\n    &lt;p&gt;&lt;a href=&quot;http&#58;//www.runoob.com/redis/redis-install.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot; class=&quot;web-link&quot;&gt;《Redis 安装》&lt;/a&gt;&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;Memcache&lt;/p&gt;\n\n    &lt;p&gt;&lt;a href=&quot;http&#58;//www.runoob.com/memcached/memcached-install.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot; class=&quot;web-link&quot;&gt;《Linux Memcached 安装》&lt;/a&gt;&lt;/p&gt;\n\n    &lt;p&gt;&lt;a href=&quot;http&#58;//www.runoob.com/memcached/window-install-memcached.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot; class=&quot;web-link&quot;&gt;《Windows 下安装 Memcached》&lt;/a&gt;&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;MongoDB&lt;/p&gt;\n\n    &lt;p&gt;&lt;a href=&quot;http&#58;//www.runoob.com/mongodb/mongodb-window-install.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot; class=&quot;web-link&quot;&gt;《Windows 平台安装 MongoDB》&lt;/a&gt;&lt;/p&gt;\n\n    &lt;p&gt;&lt;a href=&quot;http&#58;//www.runoob.com/mongodb/mongodb-linux-install.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot; class=&quot;web-link&quot;&gt;《Linux 平台安装 MongoDB》&lt;/a&gt;&lt;/p&gt;\n\n    &lt;p&gt;&lt;a href=&quot;http&#58;//www.runoob.com/mongodb/mongodb-osx-install.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot; class=&quot;web-link&quot;&gt;《Mac OSX 平台安装 MongoDB》&lt;/a&gt;&lt;/p&gt;\n  &lt;/li&gt;\n&lt;/ol&gt;\n\n&lt;h3 id=&quot;怎么玩&quot;&gt;怎么玩&lt;/h3&gt;\n\n&lt;ol&gt;\n  &lt;li&gt;key + value(键值对)&lt;/li&gt;\n  &lt;li&gt;cache(缓存)&lt;/li&gt;\n  &lt;li&gt;persistence(持久化)&lt;/li&gt;\n&lt;/ol&gt;\n\n&lt;h3 id=&quot;3v--3高&quot;&gt;3V + 3高&lt;/h3&gt;\n\n&lt;ul&gt;\n  &lt;li&gt;大数据时代的 3V\n    &lt;ul&gt;\n      &lt;li&gt;海量 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Volume(体积)&lt;/code&gt;\n&lt;/li&gt;\n      &lt;li&gt;多样 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Variety(品种)&lt;/code&gt;\n&lt;/li&gt;\n      &lt;li&gt;实时 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Velocity(速度)&lt;/code&gt;\n&lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/li&gt;\n  &lt;li&gt;互联网需求的 3高\n    &lt;ul&gt;\n      &lt;li&gt;高并发&lt;/li&gt;\n      &lt;li&gt;高可扩&lt;/li&gt;\n      &lt;li&gt;高性能&lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/li&gt;\n&lt;/ul&gt;\n\n&lt;h2 id=&quot;nosql-经典应用&quot;&gt;NoSQL 经典应用&lt;/h2&gt;\n\n&lt;p&gt;当下的应用基本是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SQL&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NoSQL&lt;/code&gt; 一起使用。&lt;/p&gt;\n\n&lt;h3 id=&quot;阿里巴巴中文站&quot;&gt;阿里巴巴中文站&lt;/h3&gt;\n\n&lt;h4 id=&quot;架构发展历程&quot;&gt;架构发展历程&lt;/h4&gt;\n\n&lt;ol&gt;\n  &lt;li&gt;\n    &lt;p&gt;演变过程&lt;/p&gt;\n\n    &lt;p&gt;&lt;img src=&quot;/assets/img/in-post/skill/sql/post-nosql-intro/1.png&quot; alt=&quot;1.png&quot;&gt;&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;第四代网站架构&lt;/p&gt;\n\n    &lt;ul&gt;\n      &lt;li&gt;性能和海量数据问题\n        &lt;ul&gt;\n          &lt;li&gt;大规模的 Memcached 集群、高性能应用服务器升级、KV、CDN 等一定程度解决了网站的性能问题。&lt;/li&gt;\n          &lt;li&gt;数据切分和分布式存储解决了网站海量数据的问题。&lt;/li&gt;\n        &lt;/ul&gt;\n      &lt;/li&gt;\n      &lt;li&gt;安全问题\n        &lt;ul&gt;\n          &lt;li&gt;镜像站解决了网站的灾备问题。&lt;/li&gt;\n          &lt;li&gt;网站框架的安全特性升级透明的过滤了常见的网站安全漏洞。&lt;/li&gt;\n        &lt;/ul&gt;\n      &lt;/li&gt;\n    &lt;/ul&gt;\n\n    &lt;p&gt;但到了 2010 年底, 阿里巴巴却不得不开始实施第五代网站架构改造。&lt;/p&gt;\n  &lt;/li&gt;\n  &lt;li&gt;\n    &lt;p&gt;第五代网站架构使命&lt;/p&gt;\n\n    &lt;ul&gt;\n      &lt;li&gt;敏捷\n        &lt;ul&gt;\n          &lt;li&gt;业务快速增长, 每天都要上线大量的小需求。&lt;/li&gt;\n          &lt;li&gt;应用系统日益膨胀, 耦合恶化, 架构越来越复杂, 会带来更高的开发成本。如何保持业务开发敏捷性？&lt;/li&gt;\n        &lt;/ul&gt;\n      &lt;/li&gt;\n      &lt;li&gt;开放\n        &lt;ul&gt;\n          &lt;li&gt;Facebook 和 AppStore 带来的启示, 如何提升网站的开放性, 吸引第三方开发者加入到网站的共建中来？&lt;/li&gt;\n        &lt;/ul&gt;\n      &lt;/li&gt;\n      &lt;li&gt;体验\n        &lt;ul&gt;\n          &lt;li&gt;网站的并发压力快速增长, 用户却对体验提出了更高的要求。&lt;/li&gt;\n        &lt;/ul&gt;\n      &lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/li&gt;\n&lt;/ol&gt;\n\n&lt;h4 id=&quot;多数据源多数据类型的存储问题&quot;&gt;多数据源多数据类型的存储问题&lt;/h4&gt;\n\n&lt;p&gt;&lt;img src=&quot;/assets/img/in-post/skill/sql/post-nosql-intro/2.png&quot; alt=&quot;2.png&quot;&gt;&lt;/p&gt;\n\n&lt;h4 id=&quot;商品基本信息&quot;&gt;商品基本信息&lt;/h4&gt;\n\n&lt;p&gt;名称、价格、出厂日期、生产厂商等。&lt;/p&gt;\n\n&lt;p&gt;利用关系型数据库, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MySQL/Oracle&lt;/code&gt;(淘宝内部用的 MySQL 是经过内核修改的)。&lt;/p&gt;\n\n&lt;p&gt;淘宝在去 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IOE&lt;/code&gt; 化(即拿掉 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Oracle&lt;/code&gt;), 为什么去 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IOE&lt;/code&gt; ？&lt;/p&gt;\n\n&lt;blockquote&gt;\n  &lt;p&gt;2008年, 王坚加盟阿里巴巴成为集团首席架构师, 即现在的首席技术官。这位前微软亚洲研究院常务副院长被马云定位为&#58; 将帮助阿里巴巴集团建立世界级的技术团队, 并负责集团技术架构以及基础技术平台搭建。&lt;/p&gt;\n\n  &lt;p&gt;在加入阿里后, 带着技术基因和学者风范的王坚就在阿里巴巴集团提出了被称为 “去IOE”(在 IT 建设过程中, 去除 IBM小型机、Oracle 数据库及 EMC 存储设备)的想法, 并开始把云计算的本质, 植入阿里 IT 基因。&lt;/p&gt;\n\n  &lt;p&gt;王坚这样概括 “去IOE” 运动和阿里云之间的关系&#58;  “去IOE” 彻底改变了阿里集团 IT 架构的基础, 是阿里拥抱云计算, 产出计算服务的基础。 “去IOE” 的本质是分布化, 让随处可以买到的 Commodity PC 架构成为可能, 使云计算能够落地的首要条件。&lt;/p&gt;\n&lt;/blockquote&gt;\n\n&lt;h4 id=&quot;商品描述详情评价信息多文字类&quot;&gt;商品描述、详情、评价信息(多文字类)&lt;/h4&gt;\n\n&lt;p&gt;多文字信息描述类, 会造成 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IO&lt;/code&gt; 读写性能变差, 采用文档数据库 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MongoDB&lt;/code&gt;。&lt;/p&gt;\n\n&lt;h4 id=&quot;商品的图片&quot;&gt;商品的图片&lt;/h4&gt;\n\n&lt;p&gt;商品图片展示类, 采用分布式的文件系统。&lt;/p&gt;\n\n&lt;ol&gt;\n  &lt;li&gt;淘宝自己的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TFS&lt;/code&gt;\n&lt;/li&gt;\n  &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Google&lt;/code&gt; 的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GFS&lt;/code&gt;\n&lt;/li&gt;\n  &lt;li&gt;\n&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hadoop&lt;/code&gt; 的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HDFS&lt;/code&gt;\n&lt;/li&gt;\n&lt;/ol&gt;\n\n&lt;h4 id=&quot;商品的关键字&quot;&gt;商品的关键字&lt;/h4&gt;\n\n&lt;p&gt;搜索引擎 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ISearch&lt;/code&gt;, 淘宝内用。&lt;/p&gt;\n\n&lt;h4 id=&quot;商品的波段性的热点高频信息&quot;&gt;商品的波段性的热点高频信息&lt;/h4&gt;\n\n&lt;p&gt;采用内存数据库, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tair&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Redis&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Memcached&lt;/code&gt;。&lt;/p&gt;\n\n&lt;h4 id=&quot;商品交易价格计算积分累计&quot;&gt;商品交易、价格计算、积分累计&lt;/h4&gt;\n\n&lt;p&gt;采用外部系统、第三方支付接口, 支付宝。&lt;/p&gt;\n\n&lt;h2 id=&quot;总结&quot;&gt;总结&lt;/h2&gt;\n\n&lt;h3 id=&quot;难点&quot;&gt;难点&lt;/h3&gt;\n\n&lt;ul&gt;\n  &lt;li&gt;数据类型的多样性&lt;/li&gt;\n  &lt;li&gt;数据源的多样性和变化重构&lt;/li&gt;\n  &lt;li&gt;数据源改造而数据服务平台不需要大面积重构&lt;/li&gt;\n&lt;/ul&gt;\n\n&lt;h3 id=&quot;解决办法&quot;&gt;解决办法&lt;/h3&gt;\n\n&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EAI&lt;/code&gt; 和统一数据平台服务层 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UDSL&lt;/code&gt;&lt;/p&gt;\n\n&lt;p&gt;在网站应用集群和底层数据源之间, 构建一层代理, 统一数据层。&lt;/p&gt;\n\n&lt;p&gt;统一数据层的特性&#58;&lt;/p&gt;\n\n&lt;ul&gt;\n  &lt;li&gt;模型数据映射\n    &lt;ul&gt;\n      &lt;li&gt;实现业务模型各属性与底层不同类型数据源的模型数据映射&lt;/li&gt;\n      &lt;li&gt;目前支持关系型数据库, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ISearch&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Redis&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MongoDB&lt;/code&gt;\n&lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/li&gt;\n  &lt;li&gt;统一的查询和更新 API\n    &lt;ul&gt;\n      &lt;li&gt;提供了基于业务模型的统一的查询和更新的 API, 简化网站应用跨不同数据源的开发模式&lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/li&gt;\n  &lt;li&gt;性能优化策略\n    &lt;ul&gt;\n      &lt;li&gt;字段延迟加载, 按需返回设置&lt;/li&gt;\n      &lt;li&gt;基于热点缓存平台的二级缓存&lt;/li&gt;\n      &lt;li&gt;异步并行的查询数据&#58; 异步并行加载模型中来自不同数据源的字段&lt;/li&gt;\n      &lt;li&gt;并发保护&#58; 拒绝访问频率过高的主机 IP 或 IP 段&lt;/li&gt;\n      &lt;li&gt;过滤高危的查询&#58; 例如会导致数据库崩溃的全表扫描&lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/li&gt;\n&lt;/ul&gt;\n\n&lt;p&gt;&lt;img src=&quot;/assets/img/in-post/skill/sql/post-nosql-intro/3.png&quot; alt=&quot;3.png&quot;&gt;&lt;/p&gt;\n\n&lt;h4 id=&quot;映射&quot;&gt;映射&lt;/h4&gt;\n\n&lt;p&gt;&lt;img src=&quot;/assets/img/in-post/skill/sql/post-nosql-intro/4.png&quot; alt=&quot;4.png&quot;&gt;&lt;/p&gt;\n\n&lt;h4 id=&quot;api&quot;&gt;API&lt;/h4&gt;\n\n&lt;p&gt;&lt;img src=&quot;/assets/img/in-post/skill/sql/post-nosql-intro/5.png&quot; alt=&quot;5.png&quot;&gt;&lt;/p&gt;\n\n&lt;h4 id=&quot;热点缓存&quot;&gt;热点缓存&lt;/h4&gt;\n\n&lt;p&gt;&lt;img src=&quot;/assets/img/in-post/skill/sql/post-nosql-intro/6.png&quot; alt=&quot;6.png&quot;&gt;&lt;/p&gt;\n",
+  "url": "https://www.oscaner.com/skill/sql/nosql-intro.html"
+}
+</script>
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/Oscaner">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://space.bilibili.com/17118231">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-stack-1x fa-inverse iconfont icon-bilibili-fill"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+
+                <p class="copyright text-muted">
+                    Copyright © Oscaner 2023
+                    <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备17039697号-2</a>
+                    <br>
+                    Powered by <a href="https://www.oscaner.com">Oscaner Blog</a> |
+                    <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="100px" height="20px" src="https://ghbtns.com/github-btn.html?user=oscaner&repo=oscaner.github.io&type=star&count=true">
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/assets/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/assets/js/hux-blog.min.js"></script>
+
+<!-- Simple Jekyll Search -->
+<script src="/assets/js/simple-jekyll-search.min.js"></script>
+
+<!-- Service Worker -->
+
+<script src="/assets/js/snackbar.js"></script>
+<script src="/assets/js/sw-registration.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async('/packages/fastclick/1.0.6/fastclick.min.js', function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Oscaner
+    var _gaId = '';
+    var _gaDomain = 'www.oscaner.com';
+
+    // Originial
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Oscaner
+    var _baId = 'd9c74d9266af4d68f376f0fb9d5fb71c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        // interop with multilangual
+        if ('false' == 'true') {
+            _containerSelector = 'div.post-container.active';
+        } else {
+            _containerSelector = 'div.post-container';
+        }
+
+        if (!$(_containerSelector).length) {
+            _containerSelector = 'div.post-container';
+        }
+
+        // init
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        // clean
+        $(selector).html('')
+
+        // appending
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/assets/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+<!-- Multi-Lingual -->
+
+
+<!-- Simple Jekyll Search -->
+<script>
+    // https://stackoverflow.com/questions/1912501/unescape-html-entities-in-javascript
+    function htmlDecode(input) {
+        var e = document.createElement('textarea');
+        e.innerHTML = input;
+        // handle case of empty input
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    }
+
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('search-results'),
+        json: '/search.json',
+        searchResultTemplate: '<div class="post-preview item"><a href="{url}"><h2 class="post-title">{title}</h2><h3 class="post-subtitle">{subtitle}</h3><hr></a></div>',
+        noResultsText: 'No results',
+        limit: 50,
+        fuzzy: false,
+        // a hack to get escaped subtitle unescaped. for some reason,
+        // post.subtitle w/o escape filter nuke entire search.
+        templateMiddleware: function (prop, value, template) {
+            if (prop === 'subtitle' || prop === 'title') {
+                if (value.indexOf("code")) {
+                    return htmlDecode(value);
+                } else {
+                    return value;
+                }
+            }
+        }
+    });
+
+    $(document).ready(function () {
+        var $searchPage = $('.search-page');
+        var $searchOpen = $('.search-icon');
+        var $searchClose = $('.search-icon-close');
+        var $searchInput = $('#search-input');
+        var $body = $('body');
+
+        $searchOpen.on('click', function (e) {
+            e.preventDefault();
+            $searchPage.toggleClass('search-active');
+            var prevClasses = $body.attr('class') || '';
+            setTimeout(function () {
+                $body.addClass('no-scroll');
+            }, 400)
+
+            if ($searchPage.hasClass('search-active')) {
+                $searchClose.on('click', function (e) {
+                    e.preventDefault();
+                    $searchPage.removeClass('search-active');
+                    $body.attr('class', prevClasses);  // from closure
+                });
+                $searchInput.focus();
+            }
+        });
+    });
+</script>
+
+
+
+<!-- Image to hack wechat -->
+<img src="/assets/img/icon_wechat.png" width="0" height="0">
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
